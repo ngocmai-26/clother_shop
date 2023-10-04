@@ -1,35 +1,44 @@
+import { Link } from "react-router-dom";
 import Logo from "../../../asset/images/Logo.png";
 import iconCart from "../../../asset/images/bag.png";
+import LogoDefault from "../../../asset/images/Logo_footer.png";
 import iconUser from "../../../asset/images/user.png";
+import { useEffect, useState } from "react";
+import { accountLogin } from "../../../data";
 
 function Header() {
+  const [userAccount, setUserAccount] = useState(true);
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
+
   return (
-    <header className="relative  px-4  bg-transparent z-10">
-      <div className="grid grid-flow-row-dense grid-cols-3 p-4 absolute top-0 left-0 right-0 w-11/12 mx-auto">
-        <div className="menu xl">
-          <ul className="flex">
-            <li className="px-2">
-              <a href="#" className="underline-0 text-xl">
-                Homepage
-              </a>
-            </li>
-            <li className="px-2">
-              <a href="#" className="underline-0 text-xl">
-                Products
-              </a>
-            </li>
-            <li className="px-2">
-              <a href="#" className="underline-0 text-xl">
-                About us
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div className="logo lg:w-100 mx-auto">
-          <img src={Logo} alt="" width={200} />
-        </div>
-        <div className="flex justify-end">
-          <form>
+    <header class=" relative shadow-lg px-3 py-2">
+      <nav class="flex justify-between">
+        <div class="flex items-center gap-3 justify-between w-full">
+          <div className={`navLinks duration-500 absolute z-40 ${
+              menuOpen ? 'md:static md:w-auto w-full' : 'hidden md:block'
+            } w-full md:h-auto bg-white flex md:items-center gap-[1.5vw] ${
+              menuOpen ? 'top-[100%] left-0' : 'top-[-100%] left-[-100%]'
+            } px-5 md:py-0 py-5`}>
+            <ul class="flex md:flex-row flex-col md:items-center md:gap-[2vw] gap-8">
+              <li class="relative max-w-fit pr-3 md:pr-0 py-1 after:bg-gradient-to-r from-[#2b68e0] to-[#e710ea]  after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300">
+                <Link to="/">HomePage</Link>
+              </li>
+              <li class="relative max-w-fit pr-3 md:pr-0 py-1 after:bg-gradient-to-r from-[#2b68e0] to-[#e710ea]  after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300">
+                <Link to="/product">Products</Link>
+              </li>
+              <li class="relative max-w-fit pr-3 md:pr-0 py-1 after:bg-gradient-to-r from-[#2b68e0] to-[#e710ea]  after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300">
+                <Link to="">About us</Link>
+              </li>
+            </ul>
+          </div>
+          <div class="w-[130px] md:w-[200px] flex items-center">
+            <img src={Logo} alt="LOGO" srcset="" />
+          </div>
+          <form className="hidden sm:block">
             <label
               for="default-search"
               class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white"
@@ -63,23 +72,52 @@ function Header() {
               />
             </div>
           </form>
-          <button
-            type="button"
-            className="inline-flex items-center px-4 text-sm font-medium text-gray-900 bg-white border-0 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white"
-          >
-            <div className="w-8 h-8  rounded-full bg-black p-2">
-              <img src={iconUser} alt="" />
-            </div>
-          </button>
-          <button
-            className="inline-flex items-center px-2 text-sm font-medium text-gray-900  border-0 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white"
-          >
-            <div className="w-8 h-8  rounded-full bg-black p-2">
-              <img src={iconCart} alt="" />
-            </div>
-          </button>
+          <div class="flex items-center gap-0">
+            {userAccount ? (
+              <button
+                type="button"
+                style={{ backgroundColor: "black" }}
+                class="hover:bg-clip-text hover:text-transparent font-medium text-white px-4 py-2 rounded-full "
+              >
+                Login
+              </button>
+            ) : (
+              <>
+                <button
+                  type="button"
+                  className="inline-flex items-center px-2 text-sm font-medium text-gray-900 bg-white border-0 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white"
+                >
+                  <div className="w-8 h-8  rounded-full bg-black p-2">
+                    <img src={iconUser} alt="" />
+                  </div>
+                </button>
+                <button className="inline-flex items-center px-2 text-sm font-medium text-gray-900  border-0 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white">
+                  <div className="w-8 h-8  rounded-full bg-black p-2">
+                    <img src={iconCart} alt="" />
+                  </div>
+                </button>
+              </>
+            )}
+
+            <button onClick={toggleMenu} className="px-2">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-6 h-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
+              </svg>
+            </button>
+          </div>
         </div>
-      </div>
+      </nav>
     </header>
   );
 }

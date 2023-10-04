@@ -11,18 +11,18 @@ function ForgotPassword2() {
     setIsPasswordConfirm((prevState) => !prevState);
   }
   return (
-    <div className="container ">
-      <div class="grid grid-cols-6 gap-4 my-10 py-4 ">
-        <div class="col-start-3 col-span-2 border p-3">
+    <div className="">
+      <div className="grid xl:grid-cols-6 lg:grid-cols-4 md:grid-cols-4 px-4 py-20 ">
+        <div className="col-start-3 col-span-2 border p-3">
           <h2 className="text-3xl">Confirm OTP</h2>
           <p className="text-base py-3">
-            An OTP code has been sent to email{" "}
+            An OTP code has been sent to email
             <span className="text-rose-500">uyscott.work@gmail.com</span>.
             Please enter in the box below.
           </p>
-          <form class="mt-4">
-            <div class="mx-auto max-w-lg ">
-              <div className="flex justify-center">
+          <form className="mt-4">
+            <div className="mx-auto max-w-lg ">
+              <div className="grid grid-cols-6 gap-1 justify-center">
                 <input
                   placeholder=""
                   type="text"

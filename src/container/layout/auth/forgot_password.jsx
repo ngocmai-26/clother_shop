@@ -1,19 +1,19 @@
-import { useState } from "react";
+
 
 function ForgotPassword() {
   return (
-    <div className="container ">
-      <div class="grid grid-cols-6 gap-4 my-10 py-4 ">
-        <div class="col-start-3 col-span-2 border p-3">
+    <div className="r ">
+      <div className="grid xl:grid-cols-6 lg:grid-cols-4 md:grid-cols-4 px-4  py-20 ">
+        <div className="col-start-3 col-span-2 border p-3">
           <h2 className="text-3xl">Forgot Password</h2>
           <p className="text-base py-3">
             Lorem Ipsum is simply dummy text of the printing and typesetting
             industry.
           </p>
-          <form class="mt-4">
-            <div class="mx-auto max-w-lg">
-              <div class="py-2">
-                <span class="px-1 text-sm text-gray-600">Email</span>
+          <form className="mt-4">
+            <div className="mx-auto max-w-lg">
+              <div className="py-2">
+                <span className="px-1 text-sm text-gray-600">Email</span>
                 <input
                   placeholder=""
                   type="text"

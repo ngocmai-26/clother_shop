@@ -1,1 +1,12 @@
 @tailwind base;
+
+.poster-info {
+    position: absolute;
+    top: 30%;
+    margin: auto;
+    text-align: center;
+}
+
+.poster-content {
+    bottom: 10%;
+}
