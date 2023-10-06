@@ -1,10 +1,10 @@
-import { useEffect, useState } from "react";
+import {  useState } from "react";
 import iconEyeClose from "../../../asset/images/eye-closed.png";
 import iconEye from "../../../asset/images/eye.png";
 import { account } from "../../../data";
 import { Link } from "react-router-dom";
 
-function Login() {
+function Login({setAccountUser}) {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
   const [accounts, setAccount] = useState(account);
 
@@ -16,21 +16,21 @@ function Login() {
   const [password, setPassword] = useState("")
   const [loggedIn, setLoggedIn] = useState(false);
 
-  useEffect(() => {
-    console.log('email' ,email, 'password' ,password)
-  })
+ 
 
   const handleLogin = () => {
-    // Kiểm tra tài khoản trong danh sách
     const foundAccount = accounts.find(
-      (account) =>
-        account.email === email &&
-        account.password === password
+      (item) =>
+        item.email === email &&
+        item.password === password
     );
 
     if (foundAccount) {
+      
+      setAccountUser(foundAccount)
       setLoggedIn(true);
     } else {
+
       alert(
         "Đăng nhập không thành công. Vui lòng kiểm tra lại tài khoản và mật khẩu."
       );
@@ -82,9 +82,9 @@ function Login() {
                 </button>
               </div>
               <div className="text-end">
-                <a href="">Forgot password?</a>
+                <Link to="/forgot">Forgot password?</Link>
               </div>
-              <button className="bg-black text-white uppercase w-full py-3 mt-4" style={{backgroundColor: 'black'}} onClick={handleLogin} type="button">
+              <button type="reset" className="bg-black text-white uppercase w-full py-3 mt-4" style={{backgroundColor: 'black'}} onClick={handleLogin} >
                 Sign in
               </button>
               <div className="text-center pt-2">

@@ -28,7 +28,7 @@ function PaymentMethod() {
             PAYMENT METHOD
           </a>
         </div>
-        <div className="w-2/6 mx-auto py-4">
+        {/* <div className="w-2/6 mx-auto py-4">
           <div className="payment-bill border border-black p-3">
             <div className="payment-bill-detail">
               <div className="grid grid-cols-2 gap-4">
@@ -103,6 +103,68 @@ function PaymentMethod() {
               </form>
             </div>
           </div>
+        </div> */}
+        <div className="grid grid-cols-2 gap-2 w-5/6 mx-auto">
+        <form className="mt-4 border">
+            <div className="mx-auto max-w-lg px-3">
+              <h2 className="text-xl">Thông tin nhận hàng</h2>
+              <div className="py-2">
+                <span className="px-1 text-sm text-gray-600">Họ và tên</span>
+                <input
+                  placeholder=""
+                  type="text"
+                  className="w-full px-2 py-2 text-base border border-gray-300 rounded outline-none  focus:ring-blue-500 focus:border-blue-500 focus:ring-1"
+                />
+              </div>
+              <div className="py-2">
+                <span className="px-1 text-sm text-gray-600">Số điện thoại</span>
+                <input
+                  placeholder=""
+                  type="text"
+                  className="w-full px-2 py-2 text-base border border-gray-300 rounded outline-none  focus:ring-blue-500 focus:border-blue-500 focus:ring-1"
+                />
+              </div>
+              <div className="py-2">
+                <span className="px-1 text-sm text-gray-600">Địa chỉ</span>
+                <input
+                  placeholder=""
+                  type="text"
+                  className="w-full px-2 py-2 text-base border border-gray-300 rounded outline-none  focus:ring-blue-500 focus:border-blue-500 focus:ring-1"
+                />
+              </div>
+              <div className="py-2">
+                <span className="px-1 text-sm text-gray-600">Tỉnh/ Thành phố</span>
+                <select className="w-full px-2 py-2 text-base border border-gray-300 rounded outline-none  focus:ring-blue-500 focus:border-blue-500 focus:ring-1">
+                  <option value="1">Hà Nội</option>
+                  <option value="1">Hưng Yên</option>
+                </select>
+              </div>
+              <div className="py-2">
+                <span className="px-1 text-sm text-gray-600">Huyện, thị xã</span>
+                <select className="w-full px-2 py-2 text-base border border-gray-300 rounded outline-none  focus:ring-blue-500 focus:border-blue-500 focus:ring-1">
+                  <option value="1">Thanh Xuân</option>
+                </select>
+              </div>
+              <div className="py-2">
+                <span className="px-1 text-sm text-gray-600">Xã, phường</span>
+                <select className="w-full px-2 py-2 text-base border border-gray-300 rounded outline-none  focus:ring-blue-500 focus:border-blue-500 focus:ring-1">
+                  <option value="1">Hạ Đình</option>
+                </select>
+              </div>
+              <div className="py-2">
+                <span className="px-1 text-sm text-gray-600">Ghi chú</span>
+                <input
+                  placeholder=""
+                  type="text"
+                  className="w-full px-2 py-2 text-base border border-gray-300 rounded outline-none  focus:ring-blue-500 focus:border-blue-500 focus:ring-1"
+                />
+              </div>
+              
+              <button className="bg-black text-white uppercase w-full py-3 mt-4" style={{backgroundColor: 'black'}} type="button">
+                Sign in
+              </button>
+            </div>
+          </form>
         </div>
       </div>
     </div>

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import iconEyeClose from "../../../asset/images/eye-closed.png";
 import iconEye from "../../../asset/images/eye.png";
+import { Link } from "react-router-dom";
 
 function ForgotPassword3() {
     const [isPasswordVisible, setIsPasswordVisible] = useState(false);
@@ -14,8 +15,8 @@ function ForgotPassword3() {
     }
     return (
       <div className="">
-        <div className="grid xl:grid-cols-6 lg:grid-cols-4 md:grid-cols-4 px-4 py-20 ">
-          <div className="col-start-3 col-span-2 border p-3">
+        <div className="grid xl:grid-cols-6 lg:grid-cols-4 md:grid-cols-4 gap-2 mx-2 py-20">
+          <div className="xl:col-start-3 md:col-start-2 lg:col-start-2 col-span-2 border p-3">
             <h2 className="text-3xl">Create New Password</h2>
             <p className="text-base py-3">
               Lorem Ipsum is simply dummy text of the printing and typesetting
@@ -63,11 +64,11 @@ function ForgotPassword3() {
                     )}
                   </button>
                 </div>
-                <button className="bg-black text-white uppercase w-full py-3 mt-4">
+                <button type="submit" className="bg-black text-white uppercase w-full py-3 mt-4" style={{backgroundColor: 'black'}}>
                   Sign up
                 </button>
                 <div className="text-center pt-2">
-                  <a href="">Back to login</a>
+                  <Link to="/login">Back to login</Link>
                 </div>
               </div>
             </form>

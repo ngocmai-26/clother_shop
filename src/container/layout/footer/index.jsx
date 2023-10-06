@@ -19,16 +19,16 @@ function Footer() {
             <h3 className="text-2xl">Mạng xã hội</h3>
             <div className="flex">
               
-              <a href="">
+              <a href="" className="px-1">
                 <img src={iconFB} alt="" className="w-100" />
               </a>
-              <a href="">
+              <a href="" className="px-1">
                 <img src={iconMess} alt="" className="w-100" />
               </a>
-              <a href="">
+              <a href="" className="px-1">
                 <img src={iconLine} alt="" className="w-100" />
               </a>
-              <a href="">
+              <a href="" className="px-1">
                 <img src={iconBe} alt="" className="w-100" />
               </a>
             </div>

@@ -5,37 +5,37 @@ export const listProduct = [
         id: 1,
         name: 'Lorem ipsum is simply dummy text...',
         price: 420.000,
-        image: '../../../asset/images/product-item.png',
+        image: 'https://sakurafashion.vn/upload/a/3260-chibell-1299.jpg',
     },
     {
         id: 2,
         name: 'Lorem ipsum is simply dummy text...',
         price: 410.000,
-        image: '../../../asset/images/product-item.png',
+        image: 'https://sakurafashion.vn/upload/a/3260-chibell-1299.jpg',
     },
     {
         id: 3,
         name: 'Lorem ipsum is simply dummy text...',
         price: 400.000,
-        image: '../../../asset/images/product-item.png',
+        image: 'https://sakurafashion.vn/upload/a/3260-chibell-1299.jpg',
     },
     {
         id: 4,
         name: 'Lorem ipsum is simply dummy text...',
         price: 300.000,
-        image: '../../../asset/images/product-item.png',
+        image: 'https://sakurafashion.vn/upload/a/3260-chibell-1299.jpg',
     },
     {
         id: 5,
         name: 'Lorem ipsum is simply dummy text...',
         price: 520.000,
-        image: '../../../asset/images/product-item.png',
+        image: 'https://sakurafashion.vn/upload/a/3260-chibell-1299.jpg',
     },
     {
         id: 6,
         name: 'Lorem ipsum is simply dummy text...',
         price: 220.000,
-        image: '../../../asset/images/product-item.png',
+        image: 'https://sakurafashion.vn/upload/a/3260-chibell-1299.jpg',
     },
 ]
 
@@ -43,14 +43,16 @@ export const account = [
     {
         id: 1,
         name: 'Mai',
-        email: 'duyscott.work@gmail.com',
+        email: 'abc@gmail.com',
         password: 'abc@123',
+        phone: '',
+        address:'',
     }
 ]
 
-export const accountLogin = [
-    
-]
+export const accountLogin = {
+
+}
 
 export const comments = [
     {

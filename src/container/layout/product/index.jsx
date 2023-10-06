@@ -1,9 +1,10 @@
 import { useState } from "react";
 import product from "../../../asset/images/product-item.png";
 import { listProduct } from "../../../data";
+import { Link } from "react-router-dom";
 function Product() {
   const [products, setProducts] = useState(listProduct);
-  console.log(products)
+  console.log(products);
   return (
     <div className="pt-20 px-8">
       <div className="sm:w-5/6 w-full mx-auto">
@@ -72,21 +73,22 @@ function Product() {
         <div className="grid  xl:grid-cols-4 lg:grid-cols-4 md:grid-cols-3  gap-2">
           {products.map((item, index) => (
             <div className="product-item py-5">
-              <div className="product_item-img">
-                <img src={item.image} alt="" height={450} />
-              </div>
+              <Link to="/product-detail">
+                <div className="product_item-img">
+                  <img src={item.image} alt="" height={450} />
+                </div>
+              </Link>
+
               <div className="product_item-name h-16 overflow-hidden">
-                <p className="text-xl text-overflow overflow-ellipsis line-clamp-2 ">
+                <Link to="/product-detail" className="text-xl text-overflow overflow-ellipsis line-clamp-2 ">
                   {item.name}
-                </p>
+                </Link>
               </div>
               <div className="product_item-pride">
                 <p className="text-base">$ {item.price}</p>
               </div>
             </div>
-          )
-            
-          )}
+          ))}
         </div>
         <nav aria-label="Page navigation example" className=" text-end py-3">
           <ul className="inline-flex -space-x-px text-base h-10">

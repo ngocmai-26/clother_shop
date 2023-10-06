@@ -1,14 +1,20 @@
-import { useState } from "react";
+import {  useState } from "react";
 import iconCart from "../../../asset/images/baguser.png";
 import iconUser from "../../../asset/images/user_light.png";
 import iconLogout from "../../../asset/images/logout.png";
 import iconEyeClose from "../../../asset/images/eye-closed.png";
 import iconEye from "../../../asset/images/eye.png";
-function UserProfile() {
+function UserProfile({setAccountUser}) {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 
-  function togglePasswordVisibility() {
+  
+
+  const togglePasswordVisibility =() => {
     setIsPasswordVisible((prevState) => !prevState);
+  }
+
+  const handLogout = () => {
+    setAccountUser({})
   }
   return (
     <div className="pt-20 px-8">
@@ -38,10 +44,10 @@ function UserProfile() {
                 </a>
               </li>
               <li>
-                <a href="" className="flex py-2">
+                <button onClick={handLogout} className="flex py-2" type="reset" >
                   <img src={iconLogout} alt="" />
                   <span className="px-2 text-red-500">Logout</span>
-                </a>
+                </button>
               </li>
             </ul>
           </div>

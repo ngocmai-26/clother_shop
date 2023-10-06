@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 function ForgotPassword2() {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
@@ -12,8 +13,8 @@ function ForgotPassword2() {
   }
   return (
     <div className="">
-      <div className="grid xl:grid-cols-6 lg:grid-cols-4 md:grid-cols-4 px-4 py-20 ">
-        <div className="col-start-3 col-span-2 border p-3">
+      <div className="grid xl:grid-cols-6 lg:grid-cols-4 md:grid-cols-4 gap-2 mx-2 py-20">
+        <div className="xl:col-start-3 md:col-start-2 lg:col-start-2 col-span-2 border p-3">
           <h2 className="text-3xl">Confirm OTP</h2>
           <p className="text-base py-3">
             An OTP code has been sent to email
@@ -54,12 +55,14 @@ function ForgotPassword2() {
                   className="w-12 mx-2 px-4 py-2  text-base  border border-black rounded outline-none  focus:ring-blue-500 focus:border-blue-500 focus:ring-1"
                 />
               </div>
-
-              <button className="bg-black text-white uppercase w-full py-3 mt-4">
-                Sign up
-              </button>
+              <div className="submit w-full">
+              <Link to="/forgot-create-password" className=" uppercase py-3 mt-4">
+                <p className="bg-black text-white text-center my-4 py-3 w-full">Sign up</p>
+              </Link>
+              </div>
+            
               <div className="text-center pt-2">
-                <a href="">Back to login</a>
+                <Link to="/login">Back to login</Link>
               </div>
             </div>
           </form>
