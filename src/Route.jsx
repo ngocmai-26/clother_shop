@@ -10,7 +10,6 @@ import Orders from "./container/layout/user/orders";
 import ForgotPassword from "./container/layout/auth/forgot_password";
 import {  useState } from "react";
 import Header from "./container/layout/header";
-import HeaderDefault from "./container/layout/header/default_header";
 import Footer from "./container/layout/footer";
 import Register from "./container/layout/auth/register";
 import ForgotPassword2 from "./container/layout/auth/forgot_password_2";
@@ -18,10 +17,9 @@ import ForgotPassword3 from "./container/layout/auth/forgot_password_3";
 
 function Router() {
   const [accountUser, setAccountUser] = useState({});
-  const [header, setHeader] = useState(true);
   return (
     <BrowserRouter>
-      {header ? <Header accountUser={accountUser} /> : <HeaderDefault />}
+      <Header accountUser={accountUser} />
 
       <Routes>
         <Route path="/" element={<HomePage />}></Route>

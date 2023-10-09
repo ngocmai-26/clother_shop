@@ -1,7 +1,7 @@
 function Dashboard() {
   return (
-    <div class="w-full flex flex-col h-screen overflow-y-hidden">
-      <div class="w-full items-center bg-white py-2 px-6 hidden sm:flex">
+    <div class="w-10/12 bg-slate-700 text-white  flex flex-col h-screen overflow-y-hidden">
+      {/* <div class="w-full items-center bg-white py-2 px-6 hidden sm:flex">
         <div class="w-1/2"></div>
         <div x-data="{ isOpen: false }" class="relative w-1/2 flex justify-end">
           <div
@@ -19,7 +19,7 @@ function Dashboard() {
             </a>
           </div>
         </div>
-      </div>
+      </div> */}
 
       <div
         x-data="{ isOpen: false }"
@@ -37,7 +37,7 @@ function Dashboard() {
 
       <div class="w-full overflow-x-hidden border-t flex flex-col">
         <main class="w-full flex-grow p-6">
-          <h1 class="text-3xl text-black pb-6">Dashboard</h1>
+          <h1 class="text-3xl  pb-6">Dashboard</h1>
 
           <div class="flex flex-wrap mt-6">
             <div class="w-full lg:w-1/2 pr-0 lg:pr-2">

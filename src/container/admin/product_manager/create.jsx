@@ -1,8 +1,8 @@
 function ProductCreate() {
   return (
-    <div class="w-full h-screen overflow-x-hidden border-t flex flex-col">
+    <div class="w-10/12 bg-slate-700 text-white  h-screen overflow-x-hidden border-t flex flex-col">
       <main class="w-full flex-grow p-6">
-        <h1 class="w-full text-3xl text-black pb-6">Thêm sản phẩm</h1>
+        <h1 class="w-full text-3xl pb-6">Thêm sản phẩm</h1>
 
         <div class="flex flex-wrap">
           <div class="w-full  my-6 pr-0 lg:pr-2">

@@ -17,7 +17,7 @@ function UserProfile({setAccountUser}) {
     setAccountUser({})
   }
   return (
-    <div className="pt-20 px-8">
+    <div className="pt-20  mt-5 sm:mt-0  px-8">
       <div className="lg:w-5/6 w-full mx-auto">
         <div className="history">
           <a href="" className="uppercase text-xs">
@@ -32,13 +32,13 @@ function UserProfile({setAccountUser}) {
           <div className=" ...">
             <ul>
               <li>
-                <a href="" className="flex py-2">
+                <a href="/user-profile" className="flex py-2">
                   <img src={iconUser} alt="" />
                   <span className="px-2">User Profile</span>
                 </a>
               </li>
               <li>
-                <a href="" className="flex py-2">
+                <a href="/orders" className="flex py-2">
                   <img src={iconCart} alt="" />
                   <span className="px-2 text-neutral-400">Orders</span>
                 </a>
@@ -134,14 +134,14 @@ function UserProfile({setAccountUser}) {
                       </button>
                     </div>
                   </div>
-                  <div className="grid grid-cols-3 gap-4 py-2">
-                    <div></div>
-                    <div className="col-span-2">
+                  <div className="grid lg:grid-cols-3 grid-cols-2 gap-4 py-2">
+         
+                    <div className="col-span-2 lg:col-end-4">
                       <div className="flex justify-between">
-                      <button className="bg-black border border-black text-white uppercase py-3 w-5/12 mt-3 text-xs">
+                      <button className="bg-black border border-black text-white uppercase py-3 md:w-5/12 w-6/12 mt-3 me-2 text-xs">
                         Change Phone Number
                         </button>
-                        <button className="bg-black border border-black text-white uppercase py-3 w-5/12 mt-3 text-xs">
+                        <button className="bg-black border border-black text-white uppercase py-3 md:w-5/12 w-5/12 mt-3 text-xs">
                         Change Password
                         </button>
                       </div>

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 function HeaderAdmin() {
   return (
-    <aside class="relative bg-blue-400 h-screen w-64 hidden sm:block shadow-xl">
+    <aside class="relative bg-slate-800 h-screen w-2/12 hidden sm:block shadow-xl">
       <div class="p-6">
         <Link
           to='/admin'

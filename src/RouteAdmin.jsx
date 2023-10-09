@@ -9,7 +9,8 @@ import HeaderAdmin from "./container/admin/component/header";
 function RouterAdmin() {
   return (
     <BrowserRouter>
-      <HeaderAdmin />
+    <div className="flex">
+    <HeaderAdmin />
       <Routes>
         <Route path="/admin/product-manager" element={<ProductManager />} />
         <Route path="/admin/product-create" element={<ProductCreate />} />
@@ -17,6 +18,8 @@ function RouterAdmin() {
         <Route path="/admin/user-create" element={<UserCreate />} />
         <Route path="/admin" element={<Dashboard />} />
       </Routes>
+    </div>
+     
     </BrowserRouter>
   );
 }

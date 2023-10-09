@@ -1,5 +1,6 @@
 import { useState } from "react";
 import product from "../../../asset/images/product-item.png";
+import iconDelete from "../../../asset/images/trash.png";
 function Payment() {
   const [quantity, setQuantity] = useState(1);
 
@@ -13,7 +14,7 @@ function Payment() {
     }
   };
   return (
-    <div className="pt-20 px-8">
+    <div className="pt-20 mt-5 sm:mt-0 px-8">
       <div className="w-5/6 mx-auto">
         <div className="history">
           <a href="" className="uppercase text-xs">
@@ -33,26 +34,48 @@ function Payment() {
           </a>
         </div>
         <div className="grid grid-cols-3 gap-4 py-4">
-          <div className="col-span-2 ...">
-            <div className="product-item border border-black">
-              <div className="grid grid-cols-5 gap-5 p-3">
-                <div className="...">
-                  <img src={product} alt="" height="170px" />
-                </div>
-                <div className="col-span-3 my-auto">
-                  <p className="product-name text-xl py-2">
-                    Lorem Ipsum is simply dummy text of the printing
-                  </p>
-                  <div className="product-size py-1">
-                    <span>Size : </span>
-                    <span>XXS</span>
-                  </div>
-                  <div className="product-size py-1">
-                    <span>Price : </span>
-                    <span>$130.00</span>
-                  </div>
-                </div>
-                <div className="col-span-1 my-auto">
+          <div className="col-span-2 border-black">
+            <table class="text-left w-full border-collapse text-black border">
+              <thead>
+                <tr>
+                  <th class="py-4 px-3 bg-grey-lightest uppercase text-sm text-grey-dark " style={{width: '60%'}}>
+                    Sản phẩm
+                  </th>
+                  <th class="py-4 px-3 bg-grey-lightest uppercase text-sm text-grey-dark ">
+                    Số lượng
+                  </th>
+                  <th class="py-4 px-3 bg-grey-lightest uppercase text-sm text-grey-dark ">
+                    Tổng Tiền
+                  </th>
+                  <th class="py-4 px-3 bg-grey-lightest uppercase text-sm text-grey-dark ">
+                    Xóa
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                <tr class="hover:bg-grey-lighter">
+                  <td class="py-4 px-3">
+                    <div className="grid grid-cols-3 gap-5 ">
+                      <div className="">
+                        <img src={product} alt="" height="170px" />
+                      </div>
+                      <div className="col-span-2 my-auto">
+                        <p className="text-xl mt-0">
+                          Lorem Ipsum is simply dummy text of the printing
+                        </p>
+                        <div className="product-size py-1">
+                          <span>Size : </span>
+                          <span>XXS</span>
+                        </div>
+                        <div className="product-size py-1">
+                          <span>Price : </span>
+                          <span>$130.00</span>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="py-4 px-3">
                   <div className="flex items-center ">
                     <button
                       className="px-3 py-1 border border-gray-300 text-black "
@@ -61,7 +84,7 @@ function Payment() {
                       -
                     </button>
                     <input
-                      className="w-16 text-center border border-gray-300 py-1"
+                      className="w-10 text-center border border-gray-300 py-1"
                       type="number"
                       value={quantity}
                       readOnly
@@ -73,92 +96,92 @@ function Payment() {
                       +
                     </button>
                   </div>
-                </div>
-              </div>
-            </div>
+                  </td>
+                  <td class="py-4 px-3">999.999 đ</td>
+                  <td>
+                    <button className=" border p-2 border-zinc-400">
+                    <img src={iconDelete} alt="" />
+                    </button>
+                  </td>
+                </tr>
+                <tr class="hover:bg-grey-lighter">
+                  <td class="py-4 px-3">
+                    <div className="grid grid-cols-3 gap-5 ">
+                      <div className="">
+                        <img src={product} alt="" height="170px" />
+                      </div>
+                      <div className="col-span-2 my-auto">
+                        <p className="text-xl mt-0">
+                          Lorem Ipsum is simply dummy text of the printing
+                        </p>
+                        <div className="product-size py-1">
+                          <span>Size : </span>
+                          <span>XXS</span>
+                        </div>
+                        <div className="product-size py-1">
+                          <span>Price : </span>
+                          <span>$130.00</span>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="py-4 px-3">
+                  <div className="flex items-center ">
+                    <button
+                      className="px-3 py-1 border border-gray-300 text-black "
+                      onClick={handleDecrease}
+                    >
+                      -
+                    </button>
+                    <input
+                      className="w-10 text-center border border-gray-300 py-1"
+                      type="number"
+                      value={quantity}
+                      readOnly
+                    />
+                    <button
+                      className="px-3 py-1 border border-gray-300 text-black "
+                      onClick={handleIncrease}
+                    >
+                      +
+                    </button>
+                  </div>
+                  </td>
+                  <td class="py-4 px-3">999.999 đ</td>
+                  <td>
+                    <button className=" border p-2 border-zinc-400">
+                    <img src={iconDelete} alt="" />
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           </div>
           <div className="">
             <div className="payment-bill border border-black p-3">
               <div className="payment-bill-detail">
                 <div className="grid grid-cols-2 gap-4">
                   <div className="title">
-                    <p className="text-base font-medium">Subtotal</p>
+                    <p className="text-base font-medium">Tổng tiền</p>
                   </div>
-                  <div className="">
+                  <div className="text-end">
                     <p className="text-base">$123.00</p>
                   </div>
                 </div>
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="title">
-                    <p className="text-base font-medium">Shipping</p>
-                  </div>
-                  <div className="">
-                    <p className="text-base">Calculated at next step</p>
-                  </div>
+                <div className="w-full text-center ">
+                  <button className="bg-black text-white uppercase py-3 px-5 mt-4 text-xs mx-auto">
+                    Thanh toán
+                  </button>
                 </div>
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="title">
-                    <p className="text-base font-medium">Total</p>
-                    <p className="text-xs">Including $22.27 in taxes</p>
-                  </div>
-                  <div className="">
-                    <p className="text-base">$123.00</p>
-                  </div>
-                </div>
-              </div>
-              <div className="payment-information py-2">
-                <h2 className="text-2xl py-2" >Shipping Address</h2>
-                <form>
-                  <div className="mx-auto max-w-lg">
-                    <div className="py-1">
-                      <span className="px-1 text-sm text-gray-600">Your name *</span>
-                      <input
-                        placeholder=""
-                        type="text"
-                        className="w-full px-4 py-2  text-base  border border-gray-300 rounded outline-none  focus:ring-blue-500 focus:border-blue-500 focus:ring-1"
-                      />
-                    </div>
-                    <div className="py-1">
-                      <span className="px-1 text-sm text-gray-600">
-                        Phone Number *
-                      </span>
-                      <input
-                        placeholder=""
-                        type="text"
-                        className="w-full px-4 py-2  text-base  border border-gray-300 rounded outline-none  focus:ring-blue-500 focus:border-blue-500 focus:ring-1"
-                      />
-                    </div>
-                    <div className="py-1">
-                      <span className="px-1 text-sm text-gray-600">Email *</span>
-                      <input
-                        placeholder=""
-                        type="text"
-                        className="w-full px-4 py-2  text-base  border border-gray-300 rounded outline-none  focus:ring-blue-500 focus:border-blue-500 focus:ring-1"
-                      />
-                    </div>
-                    <div className="py-1">
-                      <span className="px-1 text-sm text-gray-600">Address *</span>
-                      <input
-                        placeholder=""
-                        type="text"
-                        className="w-full px-4 py-2  text-base  border border-gray-300 rounded outline-none  focus:ring-blue-500 focus:border-blue-500 focus:ring-1"
-                      />
-                    </div>
-                    <button className="bg-black text-white uppercase py-3 px-2 mt-4 text-xs">
-                     Continue to Shipping
-                    </button>
-                  </div>
-                </form>
               </div>
             </div>
           </div>
         </div>
         <h2 className="text-4xl pt-3">OTHER PRODUCTS</h2>
         <div className="grid grid-cols-4 gap-4">
-          
           <div className="product-item py-5">
             <div className="product_item-img">
-              <img src={product} alt="" style={{height: '450px'}} />
+              <img src={product} alt="" style={{ height: "350px" }} />
             </div>
             <div className="product_item-name h-16 overflow-hidden">
               <p className="text-xl text-overflow overflow-ellipsis line-clamp-2 ">

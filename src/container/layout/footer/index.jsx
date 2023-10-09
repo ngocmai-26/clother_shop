@@ -5,10 +5,10 @@ import iconBe from "../../../asset/images/be.png";
 import iconLine from "../../../asset/images/whatsapp.png";
 function Footer() {
   return (
-    <div className="bg-gray-700 p-8">
+    <div className="bg-gray-700 p-4 ">
       <div className="w-11/12 mx-auto">
         <div className="grid xl:grid-cols-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-white">
-          <div className="...">
+          <div className="py-2">
             <div className="logo">
               <img src={Logo} alt="" width={250} />
             </div>
@@ -33,7 +33,7 @@ function Footer() {
               </a>
             </div>
           </div>
-          <div className="...">
+          <div className="py-2">
             <h3 className="text-2xl">Hệ thống cửa hàng</h3>
             <div className="address-1 pt-2">
               <h5 className="py-1 text-xl">Hà nội</h5>
@@ -46,7 +46,7 @@ function Footer() {
               <p className="text-base">CS1: 108 Trần Phú, Hà Đông, Hà Nội</p>
             </div>
           </div>
-          <div className="...">
+          <div className="py-2">
             <h3 className="text-2xl">Chính sách</h3>
             <div className="py-3">
               <p>Chính sách bảo mật</p>
@@ -56,7 +56,7 @@ function Footer() {
               <p>Chính sách giao hàng hỏa tốc</p>
             </div>
           </div>
-          <div className="...">
+          <div className="py-2">
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d251637.95196238213!2d105.6189045!3d9.779349!3m2!1i1024!2i768!4f13.1!5e0!3m2!1svi!2s!4v1696001318288!5m2!1svi!2s"
               width="100%"

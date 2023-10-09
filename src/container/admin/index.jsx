@@ -7,7 +7,7 @@ import UserCreate from "./user_manager/create";
 
 function HomeAdmin() {
     return ( 
-        <div className="bg-gray-100 font-family-karla flex">
+        <div className="bg-gray-100 font-family-karla flex ">
             <RouterAdmin />
         </div>
      );

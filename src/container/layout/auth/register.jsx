@@ -118,7 +118,7 @@ function Register() {
   }
 
   return (
-    <div className="">
+    <div className="mt-10 pt-10 sm-pt-0">
       <div className="grid xl:grid-cols-6 lg:grid-cols-4 md:grid-cols-4  gap-2 mx-2 py-20">
         <div className="xl:col-start-3 md:col-start-2 lg:col-start-2 col-span-2 border p-3">
           <h2 className="text-3xl">Get Started</h2>

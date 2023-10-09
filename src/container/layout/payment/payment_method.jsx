@@ -5,8 +5,8 @@ import pay from "../../../asset/images/pay.png";
 import applePay from "../../../asset/images/applepay.png";
 function PaymentMethod() {
   return (
-    <div className="pt-20 px-8">
-      <div className="w-5/6 mx-auto">
+    <div className="pt-20 mt-5 sm:mt-0 px-8">
+      <div className="sm:w-4/6 w-full mx-auto">
         <div className="history">
           <a href="" className="uppercase text-xs">
             HOME
@@ -104,9 +104,9 @@ function PaymentMethod() {
             </div>
           </div>
         </div> */}
-        <div className="grid grid-cols-2 gap-2 w-5/6 mx-auto">
-        <form className="mt-4 border">
-            <div className="mx-auto max-w-lg px-3">
+        <form className="mt-4 my-4">
+          <div className="grid grid-cols-2 gap-2 sm:w-5/6 w-full mx-auto">
+            <div className="mx-auto sm:col-span-1 col-span-2 w-full px-3 border border-black my-2">
               <h2 className="text-xl">Thông tin nhận hàng</h2>
               <div className="py-2">
                 <span className="px-1 text-sm text-gray-600">Họ và tên</span>
@@ -117,7 +117,9 @@ function PaymentMethod() {
                 />
               </div>
               <div className="py-2">
-                <span className="px-1 text-sm text-gray-600">Số điện thoại</span>
+                <span className="px-1 text-sm text-gray-600">
+                  Số điện thoại
+                </span>
                 <input
                   placeholder=""
                   type="text"
@@ -133,14 +135,18 @@ function PaymentMethod() {
                 />
               </div>
               <div className="py-2">
-                <span className="px-1 text-sm text-gray-600">Tỉnh/ Thành phố</span>
+                <span className="px-1 text-sm text-gray-600">
+                  Tỉnh/ Thành phố
+                </span>
                 <select className="w-full px-2 py-2 text-base border border-gray-300 rounded outline-none  focus:ring-blue-500 focus:border-blue-500 focus:ring-1">
                   <option value="1">Hà Nội</option>
                   <option value="1">Hưng Yên</option>
                 </select>
               </div>
               <div className="py-2">
-                <span className="px-1 text-sm text-gray-600">Huyện, thị xã</span>
+                <span className="px-1 text-sm text-gray-600">
+                  Huyện, thị xã
+                </span>
                 <select className="w-full px-2 py-2 text-base border border-gray-300 rounded outline-none  focus:ring-blue-500 focus:border-blue-500 focus:ring-1">
                   <option value="1">Thanh Xuân</option>
                 </select>
@@ -159,13 +165,56 @@ function PaymentMethod() {
                   className="w-full px-2 py-2 text-base border border-gray-300 rounded outline-none  focus:ring-blue-500 focus:border-blue-500 focus:ring-1"
                 />
               </div>
-              
-              <button className="bg-black text-white uppercase w-full py-3 mt-4" style={{backgroundColor: 'black'}} type="button">
-                Sign in
-              </button>
             </div>
-          </form>
-        </div>
+            <div className="mx-auto sm:col-span-1 col-span-2 w-full px-3 my-2 border border-black">
+              <div className="payment-bill p-3">
+                <div className="payment-bill-detail">
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="title">
+                      <p className="text-base font-medium">Subtotal</p>
+                    </div>
+                    <div className="">
+                      <p className="text-base">$123.00</p>
+                    </div>
+                  </div>
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="title">
+                      <p className="text-base font-medium">Shipping</p>
+                    </div>
+                    <div className="">
+                      <p className="text-base">Calculated at next step</p>
+                    </div>
+                  </div>
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="title">
+                      <p className="text-base font-medium">Total</p>
+                      <p className="text-xs">Including $22.27 in taxes</p>
+                    </div>
+                    <div className="">
+                      <p className="text-base">$123.00</p>
+                    </div>
+                  </div>
+                </div>
+                <div className="payment-information py-2">
+                  <h2 className="text-2xl py-2">Thương thức thanh toán</h2>
+                  <div className="mx-auto max-w-lg">
+                    <div className="py-1">
+                      <input type="radio" />
+                      <label className="px-2">Momo</label>
+                    </div>
+                    <div className="py-1">
+                      <input type="radio" />
+                      <label className="px-2">Thanh toán khi nhận hàng</label>
+                    </div>
+                  </div>
+                  <button className="bg-black text-white uppercase py-3 px-7 mt-4 text-xs">
+                    Giao hàng
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
       </div>
     </div>
   );

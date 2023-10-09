@@ -2,9 +2,9 @@ import { Link } from "react-router-dom";
 
 function UserManager() {
     return ( 
-        <div class="w-full h-screen overflow-x-hidden border-t flex flex-col">
+        <div class="w-10/12 bg-slate-700 text-white  h-screen overflow-x-hidden border-t flex flex-col">
         <main class="w-full flex-grow p-6">
-          <h1 class="text-3xl text-black pb-6">Tables</h1>
+          <h1 class="text-3xl  pb-6">Tables</h1>
           <Link to='/admin/user-create'  className="border border-sky-600 text-white uppercase py-3 px-10 bg-sky-600 rounded-full mt-3 text-xs">
             Thêm
           </Link>
@@ -13,7 +13,7 @@ function UserManager() {
               <i class="fas fa-list mr-3"></i> Table Example
             </p>
             <div class="bg-white overflow-auto">
-              <table class="text-left w-full border-collapse">
+              <table class="text-left w-full border-collapse text-black">
                 <thead>
                   <tr>
                     <th class="py-4 px-6 bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-grey-light">

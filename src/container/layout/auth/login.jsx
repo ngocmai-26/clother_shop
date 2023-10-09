@@ -37,7 +37,7 @@ function Login({setAccountUser}) {
     }
   };
   return (
-    <div className="">
+    <div className="mt-10 pt-10 sm-pt-0">
       <div className="grid xl:grid-cols-6 lg:grid-cols-4 md:grid-cols-4 gap-2 mx-2 py-20">
       {loggedIn ? (
         <p>Đăng nhập thành công!</p>
