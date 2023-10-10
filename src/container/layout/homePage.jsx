@@ -7,13 +7,26 @@ import logoipsum_1 from "../../asset/images/logoipsum_1.png";
 import logoipsum_2 from "../../asset/images/logoipsum_2.png";
 import logoipsum_3 from "../../asset/images/logoipsum_3.png";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 function HomePage() {
+  // muốn dùng translate thì tách 2 ins từ useTranslation
+  const [t, i18n] = useTranslation("app");
   return (
     <article className="mt-20 sm:mt-0">
       <div className="poster relative">
         <img src={poster} alt="" />
         <div className="absolute poster-info w-full">
-          <h4 className="lg:text-9xl text-4xl xl:text-9xl md:text-8xl   text-center text-white ">SHOP NAME</h4>
+          <h4 className="lg:text-9xl text-4xl xl:text-9xl md:text-8xl   text-center text-white ">
+            {t("welcome")}
+          </h4>
+          <button
+            onClick={() => {
+              // hàm change lang
+              i18n.changeLanguage(i18n.language === "en" ? "vi" : "en");
+            }}
+          >
+            click me to change
+          </button>
           <p className=" text-white lg:text-3xl text-lg md:text-2xl italic pt-2">
             S L O G A N H E R E
           </p>
@@ -30,7 +43,9 @@ function HomePage() {
         <div className="about-us py-8">
           <div className="grid lg:grid-cols-5 grid-cols-1  gap-5">
             <div className="col-span-2">
-              <h4 className="text-3xl sm:text-4xl sm:text-center font-bold">ABOUT US</h4>
+              <h4 className="text-3xl sm:text-4xl sm:text-center font-bold">
+                ABOUT US
+              </h4>
               <p className="py-5">
                 It has survived not only five centuries, but also the leap into
                 electronic typesetting, remaining essentially unchanged. It was
@@ -60,20 +75,26 @@ function HomePage() {
         </div>
 
         <div className="new_product py-8">
-          <h2 className="text-3xl sm:text-4xl pt-3 text-center font-bold">NEW ARRIVALS</h2>
+          <h2 className="text-3xl sm:text-4xl pt-3 text-center font-bold">
+            NEW ARRIVALS
+          </h2>
           <div className="grid xl:grid-cols-4 lg:grid-cols-4 md:grid-cols-3 grid-cols-1 gap-3">
             <div className="product-item py-5">
               <div className="product_item-img">
-                <Link to="/product-detail"><img
-                  src={cloth}
-                  alt=""
-                  style={{ height: "350px" }}
-                  className="w-full "
-                />
+                <Link to="/product-detail">
+                  <img
+                    src={cloth}
+                    alt=""
+                    style={{ height: "350px" }}
+                    className="w-full "
+                  />
                 </Link>
               </div>
               <div className="product_item-name h-16 overflow-hidden">
-                <Link to="/product-detail" className="text-xl text-overflow overflow-ellipsis line-clamp-2 font-medium">
+                <Link
+                  to="/product-detail"
+                  className="text-xl text-overflow overflow-ellipsis line-clamp-2 font-medium"
+                >
                   adsadsv Lorem ipsum is simply dummy text...
                 </Link>
               </div>
@@ -83,16 +104,20 @@ function HomePage() {
             </div>
             <div className="product-item py-5">
               <div className="product_item-img">
-                <Link to="/product-detail"><img
-                  src={cloth}
-                  alt=""
-                  style={{ height: "350px" }}
-                  className="w-full "
-                />
+                <Link to="/product-detail">
+                  <img
+                    src={cloth}
+                    alt=""
+                    style={{ height: "350px" }}
+                    className="w-full "
+                  />
                 </Link>
               </div>
               <div className="product_item-name h-16 overflow-hidden">
-                <Link to="/product-detail" className="text-xl text-overflow overflow-ellipsis line-clamp-2 font-medium">
+                <Link
+                  to="/product-detail"
+                  className="text-xl text-overflow overflow-ellipsis line-clamp-2 font-medium"
+                >
                   adsadsv Lorem ipsum is simply dummy text...
                 </Link>
               </div>
@@ -102,16 +127,20 @@ function HomePage() {
             </div>
             <div className="product-item py-5">
               <div className="product_item-img">
-                <Link to="/product-detail"><img
-                  src={cloth}
-                  alt=""
-                  style={{ height: "350px" }}
-                  className="w-full "
-                />
+                <Link to="/product-detail">
+                  <img
+                    src={cloth}
+                    alt=""
+                    style={{ height: "350px" }}
+                    className="w-full "
+                  />
                 </Link>
               </div>
               <div className="product_item-name h-16 overflow-hidden">
-                <Link to="/product-detail" className="text-xl text-overflow overflow-ellipsis line-clamp-2 font-medium">
+                <Link
+                  to="/product-detail"
+                  className="text-xl text-overflow overflow-ellipsis line-clamp-2 font-medium"
+                >
                   adsadsv Lorem ipsum is simply dummy text...
                 </Link>
               </div>
@@ -121,16 +150,20 @@ function HomePage() {
             </div>
             <div className="product-item py-5">
               <div className="product_item-img">
-                <Link to="/product-detail"><img
-                  src={cloth}
-                  alt=""
-                  style={{ height: "350px" }}
-                  className="w-full "
-                />
+                <Link to="/product-detail">
+                  <img
+                    src={cloth}
+                    alt=""
+                    style={{ height: "350px" }}
+                    className="w-full "
+                  />
                 </Link>
               </div>
               <div className="product_item-name h-16 overflow-hidden">
-                <Link to="/product-detail" className="text-xl text-overflow overflow-ellipsis line-clamp-2 font-medium">
+                <Link
+                  to="/product-detail"
+                  className="text-xl text-overflow overflow-ellipsis line-clamp-2 font-medium"
+                >
                   adsadsv Lorem ipsum is simply dummy text...
                 </Link>
               </div>
@@ -140,11 +173,10 @@ function HomePage() {
             </div>
           </div>
           <div className="w-full text-center">
-          <button className="bg-black border border-black text-white uppercase py-3 mt-4 px-10 text-xs">
-            See All
-          </button>
+            <button className="bg-black border border-black text-white uppercase py-3 mt-4 px-10 text-xs">
+              See All
+            </button>
           </div>
-          
         </div>
         <div className="new_collections py-8">
           <h2 className="text-3xl sm:text-4xl py-3 text-center font-bold">
@@ -153,16 +185,20 @@ function HomePage() {
           <div className="grid xl:grid-cols-4 lg:grid-cols-4 md:grid-cols-3 grid-cols-1 gap-3">
             <div className="product-item py-5">
               <div className="product_item-img">
-                <Link to="/product-detail"><img
-                  src={cloth}
-                  alt=""
-                  style={{ height: "350px" }}
-                  className="w-full "
-                />
+                <Link to="/product-detail">
+                  <img
+                    src={cloth}
+                    alt=""
+                    style={{ height: "350px" }}
+                    className="w-full "
+                  />
                 </Link>
               </div>
               <div className="product_item-name h-16 overflow-hidden">
-                <Link to="/product-detail" className="text-xl text-overflow overflow-ellipsis line-clamp-2 font-medium">
+                <Link
+                  to="/product-detail"
+                  className="text-xl text-overflow overflow-ellipsis line-clamp-2 font-medium"
+                >
                   adsadsv Lorem ipsum is simply dummy text...
                 </Link>
               </div>
@@ -172,16 +208,20 @@ function HomePage() {
             </div>
             <div className="product-item py-5">
               <div className="product_item-img">
-                <Link to="/product-detail"><img
-                  src={cloth}
-                  alt=""
-                  style={{ height: "350px" }}
-                  className="w-full "
-                />
+                <Link to="/product-detail">
+                  <img
+                    src={cloth}
+                    alt=""
+                    style={{ height: "350px" }}
+                    className="w-full "
+                  />
                 </Link>
               </div>
               <div className="product_item-name h-16 overflow-hidden">
-                <Link to="/product-detail" className="text-xl text-overflow overflow-ellipsis line-clamp-2 font-medium">
+                <Link
+                  to="/product-detail"
+                  className="text-xl text-overflow overflow-ellipsis line-clamp-2 font-medium"
+                >
                   adsadsv Lorem ipsum is simply dummy text...
                 </Link>
               </div>
@@ -191,16 +231,20 @@ function HomePage() {
             </div>
             <div className="product-item py-5">
               <div className="product_item-img">
-                <Link to="/product-detail"><img
-                  src={cloth}
-                  alt=""
-                  style={{ height: "350px" }}
-                  className="w-full "
-                />
+                <Link to="/product-detail">
+                  <img
+                    src={cloth}
+                    alt=""
+                    style={{ height: "350px" }}
+                    className="w-full "
+                  />
                 </Link>
               </div>
               <div className="product_item-name h-16 overflow-hidden">
-                <Link to="/product-detail" className="text-xl text-overflow overflow-ellipsis line-clamp-2 font-medium">
+                <Link
+                  to="/product-detail"
+                  className="text-xl text-overflow overflow-ellipsis line-clamp-2 font-medium"
+                >
                   adsadsv Lorem ipsum is simply dummy text...
                 </Link>
               </div>
@@ -210,16 +254,20 @@ function HomePage() {
             </div>
             <div className="product-item py-5">
               <div className="product_item-img">
-                <Link to="/product-detail"><img
-                  src={cloth}
-                  alt=""
-                  style={{ height: "350px" }}
-                  className="w-full "
-                />
+                <Link to="/product-detail">
+                  <img
+                    src={cloth}
+                    alt=""
+                    style={{ height: "350px" }}
+                    className="w-full "
+                  />
                 </Link>
               </div>
               <div className="product_item-name h-16 overflow-hidden">
-                <Link to="/product-detail" className="text-xl text-overflow overflow-ellipsis line-clamp-2 font-medium">
+                <Link
+                  to="/product-detail"
+                  className="text-xl text-overflow overflow-ellipsis line-clamp-2 font-medium"
+                >
                   adsadsv Lorem ipsum is simply dummy text...
                 </Link>
               </div>
@@ -229,9 +277,9 @@ function HomePage() {
             </div>
           </div>
           <div className="w-full text-center">
-          <button className="bg-black border border-black text-white uppercase py-3 mt-4 px-10 text-xs">
-            See All
-          </button>
+            <button className="bg-black border border-black text-white uppercase py-3 mt-4 px-10 text-xs">
+              See All
+            </button>
           </div>
         </div>
         <div className="new_collections text-center py-4 ">
@@ -259,7 +307,9 @@ function HomePage() {
           </div>
         </div>
         <div className="new_feedbacks text-center py-4">
-          <h2 className="text-3xl sm:text-4xl py-3 text-center font-bold">OUR FEEDBACKS</h2>
+          <h2 className="text-3xl sm:text-4xl py-3 text-center font-bold">
+            OUR FEEDBACKS
+          </h2>
           <p className="lg:w-2/4 text-center  mx-auto">
             Đây là những phản hồi tới từ những khách hàng đã mua hàng và trải
             nghiệm sản phẩm của thương hiệu thời trang Loremipsum của chúng tôi.
@@ -289,27 +339,28 @@ function HomePage() {
           </div>
         </div>
         <div className="new_feedbacks text-center py-4">
-          <h2 className="text-3xl sm:text-4xl py-3 text-center font-bold">OUR FEEDBACKS</h2>
+          <h2 className="text-3xl sm:text-4xl py-3 text-center font-bold">
+            OUR FEEDBACKS
+          </h2>
           <p className="lg:w-2/4 text-center  mx-auto">
             Hãy cho chúng tôi biết email của bạn và chúng tôi sẽ liên lạc với
             bạn trong thời gian làm việc sớm nhất.
           </p>
           <div className="lg:w-2/4  mx-auto">
-          <form className="mt-4">
-            <div className="mx-auto max-w-lg">
-              <div className="py-2 flex">
-                <input
-                  placeholder="Nhập email của bạn"
-                  type="text"
-                  className="w-full px-4 py-2  text-base  border border-gray-300 outline-none  focus:ring-blue-500 focus:border-blue-500 focus:ring-1"
-                />
-                <button className="bg-black text-white uppercase py-3  px-5 text-sm">
-                Subscribe
-              </button>
+            <form className="mt-4">
+              <div className="mx-auto max-w-lg">
+                <div className="py-2 flex">
+                  <input
+                    placeholder="Nhập email của bạn"
+                    type="text"
+                    className="w-full px-4 py-2  text-base  border border-gray-300 outline-none  focus:ring-blue-500 focus:border-blue-500 focus:ring-1"
+                  />
+                  <button className="bg-black text-white uppercase py-3  px-5 text-sm">
+                    Subscribe
+                  </button>
+                </div>
               </div>
-              
-            </div>
-          </form>
+            </form>
           </div>
         </div>
       </div>
