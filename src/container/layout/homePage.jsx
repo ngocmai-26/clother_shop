@@ -13,13 +13,13 @@ function HomePage() {
       <div className="poster relative">
         <img src={poster} alt="" />
         <div className="absolute poster-info w-full">
-          <h4 className="lg:text-9xl text-4xl xl:text-9xl md:text-8xl   text-center text-white ">SHOP NAME</h4>
-          <p className=" text-white lg:text-3xl text-lg md:text-2xl italic pt-2">
+          <h4 className="lg:text-9xl text-5xl xl:text-9xl md:text-8xl text-center text-white ">SHOP NAME</h4>
+          <p className=" text-white lg:text-3xl text-lg md:text-2xl italic pt-8">
             S L O G A N H E R E
           </p>
         </div>
         <div className="absolute poster-content text-center m-auto w-full flex justify-center">
-          <p className="text-white w-2/4 hidden sm:block md:block lg:block xl:block">
+          <p className="text-white sm:w-10/12 md:w-10/12 lg:w-2/4 hidden sm:block md:block lg:block xl:block">
             Lorem Ipsum is simply dummy text of the printing and typesetting
             industry. Lorem Ipsum has been the industry's standard dummy text
             ever since the 1500s
@@ -28,10 +28,10 @@ function HomePage() {
       </div>
       <div className="w-5/6 mx-auto">
         <div className="about-us py-8">
-          <div className="grid lg:grid-cols-5 grid-cols-1  gap-5">
-            <div className="col-span-2">
+          <div className="grid lg:grid-cols-5 grid-cols-1  gap-7">
+            <div className="sm:col-span-2 col-span-5">
               <h4 className="text-3xl sm:text-4xl sm:text-center font-bold">ABOUT US</h4>
-              <p className="py-5">
+              <p className="py-5 leading-7">
                 It has survived not only five centuries, but also the leap into
                 electronic typesetting, remaining essentially unchanged. It was
                 popularised in the 1960s with the release of Letraset sheets
@@ -43,15 +43,15 @@ function HomePage() {
                 EXPLORE MORE
               </button>
             </div>
-            <div className="col-span-3">
+            <div className="sm:col-span-3 col-span-5">
               <div className="grid grid-cols-3 gap-5">
-                <div className="cloth-item ">
+                <div className="cloth-item">
                   <img src={cloth} alt="" className="h-4/5 w-full" />
                 </div>
-                <div className="cloth-item ">
+                <div className="cloth-item">
                   <img src={cloth_1} alt="" className="h-full w-full" />
                 </div>
-                <div className="cloth-ite ">
+                <div className="cloth-item">
                   <img src={cloth_2} alt="" className="h-4/5 w-full" />
                 </div>
               </div>
@@ -63,12 +63,12 @@ function HomePage() {
           <h2 className="text-3xl sm:text-4xl pt-3 text-center font-bold">NEW ARRIVALS</h2>
           <div className="grid xl:grid-cols-4 lg:grid-cols-4 md:grid-cols-3 grid-cols-1 gap-3">
             <div className="product-item py-5">
-              <div className="product_item-img">
+              <div className="product_item-img rounded overflow-hidden">
                 <Link to="/product-detail"><img
                   src={cloth}
                   alt=""
                   style={{ height: "350px" }}
-                  className="w-full "
+                  className="object-fill w-full "
                 />
                 </Link>
               </div>
@@ -82,12 +82,12 @@ function HomePage() {
               </div>
             </div>
             <div className="product-item py-5">
-              <div className="product_item-img">
+              <div className="product_item-img rounded overflow-hidden">
                 <Link to="/product-detail"><img
                   src={cloth}
                   alt=""
                   style={{ height: "350px" }}
-                  className="w-full "
+                  className="object-fill w-full "
                 />
                 </Link>
               </div>
@@ -101,12 +101,12 @@ function HomePage() {
               </div>
             </div>
             <div className="product-item py-5">
-              <div className="product_item-img">
+              <div className="product_item-img rounded overflow-hidden">
                 <Link to="/product-detail"><img
                   src={cloth}
                   alt=""
                   style={{ height: "350px" }}
-                  className="w-full "
+                  className="object-fill w-full "
                 />
                 </Link>
               </div>
@@ -120,12 +120,12 @@ function HomePage() {
               </div>
             </div>
             <div className="product-item py-5">
-              <div className="product_item-img">
+              <div className="product_item-img rounded overflow-hidden">
                 <Link to="/product-detail"><img
                   src={cloth}
                   alt=""
                   style={{ height: "350px" }}
-                  className="w-full "
+                  className="object-fill w-full "
                 />
                 </Link>
               </div>
@@ -152,12 +152,12 @@ function HomePage() {
           </h2>
           <div className="grid xl:grid-cols-4 lg:grid-cols-4 md:grid-cols-3 grid-cols-1 gap-3">
             <div className="product-item py-5">
-              <div className="product_item-img">
+              <div className="product_item-img rounded overflow-hidden">
                 <Link to="/product-detail"><img
                   src={cloth}
                   alt=""
                   style={{ height: "350px" }}
-                  className="w-full "
+                  className="object-fill w-full "
                 />
                 </Link>
               </div>
@@ -171,12 +171,12 @@ function HomePage() {
               </div>
             </div>
             <div className="product-item py-5">
-              <div className="product_item-img">
+              <div className="product_item-img rounded overflow-hidden">
                 <Link to="/product-detail"><img
                   src={cloth}
                   alt=""
                   style={{ height: "350px" }}
-                  className="w-full "
+                  className="object-fill w-full "
                 />
                 </Link>
               </div>
@@ -190,12 +190,12 @@ function HomePage() {
               </div>
             </div>
             <div className="product-item py-5">
-              <div className="product_item-img">
+              <div className="product_item-img rounded overflow-hidden">
                 <Link to="/product-detail"><img
                   src={cloth}
                   alt=""
                   style={{ height: "350px" }}
-                  className="w-full "
+                  className="object-fill w-full "
                 />
                 </Link>
               </div>
@@ -209,12 +209,12 @@ function HomePage() {
               </div>
             </div>
             <div className="product-item py-5">
-              <div className="product_item-img">
+              <div className="product_item-img rounded overflow-hidden">
                 <Link to="/product-detail"><img
                   src={cloth}
                   alt=""
                   style={{ height: "350px" }}
-                  className="w-full "
+                  className="object-fill w-full "
                 />
                 </Link>
               </div>
@@ -238,7 +238,7 @@ function HomePage() {
           <h2 className="text-3xl sm:text-4xl py-3 text-center font-bold">
             NEW COLLECTIONS
           </h2>
-          <p className="lg:w-2/4 text-center  mx-auto">
+          <p className="lg:w-2/4 text-center py-3 mx-auto">
             Lorem Ipsum is simply dummy text of the printing and typesetting
             industry. Lorem Ipsum has been the industry's standard dummy text
             ever since the 1500
@@ -260,7 +260,7 @@ function HomePage() {
         </div>
         <div className="new_feedbacks text-center py-4">
           <h2 className="text-3xl sm:text-4xl py-3 text-center font-bold">OUR FEEDBACKS</h2>
-          <p className="lg:w-2/4 text-center  mx-auto">
+          <p className="lg:w-2/4 text-center  py-3 mx-auto">
             Đây là những phản hồi tới từ những khách hàng đã mua hàng và trải
             nghiệm sản phẩm của thương hiệu thời trang Loremipsum của chúng tôi.
           </p>
@@ -290,7 +290,7 @@ function HomePage() {
         </div>
         <div className="new_feedbacks text-center py-4">
           <h2 className="text-3xl sm:text-4xl py-3 text-center font-bold">OUR FEEDBACKS</h2>
-          <p className="lg:w-2/4 text-center  mx-auto">
+          <p className="lg:w-2/4 text-center py-3 mx-auto">
             Hãy cho chúng tôi biết email của bạn và chúng tôi sẽ liên lạc với
             bạn trong thời gian làm việc sớm nhất.
           </p>

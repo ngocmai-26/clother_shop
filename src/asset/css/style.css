@@ -4,7 +4,7 @@
 
 .mySlides {
   position: relative;
-  max-height: 483px;
+  max-height: 545px;
   
 }
 
@@ -32,7 +32,7 @@
   background-color: rgba(0, 0, 0, 0.2);
 }
 .prev {
-    top: 48px;
+    top: 49px;
 }
 
 /* Position the "next button" to the right */

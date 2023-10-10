@@ -6,9 +6,10 @@ import product_4 from "../../../asset/images/product_4.png";
 import { useState } from "react";
 import SlideProduct from "../component/slide_product";
 import { comments } from "../../../data";
+import { Link } from "react-router-dom";
 
 function ProductDetail() {
-  const images = [product_1, product_2, product_3];
+  const images = [product_1, product_2, product_3, product_2];
   const [quantity, setQuantity] = useState(1);
   const [commentUser, setCommentUser] = useState(comments);
   const [comment, setComment] = useState("");
@@ -29,23 +30,23 @@ function ProductDetail() {
 
   const handComment = () => {
     // Sử dụng giá trị rating và comment tại đây
-    console.log('Rating:', rating);
-    console.log('Comment:', comment);
+    console.log("Rating:", rating);
+    console.log("Comment:", comment);
   };
 
   return (
     <div className="pt-20 mt-5 sm:mt-0 px-8">
       <div className="sm:w-5/6 w-full mx-auto">
         <div className="history">
-          <a href="" className="uppercase text-xs">
+          <a href="" className="uppercase text-xs px-1">
             HOME
           </a>
           &#62;
-          <a href="" className="uppercase text-xs">
+          <a href="" className="uppercase text-xs px-1">
             product
           </a>
           &#62;
-          <a href="" className="uppercase text-xs">
+          <a href="" className="uppercase text-xs px-1">
             LOREMIPSUM PRODUCTS
           </a>
         </div>
@@ -53,7 +54,7 @@ function ProductDetail() {
           <div className="xl:col-span-4">
             <Slideshow images={images} />
           </div>
-          <div className="xl:col-span-3">
+          <div className="xl:col-span-3 px-2">
             <div className="product-title">
               <h1 className="xl:text-3xl text-3xl font-medium pb-1">
                 Lorem Ipsum is simply dummy text of the printing
@@ -61,13 +62,15 @@ function ProductDetail() {
             </div>
             <div className="product-information py-1">
               <div className="product-information-title text-base">
-                <h4 className="text-lg uppercase py-1 font-medium">Information</h4>
-                <ul>
-                  <li>
+                <h4 className="text-base uppercase py-3 font-medium">
+                  Information
+                </h4>
+                <ul className="text-sm">
+                  <li className="leading-6 list-disc mx-6">
                     Material: <span>Cotton</span>.
                   </li>
-                  <li>Relaxed Fit.</li>
-                  <li>
+                  <li className="leading-6 list-disc mx-6">Relaxed Fit.</li>
+                  <li className="leading-6 list-disc mx-6">
                     The print on the front and back of the shirt uses
                     silk-screen printing technology.
                   </li>
@@ -75,50 +78,50 @@ function ProductDetail() {
               </div>
             </div>
             <div className="product-color py-1">
-              <h4 className="text-lg uppercase py-1 font-medium">Colors</h4>
+              <h4 className="text-base uppercase py-3 font-medium">Colors</h4>
               <div className="grid grid-cols-3 xl:grid-cols-6 lg:grid-cols-7 md:grid-cols-6 gap-2">
-                <button className="text-xs font-medium bg-slate-900 text-white py-1 px-3 mx-1 border uppercase">
+                <button className="text-xs font-medium bg-slate-900 text-white py-2 px-3 mx-1 border uppercase">
                   Blue
                 </button>
-                <button className="text-xs font-medium bg-white hover:bg-slate-900 hover:text-white text-black py-1 px-3 mx-1 border uppercase">
+                <button className="text-xs font-medium bg-white hover:bg-slate-900 hover:text-white text-black py-2 px-3 mx-1 border uppercase">
                   Green
                 </button>
-                <button className="text-xs font-medium bg-white hover:bg-slate-900 hover:text-white text-black py-1 px-3 mx-1 border uppercase">
+                <button className="text-xs font-medium bg-white hover:bg-slate-900 hover:text-white text-black py-2 px-3 mx-1 border uppercase">
                   White
                 </button>
-                <button className="text-xs font-medium bg-white hover:bg-slate-900 hover:text-white text-black py-1 px-3 mx-1 border uppercase">
+                <button className="text-xs font-medium bg-white hover:bg-slate-900 hover:text-white text-black py-2 px-3 mx-1 border uppercase">
                   Brown
                 </button>
-                <button className="text-xs font-medium bg-white hover:bg-slate-900 hover:text-white text-black py-1 px-3 mx-1 border uppercase">
+                <button className="text-xs font-medium bg-white hover:bg-slate-900 hover:text-white text-black py-2 px-3 mx-1 border uppercase">
                   Black
                 </button>
               </div>
             </div>
             <div className="product-size py-1">
-              <h4 className="text-lg uppercase py-1 font-medium">Size</h4>
+              <h4 className="text-base uppercase py-3 font-medium">Size</h4>
               <div className="grid grid-cols-6 xl:grid-cols-7 lg:grid-cols-7 md:grid-cols-9 gap-1">
                 <button className="text-xs font-medium bg-slate-900 text-white py-1 px-3 mx-1 border uppercase">
                   S
                 </button>
-                <button className="text-xs font-medium bg-white hover:bg-slate-900 hover:text-white text-black py-1 px-3 mx-1 border uppercase">
+                <button className="text-xs font-medium bg-white hover:bg-slate-900 hover:text-white text-black py-2 px-3 mx-1 border uppercase">
                   M
                 </button>
-                <button className="text-xs font-medium bg-white hover:bg-slate-900 hover:text-white text-black py-1 px-3 mx-1 border uppercase">
+                <button className="text-xs font-medium bg-white hover:bg-slate-900 hover:text-white text-black py-2 px-3 mx-1 border uppercase">
                   L
                 </button>
-                <button className="text-xs font-medium bg-white hover:bg-slate-900 hover:text-white text-black py-1 px-3 mx-1 border uppercase">
+                <button className="text-xs font-medium bg-white hover:bg-slate-900 hover:text-white text-black py-2 px-3 mx-1 border uppercase">
                   XL
                 </button>
-                <button className="text-xs font-medium bg-white hover:bg-slate-900 hover:text-white text-black py-1 px-3 mx-1 border uppercase">
+                <button className="text-xs font-medium bg-white hover:bg-slate-900 hover:text-white text-black py-2 px-3 mx-1 border uppercase">
                   XXL
                 </button>
-                <button className="text-xs font-medium bg-white hover:bg-slate-900 hover:text-white text-black py-1 px-3 mx-1 border uppercase">
+                <button className="text-xs font-medium bg-white hover:bg-slate-900 hover:text-white text-black py-2 px-3 mx-1 border uppercase">
                   3XL
                 </button>
               </div>
             </div>
             <div className="product-quantity py-1">
-              <h4 className="text-lg uppercase py-1 font-medium">quantity</h4>
+              <h4 className="text-base uppercase py-3 font-medium">quantity</h4>
               <div className="flex items-center ">
                 <button
                   className="px-3 py-1 border border-gray-300 text-black "
@@ -142,13 +145,15 @@ function ProductDetail() {
             </div>
             <div className="product-btn flex justify-between pt-5 sm:pt-2">
               <div className="w-3/6 pe-3">
-              <button className="bg-black text-white py-2 w-full px-5 border ">Buy now</button>
+                <button className="bg-black text-white py-2 w-full px-5 border ">
+                  Buy now
+                </button>
               </div>
               <div className="w-3/6 pl-3">
-              <button className=" py-2 w-full px-5 border">Add to cart</button>
+                <button className=" py-2 w-full px-5 border">
+                  Add to cart
+                </button>
               </div>
-              
-              
             </div>
           </div>
         </div>
@@ -234,7 +239,12 @@ function ProductDetail() {
                     onChange={(e) => setComment(e.target.value)}
                     className="border border-black w-full p-3"
                   ></textarea>
-                  <button type="button" style={{backgroundColor: 'black'}} onClick={handComment} className="bg-black border border-black text-white uppercase py-3 px-5 mt-4 text-xs">
+                  <button
+                    type="button"
+                    style={{ backgroundColor: "black" }}
+                    onClick={handComment}
+                    className="bg-black border border-black text-white uppercase py-3 px-5 mt-4 text-xs"
+                  >
                     Send
                   </button>
                 </form>
@@ -253,17 +263,21 @@ function ProductDetail() {
         <div className="grid xl:grid-cols-4 lg:grid-cols-4 md:grid-cols-3 gap-4">
           <div className="product-item py-5">
             <div className="product_item-img">
-              <img
-                src={product_1}
-                alt=""
-                style={{ height: "350px" }}
-                className="w-full"
-              />
+              <Link to="/product-detail">
+                <img
+                  src={product_1}
+                  alt=""
+                  style={{ height: "350px" }}
+                  className="w-full object-fill"
+                />
+              </Link>
             </div>
             <div className="product_item-name h-16 overflow-hidden">
-              <p className="text-xl text-overflow overflow-ellipsis line-clamp-2 font-medium">
-                adsadsv Lorem ipsum is simply dummy text...
-              </p>
+              <Link to="/product-detail">
+                <p className="text-xl text-overflow overflow-ellipsis line-clamp-2 font-medium">
+                  adsadsv Lorem ipsum is simply dummy text...
+                </p>
+              </Link>
             </div>
             <div className="product_item-pride">
               <p className="text-base">$ 420.000</p>

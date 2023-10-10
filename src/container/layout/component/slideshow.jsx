@@ -15,6 +15,10 @@ const Slideshow = ({ images }) => {
     );
   };
 
+  const handleThumbnailClick = (index) => {
+    setCurrentImageIndex(index);
+  };
+
   return (
     <div className="container">
       <div className="grid grid-cols-4 gap-5 overflow-hidden ">
@@ -29,6 +33,7 @@ const Slideshow = ({ images }) => {
                 image={image}
                 index={index}
                 currentIndex={currentImageIndex}
+                onClick={() => handleThumbnailClick(index)}
               />
             ))}
           </div>
@@ -49,16 +54,7 @@ const Slideshow = ({ images }) => {
         </div>
       </div>
 
-      {/* <div className="row">
-        {images.map((image, index) => (
-          <Thumbnail
-            key={index}
-            image={image}
-            index={index}
-            currentIndex={currentImageIndex}
-          />
-        ))}
-      </div> */}
+      
     </div>
   );
 };

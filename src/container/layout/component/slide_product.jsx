@@ -22,7 +22,7 @@ function SlideProduct({ comments }) {
     <div className="product-slideshow">
       <div className="product-slide grid xl:grid-cols-4 lg:grid-cols-4 md:grid-cols-3 gap-5 w-full">
         {commentsToShow.map((comment, index) => (
-          <div className="border p-3">
+          <div className="border px-3 py-0">
           <div className="flex border-bottom py-2 ">
             <div className="avatar my-auto">
               <img
@@ -31,17 +31,17 @@ function SlideProduct({ comments }) {
                 alt=""
               />
             </div>
-            <div className="info px-3">
+            <div className="info px-3 py-1">
               <h6 className="font-medium text-left">{comment.name}</h6>
 
               <div className="info-star text-xs ">
-                <label className="info-star-item  star_yell"></label>
-                <label className="info-star-item  star_yell"></label>
-                <label className="info-star-item  "></label>
-                <label className="info-star-item  "></label>
-                <label className="info-star-item  "></label>
+                <label className="info-star-item mr-1 star_yell"></label>
+                <label className="info-star-item mr-1 star_yell"></label>
+                <label className="info-star-item mr-1 "></label>
+                <label className="info-star-item mr-1 "></label>
+                <label className="info-star-item mr-1 "></label>
               </div>
-              <p className="text-xs font-normal">UX/UI Design</p>
+              <p className="text-xs font-normal text-start">UX/UI Design</p>
             </div>
           </div>
           <hr></hr>

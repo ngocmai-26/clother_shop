@@ -10,11 +10,11 @@ function Orders() {
     <div className="pt-20 lg:px-8 px-4">
       <div className="lg:w-5/6 w-full mx-auto">
         <div className="history">
-          <a href="" className="uppercase text-xs">
+          <a href="" className="uppercase text-xs px-1">
             HOME
           </a>
           &#62;
-          <a href="" className="uppercase text-xs">
+          <a href="" className="uppercase text-xs px-1">
             USER
           </a>
         </div>

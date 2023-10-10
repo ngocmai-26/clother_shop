@@ -17,19 +17,19 @@ function Payment() {
     <div className="pt-20 mt-5 sm:mt-0 px-8">
       <div className="w-5/6 mx-auto">
         <div className="history">
-          <a href="" className="uppercase text-xs">
+          <a href="" className="uppercase text-xs px-1">
             HOME
           </a>
           &#62;
-          <a href="" className="uppercase text-xs">
+          <a href="" className="uppercase text-xs px-1">
             product
           </a>
           &#62;
-          <a href="" className="uppercase text-xs">
+          <a href="" className="uppercase text-xs px-1">
             LOREMIPSUM PRODUCTS
           </a>
           &#62;
-          <a href="" className="uppercase text-xs">
+          <a href="" className="uppercase text-xs px-1">
             PAYMENT
           </a>
         </div>

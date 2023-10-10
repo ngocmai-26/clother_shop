@@ -48,13 +48,16 @@ function Header({ accountUser }) {
           >
             <ul class="flex md:flex-row flex-col md:items-center md:gap-[2vw] gap-3">
               <li class="relative max-w-fit pr-3 md:pr-0 py-1 after:bg-gradient-to-r from-[#2b68e0] to-[#e710ea]  after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300">
-                <Link to="/">HomePage</Link>
+                <Link to="/">Danh Mục</Link>
               </li>
               <li class="relative max-w-fit pr-3 md:pr-0 py-1 after:bg-gradient-to-r from-[#2b68e0] to-[#e710ea]  after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300">
-                <Link to="/product">Products</Link>
+                <Link to="/product">Shop</Link>
               </li>
               <li class="relative max-w-fit pr-3 md:pr-0 py-1 after:bg-gradient-to-r from-[#2b68e0] to-[#e710ea]  after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300">
-                <Link to="">About us</Link>
+                <Link to="">About</Link>
+              </li>
+              <li class="relative max-w-fit pr-3 md:pr-0 py-1 after:bg-gradient-to-r from-[#2b68e0] to-[#e710ea]  after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300">
+                <Link to="">Contact</Link>
               </li>
             </ul>
           </div>
@@ -102,7 +105,7 @@ function Header({ accountUser }) {
                 to="/login"
                 type="button"
                 style={{ backgroundColor: "black" }}
-                class="font-medium text-white px-4 py-2 rounded-full active:bg-black hover:bg-gray-500  "
+                class="font-medium text-white px-4 py-1 rounded active:bg-black hover:bg-gray-500  "
               >
                 Login
               </Link>

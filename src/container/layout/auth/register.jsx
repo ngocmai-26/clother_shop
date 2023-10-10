@@ -120,7 +120,7 @@ function Register() {
   return (
     <div className="mt-10 pt-10 sm-pt-0">
       <div className="grid xl:grid-cols-6 lg:grid-cols-4 md:grid-cols-4  gap-2 mx-2 py-20">
-        <div className="xl:col-start-3 md:col-start-2 lg:col-start-2 col-span-2 border p-3">
+        <div className="xl:col-start-3 md:col-start-2 lg:col-start-2 col-span-2 border p-5">
           <h2 className="text-3xl">Get Started</h2>
           <p className="text-base py-3">
             Lorem Ipsum is simply dummy text of the printing and typesetting
@@ -210,7 +210,7 @@ function Register() {
                 Sign up
               </button>
               <div className="text-center pt-2">
-                Already have account? <Link to='/login'>Sign in</Link>
+                Already have account? <Link to='/login' className="underline">Sign in</Link>
               </div>
             </div>
           </form>

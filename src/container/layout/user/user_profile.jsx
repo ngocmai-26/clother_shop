@@ -20,11 +20,11 @@ function UserProfile({setAccountUser}) {
     <div className="pt-20  mt-5 sm:mt-0  px-8">
       <div className="lg:w-5/6 w-full mx-auto">
         <div className="history">
-          <a href="" className="uppercase text-xs">
+          <a href="" className="uppercase text-xs px-1">
             HOME
           </a>
           &#62;
-          <a href="" className="uppercase text-xs">
+          <a href="" className="uppercase text-xs px-1">
             USER
           </a>
         </div>

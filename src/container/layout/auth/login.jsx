@@ -40,9 +40,9 @@ function Login({setAccountUser}) {
     <div className="mt-10 pt-10 sm-pt-0">
       <div className="grid xl:grid-cols-6 lg:grid-cols-4 md:grid-cols-4 gap-2 mx-2 py-20">
       {loggedIn ? (
-        <p>Đăng nhập thành công!</p>
+        <></>
       ) : (<></>)}
-        <div className="xl:col-start-3 md:col-start-2 lg:col-start-2 col-span-2 border p-3">
+        <div className="xl:col-start-3 md:col-start-2 lg:col-start-2 col-span-2 border p-5">
           <h2 className="text-3xl">Sign in</h2>
           <p className="text-base py-3">
             Lorem Ipsum is simply dummy text of the printing and typesetting
@@ -82,13 +82,13 @@ function Login({setAccountUser}) {
                 </button>
               </div>
               <div className="text-end">
-                <Link to="/forgot">Forgot password?</Link>
+                <Link to="/forgot" className="underline">Forgot password?</Link>
               </div>
               <button type="reset" className="bg-black text-white uppercase w-full py-3 mt-4" style={{backgroundColor: 'black'}} onClick={handleLogin} >
                 Sign in
               </button>
               <div className="text-center pt-2">
-                Not have account? <Link to='/register'>Sign up</Link>
+                Not have account? <Link to='/register' className="underline">Sign up</Link>
               </div>
             </div>
           </form>

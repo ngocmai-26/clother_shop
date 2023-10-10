@@ -9,11 +9,11 @@ function Product() {
     <div className="pt-20 mt-5 sm:mt-0 px-8">
       <div className="sm:w-5/6 w-full mx-auto">
         <div className="history">
-          <a href="" className="uppercase text-xs">
+          <a href="" className="uppercase text-xs px-1">
             HOME
           </a>
           &#62;
-          <a href="" className="uppercase text-xs">
+          <a href="" className="uppercase text-xs px-1">
             product
           </a>
         </div>
@@ -54,8 +54,8 @@ function Product() {
           {products.map((item, index) => (
             <div className="product-item py-5">
               <Link to="/product-detail">
-                <div className="product_item-img">
-                  <img src={item.image} alt="" style={{height: '350px'}} className="w-full" />
+                <div className="product_item-img rounded overflow-hidden">
+                  <img src={item.image} alt="" style={{height: '350px'}} className="w-full object-fill" />
                 </div>
               </Link>
 
