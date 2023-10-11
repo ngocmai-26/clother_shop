@@ -7,8 +7,10 @@ import { useState } from "react";
 import SlideProduct from "../component/slide_product";
 import { comments } from "../../../data";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 function ProductDetail() {
+  const [t] = useTranslation("app");
   const images = [product_1, product_2, product_3, product_2];
   const [quantity, setQuantity] = useState(1);
   const [commentUser, setCommentUser] = useState(comments);
@@ -63,7 +65,7 @@ function ProductDetail() {
             <div className="product-information py-1">
               <div className="product-information-title text-base">
                 <h4 className="text-base uppercase py-3 font-medium">
-                  Information
+                {t("information")}
                 </h4>
                 <ul className="text-sm">
                   <li className="leading-6 list-disc mx-6">
@@ -78,7 +80,7 @@ function ProductDetail() {
               </div>
             </div>
             <div className="product-color py-1">
-              <h4 className="text-base uppercase py-3 font-medium">Colors</h4>
+              <h4 className="text-base uppercase py-3 font-medium">{t("color")}</h4>
               <div className="grid grid-cols-3 xl:grid-cols-6 lg:grid-cols-7 md:grid-cols-6 gap-2">
                 <button className="text-xs font-medium bg-slate-900 text-white py-2 px-3 mx-1 border uppercase">
                   Blue
@@ -98,7 +100,7 @@ function ProductDetail() {
               </div>
             </div>
             <div className="product-size py-1">
-              <h4 className="text-base uppercase py-3 font-medium">Size</h4>
+              <h4 className="text-base uppercase py-3 font-medium">{t("size")}</h4>
               <div className="grid grid-cols-6 xl:grid-cols-7 lg:grid-cols-7 md:grid-cols-9 gap-1">
                 <button className="text-xs font-medium bg-slate-900 text-white py-1 px-3 mx-1 border uppercase">
                   S
@@ -121,7 +123,7 @@ function ProductDetail() {
               </div>
             </div>
             <div className="product-quantity py-1">
-              <h4 className="text-base uppercase py-3 font-medium">quantity</h4>
+              <h4 className="text-base uppercase py-3 font-medium">{t("quality")}</h4>
               <div className="flex items-center ">
                 <button
                   className="px-3 py-1 border border-gray-300 text-black "
@@ -130,7 +132,7 @@ function ProductDetail() {
                   -
                 </button>
                 <input
-                  className="w-16 text-center border border-gray-300 py-1"
+                  className="w-14 pl-3 text-center border border-gray-300 py-1"
                   type="number"
                   value={quantity}
                   readOnly
@@ -146,12 +148,12 @@ function ProductDetail() {
             <div className="product-btn flex justify-between pt-5 sm:pt-2">
               <div className="w-3/6 pe-3">
                 <button className="bg-black text-white py-2 w-full px-5 border ">
-                  Buy now
+                {t("buy_now")}
                 </button>
               </div>
               <div className="w-3/6 pl-3">
                 <button className=" py-2 w-full px-5 border">
-                  Add to cart
+                {t("add_cart")}
                 </button>
               </div>
             </div>
@@ -159,7 +161,7 @@ function ProductDetail() {
         </div>
 
         <div className="review">
-          <h1 className="text-4xl my-5 py-3">Reviews</h1>
+          <h1 className="text-4xl my-5 py-3"> {t("review")}</h1>
           <div className="flex">
             <div className="avatar">
               <img src={product_1} className="rounded-full w-10 h-10" alt="" />
@@ -172,7 +174,7 @@ function ProductDetail() {
           <div className="thinks-product">
             <div className="thinks-product-title">
               <h5 className="text-xl font-medium my-3 pt-2">
-                What do you think about our products?
+              {t("about_think")}
               </h5>
               <div className="comment">
                 <form action="">
@@ -245,7 +247,7 @@ function ProductDetail() {
                     onClick={handComment}
                     className="bg-black border border-black text-white uppercase py-3 px-5 mt-4 text-xs"
                   >
-                    Send
+                     {t("send")}
                   </button>
                 </form>
               </div>
@@ -255,11 +257,11 @@ function ProductDetail() {
 
         <div className="customer-talk py-3">
           <h5 className="text-xl font-medium my-3">
-            What customers talk about us?
+          {t("custom_about_think")}
           </h5>
           <SlideProduct comments={commentUser} />
         </div>
-        <h2 className="text-4xl pt-3">OTHER PRODUCTS</h2>
+        <h2 className="text-4xl pt-3"> {t("other_product")}</h2>
         <div className="grid xl:grid-cols-4 lg:grid-cols-4 md:grid-cols-3 gap-4">
           <div className="product-item py-5">
             <div className="product_item-img">

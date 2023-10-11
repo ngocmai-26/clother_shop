@@ -4,8 +4,10 @@ import iconCart from "../../../asset/images/bag.png";
 import LogoDefault from "../../../asset/images/Logo_footer.png";
 import iconUser from "../../../asset/images/user.png";
 import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 
 function Header({ accountUser }) {
+  const [t, i18n] = useTranslation("app");
   // const [userAccount, setUserAccount] = useState(JSON.parse(localStorage.getItem("account")));
   const [userLogin, setUserLogin] = useState(true);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -33,6 +35,7 @@ function Header({ accountUser }) {
     setMenuOpen(!menuOpen);
   };
 
+
   return (
     <header class="fixed z-50 right-0 left-0 top-0 shadow-lg px-4 py-2 bg-white">
       <nav class="flex justify-between">
@@ -48,16 +51,16 @@ function Header({ accountUser }) {
           >
             <ul class="flex md:flex-row flex-col md:items-center md:gap-[2vw] gap-3">
               <li class="relative max-w-fit pr-3 md:pr-0 py-1 after:bg-gradient-to-r from-[#2b68e0] to-[#e710ea]  after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300">
-                <Link to="/">Danh Mục</Link>
+                <Link to="/">{t("home_page")}</Link>
               </li>
               <li class="relative max-w-fit pr-3 md:pr-0 py-1 after:bg-gradient-to-r from-[#2b68e0] to-[#e710ea]  after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300">
-                <Link to="/product">Shop</Link>
+                <Link to="/product">{t("category")}</Link>
               </li>
               <li class="relative max-w-fit pr-3 md:pr-0 py-1 after:bg-gradient-to-r from-[#2b68e0] to-[#e710ea]  after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300">
-                <Link to="">About</Link>
+                <Link to="">{t("about_us")}</Link>
               </li>
               <li class="relative max-w-fit pr-3 md:pr-0 py-1 after:bg-gradient-to-r from-[#2b68e0] to-[#e710ea]  after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300">
-                <Link to="">Contact</Link>
+                <Link to="">{t("contact")}</Link>
               </li>
             </ul>
           </div>
@@ -71,7 +74,7 @@ function Header({ accountUser }) {
                 for="default-search"
                 class="mb-2 text-sm font-medium text-gray-900 sr-only "
               >
-                Search
+                {t("search")}
               </label>
               <div class="relative">
                 <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
@@ -95,7 +98,7 @@ function Header({ accountUser }) {
                   type="search"
                   id="default-search"
                   class="block w-full outline-0 p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-full bg-gray-50 focus:ring-blue-500 focus:border-blue-500"
-                  placeholder="Search"
+                  placeholder={t("search")}
                   required
                 />
               </div>
@@ -105,9 +108,9 @@ function Header({ accountUser }) {
                 to="/login"
                 type="button"
                 style={{ backgroundColor: "black" }}
-                class="font-medium text-white px-4 py-1 rounded active:bg-black hover:bg-gray-500  "
+                class="font-medium text-white px-2 py-1 rounded active:bg-black hover:bg-gray-500  "
               >
-                Login
+                {t("login")}
               </Link>
             ) : (
               <>
@@ -144,6 +147,28 @@ function Header({ accountUser }) {
                   stroke-linejoin="round"
                   stroke-width="2"
                   d="M4 6h16M4 12h16M4 18h16"
+                />
+              </svg>
+            </button>
+            <button
+              onClick={() => {
+                // hàm change lang
+                i18n.changeLanguage(i18n.language === "en" ? "vi" : "en");
+              }}
+              className="pl-3"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-6 h-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418"
                 />
               </svg>
             </button>

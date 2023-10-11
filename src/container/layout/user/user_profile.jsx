@@ -4,7 +4,10 @@ import iconUser from "../../../asset/images/user_light.png";
 import iconLogout from "../../../asset/images/logout.png";
 import iconEyeClose from "../../../asset/images/eye-closed.png";
 import iconEye from "../../../asset/images/eye.png";
+import { useTranslation } from "react-i18next";
 function UserProfile({setAccountUser}) {
+  const [t] = useTranslation("app");
+  
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 
   
@@ -34,36 +37,36 @@ function UserProfile({setAccountUser}) {
               <li>
                 <a href="/user-profile" className="flex py-2">
                   <img src={iconUser} alt="" />
-                  <span className="px-2">User Profile</span>
+                  <span className="px-2">{t("user_profile")}</span>
                 </a>
               </li>
               <li>
                 <a href="/orders" className="flex py-2">
                   <img src={iconCart} alt="" />
-                  <span className="px-2 text-neutral-400">Orders</span>
+                  <span className="px-2 text-neutral-400">{t("orders")}</span>
                 </a>
               </li>
               <li>
                 <button onClick={handLogout} className="flex py-2" type="reset" >
                   <img src={iconLogout} alt="" />
-                  <span className="px-2 text-red-500">Logout</span>
+                  <span className="px-2 text-red-500">{t("logout")}</span>
                 </button>
               </li>
             </ul>
           </div>
           <div className="md:col-span-3 xl:col-span-2 ">
             <div className="user-profile p-3">
-              <h2 className="text-3xl py-2">User profile</h2>
+              <h2 className="text-3xl py-2">{t("user_profile")}</h2>
               <p className="text-base">
                 Lorem Ipsum is simply dummy text of the printing and typesetting
                 industry.
               </p>
               <div className="user-profile-detail">
                 <form>
-                  <h2 className="text-2xl py-2">General Information</h2>
+                  <h2 className="text-2xl py-2">{t("general_information")}</h2>
                   <div className="grid grid-cols-3 gap-4 py-2">
                     <div className="title">
-                      <p className="text-base font-normal">Your name</p>
+                      <p className="text-base font-normal">{t("your_name")}</p>
                       <p className="text-sm text-neutral-400">Your full name</p>
                     </div>
                     <div className="col-span-2">
@@ -88,7 +91,7 @@ function UserProfile({setAccountUser}) {
                   </div>
                   <div className="grid grid-cols-3 gap-4 py-2">
                     <div className="title">
-                      <p className="text-base font-normal">Address</p>
+                      <p className="text-base font-normal">{t("contact")}</p>
                     </div>
                     <div className="col-span-2">
                       <input
@@ -98,10 +101,10 @@ function UserProfile({setAccountUser}) {
                       />
                     </div>
                   </div>
-                  <h2 className="text-2xl py-3">Security</h2>
+                  <h2 className="text-2xl py-3">{t("security")}</h2>
                   <div className="grid grid-cols-3 gap-4 py-2">
                     <div className="title">
-                      <p className="text-base font-normal">Phone number</p>
+                      <p className="text-base font-normal">{t("phone")}</p>
                     </div>
                     <div className="col-span-2">
                       <input
@@ -113,7 +116,7 @@ function UserProfile({setAccountUser}) {
                   </div>
                   <div className="grid grid-cols-3 gap-4 py-2">
                     <div className="title">
-                      <p className="text-base font-normal">Password</p>
+                      <p className="text-base font-normal">{t("password")}</p>
                     </div>
                     <div className="col-span-2 relative">
                       <input
@@ -139,10 +142,10 @@ function UserProfile({setAccountUser}) {
                     <div className="col-span-2 lg:col-end-4">
                       <div className="flex justify-between">
                       <button className="bg-black border border-black text-white uppercase py-3 md:w-5/12 w-6/12 mt-3 me-2 text-xs">
-                        Change Phone Number
+                      {t("change_phone")}
                         </button>
                         <button className="bg-black border border-black text-white uppercase py-3 md:w-5/12 w-5/12 mt-3 text-xs">
-                        Change Password
+                        {t("change_password")}
                         </button>
                       </div>
                     </div>

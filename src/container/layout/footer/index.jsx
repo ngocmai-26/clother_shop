@@ -3,7 +3,9 @@ import iconFB from "../../../asset/images/facebook.png";
 import iconMess from "../../../asset/images/messenger.png";
 import iconBe from "../../../asset/images/be.png";
 import iconLine from "../../../asset/images/whatsapp.png";
+import { useTranslation } from "react-i18next";
 function Footer() {
+  const [t] = useTranslation("app");
   return (
     <div className="bg-gray-700 p-4 ">
       <div className="w-11/12 mx-auto">
@@ -16,7 +18,7 @@ function Footer() {
               <p className="text-sm font-normal leading-6">Email: duyscott.work@gmail.com</p>
               <p className="text-sm font-normal leading-6">Hotline: 0123.456.789</p>
             </div>
-            <h3 className="text-2xl">Mạng xã hội</h3>
+            <h3 className="text-2xl">{t("social_network")}</h3>
             <div className="flex py-3">
               
               <a href="" className="pe-2">
@@ -34,7 +36,7 @@ function Footer() {
             </div>
           </div>
           <div className="py-2">
-            <h3 className="text-2xl">Hệ thống cửa hàng</h3>
+            <h3 className="text-2xl"> {t("shop_system")}</h3>
             <div className="address-1 pt-5">
               <h5 className="py-2 text-base">Hà nội</h5>
               <p className="text-sm leading-6 font-light">CS1: 108 Trần Phú, Hà Đông, Hà Nội</p>
@@ -47,13 +49,13 @@ function Footer() {
             </div>
           </div>
           <div className="py-2">
-            <h3 className="text-2xl">Chính sách</h3>
+            <h3 className="text-2xl"> {t("policy")}</h3>
             <div className="py-5">
-              <p className="leading-7 text-sm">Chính sách bảo mật</p>
+              <p className="leading-7 text-sm"> {t("privacy_policy")}</p>
               <p className="leading-7 text-sm">FAQ</p>
-              <p className="leading-7 text-sm">Chính sách thẻ thành viên</p>
-              <p className="leading-7 text-sm">Chính sách bảo hành và đổi trả</p>
-              <p className="leading-7 text-sm">Chính sách giao hàng hỏa tốc</p>
+              <p className="leading-7 text-sm"> {t("membership_card_policy")}</p>
+              <p className="leading-7 text-sm"> {t("warranty_return_policy")}</p>
+              <p className="leading-7 text-sm"> {t("express_delivery_policy")}</p>
             </div>
           </div>
           <div className="py-2">

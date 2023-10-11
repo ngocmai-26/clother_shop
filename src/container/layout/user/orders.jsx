@@ -4,7 +4,9 @@ import iconUser from "../../../asset/images/user_light.png";
 import iconLogout from "../../../asset/images/logout.png";
 import no_Order from "../../../asset/images/E-Commerce.png";
 import product from "../../../asset/images/product-item.png";
+import { useTranslation } from "react-i18next";
 function Orders() {
+  const [t] = useTranslation("app");
   const [orderProduct, setOrderProduct] = useState([]);
   return (
     <div className="pt-20 lg:px-8 px-4">
@@ -24,26 +26,26 @@ function Orders() {
               <li>
                 <a href="/user-profile" className="flex py-2">
                   <img src={iconUser} alt="" />
-                  <span className="px-2">User Profile</span>
+                  <span className="px-2">{t("user_profile")}</span>
                 </a>
               </li>
               <li>
                 <a href="/orders" className="flex py-2">
                   <img src={iconCart} alt="" />
-                  <span className="px-2 text-neutral-400">Orders</span>
+                  <span className="px-2 text-neutral-400">{t("orders")}</span>
                 </a>
               </li>
               <li>
                 <a href="" className="flex py-2">
                   <img src={iconLogout} alt="" />
-                  <span className="px-2 text-red-500">Logout</span>
+                  <span className="px-2 text-red-500">{t("logout")}</span>
                 </a>
               </li>
             </ul>
           </div>
           <div className="col-span-3">
             <div className="orders p-3 w-11/12">
-              <h2 className="text-3xl py-2">Orders</h2>
+              <h2 className="text-3xl py-2">{t("orders")}</h2>
               <p className="text-base">
                 Lorem Ipsum is simply dummy text of the printing and typesetting
                 industry.

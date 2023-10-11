@@ -187,3 +187,13 @@ label.star:before {
 .product-controls-previous {
   margin-left: -20px;
 }
+
+.nav-item {
+  transition: background-color 0.3s, color 0.3s; /* Thêm hiệu ứng chuyển đổi */
+}
+
+/* CSS cho liên kết được chọn */
+.nav-item.active {
+  background-color:  rgb(100 116 139); /* Màu nền khi được chọn */
+  color: #fff; /* Màu chữ khi được chọn */
+}

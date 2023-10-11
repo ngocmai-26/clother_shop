@@ -1,7 +1,9 @@
 import { useState } from "react";
 import product from "../../../asset/images/product-item.png";
 import iconDelete from "../../../asset/images/trash.png";
+import { useTranslation } from "react-i18next";
 function Payment() {
+  const [t] = useTranslation("app");
   const [quantity, setQuantity] = useState(1);
 
   const handleIncrease = () => {
@@ -39,16 +41,16 @@ function Payment() {
               <thead>
                 <tr>
                   <th class="py-4 px-3 bg-grey-lightest uppercase text-sm text-grey-dark " style={{width: '60%'}}>
-                    Sản phẩm
+                  {t("product")}
                   </th>
                   <th class="py-4 px-3 bg-grey-lightest uppercase text-sm text-grey-dark ">
-                    Số lượng
+                  {t("quality")}
                   </th>
                   <th class="py-4 px-3 bg-grey-lightest uppercase text-sm text-grey-dark ">
-                    Tổng Tiền
+                  {t("sum_money")}
                   </th>
                   <th class="py-4 px-3 bg-grey-lightest uppercase text-sm text-grey-dark ">
-                    Xóa
+                  {t("delete")}
                   </th>
                 </tr>
               </thead>
@@ -65,11 +67,11 @@ function Payment() {
                           Lorem Ipsum is simply dummy text of the printing
                         </p>
                         <div className="product-size py-1">
-                          <span>Size : </span>
+                          <span>{t("size")} : </span>
                           <span>XXS</span>
                         </div>
                         <div className="product-size py-1">
-                          <span>Price : </span>
+                          <span>{t("price")} : </span>
                           <span>$130.00</span>
                         </div>
                       </div>
@@ -162,7 +164,7 @@ function Payment() {
               <div className="payment-bill-detail">
                 <div className="grid grid-cols-2 gap-4">
                   <div className="title">
-                    <p className="text-base font-medium">Tổng tiền</p>
+                    <p className="text-base font-medium">{t("sum_money")}</p>
                   </div>
                   <div className="text-end">
                     <p className="text-base">$123.00</p>
@@ -170,14 +172,14 @@ function Payment() {
                 </div>
                 <div className="w-full text-center ">
                   <button className="bg-black text-white uppercase py-3 px-5 mt-4 text-xs mx-auto">
-                    Thanh toán
+                  {t("pay")}
                   </button>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <h2 className="text-4xl pt-3">OTHER PRODUCTS</h2>
+        <h2 className="text-4xl pt-3">{t("user_profile")}</h2>
         <div className="grid grid-cols-4 gap-4">
           <div className="product-item py-5">
             <div className="product_item-img">

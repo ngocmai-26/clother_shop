@@ -3,8 +3,10 @@ import iconEyeClose from "../../../asset/images/eye-closed.png";
 import iconEye from "../../../asset/images/eye.png";
 import { account } from "../../../data";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 function Login({setAccountUser}) {
+  const [t] = useTranslation("app");
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
   const [accounts, setAccount] = useState(account);
 
@@ -43,7 +45,7 @@ function Login({setAccountUser}) {
         <></>
       ) : (<></>)}
         <div className="xl:col-start-3 md:col-start-2 lg:col-start-2 col-span-2 border p-5">
-          <h2 className="text-3xl">Sign in</h2>
+          <h2 className="text-3xl">{t("login")}</h2>
           <p className="text-base py-3">
             Lorem Ipsum is simply dummy text of the printing and typesetting
             industry.
@@ -53,7 +55,7 @@ function Login({setAccountUser}) {
               <div className="py-2">
                 <span className="px-1 text-sm text-gray-600">Email</span>
                 <input
-                  placeholder=""
+                  placeholder={t("enter_your_name")}
                   type="text"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
@@ -61,10 +63,10 @@ function Login({setAccountUser}) {
                 />
               </div>
               <div className="py-2 relative">
-                <span className="px-1 text-sm text-gray-600">Mật khẩu</span>
+                <span className="px-1 text-sm text-gray-600">{t("password")}</span>
                 <input
                   type={isPasswordVisible ? "text" : "password"}
-                  placeholder=""
+                  placeholder={t("enter_email")}
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   className="w-full px-4 py-2  text-base  border border-gray-300 rounded outline-none  focus:ring-blue-500 focus:border-blue-500 focus:ring-1"
@@ -82,13 +84,13 @@ function Login({setAccountUser}) {
                 </button>
               </div>
               <div className="text-end">
-                <Link to="/forgot" className="underline">Forgot password?</Link>
+                <Link to="/forgot" className="underline">{t("forgot_password")}?</Link>
               </div>
               <button type="reset" className="bg-black text-white uppercase w-full py-3 mt-4" style={{backgroundColor: 'black'}} onClick={handleLogin} >
-                Sign in
+              {t("login")}
               </button>
               <div className="text-center pt-2">
-                Not have account? <Link to='/register' className="underline">Sign up</Link>
+              {t("not_have_account")}? <Link to='/register' className="underline">{t("register")}</Link>
               </div>
             </div>
           </form>

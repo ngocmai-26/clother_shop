@@ -1,58 +1,53 @@
-
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import { useTranslation } from "react-i18next";
 
 function HeaderAdmin() {
+    const [isOpen, setIsOpen] = useState(true)
+    const [t, i18n] = useTranslation("app");
   return (
-    <aside class="relative bg-slate-800 h-screen w-2/12 hidden sm:block shadow-xl">
-      <div class="p-6">
-        <Link
-          to='/admin'
-          class="text-white text-3xl font-semibold uppercase hover:text-gray-300"
+    <div class="w-full bg-slate-800 text-black px-6 left-0 top-0 ">
+      <div class="flex items-end text-right justify-end md:order-2 relative py-2">
+        <button
+          type="button"
+          class="flex mr-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 "
+          onClick={() => setIsOpen(!isOpen)}
         >
-          Admin
-        </Link>
-        <button class="w-full bg-white cta-btn font-semibold py-2 mt-5 rounded-br-lg rounded-bl-lg rounded-tr-lg shadow-lg hover:shadow-xl hover:bg-gray-300 flex items-center justify-center">
-          <i class="fas fa-plus mr-3"></i> New Report
+          <span class="sr-only">Open user menu</span>
+          <img
+            class="w-8 h-8 rounded-full"
+            src="https://cce.edu.vn/wp-content/uploads/2023/06/hinh-anh-hoat-hinh-de-thuong-1-600x600.jpg"
+            alt="user photo"
+          />
         </button>
+        <div
+          class={`z-50 ${isOpen? 'hidden': 'block'} my-4 text-base px-3 list-none absolute top-9 bg-white divide-y divide-gray-100 rounded shadow `}
+          id="user-dropdown"
+        >
+          <ul class="py-2" aria-labelledby="user-menu-button">
+            <li>
+              <a
+                href="#"
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 "
+              >
+                Đăng xuất
+              </a>
+            </li>
+            <li>
+            <button
+              onClick={() => {
+                // hàm change lang
+                i18n.changeLanguage(i18n.language === "en" ? "vi" : "en");
+              }}
+              class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 "
+
+            >
+               {i18n.language === "en" ? "Tiếng Việt": "Tiếng Anh"}
+            </button>
+            </li>
+          </ul>
+        </div>
       </div>
-      <nav class="text-white text-base font-semibold pt-3">
-        <Link
-          to='/admin'
-          class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item"
-        >
-          <i class="fas fa-tachometer-alt mr-3"></i>
-          Dashboard
-        </Link>
-        <Link
-          to='/admin/product-manager'
-          class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item"
-        >
-          <i class="fas fa-sticky-note mr-3"></i>
-          Quản lý sản phẩm
-        </Link>
-        <Link
-          to='/'
-          class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item"
-        >
-          <i class="fas fa-table mr-3"></i>
-          Quản lý đơn hàng
-        </Link>
-        <Link
-          to='/admin/user-manager'
-          class="flex items-center active-nav-link opacity-75 hover:opacity-100 text-white py-4 pl-6 nav-item"
-        >
-          <i class="fas fa-align-left mr-3"></i>
-          Quản lý người dùng
-        </Link>
-      </nav>
-      <a
-        href="#"
-        class="absolute w-full upgrade-btn bottom-0 active-nav-link text-white flex items-center justify-center py-4"
-      >
-        <i class="fas fa-arrow-circle-up mr-3"></i>
-        Upgrade to Pro!
-      </a>
-    </aside>
+    </div>
   );
 }
 

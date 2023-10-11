@@ -2,18 +2,15 @@ import { Link } from "react-router-dom";
 import HeaderAdmin from "../component/header";
 import { useTranslation } from "react-i18next";
 
-function UserManager() {
+function OrdersManager() {
   const [t] = useTranslation("app");
-
     return ( 
-      <div class="w-10/12 bg-slate-700 text-white h-screen  flex flex-col overflow-y-hidden ">
+      <div class="w-10/12 h-screen bg-slate-700 text-white  flex flex-col overflow-y-hidden ">
       <HeaderAdmin />
         <main class="w-full flex-grow p-6">
-          <h1 class="text-3xl  pb-6">{t("user_manager")}</h1>
-          <div className="flex justify-between">
-          <Link to='/admin/user-create'  className="border border-sky-600 text-white uppercase py-2 text-base px-10 bg-sky-600 rounded-full mt-3">
-          {t("add")}
-          </Link>
+          <h1 class="text-3xl  pb-6">{t("order_manager")}</h1>
+          <div className="flex justify-end">
+          
           <form className="lg:w-4/12 mx-2 pt-3 ">
               <label
                 for="default-search"
@@ -59,17 +56,15 @@ function UserManager() {
                 <thead>
                   <tr>
                     <th class="py-4 px-6 bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-grey-light">
-                      STT
+                    Mã đơn hàng
                     </th>
                     <th class="py-4 px-6 bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-grey-light">
-                      Tên người dùng
+                    Người mua
                     </th>
                     <th class="py-4 px-6 bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-grey-light">
-                      Avatar
+                    Ngày mua
                     </th>
-                    <th class="py-4 px-6 bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-grey-light">
-                      Email
-                    </th>
+                    
                     <th class="py-4 px-6 bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-grey-light">
                       Thao tác
                     </th>
@@ -78,7 +73,6 @@ function UserManager() {
                 <tbody>
                   <tr class="hover:bg-grey-lighter">
                     <td class="py-4 px-6 border-b border-grey-light">Lian</td>
-                    <td class="py-4 px-6 border-b border-grey-light">Smith</td>
                     <td class="py-4 px-6 border-b border-grey-light">
                       622322662
                     </td>
@@ -92,7 +86,6 @@ function UserManager() {
                   </tr>
                   <tr class="hover:bg-grey-lighter">
                     <td class="py-4 px-6 border-b border-grey-light">Lian</td>
-                    <td class="py-4 px-6 border-b border-grey-light">Smith</td>
                     <td class="py-4 px-6 border-b border-grey-light">
                       622322662
                     </td>
@@ -113,4 +106,4 @@ function UserManager() {
      );
 }
 
-export default UserManager;
+export default OrdersManager;

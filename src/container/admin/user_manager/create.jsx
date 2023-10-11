@@ -1,6 +1,9 @@
+import HeaderAdmin from "../component/header";
+
 function UserCreate() {
     return ( 
-        <div class="w-10/12 bg-slate-700 text-white  h-screen overflow-x-hidden border-t flex flex-col">
+      <div class="w-10/12 bg-slate-700 text-white h-screen  flex flex-col overflow-y-hidden ">
+      <HeaderAdmin />
         <main class="w-full flex-grow p-6">
           <h1 class="w-full text-3xl pb-6">Thêm sản phẩm</h1>
   

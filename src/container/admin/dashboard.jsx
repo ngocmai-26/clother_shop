@@ -1,41 +1,10 @@
+import HeaderAdmin from "./component/header";
+
 function Dashboard() {
   return (
-    <div class="w-10/12 bg-slate-700 text-white  flex flex-col h-screen overflow-y-hidden">
-      {/* <div class="w-full items-center bg-white py-2 px-6 hidden sm:flex">
-        <div class="w-1/2"></div>
-        <div x-data="{ isOpen: false }" class="relative w-1/2 flex justify-end">
-          <div
-            x-show="isOpen"
-            class="absolute w-32 bg-white rounded-lg shadow-lg py-2 mt-16"
-          >
-            <a href="#" class="block px-4 py-2 account-link hover:text-white">
-              Account
-            </a>
-            <a href="#" class="block px-4 py-2 account-link hover:text-white">
-              Support
-            </a>
-            <a href="#" class="block px-4 py-2 account-link hover:text-white">
-              Sign Out
-            </a>
-          </div>
-        </div>
-      </div> */}
-
-      <div
-        x-data="{ isOpen: false }"
-        class="w-full bg-sidebar py-5 px-6 sm:hidden"
-      >
-        <div class="flex items-center justify-between">
-          <a
-            href="index.html"
-            class="text-white text-3xl font-semibold uppercase hover:text-gray-300"
-          >
-            Admin
-          </a>
-        </div>
-      </div>
-
-      <div class="w-full overflow-x-hidden border-t flex flex-col">
+    <div class="w-10/12 h-screen bg-slate-700 text-white  flex flex-col overflow-y-hidden ">
+      <HeaderAdmin />
+      <div class="w-full overflow-x-hidden ">
         <main class="w-full flex-grow p-6">
           <h1 class="text-3xl  pb-6">Dashboard</h1>
 
