@@ -1,5 +1,5 @@
 {
-    "welcome":"xin chào",
+    "welcome":"Khánh Nam Store",
     "product_manager": "Quản lý sản phẩm",
     "user_manager": "Quản lý tài khoản",
     "order_manager": "Quản lý đơn hàng",
@@ -80,8 +80,7 @@
     "our_feedbacks": "Phản hồi từ khách hàng",
     "contact_to_us": "Liên hệ với chúng tôi",
     "new_collection": "Bộ sưu tập mới",
-    "new_product": "Sản phẩm mới"
-
-
-    
+    "new_product": "Sản phẩm mới",
+    "explode_more":"Khám phá",
+    "shop":"Cửa hàng"
 }
