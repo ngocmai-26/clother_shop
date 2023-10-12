@@ -4,6 +4,7 @@ import iconMess from "../../../asset/images/messenger.png";
 import iconBe from "../../../asset/images/be.png";
 import iconLine from "../../../asset/images/whatsapp.png";
 import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
 function Footer() {
   const [t] = useTranslation("app");
   return (
@@ -21,18 +22,18 @@ function Footer() {
             <h3 className="text-2xl">{t("social_network")}</h3>
             <div className="flex py-3">
               
-              <a href="" className="pe-2">
+              <Link to="\" className="pe-2">
                 <img src={iconFB} alt="" className="w-100" />
-              </a>
-              <a href="" className="px-2">
+              </Link>
+              <Link to="\" className="px-2">
                 <img src={iconMess} alt="" className="w-100" />
-              </a>
-              <a href="" className="px-2">
+              </Link>
+              <Link to="\" className="px-2">
                 <img src={iconLine} alt="" className="w-100" />
-              </a>
-              <a href="" className="px-2">
+              </Link>
+              <Link to="\" className="px-2">
                 <img src={iconBe} alt="" className="w-100" />
-              </a>
+              </Link>
             </div>
           </div>
           <div className="py-2">

@@ -2,6 +2,9 @@ import { useState } from "react";
 import product from "../../../asset/images/product-item.png";
 import iconDelete from "../../../asset/images/trash.png";
 import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
 function Payment() {
   const [t] = useTranslation("app");
   const [quantity, setQuantity] = useState(1);
@@ -19,21 +22,21 @@ function Payment() {
     <div className="pt-20 mt-5 sm:mt-0 px-8">
       <div className="w-5/6 mx-auto">
         <div className="history">
-          <a href="" className="uppercase text-xs px-1">
+          <Link to="\" className="uppercase text-xs px-1">
             HOME
-          </a>
-          &#62;
-          <a href="" className="uppercase text-xs px-1">
+          </Link>
+          <FontAwesomeIcon icon={faChevronRight} style={{fontSize: '10px'}} />
+          <Link to="\" className="uppercase text-xs px-1">
             product
-          </a>
-          &#62;
-          <a href="" className="uppercase text-xs px-1">
+          </Link>
+          <FontAwesomeIcon icon={faChevronRight} style={{fontSize: '10px'}} />
+          <Link to="\" className="uppercase text-xs px-1">
             LOREMIPSUM PRODUCTS
-          </a>
-          &#62;
-          <a href="" className="uppercase text-xs px-1">
+          </Link>
+          <FontAwesomeIcon icon={faChevronRight} style={{fontSize: '10px'}} />
+          <Link to="\" className="uppercase text-xs px-1">
             PAYMENT
-          </a>
+          </Link>
         </div>
         <div className="grid grid-cols-3 gap-4 py-4">
           <div className="col-span-2 border-black">

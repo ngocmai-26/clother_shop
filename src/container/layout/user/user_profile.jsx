@@ -5,6 +5,9 @@ import iconLogout from "../../../asset/images/logout.png";
 import iconEyeClose from "../../../asset/images/eye-closed.png";
 import iconEye from "../../../asset/images/eye.png";
 import { useTranslation } from "react-i18next";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Link } from "react-router-dom";
+import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
 function UserProfile({setAccountUser}) {
   const [t] = useTranslation("app");
   
@@ -23,28 +26,28 @@ function UserProfile({setAccountUser}) {
     <div className="pt-20  mt-5 sm:mt-0  px-8">
       <div className="lg:w-5/6 w-full mx-auto">
         <div className="history">
-          <a href="" className="uppercase text-xs px-1">
+          <Link to="\" className="uppercase text-xs px-1">
             HOME
-          </a>
-          &#62;
-          <a href="" className="uppercase text-xs px-1">
+          </Link>
+          <FontAwesomeIcon icon={faChevronRight} style={{fontSize: '10px'}} />
+          <Link to="\" className="uppercase text-xs px-1">
             USER
-          </a>
+          </Link>
         </div>
         <div className="grid md:grid-cols-4 grid-cols-1 gap-4 py-4">
           <div className=" ...">
             <ul>
               <li>
-                <a href="/user-profile" className="flex py-2">
+                <Link to="/user-profile" className="flex py-2">
                   <img src={iconUser} alt="" />
                   <span className="px-2">{t("user_profile")}</span>
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/orders" className="flex py-2">
+                <Link to="/orders" className="flex py-2">
                   <img src={iconCart} alt="" />
                   <span className="px-2 text-neutral-400">{t("orders")}</span>
-                </a>
+                </Link>
               </li>
               <li>
                 <button onClick={handLogout} className="flex py-2" type="reset" >

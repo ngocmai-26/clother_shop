@@ -5,6 +5,9 @@ import iconLogout from "../../../asset/images/logout.png";
 import no_Order from "../../../asset/images/E-Commerce.png";
 import product from "../../../asset/images/product-item.png";
 import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
 function Orders() {
   const [t] = useTranslation("app");
   const [orderProduct, setOrderProduct] = useState([]);
@@ -12,34 +15,34 @@ function Orders() {
     <div className="pt-20 lg:px-8 px-4">
       <div className="lg:w-5/6 w-full mx-auto">
         <div className="history">
-          <a href="" className="uppercase text-xs px-1">
+          <Link to="\" className="uppercase text-xs px-1">
             HOME
-          </a>
-          &#62;
-          <a href="" className="uppercase text-xs px-1">
+          </Link>
+          <FontAwesomeIcon icon={faChevronRight} style={{fontSize: '10px'}} />
+          <Link to="\" className="uppercase text-xs px-1">
             USER
-          </a>
+          </Link>
         </div>
         <div className="grid  md:grid-cols-4 grid-cols-1 gap-2 py-4">
           <div className=" ...">
             <ul>
               <li>
-                <a href="/user-profile" className="flex py-2">
+                <Link to="/user-profile" className="flex py-2">
                   <img src={iconUser} alt="" />
                   <span className="px-2">{t("user_profile")}</span>
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/orders" className="flex py-2">
+                <Link to="/orders" className="flex py-2">
                   <img src={iconCart} alt="" />
                   <span className="px-2 text-neutral-400">{t("orders")}</span>
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="" className="flex py-2">
+                <Link to="\" className="flex py-2">
                   <img src={iconLogout} alt="" />
                   <span className="px-2 text-red-500">{t("logout")}</span>
-                </a>
+                </Link>
               </li>
             </ul>
           </div>

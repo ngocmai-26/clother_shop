@@ -8,6 +8,8 @@ import SlideProduct from "../component/slide_product";
 import { comments } from "../../../data";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChevronRight, faLeftRight, faRightFromBracket } from "@fortawesome/free-solid-svg-icons";
 
 function ProductDetail() {
   const [t] = useTranslation("app");
@@ -40,17 +42,17 @@ function ProductDetail() {
     <div className="pt-20 mt-5 sm:mt-0 px-8">
       <div className="sm:w-5/6 w-full mx-auto">
         <div className="history">
-          <a href="" className="uppercase text-xs px-1">
+          <Link to="\" className="uppercase text-xs px-1">
             HOME
-          </a>
-          &#62;
-          <a href="" className="uppercase text-xs px-1">
+          </Link>
+          <FontAwesomeIcon icon={faChevronRight} style={{fontSize: '10px'}} />
+          <Link to="\" className="uppercase text-xs px-1">
             product
-          </a>
-          &#62;
-          <a href="" className="uppercase text-xs px-1">
+          </Link>
+          <FontAwesomeIcon icon={faChevronRight} style={{fontSize: '10px'}} />
+          <Link to="\" className="uppercase text-xs px-1">
             LOREMIPSUM PRODUCTS
-          </a>
+          </Link>
         </div>
         <div className="grid grid-cols-1 xl:grid-cols-7 gap-2  py-10">
           <div className="xl:col-span-4">
@@ -58,7 +60,7 @@ function ProductDetail() {
           </div>
           <div className="xl:col-span-3 px-2">
             <div className="product-title">
-              <h1 className="xl:text-3xl text-3xl font-medium pb-1">
+              <h1 className="xl:text-3xl text-3xl font-normal pb-1 h-20 overflow-hidden line-clamp-2">
                 Lorem Ipsum is simply dummy text of the printing
               </h1>
             </div>
@@ -173,7 +175,7 @@ function ProductDetail() {
           </div>
           <div className="thinks-product">
             <div className="thinks-product-title">
-              <h5 className="text-xl font-medium my-3 pt-2">
+              <h5 className="text-xl font-medium my-3 pt-2 ">
               {t("about_think")}
               </h5>
               <div className="comment">
@@ -256,7 +258,7 @@ function ProductDetail() {
         </div>
 
         <div className="customer-talk py-3">
-          <h5 className="text-xl font-medium my-3">
+          <h5 className="text-xl font-medium my-3 ">
           {t("custom_about_think")}
           </h5>
           <SlideProduct comments={commentUser} />
@@ -264,13 +266,13 @@ function ProductDetail() {
         <h2 className="text-4xl pt-3"> {t("other_product")}</h2>
         <div className="grid xl:grid-cols-4 lg:grid-cols-4 md:grid-cols-3 gap-4">
           <div className="product-item py-5">
-            <div className="product_item-img">
+            <div className="product_item-img rounded overflow-hidden">
               <Link to="/product-detail">
                 <img
                   src={product_1}
                   alt=""
                   style={{ height: "350px" }}
-                  className="w-full object-fill"
+                  className="w-full object-cover"
                 />
               </Link>
             </div>

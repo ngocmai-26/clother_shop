@@ -37,19 +37,19 @@ function Header({ accountUser }) {
 
 
   return (
-    <header class="fixed z-50 right-0 left-0 top-0 shadow-lg px-4 py-2 bg-white">
+    <header class="fixed z-50 right-0 left-0 top-0 shadow-lg px-0 sm:px-4 py-2 bg-white">
       <nav class="flex justify-between">
-        <div class="grid  xl:grid-cols-3 lg:grid-cols-3 md:grid-cols-3 items-center gap-3 justify-between w-full">
+        <div class="grid  xl:grid-cols-3 lg:grid-cols-3 md:grid-cols-3 sm:grid-cols-3 items-center gap-3 justify-between w-full">
           <div
             className={`navLinks duration-500 z-40 ${
               menuOpen
-                ? "md:static md:w-auto w-full absolute"
-                : "hidden md:block lg:block xl:block "
-            }  md:h-auto bg-white flex md:items-center gap-[1.5vw] ${
+                ? "lg:static lg:w-auto w-full absolute"
+                : "hidden  lg:block xl:block "
+            }  lg:h-auto bg-white flex md:items-center gap-[1.5vw] ${
               menuOpen ? "top-[100%] left-0" : "top-[-100%] left-[-100%]"
-            } lg:px-5 md:py-0 py-5 px-5 sm:px-0`}
+            } lg:px-5 lg:py-0 py-5 px-5 `}
           >
-            <ul class="flex md:flex-row flex-col md:items-center md:gap-[2vw] gap-3">
+            <ul class="flex lg:flex-row flex-col lg:items-center lg:gap-[2vw] gap-3">
               <li class="relative max-w-fit pr-3 md:pr-0 py-1 after:bg-gradient-to-r from-[#2b68e0] to-[#e710ea]  after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300">
                 <Link to="/">{t("home_page")}</Link>
               </li>
@@ -68,7 +68,7 @@ function Header({ accountUser }) {
             <img src={Logo} alt="LOGO" srcset="" />
           </div>
 
-          <div class="flex gap-0 justify-end ">
+          <div class="flex gap-0 justify-end sm:col-span-2 lg:col-span-1">
             <form className="lg:w-8/12 mx-2">
               <label
                 for="default-search"
@@ -108,7 +108,7 @@ function Header({ accountUser }) {
                 to="/login"
                 type="button"
                 style={{ backgroundColor: "black" }}
-                class="font-medium text-white px-2 py-1 rounded active:bg-black hover:bg-gray-500  "
+                class="font-medium text-white px-2 py-2 mx-0 rounded active:bg-black hover:bg-gray-500 text-sm sm:text-base my-auto"
               >
                 {t("login")}
               </Link>
@@ -134,7 +134,7 @@ function Header({ accountUser }) {
               </>
             )}
 
-            <button onClick={toggleMenu} className="px-2 block sm:hidden">
+            <button onClick={toggleMenu} className="px-2 block lg:hidden">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 class="w-6 h-6"

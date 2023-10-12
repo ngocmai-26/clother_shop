@@ -1,8 +1,8 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function SlideProduct({ comments }) {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const commentsPerPage = 4;
+  const [commentsPerPage, setCommentsPerPage] = useState(4);
 
   const totalSlides = Math.ceil(comments.length / commentsPerPage);
 
@@ -13,6 +13,30 @@ function SlideProduct({ comments }) {
   const prevSlide = () => {
     setCurrentSlide((currentSlide - 1 + totalSlides) % totalSlides);
   };
+  useEffect(() => {
+    const handleResize = () => {
+      const windowWidth = window.innerWidth;
+
+      if (windowWidth < 576) { // Di động
+        setCommentsPerPage(1);
+      } else if (windowWidth < 768) { // Máy tính bảng
+        setCommentsPerPage(2);
+      } else if (windowWidth < 1024) { // Máy tính bảng
+        setCommentsPerPage(3);
+      } else { // Máy tính cá nhân
+        setCommentsPerPage(4);
+      }
+    };
+
+    handleResize();
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
 
   const commentsToShow = comments.slice(
     currentSlide * commentsPerPage,
@@ -22,7 +46,7 @@ function SlideProduct({ comments }) {
     <div className="product-slideshow">
       <div className="product-slide grid xl:grid-cols-4 lg:grid-cols-4 md:grid-cols-3 gap-5 w-full">
         {commentsToShow.map((comment, index) => (
-          <div className="border px-3 py-0">
+          <div className="border py-0 px-4">
           <div className="flex border-bottom py-2 ">
             <div className="avatar my-auto">
               <img

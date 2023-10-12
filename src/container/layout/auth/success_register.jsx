@@ -1,4 +1,5 @@
 
+import { Link } from "react-router-dom";
 import iconSuccess from "../../../asset/images/verify.png";
 
 function SuccessRegister() {
@@ -16,7 +17,7 @@ function SuccessRegister() {
             <img src={iconSuccess} alt="" className="mx-auto" />
             <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
             <div className="text-center pt-4">
-              <a href="">Back to login</a>
+              <Link to="/login">Back to login</Link>
               </div>
           </div>
         </div>

@@ -59,13 +59,12 @@ function NavAdmin() {
             {t("user_manager")}
           </Link>
         </nav>
-        <a
-          href="#"
+        <Link to="/"
           class="absolute w-full upgrade-btn bottom-0 active-nav-link text-white flex items-center justify-center py-4"
         >
           <i class="fas fa-arrow-circle-up mr-3"></i>
           Upgrade to Pro!
-        </a>
+        </Link>
       </aside>
     </div>
   );

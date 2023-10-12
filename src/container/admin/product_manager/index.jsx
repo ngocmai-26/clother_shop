@@ -88,8 +88,8 @@ function ProductManager() {
                     jonsmith@mail.com
                   </td>
                   <td class="py-4 px-6 border-b border-grey-light">
-                    <a className="border border-yellow-400 text-white uppercase py-2 px-3 bg-yellow-400 rounded-lg mt-3 mx-1 text-xs">{t("see_more")}</a>
-                    <a  className="border border-rose-600 text-white uppercase py-2 px-3 bg-rose-600 rounded-lg mt-3 mx-1 text-xs">{t("delete")}</a>
+                    <Link to="\" className="border border-yellow-400 text-white uppercase py-2 px-3 bg-yellow-400 rounded-lg mt-3 mx-1 text-xs">{t("see_more")}</Link>
+                    <button  className="border border-rose-600 text-white uppercase py-2 px-3 bg-rose-600 rounded-lg mt-3 mx-1 text-xs">{t("delete")}</button>
                   </td>
                 </tr>
                 <tr class="hover:bg-grey-lighter">
@@ -102,8 +102,8 @@ function ProductManager() {
                     jonsmith@mail.com
                   </td>
                   <td class="py-4 px-6 border-b border-grey-light">
-                    <a className="border border-yellow-400 text-white uppercase py-2 px-3 bg-yellow-400 rounded-lg mt-3 mx-1 text-xs">{t("see_more")}</a>
-                    <a  className="border border-rose-600 text-white uppercase py-2 px-3 bg-rose-600 rounded-lg mt-3 mx-1 text-xs">{t("delete")}</a>
+                    <Link to="\" className="border border-yellow-400 text-white uppercase py-2 px-3 bg-yellow-400 rounded-lg mt-3 mx-1 text-xs">{t("see_more")}</Link>
+                    <button  className="border border-rose-600 text-white uppercase py-2 px-3 bg-rose-600 rounded-lg mt-3 mx-1 text-xs">{t("delete")}</button>
                   </td>
                 </tr>
               </tbody>
