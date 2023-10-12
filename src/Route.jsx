@@ -20,7 +20,6 @@ function Router() {
   return (
     <BrowserRouter>
       <Header accountUser={accountUser} />
-
       <Routes>
         <Route path="/" element={<HomePage />}></Route>
         <Route path="/product" element={<Product />} />

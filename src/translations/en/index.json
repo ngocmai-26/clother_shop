@@ -1,5 +1,5 @@
 {
-    "welcome":"hello",
+    "welcome":"KHANH NAM STORE",
     "product_manager": "Product Manager",
     "user_manager": "User Manager",
     "order_manager": "Order Manager",
@@ -80,6 +80,7 @@
     "our_feedbacks": "Our feedbacks",
     "contact_to_us": "Contact to us",
     "new_collection": "New collection",
-    "new_product": "New product"
-
+    "new_product": "New product",
+    "explode_more":"Explode more",
+    "shop":"Shop"
 }

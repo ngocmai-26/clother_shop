@@ -8,33 +8,12 @@ import { useTranslation } from "react-i18next";
 
 function Header({ accountUser }) {
   const [t, i18n] = useTranslation("app");
-  // const [userAccount, setUserAccount] = useState(JSON.parse(localStorage.getItem("account")));
   const [userLogin, setUserLogin] = useState(true);
   const [menuOpen, setMenuOpen] = useState(false);
-  // useEffect(()=> {
-  //   localStorage.setItem('account', JSON.stringify({}))
-  // })
-  useEffect(() => {
-    // const account = JSON.parse(localStorage.getItem("account"));
-    // if (account) {
-    //   setUserLogin(account);
-    // }
-    Object.keys(accountUser).length !== 0
-      ? setUserLogin(false)
-      : setUserLogin(true);
-    // console.log( Object.keys(account).length)
-  }, [accountUser]);
-
-  // useEffect(() => {
-  //   if (userLogin) {
-  //     setUserLogin(false);
-  //   }
-  // }, [userAccount])
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
-
 
   return (
     <header class="fixed z-50 right-0 left-0 top-0 shadow-lg px-0 sm:px-4 py-2 bg-white">
@@ -51,7 +30,7 @@ function Header({ accountUser }) {
           >
             <ul class="flex lg:flex-row flex-col lg:items-center lg:gap-[2vw] gap-3">
               <li class="relative max-w-fit pr-3 md:pr-0 py-1 after:bg-gradient-to-r from-[#2b68e0] to-[#e710ea]  after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300">
-                <Link to="/">{t("home_page")}</Link>
+                <Link to="/product">{t("shop")}</Link>
               </li>
               <li class="relative max-w-fit pr-3 md:pr-0 py-1 after:bg-gradient-to-r from-[#2b68e0] to-[#e710ea]  after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300">
                 <Link to="/product">{t("category")}</Link>

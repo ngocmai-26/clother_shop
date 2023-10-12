@@ -19,11 +19,11 @@ function Product() {
             product
           </Link>
         </div>
-        <h3 className="uppercase text-4xl py-4">Bộ lọc</h3>
+        <h3 className="uppercase text-4xl my-6">Bộ lọc</h3>
         <div className="grid lg:grid-cols-6 xl:grid-cols-6 md:grid-cols-5 grid-cols-3  gap-2">
           <select
             id="small"
-            className="block w-30 p-2 mr-3 mb-6 text-sm text-gray-900 border border-black  focus:ring-blue-500 focus:border-blue-500"
+            className="block w-30 py-2 mb-6 text-sm text-gray-900 border border-black  focus:ring-blue-500 focus:border-blue-500"
           >
             <option selected>Mức giá</option>
             <option value="US">United States</option>
@@ -33,7 +33,7 @@ function Product() {
           </select>
           <select
             id="small"
-            className="block w-30 p-2 mb-6 text-sm mr-2 text-gray-900 border border-black  focus:ring-blue-500 focus:border-blue-500"
+            className="block w-30 py-2 mb-6 text-sm mr-2 text-gray-900 border border-black  focus:ring-blue-500 focus:border-blue-500"
           >
             <option selected>Loại</option>
             <option value="US">United States</option>
@@ -43,7 +43,7 @@ function Product() {
           </select>
           <select
             id="small"
-            className="block w-50 p-2 mb-6 text-sm text-gray-900 border border-black  focus:ring-blue-500 focus:border-blue-500"
+            className="block w-50 py-2 mb-6 text-sm text-gray-900 border border-black  focus:ring-blue-500 focus:border-blue-500"
           >
             <option selected>Giá từ thấp đến cao</option>
             <option value="US">United States</option>
@@ -64,7 +64,7 @@ function Product() {
               <div className="product_item-name max-h-16 overflow-hidden">
                 <Link
                   to="/product-detail"
-                  className="text-xl text-overflow overflow-ellipsis line-clamp-2 "
+                  className="text-xl text-overflow overflow-ellipsis line-clamp-2 font-medium text-gray-700"
                 >
                   {item.name}
                 </Link>
