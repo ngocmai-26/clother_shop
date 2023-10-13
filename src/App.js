@@ -6,7 +6,7 @@ import RouterAdmin from './RouteAdmin';
 import "@fontsource/be-vietnam-pro"; 
 
 function App() {
-  return <Router />;
+  return <RouterAdmin />;
 }
 
 export default App;

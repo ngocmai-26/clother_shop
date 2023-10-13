@@ -82,5 +82,16 @@
     "new_collection": "Bộ sưu tập mới",
     "new_product": "Sản phẩm mới",
     "explode_more":"Khám phá",
-    "shop":"Cửa hàng"
+    "shop":"Cửa hàng",
+    "edit": "Sửa",
+    "operate": "Thao tác",
+    "save_update": "Lưu thay đổi",
+    "edit_information": "Chỉnh sửa thông tin",
+    "add_product": "Thêm sản phẩm",
+    "add_user": "Thêm tài khoản",
+    "come_back": "Quay lại",
+    "statistical_tables": "Bảng thống kê",
+    "code_orders": "Mã đơn hàng",
+    "name_product": "Tên sản phẩm",
+    "image": "Hình ảnh"
 }

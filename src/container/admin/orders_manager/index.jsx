@@ -16,7 +16,7 @@ function OrdersManager() {
                 for="default-search"
                 class="mb-2 text-sm font-medium text-gray-900 sr-only "
               >
-                Search
+              {t("search")}
               </label>
               <div class="relative">
                 <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
@@ -40,7 +40,7 @@ function OrdersManager() {
                   type="search"
                   id="default-search"
                   class="block w-full outline-0 p-2  pl-10 text-sm text-gray-900 border border-gray-300 rounded-full bg-gray-50 focus:ring-blue-500 focus:border-blue-500"
-                  placeholder="Search"
+                  placeholder={t("search")}
                   required
                 />
               </div>
@@ -49,14 +49,15 @@ function OrdersManager() {
           
           <div class="w-full mt-12">
             <p class="text-xl pb-3 flex items-center">
-              <i class="fas fa-list mr-3"></i> Table Example
+              <i class="fas fa-list mr-3"></i> 
+              {t('statistical_tables')}
             </p>
             <div class="bg-white overflow-auto">
               <table class="text-left w-full border-collapse text-black">
                 <thead>
                   <tr>
                     <th class="py-4 px-6 bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-grey-light">
-                    Mã đơn hàng
+                    {t('code_orders')}
                     </th>
                     <th class="py-4 px-6 bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-grey-light">
                     Người mua
@@ -64,9 +65,8 @@ function OrdersManager() {
                     <th class="py-4 px-6 bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-grey-light">
                     Ngày mua
                     </th>
-                    
                     <th class="py-4 px-6 bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-grey-light">
-                      Thao tác
+                    {t("operate")}
                     </th>
                   </tr>
                 </thead>
@@ -80,7 +80,8 @@ function OrdersManager() {
                       jonsmith@mail.com
                     </td>
                     <td class="py-4 px-6 border-b border-grey-light">
-                    <Link to="\" className="border border-yellow-400 text-white uppercase py-2 px-3 bg-yellow-400 rounded-lg mt-3 mx-1 text-xs">{t("see_more")}</Link>
+                    <Link to="\" className="border border-sky-600 text-white uppercase py-2 px-3 bg-sky-600 rounded-lg mt-3 mx-1 text-xs">{t("see_more")}</Link>
+                    <Link to="\" className="border border-yellow-400 text-white uppercase py-2 px-3 bg-yellow-400 rounded-lg mt-3 mx-1 text-xs">{t("edit")}</Link>
                     <button  className="border border-rose-600 text-white uppercase py-2 px-3 bg-rose-600 rounded-lg mt-3 mx-1 text-xs">{t("delete")}</button>
                     </td>
                   </tr>
@@ -93,7 +94,8 @@ function OrdersManager() {
                       jonsmith@mail.com
                     </td>
                     <td class="py-4 px-6 border-b border-grey-light">
-                    <Link to="\" className="border border-yellow-400 text-white uppercase py-2 px-3 bg-yellow-400 rounded-lg mt-3 mx-1 text-xs">{t("see_more")}</Link>
+                    <Link to="\" className="border border-sky-600 text-white uppercase py-2 px-3 bg-sky-600 rounded-lg mt-3 mx-1 text-xs">{t("see_more")}</Link>
+                    <Link to="\" className="border border-yellow-400 text-white uppercase py-2 px-3 bg-yellow-400 rounded-lg mt-3 mx-1 text-xs">{t("edit")}</Link>
                     <button  className="border border-rose-600 text-white uppercase py-2 px-3 bg-rose-600 rounded-lg mt-3 mx-1 text-xs">{t("delete")}</button>
                     </td>
                   </tr>

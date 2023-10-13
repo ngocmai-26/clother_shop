@@ -82,5 +82,16 @@
     "new_collection": "New collection",
     "new_product": "New product",
     "explode_more":"Explode more",
-    "shop":"Shop"
+    "shop":"Shop",
+    "edit": "Edit",
+    "operate": "Operate",
+    "save_update": "Save changes",
+    "edit_information": "Edit information",
+    "add_product": "Add product",
+    "add_user": "Add user",
+    "come_back": "Come back",
+    "statistical_tables": "Statistical tables",
+    "code_orders": "Code orders",
+    "name_product": "Name Product",
+    "image": "Image"
 }
