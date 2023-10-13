@@ -1,4 +1,4 @@
-import {  useState } from "react";
+import { useState } from "react";
 import iconCart from "../../../asset/images/baguser.png";
 import iconUser from "../../../asset/images/user_light.png";
 import iconLogout from "../../../asset/images/logout.png";
@@ -8,29 +8,27 @@ import { useTranslation } from "react-i18next";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
-function UserProfile({setAccountUser}) {
+function UserProfile({ setAccountUser }) {
   const [t] = useTranslation("app");
-  
+
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 
-  
-
-  const togglePasswordVisibility =() => {
+  const togglePasswordVisibility = () => {
     setIsPasswordVisible((prevState) => !prevState);
-  }
+  };
 
   const handLogout = () => {
-    setAccountUser({})
-  }
+    setAccountUser({});
+  };
   return (
     <div className="pt-20  mt-5 sm:mt-0  px-8">
       <div className="lg:w-5/6 w-full mx-auto">
         <div className="history">
-          <Link to="\" className="uppercase text-xs px-1">
+          <Link to="/" className="uppercase text-xs px-1">
             HOME
           </Link>
-          <FontAwesomeIcon icon={faChevronRight} style={{fontSize: '10px'}} />
-          <Link to="\" className="uppercase text-xs px-1">
+          <FontAwesomeIcon icon={faChevronRight} style={{ fontSize: "10px" }} />
+          <Link to="/" className="uppercase text-xs px-1">
             USER
           </Link>
         </div>
@@ -39,19 +37,19 @@ function UserProfile({setAccountUser}) {
             <ul>
               <li>
                 <Link to="/user-profile" className="flex py-2">
-                  <img src={iconUser} alt="" />
+                  <img src={iconUser} alt="iconUser" />
                   <span className="px-2">{t("user_profile")}</span>
                 </Link>
               </li>
               <li>
                 <Link to="/orders" className="flex py-2">
-                  <img src={iconCart} alt="" />
+                  <img src={iconCart} alt="iconCart" />
                   <span className="px-2 text-neutral-400">{t("orders")}</span>
                 </Link>
               </li>
               <li>
-                <button onClick={handLogout} className="flex py-2" type="reset" >
-                  <img src={iconLogout} alt="" />
+                <button onClick={handLogout} className="flex py-2" type="reset">
+                  <img src={iconLogout} alt="iconLogout" />
                   <span className="px-2 text-red-500">{t("logout")}</span>
                 </button>
               </li>
@@ -133,22 +131,21 @@ function UserProfile({setAccountUser}) {
                         type="button"
                       >
                         {isPasswordVisible ? (
-                          <img src={iconEye} alt="" />
+                          <img src={iconEye} alt="iconEye" />
                         ) : (
-                          <img src={iconEyeClose} alt="" />
+                          <img src={iconEyeClose} alt="iconEyeClose" />
                         )}
                       </button>
                     </div>
                   </div>
                   <div className="grid lg:grid-cols-3 grid-cols-2 gap-4 py-2">
-         
                     <div className="col-span-2 lg:col-end-4">
                       <div className="flex justify-between">
-                      <button className="bg-black border border-black text-white uppercase py-3 md:w-5/12 w-6/12 mt-3 me-2 text-xs">
-                      {t("change_phone")}
+                        <button className="bg-black border border-black text-white uppercase py-3 md:w-5/12 w-6/12 mt-3 me-2 text-xs">
+                          {t("change_phone")}
                         </button>
                         <button className="bg-black border border-black text-white uppercase py-3 md:w-5/12 w-5/12 mt-3 text-xs">
-                        {t("change_password")}
+                          {t("change_password")}
                         </button>
                       </div>
                     </div>
@@ -157,7 +154,6 @@ function UserProfile({setAccountUser}) {
               </div>
             </div>
           </div>
-          
         </div>
       </div>
     </div>

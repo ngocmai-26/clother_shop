@@ -62,6 +62,7 @@
     "express_delivery_policy": "Chính sách giao hàng hỏa tốc",
     "pay": "Thanh toán",
     "price": "Giá",
+    "describe": "Mô tả",
     "enter_password": "Nhập mật khẩu của bạn",
     "enter_your_name": "Nhập họ và tên của bạn",
     "enter_email": "Nhập email của bạn",
@@ -69,6 +70,10 @@
     "enter_address": "Nhập địa chỉ của bạn",
     "enter_phone": "Nhập số điện thoại của bạn",
     "enter_note": "Nhập ghi chú",
+    "enter_code_product": "Nhập vào mã sản phẩm",
+    "enter_name_product": "Nhập vào tên sản phẩm",
+    "enter_price_product": "Nhập vào giá sản phẩm",
+    "enter_describe": "Nhập mô tả",
     "confirm_otp": "Xác nhận mã OTP",
     "create_new_password": "Tạo mật khẩu mới",
     "custom_about_think": "Khách hàng nói gì về chúng tôi",
@@ -93,5 +98,13 @@
     "statistical_tables": "Bảng thống kê",
     "code_orders": "Mã đơn hàng",
     "name_product": "Tên sản phẩm",
-    "image": "Hình ảnh"
+    "image": "Hình ảnh",
+    "purchase_date": "Ngày mua",
+    "buyer": "Người mua",
+    "about_text": "Nó đã tồn tại không chỉ sau 5 thế kỷ mà còn là bước nhảy vọt trong lĩnh vực sắp chữ điện tử, về cơ bản vẫn không thay đổi. Nó được phổ biến vào những năm 1960 với việc phát hành các tờ Letraset chứa các đoạn Lorem Ipsum và gần đây hơn là với phần mềm xuất bản trên máy tính để bàn như Aldus PageMaker, bao gồm các phiên bản của Lorem Ipsum.",
+    "ordered": "Đã đặt hàng",
+    "confirmed": "Đã xác nhận",
+    "out_delivery":"Đang giao hàng",
+    "delivered": "Đã giao hàng",
+    "type_text": "Loại"
 }

@@ -185,7 +185,11 @@ label.star:before {
 }
 
 .product-controls-previous {
-  margin-left: -20px;
+  margin-left: -50px !important;
+}
+
+.product-controls-next {
+  margin-right: -50px !important;
 }
 
 .nav-item {
@@ -196,4 +200,22 @@ label.star:before {
 .nav-item.active {
   background-color:  rgb(100 116 139); /* Màu nền khi được chọn */
   color: #fff; /* Màu chữ khi được chọn */
+}
+
+@media (max-width: 576px) {
+  .product-controls-previous {
+    margin-left: -20px !important;
+  }
+  .product-controls-next {
+    margin-right: -20px!important;
+  }
+}
+
+@media (min-width: 728px) and (max-width: 1024px) {
+  .product-controls-previous {
+    margin-left: -40px !important;
+  }
+  .product-controls-next {
+    margin-right: -40px!important;
+  }
 }

@@ -1,7 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 
-
 function ForgotPassword() {
   const [t] = useTranslation("app");
   return (
@@ -18,16 +17,18 @@ function ForgotPassword() {
               <div className="py-2">
                 <span className="px-1 text-sm text-gray-600">Email</span>
                 <input
-                  placeholder=""
-                  type="text"
+                  placeholder={t("enter_email")}
+                  type="email"
                   className="w-full px-4 py-2  text-base  border border-gray-300 rounded outline-none  focus:ring-blue-500 focus:border-blue-500 focus:ring-1"
                 />
               </div>
               <Link to="/forgot-OTP" className=" uppercase py-3 mt-4">
-                <p className="bg-black text-white text-center my-4 py-3 w-full">{t("confirm")}</p>
+                <p className="bg-black text-white text-center my-4 py-3 w-full">
+                  {t("confirm")}
+                </p>
               </Link>
               <div className="text-center pt-2">
-              <Link to="/login">{t("back_to_login")}</Link>
+                <Link to="/login">{t("back_to_login")}</Link>
               </div>
             </div>
           </form>

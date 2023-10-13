@@ -1,12 +1,12 @@
 
 import './App.css';
+import "@fontsource/be-vietnam-pro"; 
 import '../src/asset/css/style.css'
 import Router from './Route';
 import RouterAdmin from './RouteAdmin';
-import "@fontsource/be-vietnam-pro"; 
 
 function App() {
-  return <RouterAdmin />;
+  return <Router />;
 }
 
 export default App;

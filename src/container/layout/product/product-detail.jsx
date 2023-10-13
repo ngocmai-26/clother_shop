@@ -9,7 +9,11 @@ import { comments } from "../../../data";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronRight, faLeftRight, faRightFromBracket } from "@fortawesome/free-solid-svg-icons";
+import {
+  faChevronRight,
+  faLeftRight,
+  faRightFromBracket,
+} from "@fortawesome/free-solid-svg-icons";
 
 function ProductDetail() {
   const [t] = useTranslation("app");
@@ -42,15 +46,15 @@ function ProductDetail() {
     <div className="pt-20 mt-5 sm:mt-0 px-8">
       <div className="sm:w-5/6 w-full mx-auto">
         <div className="history">
-          <Link to="\" className="uppercase text-xs px-1">
+          <Link to="/" className="uppercase text-xs px-1">
             HOME
           </Link>
-          <FontAwesomeIcon icon={faChevronRight} style={{fontSize: '10px'}} />
-          <Link to="\" className="uppercase text-xs px-1">
+          <FontAwesomeIcon icon={faChevronRight} style={{ fontSize: "10px" }} />
+          <Link to="/" className="uppercase text-xs px-1">
             product
           </Link>
-          <FontAwesomeIcon icon={faChevronRight} style={{fontSize: '10px'}} />
-          <Link to="\" className="uppercase text-xs px-1">
+          <FontAwesomeIcon icon={faChevronRight} style={{ fontSize: "10px" }} />
+          <Link to="/" className="uppercase text-xs px-1">
             LOREMIPSUM PRODUCTS
           </Link>
         </div>
@@ -67,7 +71,7 @@ function ProductDetail() {
             <div className="product-information py-1">
               <div className="product-information-title text-base">
                 <h4 className="text-base uppercase py-3 font-medium">
-                {t("information")}
+                  {t("information")}
                 </h4>
                 <ul className="text-sm">
                   <li className="leading-6 list-disc mx-6">
@@ -82,7 +86,9 @@ function ProductDetail() {
               </div>
             </div>
             <div className="product-color py-1">
-              <h4 className="text-base uppercase py-3 font-medium">{t("color")}</h4>
+              <h4 className="text-base uppercase py-3 font-medium">
+                {t("color")}
+              </h4>
               <div className="grid grid-cols-3 xl:grid-cols-6 lg:grid-cols-7 md:grid-cols-6 gap-2">
                 <button className="text-xs font-medium bg-slate-900 text-white py-2 px-3 mx-1 border uppercase">
                   Blue
@@ -102,7 +108,9 @@ function ProductDetail() {
               </div>
             </div>
             <div className="product-size py-1">
-              <h4 className="text-base uppercase py-3 font-medium">{t("size")}</h4>
+              <h4 className="text-base uppercase py-3 font-medium">
+                {t("size")}
+              </h4>
               <div className="grid grid-cols-6 xl:grid-cols-7 lg:grid-cols-7 md:grid-cols-9 gap-1">
                 <button className="text-xs font-medium bg-slate-900 text-white py-1 px-3 mx-1 border uppercase">
                   S
@@ -125,7 +133,9 @@ function ProductDetail() {
               </div>
             </div>
             <div className="product-quantity py-1">
-              <h4 className="text-base uppercase py-3 font-medium">{t("quality")}</h4>
+              <h4 className="text-base uppercase py-3 font-medium">
+                {t("quality")}
+              </h4>
               <div className="flex items-center ">
                 <button
                   className="px-3 py-1 border border-gray-300 text-black "
@@ -150,12 +160,12 @@ function ProductDetail() {
             <div className="product-btn flex justify-between pt-5 sm:pt-2">
               <div className="w-3/6 pe-3">
                 <button className="bg-black text-white py-2 w-full px-5 border ">
-                {t("buy_now")}
+                  {t("buy_now")}
                 </button>
               </div>
               <div className="w-3/6 pl-3">
                 <button className=" py-2 w-full px-5 border">
-                {t("add_cart")}
+                  {t("add_cart")}
                 </button>
               </div>
             </div>
@@ -166,7 +176,11 @@ function ProductDetail() {
           <h1 className="text-4xl my-5 py-3"> {t("review")}</h1>
           <div className="flex">
             <div className="avatar">
-              <img src={product_1} className="rounded-full w-10 h-10" alt="" />
+              <img
+                src={product_1}
+                className="rounded-full w-10 h-10"
+                alt="product"
+              />
             </div>
             <div className="info px-3">
               <h6 className="font-medium">Duy Scott</h6>
@@ -176,7 +190,7 @@ function ProductDetail() {
           <div className="thinks-product">
             <div className="thinks-product-title">
               <h5 className="text-xl font-medium my-3 pt-2 ">
-              {t("about_think")}
+                {t("about_think")}
               </h5>
               <div className="comment">
                 <form action="">
@@ -185,7 +199,7 @@ function ProductDetail() {
                     style={{ justifyContent: "left" }}
                   >
                     <input
-                      class="star star-1"
+                      className="star star-1"
                       id="star-1"
                       type="radio"
                       name="star"
@@ -193,9 +207,9 @@ function ProductDetail() {
                       checked={rating === 1}
                       onChange={handleRatingChange}
                     />
-                    <label class="star star-1" for="star-1"></label>
+                    <label className="star star-1" for="star-1"></label>
                     <input
-                      class="star star-2"
+                      className="star star-2"
                       id="star-2"
                       type="radio"
                       name="star"
@@ -203,9 +217,9 @@ function ProductDetail() {
                       checked={rating === 2}
                       onChange={handleRatingChange}
                     />
-                    <label class="star star-2" for="star-2"></label>
+                    <label className="star star-2" for="star-2"></label>
                     <input
-                      class="star star-3"
+                      className="star star-3"
                       id="star-3"
                       type="radio"
                       name="star"
@@ -213,9 +227,9 @@ function ProductDetail() {
                       checked={rating === 3}
                       onChange={handleRatingChange}
                     />
-                    <label class="star star-3" for="star-3"></label>
+                    <label className="star star-3" for="star-3"></label>
                     <input
-                      class="star star-4"
+                      className="star star-4"
                       id="star-4"
                       type="radio"
                       name="star"
@@ -223,9 +237,9 @@ function ProductDetail() {
                       checked={rating === 4}
                       onChange={handleRatingChange}
                     />
-                    <label class="star star-4" for="star-4"></label>
+                    <label className="star star-4" for="star-4"></label>
                     <input
-                      class="star star-5"
+                      className="star star-5"
                       id="star-5"
                       type="radio"
                       name="star"
@@ -233,7 +247,7 @@ function ProductDetail() {
                       checked={rating === 5}
                       onChange={handleRatingChange}
                     />
-                    <label class="star star-5" for="star-5"></label>
+                    <label className="star star-5" for="star-5"></label>
                   </div>
                   <textarea
                     name=""
@@ -249,7 +263,7 @@ function ProductDetail() {
                     onClick={handComment}
                     className="bg-black border border-black text-white uppercase py-3 px-5 mt-4 text-xs"
                   >
-                     {t("send")}
+                    {t("send")}
                   </button>
                 </form>
               </div>
@@ -259,7 +273,7 @@ function ProductDetail() {
 
         <div className="customer-talk py-3">
           <h5 className="text-xl font-medium my-3 ">
-          {t("custom_about_think")}
+            {t("custom_about_think")}
           </h5>
           <SlideProduct comments={commentUser} />
         </div>
@@ -270,7 +284,7 @@ function ProductDetail() {
               <Link to="/product-detail">
                 <img
                   src={product_1}
-                  alt=""
+                  alt="product"
                   style={{ height: "350px" }}
                   className="w-full object-cover"
                 />

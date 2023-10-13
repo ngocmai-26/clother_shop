@@ -13,26 +13,29 @@ function Footer() {
         <div className="grid xl:grid-cols-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-white">
           <div className="py-2">
             <div className="logo">
-              <img src={Logo} alt="" width={250} />
+              <img src={Logo} alt="logo" width={250} />
             </div>
             <div className="py-5">
-              <p className="text-sm font-normal leading-6">Email: duyscott.work@gmail.com</p>
-              <p className="text-sm font-normal leading-6">Hotline: 0123.456.789</p>
+              <p className="text-sm font-normal leading-6">
+                Email: duyscott.work@gmail.com
+              </p>
+              <p className="text-sm font-normal leading-6">
+                Hotline: 0123.456.789
+              </p>
             </div>
             <h3 className="text-2xl">{t("social_network")}</h3>
             <div className="flex py-3">
-              
-              <Link to="\" className="pe-2">
-                <img src={iconFB} alt="" className="w-100" />
+              <Link to="/" className="pe-2">
+                <img src={iconFB} alt="iconFB" className="w-100" />
               </Link>
-              <Link to="\" className="px-2">
-                <img src={iconMess} alt="" className="w-100" />
+              <Link to="/" className="px-2">
+                <img src={iconMess} alt="iconMess" className="w-100" />
               </Link>
-              <Link to="\" className="px-2">
-                <img src={iconLine} alt="" className="w-100" />
+              <Link to="/" className="px-2">
+                <img src={iconLine} alt="iconLine" className="w-100" />
               </Link>
-              <Link to="\" className="px-2">
-                <img src={iconBe} alt="" className="w-100" />
+              <Link to="/" className="px-2">
+                <img src={iconBe} alt="iconBe" className="w-100" />
               </Link>
             </div>
           </div>
@@ -40,13 +43,21 @@ function Footer() {
             <h3 className="text-2xl"> {t("shop_system")}</h3>
             <div className="address-1 pt-5">
               <h5 className="py-2 text-base">Hà nội</h5>
-              <p className="text-sm leading-6 font-light">CS1: 108 Trần Phú, Hà Đông, Hà Nội</p>
-              <p className="text-sm leading-6 font-light">CS1: 108 Trần Phú, Hà Đông, Hà Nội</p>
+              <p className="text-sm leading-6 font-light">
+                CS1: 108 Trần Phú, Hà Đông, Hà Nội
+              </p>
+              <p className="text-sm leading-6 font-light">
+                CS1: 108 Trần Phú, Hà Đông, Hà Nội
+              </p>
             </div>
             <div className="address-1 pt-2">
               <h5 className="py-2 text-base">TP.HCM</h5>
-              <p className="text-sm leading-6 font-light">CS1: 108 Trần Phú, Hà Đông, Hà Nội</p>
-              <p className="text-sm leading-6 font-light">CS1: 108 Trần Phú, Hà Đông, Hà Nội</p>
+              <p className="text-sm leading-6 font-light">
+                CS1: 108 Trần Phú, Hà Đông, Hà Nội
+              </p>
+              <p className="text-sm leading-6 font-light">
+                CS1: 108 Trần Phú, Hà Đông, Hà Nội
+              </p>
             </div>
           </div>
           <div className="py-2">
@@ -54,9 +65,18 @@ function Footer() {
             <div className="py-5">
               <p className="leading-7 text-sm"> {t("privacy_policy")}</p>
               <p className="leading-7 text-sm">FAQ</p>
-              <p className="leading-7 text-sm"> {t("membership_card_policy")}</p>
-              <p className="leading-7 text-sm"> {t("warranty_return_policy")}</p>
-              <p className="leading-7 text-sm"> {t("express_delivery_policy")}</p>
+              <p className="leading-7 text-sm">
+                {" "}
+                {t("membership_card_policy")}
+              </p>
+              <p className="leading-7 text-sm">
+                {" "}
+                {t("warranty_return_policy")}
+              </p>
+              <p className="leading-7 text-sm">
+                {" "}
+                {t("express_delivery_policy")}
+              </p>
             </div>
           </div>
           <div className="py-2">
@@ -70,7 +90,9 @@ function Footer() {
             ></iframe>
           </div>
         </div>
-        <p className="text-sm text-white text-center pt-5">Copyright 2022 by Duy Scott All Right Reserves.</p>
+        <p className="text-sm text-white text-center pt-5">
+          Copyright 2022 by Duy Scott All Right Reserves.
+        </p>
       </div>
     </div>
   );

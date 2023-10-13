@@ -62,6 +62,7 @@
     "express_delivery_policy": "Express delivery policy",
     "pay": "Pay",
     "price": "Price",
+    "describe": "Describe",
     "enter_password": "Enter your password",
     "enter_your_name": "Enter your name",
     "enter_email": "Enter your email",
@@ -69,6 +70,10 @@
     "enter_address": "Enter your address",
     "enter_phone": "Enter your phone number",
     "enter_note": "Enter note",
+    "enter_code_product": "Enter code product",
+    "enter_name_product": "Enter name product",
+    "enter_price_product": "Enter price product",
+    "enter_describe": "Enter describe",
     "confirm_otp": "Confirm OTP",
     "create_new_password": "Create new password",
     "custom_about_think": "What customers talk about us?",
@@ -93,5 +98,14 @@
     "statistical_tables": "Statistical tables",
     "code_orders": "Code orders",
     "name_product": "Name Product",
-    "image": "Image"
+    "image": "Image",
+    "purchase_date": "Purchase date",
+    "buyer": "Buyer",
+    "about_text": "It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+    "ordered": "Ordered",
+    "confirmed": "Confirmed",
+    "out_delivery":"Out of delivery",
+    "delivered": "Delivered",
+    "type_text": "Type"
+
 }

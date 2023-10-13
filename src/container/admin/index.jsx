@@ -1,9 +1,4 @@
 import RouterAdmin from "../../RouteAdmin";
-import HeaderAdmin from "./component/nav";
-import Dashboard from "./dashboard";
-import ProductManager from "./product_manager";
-import ProductCreate from "./product_manager/create";
-import UserCreate from "./user_manager/create";
 
 function HomeAdmin() {
   return (

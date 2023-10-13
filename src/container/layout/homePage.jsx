@@ -1,3 +1,6 @@
+
+import { useTranslation } from "react-i18next";
+import { useState } from "react";
 import poster from "../../asset/images/slide.png";
 import cloth from "../../asset/images/cloth_1.png";
 import cloth_1 from "../../asset/images/cloth_1.png";
@@ -7,9 +10,7 @@ import logoipsum_1 from "../../asset/images/logoipsum_1.png";
 import logoipsum_2 from "../../asset/images/logoipsum_2.png";
 import logoipsum_3 from "../../asset/images/logoipsum_3.png";
 import { Link } from "react-router-dom";
-import { useTranslation } from "react-i18next";
 import SlideProduct from "./component/slide_product";
-import { useState } from "react";
 import { comments } from "../../data";
 function HomePage() {
   const [t] = useTranslation("app");
@@ -17,7 +18,7 @@ function HomePage() {
   return (
     <article className="mt-20 sm:mt-0">
       <div className="poster relative">
-        <img src={poster} alt="" />
+        <img src={poster} alt="poster" />
         <div className="absolute poster-info w-full">
           <h4 className="lg:text-9xl text-4xl xl:text-9xl md:text-8xl text-center text-white ">
             {t("welcome")}
@@ -43,12 +44,7 @@ function HomePage() {
                 {t("about_us")}
               </h4>
               <p className="py-5 leading-7 text-sm">
-                It has survived not only five centuries, but also the leap into
-                electronic typesetting, remaining essentially unchanged. It was
-                popularised in the 1960s with the release of Letraset sheets
-                containing Lorem Ipsum passages, and more recently with desktop
-                publishing software like Aldus PageMaker including versions of
-                Lorem Ipsum.
+                {t("about_text")}
               </p>
               <button className="bg-black border border-black text-white uppercase py-3 w-3/6 mt-4 text-xs">
                 {t("explode_more")}
@@ -57,13 +53,13 @@ function HomePage() {
             <div className="sm:col-span-3 col-span-5">
               <div className="grid grid-cols-3 gap-3">
                 <div className="cloth-item">
-                  <img src={cloth} alt="" className="h-4/5 w-full" />
+                  <img src={cloth} alt="product" className="h-4/5 w-full" />
                 </div>
                 <div className="cloth-item">
-                  <img src={cloth_1} alt="" className="h-full w-full" />
+                  <img src={cloth_1} alt="product" className="h-full w-full" />
                 </div>
                 <div className="cloth-item">
-                  <img src={cloth_2} alt="" className="h-4/5 w-full" />
+                  <img src={cloth_2} alt="product" className="h-4/5 w-full" />
                 </div>
               </div>
             </div>
@@ -77,12 +73,13 @@ function HomePage() {
           <div className="grid xl:grid-cols-4 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-3">
             <div className="product-item py-5">
               <div className="product_item-img rounded overflow-hidden">
-                <Link to="/product-detail"><img
-                  src={cloth}
-                  alt=""
-                  style={{ height: "350px" }}
-                  className="object-cover w-full "
-                />
+                <Link to="/product-detail">
+                  <img
+                    src={cloth}
+                    alt="product"
+                    style={{ height: "350px" }}
+                    className="object-cover w-full "
+                  />
                 </Link>
               </div>
               <div className="product_item-name h-16 overflow-hidden">
@@ -99,12 +96,13 @@ function HomePage() {
             </div>
             <div className="product-item py-5">
               <div className="product_item-img rounded overflow-hidden">
-                <Link to="/product-detail"><img
-                  src={cloth}
-                  alt=""
-                  style={{ height: "350px" }}
-                  className="object-cover w-full "
-                />
+                <Link to="/product-detail">
+                  <img
+                    src={cloth}
+                    alt="product"
+                    style={{ height: "350px" }}
+                    className="object-cover w-full "
+                  />
                 </Link>
               </div>
               <div className="product_item-name h-16 overflow-hidden">
@@ -121,12 +119,13 @@ function HomePage() {
             </div>
             <div className="product-item py-5">
               <div className="product_item-img rounded overflow-hidden">
-                <Link to="/product-detail"><img
-                  src={cloth}
-                  alt=""
-                  style={{ height: "350px" }}
-                  className="object-cover w-full "
-                />
+                <Link to="/product-detail">
+                  <img
+                    src={cloth}
+                    alt="product"
+                    style={{ height: "350px" }}
+                    className="object-cover w-full "
+                  />
                 </Link>
               </div>
               <div className="product_item-name h-16 overflow-hidden">
@@ -143,12 +142,13 @@ function HomePage() {
             </div>
             <div className="product-item py-5">
               <div className="product_item-img rounded overflow-hidden">
-                <Link to="/product-detail"><img
-                  src={cloth}
-                  alt=""
-                  style={{ height: "350px" }}
-                  className="object-cover w-full "
-                />
+                <Link to="/product-detail">
+                  <img
+                    src={cloth}
+                    alt="product"
+                    style={{ height: "350px" }}
+                    className="object-cover w-full "
+                  />
                 </Link>
               </div>
               <div className="product_item-name h-16 overflow-hidden">
@@ -177,12 +177,13 @@ function HomePage() {
           <div className="grid xl:grid-cols-4 lg:grid-cols-4 md:grid-cols-3 grid-cols-1 sm:grid-cols-2 gap-3">
             <div className="product-item py-5">
               <div className="product_item-img rounded overflow-hidden">
-                <Link to="/product-detail"><img
-                  src={cloth}
-                  alt=""
-                  style={{ height: "350px" }}
-                  className="object-cover w-full "
-                />
+                <Link to="/product-detail">
+                  <img
+                    src={cloth}
+                    alt="product"
+                    style={{ height: "350px" }}
+                    className="object-cover w-full "
+                  />
                 </Link>
               </div>
               <div className="product_item-name h-16 overflow-hidden">
@@ -199,12 +200,13 @@ function HomePage() {
             </div>
             <div className="product-item py-5">
               <div className="product_item-img rounded overflow-hidden">
-                <Link to="/product-detail"><img
-                  src={cloth}
-                  alt=""
-                  style={{ height: "350px" }}
-                  className="object-cover w-full "
-                />
+                <Link to="/product-detail">
+                  <img
+                    src={cloth}
+                    alt="product"
+                    style={{ height: "350px" }}
+                    className="object-cover w-full "
+                  />
                 </Link>
               </div>
               <div className="product_item-name h-16 overflow-hidden">
@@ -221,12 +223,13 @@ function HomePage() {
             </div>
             <div className="product-item py-5">
               <div className="product_item-img rounded overflow-hidden">
-                <Link to="/product-detail"><img
-                  src={cloth}
-                  alt=""
-                  style={{ height: "350px" }}
-                  className="object-cover w-full "
-                />
+                <Link to="/product-detail">
+                  <img
+                    src={cloth}
+                    alt="product"
+                    style={{ height: "350px" }}
+                    className="object-cover w-full "
+                  />
                 </Link>
               </div>
               <div className="product_item-name h-16 overflow-hidden">
@@ -243,12 +246,13 @@ function HomePage() {
             </div>
             <div className="product-item py-5">
               <div className="product_item-img rounded overflow-hidden">
-                <Link to="/product-detail"><img
-                  src={cloth}
-                  alt=""
-                  style={{ height: "350px" }}
-                  className="object-cover w-full "
-                />
+                <Link to="/product-detail">
+                  <img
+                    src={cloth}
+                    alt="product"
+                    style={{ height: "350px" }}
+                    className="object-cover w-full "
+                  />
                 </Link>
               </div>
               <div className="product_item-name h-16 overflow-hidden">
@@ -279,23 +283,41 @@ function HomePage() {
           </p>
           <div className="grid xl:grid-cols-4 lg:grid-cols-4 md:grid-cols-4 gap-3 sm:grid-cols-2">
             <div className="product-item py-5 my-auto">
-              <img src={logoipsum} alt="" className="w-4/5 mx-auto" />
+              <img
+                src={logoipsum}
+                alt="our_partners"
+                className="w-4/5 mx-auto"
+              />
             </div>
             <div className="product-item py-5 my-auto">
-              <img src={logoipsum_1} alt="" className="w-4/5 mx-auto" />
+              <img
+                src={logoipsum_1}
+                alt="our_partners"
+                className="w-4/5 mx-auto"
+              />
             </div>
             <div className="product-item py-5 my-auto">
-              <img src={logoipsum_2} alt="" className="w-4/5 mx-auto" />
+              <img
+                src={logoipsum_2}
+                alt="our_partners"
+                className="w-4/5 mx-auto"
+              />
             </div>
             <div className="product-item py-5 my-auto">
-              <img src={logoipsum_3} alt="" className="w-4/5 mx-auto" />
+              <img
+                src={logoipsum_3}
+                alt="our_partners"
+                className="w-4/5 mx-auto"
+              />
             </div>
           </div>
         </div>
         <div className="new_feedbacks text-center py-4">
-          <h2 className="text-3xl sm:text-4xl py-2 text-center font-bold uppercase">{t("our_feedbacks")}</h2>
+          <h2 className="text-3xl sm:text-4xl py-2 text-center font-bold uppercase">
+            {t("our_feedbacks")}
+          </h2>
           <p className="lg:w-2/4 text-center py-5 mx-auto">
-          {t("feedbacks_text")}
+            {t("feedbacks_text")}
           </p>
           <SlideProduct comments={commentUser} />
         </div>

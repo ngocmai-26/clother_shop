@@ -4,81 +4,84 @@ import HeaderAdmin from "../component/header";
 function UserUpdate() {
   const [t] = useTranslation("app");
   return (
-    <div class="w-10/12 bg-slate-700 text-white h-screen  flex flex-col overflow-y-hidden ">
+    <div className="w-10/12 bg-slate-700 text-white h-screen  flex flex-col overflow-y-hidden ">
       <HeaderAdmin />
-      <main class="w-full flex-grow p-6">
-        <h1 class="w-full text-3xl pb-6">{t("edit_information")}</h1>
+      <main className="w-full flex-grow p-6">
+        <h1 className="w-full text-3xl pb-6">{t("add_user")}</h1>
 
-        <div class="flex flex-wrap">
-          <div class="w-full  my-6 pr-0 lg:pr-2">
-            <div class="leading-loose">
-              <form class="p-10 bg-white rounded shadow-xl">
-                <div class="">
-                  <label class="block text-sm text-gray-600" for="name">
-                  {t("user_name")}
+        <div className="flex flex-wrap">
+          <div className="w-full  my-6 pr-0 lg:pr-2">
+            <div className="leading-loose">
+              <form className="p-10 bg-white rounded shadow-xl">
+                <div>
+                  <label className="block text-sm text-gray-600" for="name">
+                    {t("your_name")}
                   </label>
                   <input
-                    class="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded"
+                    className="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded"
                     id="name"
                     name="name"
                     type="text"
                     required=""
-                    placeholder="Your Name"
+                    placeholder={t("enter_your_name")}
                     aria-label="Name"
                   />
                 </div>
-                <div class="mt-2">
-                  <label class="block text-sm text-gray-600" for="price">
+                <div className="mt-2">
+                  <label className="block text-sm text-gray-600" for="Email">
                     Email
                   </label>
                   <input
-                    class="w-full px-5  py-4 text-gray-700 bg-gray-200 rounded"
-                    id="price"
-                    name="price"
+                    className="w-full px-5  py-4 text-gray-700 bg-gray-200 rounded"
+                    id="Email"
+                    name="Email"
                     type="text"
                     required=""
-                    placeholder="Your Price"
-                    aria-label="Price"
+                    placeholder={t("enter_email")}
+                    aria-label="Email"
                   />
                 </div>
-                <div class="mt-2">
-                  <label class="block text-sm text-gray-600" for="price">
+                <div className="mt-2">
+                  <label className="block text-sm text-gray-600" for="password">
                     {t("password")}
                   </label>
                   <input
-                    class="w-full px-5  py-4 text-gray-700 bg-gray-200 rounded"
-                    id="price"
-                    name="price"
+                    className="w-full px-5  py-4 text-gray-700 bg-gray-200 rounded"
+                    id="password"
+                    name="password"
                     type="text"
                     required=""
-                    placeholder="Your Price"
-                    aria-label="Price"
+                    placeholder={t("enter_email")}
+                    aria-label="password"
                   />
                 </div>
-                <div class="mt-2">
-                  <label class="block text-sm text-gray-600" for="price">
+                <div className="mt-2">
+                  <label
+                    className="block text-sm text-gray-600"
+                    for="confirmPassword"
+                  >
                     {t("confirm_password")}
                   </label>
                   <input
-                    class="w-full px-5  py-4 text-gray-700 bg-gray-200 rounded"
-                    id="price"
-                    name="price"
+                    className="w-full px-5  py-4 text-gray-700 bg-gray-200 rounded"
+                    id="confirmPassword"
+                    name="confirmPassword"
                     type="text"
                     required=""
-                    placeholder="Your Price"
-                    aria-label="Price"
+                    placeholder={t("enter_confirm_password")}
+                    aria-label="confirmPassword"
                   />
                 </div>
-                <div class="mt-6 text-right">
+                <div className="mt-6 text-right">
                   <button
-                    class="px-4 py-1 text-white font-light tracking-wider mx-3 rounded"
+                    className="px-4 py-1 text-white font-light tracking-wider mx-3 rounded"
                     style={{ backgroundColor: "black" }}
                     type="submit"
                   >
                     {t("come_back")}
                   </button>
                   <button
-                    class="px-4 py-1 text-white font-light tracking-wider  rounded"
+                    className="px-4 py-1 text-white font-light tracking-wider  rounded"
                     style={{ backgroundColor: "black" }}
                     type="submit"
                   >

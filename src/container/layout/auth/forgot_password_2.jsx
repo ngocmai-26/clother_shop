@@ -27,42 +27,41 @@ function ForgotPassword2() {
             <div className="mx-auto max-w-lg ">
               <div className="grid grid-cols-6 gap-1 justify-center">
                 <input
-                  placeholder=""
                   type="text"
                   className="w-12 mx-2 px-4 py-2 text-base  border border-black rounded outline-none  focus:ring-blue-500 focus:border-blue-500 focus:ring-1"
                 />
                 <input
-                  placeholder=""
                   type="text"
                   className="w-12 mx-2 px-4 py-2 text-base  border border-black rounded outline-none  focus:ring-blue-500 focus:border-blue-500 focus:ring-1"
                 />
                 <input
-                  placeholder=""
                   type="text"
                   className="w-12 mx-2 px-4 py-2  text-base  border border-black rounded outline-none  focus:ring-blue-500 focus:border-blue-500 focus:ring-1"
                 />
                 <input
-                  placeholder=""
                   type="text"
                   className="w-12 mx-2 px-4 py-2  text-base  border border-black rounded outline-none  focus:ring-blue-500 focus:border-blue-500 focus:ring-1"
                 />
                 <input
-                  placeholder=""
                   type="text"
                   className="w-12 mx-2 px-4 py-2  text-base  border border-black rounded outline-none  focus:ring-blue-500 focus:border-blue-500 focus:ring-1"
                 />
                 <input
-                  placeholder=""
                   type="text"
                   className="w-12 mx-2 px-4 py-2  text-base  border border-black rounded outline-none  focus:ring-blue-500 focus:border-blue-500 focus:ring-1"
                 />
               </div>
               <div className="submit w-full">
-              <Link to="/forgot-create-password" className=" uppercase py-3 mt-4">
-                <p className="bg-black text-white text-center my-4 py-3 w-full">{t("confirm")}</p>
-              </Link>
+                <Link
+                  to="/forgot-create-password"
+                  className=" uppercase py-3 mt-4"
+                >
+                  <p className="bg-black text-white text-center my-4 py-3 w-full">
+                    {t("confirm")}
+                  </p>
+                </Link>
               </div>
-            
+
               <div className="text-center pt-2">
                 <Link to="/login">{t("back_to_login")}</Link>
               </div>

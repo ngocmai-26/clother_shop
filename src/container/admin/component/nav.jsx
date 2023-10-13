@@ -12,16 +12,16 @@ function NavAdmin() {
   };
   return (
     <div className="w-2/12 relative">
-      <aside class=" fixed top-0 bottom-0  bg-slate-800 h-screen w-2/12 hidden sm:block shadow-xl ">
-        <div class="p-6">
+      <aside className=" fixed top-0 bottom-0  bg-slate-800 h-screen w-2/12 hidden sm:block shadow-xl ">
+        <div className="p-6">
           <Link
             to="/admin"
-            class="text-white text-3xl font-semibold uppercase hover:text-gray-300"
+            className="text-white text-3xl font-semibold uppercase hover:text-gray-300"
           >
             Admin
           </Link>
         </div>
-        <nav class="text-white text-base font-semibold pt-3">
+        <nav className="text-white text-base font-semibold pt-3">
           <Link
             to="/admin"
             onClick={() => handleLinkClick("/admin")} // Gọi hàm khi người dùng nhấp vào liên kết
@@ -59,10 +59,11 @@ function NavAdmin() {
             {t("user_manager")}
           </Link>
         </nav>
-        <Link to="/"
-          class="absolute w-full upgrade-btn bottom-0 active-nav-link text-white flex items-center justify-center py-4"
+        <Link
+          to="/"
+          className="absolute w-full upgrade-btn bottom-0 active-nav-link text-white flex items-center justify-center py-4"
         >
-          <i class="fas fa-arrow-circle-up mr-3"></i>
+          <i className="fas fa-arrow-circle-up mr-3"></i>
           Upgrade to Pro!
         </Link>
       </aside>

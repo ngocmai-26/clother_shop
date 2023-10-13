@@ -13,23 +13,23 @@ function PaymentMethod() {
     <div className="pt-20 mt-5 sm:mt-0 px-8">
       <div className="sm:w-4/6 w-full mx-auto">
         <div className="history">
-          <Link to="\" className="uppercase text-xs px-1">
+          <Link to="/" className="uppercase text-xs px-1">
             HOME
           </Link>
-          <FontAwesomeIcon icon={faChevronRight} style={{fontSize: '10px'}} />
-          <Link to="\" className="uppercase text-xs px-1">
+          <FontAwesomeIcon icon={faChevronRight} style={{ fontSize: "10px" }} />
+          <Link to="/" className="uppercase text-xs px-1">
             product
           </Link>
-          <FontAwesomeIcon icon={faChevronRight} style={{fontSize: '10px'}} />
-          <Link to="\" className="uppercase text-xs px-1">
+          <FontAwesomeIcon icon={faChevronRight} style={{ fontSize: "10px" }} />
+          <Link to="/" className="uppercase text-xs px-1">
             LOREMIPSUM PRODUCTS
           </Link>
-          <FontAwesomeIcon icon={faChevronRight} style={{fontSize: '10px'}} />
-          <Link to="\" className="uppercase text-xs px-1">
+          <FontAwesomeIcon icon={faChevronRight} style={{ fontSize: "10px" }} />
+          <Link to="/" className="uppercase text-xs px-1">
             PAYMENT
           </Link>
-          <FontAwesomeIcon icon={faChevronRight} style={{fontSize: '10px'}} />
-          <Link to="\" className="uppercase text-xs px-1">
+          <FontAwesomeIcon icon={faChevronRight} style={{ fontSize: "10px" }} />
+          <Link to="/" className="uppercase text-xs px-1">
             PAYMENT METHOD
           </Link>
         </div>
@@ -38,7 +38,10 @@ function PaymentMethod() {
             <div className="mx-auto sm:col-span-1 col-span-2 w-full px-3 border border-black my-2">
               <h2 className="text-xl py-3"> {t("receiving_information")}</h2>
               <div className="py-2">
-                <span className="px-0 text-sm text-gray-600"> {t("your_name")}</span>
+                <span className="px-0 text-sm text-gray-600">
+                  {" "}
+                  {t("your_name")}
+                </span>
                 <input
                   placeholder={t("enter_your_name")}
                   type="text"
@@ -46,9 +49,7 @@ function PaymentMethod() {
                 />
               </div>
               <div className="py-2">
-                <span className="px-0 text-sm text-gray-600">
-                {t("phone")}
-                </span>
+                <span className="px-0 text-sm text-gray-600">{t("phone")}</span>
                 <input
                   placeholder={t("enter_phone")}
                   type="text"
@@ -56,7 +57,9 @@ function PaymentMethod() {
                 />
               </div>
               <div className="py-2">
-                <span className="px-0 text-sm text-gray-600">{t("address")}</span>
+                <span className="px-0 text-sm text-gray-600">
+                  {t("address")}
+                </span>
                 <input
                   placeholder={t("enter_address")}
                   type="text"
@@ -65,7 +68,7 @@ function PaymentMethod() {
               </div>
               <div className="py-2">
                 <span className="px-0 text-sm text-gray-600">
-                {t("province_city")}
+                  {t("province_city")}
                 </span>
                 <select className="w-full px-2 py-2 text-base border border-gray-700 rounded outline-none  focus:ring-blue-500 focus:border-blue-500 focus:ring-1">
                   <option value="1">Hà Nội</option>
@@ -74,14 +77,17 @@ function PaymentMethod() {
               </div>
               <div className="py-2">
                 <span className="px-0 text-sm text-gray-600">
-                {t("districts_towns")}
+                  {t("districts_towns")}
                 </span>
                 <select className="w-full px-2 py-2 text-base border border-gray-700 rounded outline-none  focus:ring-blue-500 focus:border-blue-500 focus:ring-1">
                   <option value="1">Thanh Xuân</option>
                 </select>
               </div>
               <div className="py-2">
-                <span className="px-0 text-sm text-gray-600"> {t("wards")}</span>
+                <span className="px-0 text-sm text-gray-600">
+                  {" "}
+                  {t("wards")}
+                </span>
                 <select className="w-full px-2 py-2 text-base border border-gray-700 rounded outline-none  focus:ring-blue-500 focus:border-blue-500 focus:ring-1">
                   <option value="1">Hạ Đình</option>
                 </select>
@@ -102,7 +108,7 @@ function PaymentMethod() {
                     <div className="title">
                       <p className="text-base font-medium">{t("subtotal")}</p>
                     </div>
-                    <div className="">
+                    <div>
                       <p className="text-sm font-normal">$123.00</p>
                     </div>
                   </div>
@@ -110,16 +116,20 @@ function PaymentMethod() {
                     <div className="title">
                       <p className="text-base font-medium">{t("ship")}</p>
                     </div>
-                    <div className="">
-                      <p className="text-sm font-normal">Calculated at next step</p>
+                    <div>
+                      <p className="text-sm font-normal">
+                        Calculated at next step
+                      </p>
                     </div>
                   </div>
                   <div className="grid grid-cols-2 gap-4 py-1">
                     <div className="title">
-                      <p className="text-base font-medium">{t("order_information")}</p>
+                      <p className="text-base font-medium">
+                        {t("order_information")}
+                      </p>
                       <p className="text-xs">Including $22.27 in taxes</p>
                     </div>
-                    <div className="">
+                    <div>
                       <p className="text-sm font-normal">$123.00</p>
                     </div>
                   </div>
@@ -137,7 +147,7 @@ function PaymentMethod() {
                     </div>
                   </div>
                   <button className="bg-black text-white uppercase py-3 px-7 mt-4 text-xs">
-                  {t("total")}
+                    {t("total")}
                   </button>
                 </div>
               </div>

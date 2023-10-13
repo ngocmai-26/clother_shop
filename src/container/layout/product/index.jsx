@@ -1,21 +1,21 @@
 import { useState } from "react";
-import product from "../../../asset/images/product-item.png";
 import { listProduct } from "../../../data";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
+import { useTranslation } from "react-i18next";
 function Product() {
+  const [t] = useTranslation("app");
   const [products, setProducts] = useState(listProduct);
-  console.log(products);
   return (
     <div className="pt-20 mt-5 sm:mt-0 px-8">
       <div className="sm:w-5/6 w-full mx-auto">
         <div className="history">
-          <Link to="\" className="uppercase text-xs px-1">
+          <Link to="/" className="uppercase text-xs px-1">
             HOME
           </Link>
-          <FontAwesomeIcon icon={faChevronRight} style={{fontSize: '10px'}} />
-          <Link to="\" className="uppercase text-xs px-1">
+          <FontAwesomeIcon icon={faChevronRight} style={{ fontSize: "10px" }} />
+          <Link to="/" className="uppercase text-xs px-1">
             product
           </Link>
         </div>
@@ -33,9 +33,30 @@ function Product() {
           </select>
           <select
             id="small"
+            className="block w-30 py-2 mb-6 text-sm text-gray-900 border border-black  focus:ring-blue-500 focus:border-blue-500"
+          >
+            <option selected>{t('size')}</option>
+            <option value="US">S</option>
+            <option value="CA">M</option>
+            <option value="FR">L</option>
+            <option value="DE">XL</option>
+            <option value="DE">XXL</option>
+          </select>
+          <select
+            id="small"
+            className="block w-30 py-2 mb-6 text-sm text-gray-900 border border-black  focus:ring-blue-500 focus:border-blue-500"
+          >
+            <option selected>{t("color")}</option>
+            <option value="US">Green</option>
+            <option value="CA">Blue</option>
+            <option value="FR">Yellow</option>
+            <option value="DE">Pink</option>
+          </select>
+          <select
+            id="small"
             className="block w-30 py-2 mb-6 text-sm mr-2 text-gray-900 border border-black  focus:ring-blue-500 focus:border-blue-500"
           >
-            <option selected>Loại</option>
+            <option selected>{t("type_text")}</option>
             <option value="US">United States</option>
             <option value="CA">Canada</option>
             <option value="FR">France</option>
@@ -54,10 +75,15 @@ function Product() {
         </div>
         <div className="grid  xl:grid-cols-4 lg:grid-cols-4 md:grid-cols-3 grid-cols-1 sm:grid-cols-2 gap-3">
           {products.map((item, index) => (
-            <div className="product-item py-5">
+            <div className="product-item py-2">
               <Link to="/product-detail">
                 <div className="product_item-img rounded overflow-hidden">
-                  <img src={item.image} alt="" style={{height: '350px'}} className="w-full object-cover" />
+                  <img
+                    src={item.image}
+                    alt="product"
+                    style={{ height: "350px" }}
+                    className="w-full object-cover"
+                  />
                 </div>
               </Link>
 
@@ -78,53 +104,63 @@ function Product() {
         <nav aria-label="Page navigation example" className=" text-end py-3">
           <ul className="inline-flex -space-x-px text-base h-10">
             <li>
-              <Link to="\"
+              <Link
+                to="/"
                 className="flex items-center justify-center mx-1 px-3 h-8 ml-0 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-700 hover:text-white"
               >
                 &#60;
               </Link>
             </li>
             <li>
-              <Link to="\"
+              <Link
+                to="/"
                 className="flex items-center justify-center mx-1 px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-700 hover:text-white"
               >
                 1
               </Link>
             </li>
             <li>
-              <Link to="\"
+              <Link
+                to="/"
                 className="flex items-center justify-center mx-1 px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-700 hover:text-white"
               >
                 2
               </Link>
             </li>
             <li>
-              <Link to="\"
+              <Link
+                to="/"
                 aria-current="page"
                 className="flex items-center justify-center mx-1 px-3 h-8 text-white border border-gray-300 bg-gray-700 hover:bg-black hover:text-white"
               >
-              3
+                3
               </Link>
             </li>
             <li>
-              <Link to="\"
+              <Link
+                to="/"
                 className="flex items-center justify-center mx-1 px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-700 hover:text-white"
               >
                 4
               </Link>
             </li>
             <li>
-              <Link to="\"
+              <Link
+                to="/"
                 className="flex items-center justify-center mx-1 px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-700 hover:text-white"
               >
                 5
               </Link>
             </li>
             <li>
-              <Link to="\"
+              <Link
+                to="/"
                 className="flex items-center justify-center mx-1 px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-700 hover:text-white"
               >
-               <FontAwesomeIcon icon={faChevronRight} style={{fontSize: '10px'}} />
+                <FontAwesomeIcon
+                  icon={faChevronRight}
+                  style={{ fontSize: "10px" }}
+                />
               </Link>
             </li>
           </ul>

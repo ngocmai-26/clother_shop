@@ -2,7 +2,10 @@ import React, { useState } from "react";
 import Slide from "./slide";
 import Thumbnail from "./thumbnail";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronRight, faChevronLeft } from "@fortawesome/free-solid-svg-icons";
+import {
+  faChevronRight,
+  faChevronLeft,
+} from "@fortawesome/free-solid-svg-icons";
 
 const Slideshow = ({ images }) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -26,7 +29,7 @@ const Slideshow = ({ images }) => {
       <div className="grid grid-cols-4 gap-5 overflow-hidden ">
         <div className="mySlides">
           <a className="prev" onClick={prevSlide}>
-          <FontAwesomeIcon icon={faChevronLeft}  />
+            <FontAwesomeIcon icon={faChevronLeft} />
           </a>
           <div className="flex flex-col ">
             {images.map((image, index) => (
@@ -41,7 +44,7 @@ const Slideshow = ({ images }) => {
           </div>
 
           <a className="next" onClick={nextSlide}>
-          <FontAwesomeIcon icon={faChevronRight}  />
+            <FontAwesomeIcon icon={faChevronRight} />
           </a>
         </div>
         <div className="col-span-3">
@@ -55,8 +58,6 @@ const Slideshow = ({ images }) => {
           ))}
         </div>
       </div>
-
-      
     </div>
   );
 };

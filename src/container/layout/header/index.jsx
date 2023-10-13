@@ -16,9 +16,9 @@ function Header({ accountUser }) {
   };
 
   return (
-    <header class="fixed z-50 right-0 left-0 top-0 shadow-lg px-0 sm:px-4 py-2 bg-white">
-      <nav class="flex justify-between">
-        <div class="grid  xl:grid-cols-3 lg:grid-cols-3 md:grid-cols-3 sm:grid-cols-3 items-center gap-3 justify-between w-full">
+    <header className="fixed z-50 right-0 left-0 top-0 shadow-lg px-0 sm:px-4 py-2 bg-white">
+      <nav className="flex justify-between">
+        <div className="grid  xl:grid-cols-3 lg:grid-cols-3 md:grid-cols-3 sm:grid-cols-3 items-center gap-3 justify-between w-full">
           <div
             className={`navLinks duration-500 z-40 ${
               menuOpen
@@ -28,37 +28,37 @@ function Header({ accountUser }) {
               menuOpen ? "top-[100%] left-0" : "top-[-100%] left-[-100%]"
             } lg:px-5 lg:py-0 py-5 px-5 `}
           >
-            <ul class="flex lg:flex-row flex-col lg:items-center lg:gap-[2vw] gap-3">
-              <li class="relative max-w-fit pr-3 md:pr-0 py-1 after:bg-gradient-to-r from-[#2b68e0] to-[#e710ea]  after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300">
-                <Link to="/product">{t("shop")}</Link>
+            <ul className="flex lg:flex-row flex-col lg:items-center lg:gap-[2vw] gap-3">
+              <li className="relative max-w-fit pr-3 md:pr-0 py-1 after:bg-gradient-to-r from-[#2b68e0] to-[#e710ea]  after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300">
+                <Link to="/">{t("shop")}</Link>
               </li>
-              <li class="relative max-w-fit pr-3 md:pr-0 py-1 after:bg-gradient-to-r from-[#2b68e0] to-[#e710ea]  after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300">
+              <li className="relative max-w-fit pr-3 md:pr-0 py-1 after:bg-gradient-to-r from-[#2b68e0] to-[#e710ea]  after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300">
                 <Link to="/product">{t("category")}</Link>
               </li>
-              <li class="relative max-w-fit pr-3 md:pr-0 py-1 after:bg-gradient-to-r from-[#2b68e0] to-[#e710ea]  after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300">
+              <li className="relative max-w-fit pr-3 md:pr-0 py-1 after:bg-gradient-to-r from-[#2b68e0] to-[#e710ea]  after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300">
                 <Link to="">{t("about_us")}</Link>
               </li>
-              <li class="relative max-w-fit pr-3 md:pr-0 py-1 after:bg-gradient-to-r from-[#2b68e0] to-[#e710ea]  after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300">
+              <li className="relative max-w-fit pr-3 md:pr-0 py-1 after:bg-gradient-to-r from-[#2b68e0] to-[#e710ea]  after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300">
                 <Link to="">{t("contact")}</Link>
               </li>
             </ul>
           </div>
-          <div class="w-[130px] md:w-[200px] flex items-center mx-auto">
+          <div className="w-[130px] md:w-[200px] flex items-center mx-auto">
             <img src={Logo} alt="LOGO" srcset="" />
           </div>
 
-          <div class="flex gap-0 justify-end sm:col-span-2 lg:col-span-1">
+          <div className="flex gap-0 justify-end sm:col-span-2 lg:col-span-1">
             <form className="lg:w-8/12 mx-2">
               <label
                 for="default-search"
-                class="mb-2 text-sm font-medium text-gray-900 sr-only "
+                className="mb-2 text-sm font-medium text-gray-900 sr-only "
               >
                 {t("search")}
               </label>
-              <div class="relative">
-                <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+              <div className="relative">
+                <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                   <svg
-                    class="w-4 h-4 text-gray-500 "
+                    className="w-4 h-4 text-gray-500 "
                     aria-hidden="true"
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
@@ -76,7 +76,7 @@ function Header({ accountUser }) {
                 <input
                   type="search"
                   id="default-search"
-                  class="block w-full outline-0 p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-full bg-gray-50 focus:ring-blue-500 focus:border-blue-500"
+                  className="block w-full outline-0 p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-full bg-gray-50 focus:ring-blue-500 focus:border-blue-500"
                   placeholder={t("search")}
                   required
                 />
@@ -87,7 +87,7 @@ function Header({ accountUser }) {
                 to="/login"
                 type="button"
                 style={{ backgroundColor: "black" }}
-                class="font-medium text-white px-2 py-2 mx-0 rounded active:bg-black hover:bg-gray-500 text-sm sm:text-base my-auto"
+                className="font-medium text-white px-2 py-2 mx-0 rounded active:bg-black hover:bg-gray-500 text-sm sm:text-base my-auto"
               >
                 {t("login")}
               </Link>
@@ -99,7 +99,7 @@ function Header({ accountUser }) {
                   className="inline-flex items-center px-2 text-sm font-medium text-gray-900 bg-white border-0 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700"
                 >
                   <div className="w-8 h-8  rounded-full bg-black p-2">
-                    <img src={iconUser} alt="" />
+                    <img src={iconUser} alt="iconUser" />
                   </div>
                 </Link>
                 <Link
@@ -107,7 +107,7 @@ function Header({ accountUser }) {
                   className="inline-flex items-center px-2 text-sm font-medium text-gray-900  border-0 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700"
                 >
                   <div className="w-8 h-8  rounded-full bg-black p-2">
-                    <img src={iconCart} alt="" />
+                    <img src={iconCart} alt="iconCart" />
                   </div>
                 </Link>
               </>
@@ -116,7 +116,7 @@ function Header({ accountUser }) {
             <button onClick={toggleMenu} className="px-2 block lg:hidden">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                class="w-6 h-6"
+                className="w-6 h-6"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -142,7 +142,7 @@ function Header({ accountUser }) {
                 viewBox="0 0 24 24"
                 stroke-width="1.5"
                 stroke="currentColor"
-                class="w-6 h-6"
+                className="w-6 h-6"
               >
                 <path
                   stroke-linecap="round"

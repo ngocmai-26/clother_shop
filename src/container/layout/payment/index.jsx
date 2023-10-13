@@ -22,48 +22,50 @@ function Payment() {
     <div className="pt-20 mt-5 sm:mt-0 px-8">
       <div className="w-5/6 mx-auto">
         <div className="history">
-          <Link to="\" className="uppercase text-xs px-1">
+          <Link to="/" className="uppercase text-xs px-1">
             HOME
           </Link>
-          <FontAwesomeIcon icon={faChevronRight} style={{fontSize: '10px'}} />
-          <Link to="\" className="uppercase text-xs px-1">
+          <FontAwesomeIcon icon={faChevronRight} style={{ fontSize: "10px" }} />
+          <Link to="/" className="uppercase text-xs px-1">
             product
           </Link>
-          <FontAwesomeIcon icon={faChevronRight} style={{fontSize: '10px'}} />
-          <Link to="\" className="uppercase text-xs px-1">
+          <FontAwesomeIcon icon={faChevronRight} style={{ fontSize: "10px" }} />
+          <Link to="/" className="uppercase text-xs px-1">
             LOREMIPSUM PRODUCTS
           </Link>
-          <FontAwesomeIcon icon={faChevronRight} style={{fontSize: '10px'}} />
-          <Link to="\" className="uppercase text-xs px-1">
+          <FontAwesomeIcon icon={faChevronRight} style={{ fontSize: "10px" }} />
+          <Link to="/" className="uppercase text-xs px-1">
             PAYMENT
           </Link>
         </div>
         <div className="grid grid-cols-3 gap-4 py-4">
           <div className="col-span-2 border-black">
-            <table class="text-left w-full border-collapse text-black border">
+            <table className="text-left w-full border-collapse text-black border">
               <thead>
                 <tr>
-                  <th class="py-4 px-3 bg-grey-lightest uppercase text-sm text-grey-dark " style={{width: '60%'}}>
-                  {t("product")}
+                  <th
+                    className="py-4 px-3 bg-grey-lightest uppercase text-sm text-grey-dark "
+                    style={{ width: "60%" }}
+                  >
+                    {t("product")}
                   </th>
-                  <th class="py-4 px-3 bg-grey-lightest uppercase text-sm text-grey-dark ">
-                  {t("quality")}
+                  <th className="py-4 px-3 bg-grey-lightest uppercase text-sm text-grey-dark ">
+                    {t("quality")}
                   </th>
-                  <th class="py-4 px-3 bg-grey-lightest uppercase text-sm text-grey-dark ">
-                  {t("sum_money")}
+                  <th className="py-4 px-3 bg-grey-lightest uppercase text-sm text-grey-dark ">
+                    {t("sum_money")}
                   </th>
-                  <th class="py-4 px-3 bg-grey-lightest uppercase text-sm text-grey-dark ">
-                  {t("delete")}
+                  <th className="py-4 px-3 bg-grey-lightest uppercase text-sm text-grey-dark ">
+                    {t("delete")}
                   </th>
                 </tr>
               </thead>
               <tbody>
-                
-                <tr class="hover:bg-grey-lighter">
-                  <td class="py-4 px-3">
+                <tr className="hover:bg-grey-lighter">
+                  <td className="py-4 px-3">
                     <div className="grid grid-cols-3 gap-5 ">
-                      <div className="">
-                        <img src={product} alt="" height="170px" />
+                      <div>
+                        <img src={product} alt="product" height="170px" />
                       </div>
                       <div className="col-span-2 my-auto">
                         <p className="text-xl mt-0">
@@ -80,40 +82,40 @@ function Payment() {
                       </div>
                     </div>
                   </td>
-                  <td class="py-4 px-3">
-                  <div className="flex items-center ">
-                    <button
-                      className="px-3 py-1 border border-gray-300 text-black "
-                      onClick={handleDecrease}
-                    >
-                      -
-                    </button>
-                    <input
-                      className="w-10 text-center border border-gray-300 py-1"
-                      type="number"
-                      value={quantity}
-                      readOnly
-                    />
-                    <button
-                      className="px-3 py-1 border border-gray-300 text-black "
-                      onClick={handleIncrease}
-                    >
-                      +
-                    </button>
-                  </div>
+                  <td className="py-4 px-3">
+                    <div className="flex items-center ">
+                      <button
+                        className="px-3 py-1 border border-gray-300 text-black "
+                        onClick={handleDecrease}
+                      >
+                        -
+                      </button>
+                      <input
+                        className="w-10 text-center border border-gray-300 py-1"
+                        type="number"
+                        value={quantity}
+                        readOnly
+                      />
+                      <button
+                        className="px-3 py-1 border border-gray-300 text-black "
+                        onClick={handleIncrease}
+                      >
+                        +
+                      </button>
+                    </div>
                   </td>
-                  <td class="py-4 px-3">999.999 đ</td>
+                  <td className="py-4 px-3">999.999 đ</td>
                   <td>
                     <button className=" border p-2 border-zinc-400">
-                    <img src={iconDelete} alt="" />
+                      <img src={iconDelete} alt="iconDelete" />
                     </button>
                   </td>
                 </tr>
-                <tr class="hover:bg-grey-lighter">
-                  <td class="py-4 px-3">
+                <tr className="hover:bg-grey-lighter">
+                  <td className="py-4 px-3">
                     <div className="grid grid-cols-3 gap-5 ">
-                      <div className="">
-                        <img src={product} alt="" height="170px" />
+                      <div>
+                        <img src={product} alt="product" height="170px" />
                       </div>
                       <div className="col-span-2 my-auto">
                         <p className="text-xl mt-0">
@@ -130,39 +132,39 @@ function Payment() {
                       </div>
                     </div>
                   </td>
-                  <td class="py-4 px-3">
-                  <div className="flex items-center ">
-                    <button
-                      className="px-3 py-1 border border-gray-300 text-black "
-                      onClick={handleDecrease}
-                    >
-                      -
-                    </button>
-                    <input
-                      className="w-10 text-center border border-gray-300 py-1"
-                      type="number"
-                      value={quantity}
-                      readOnly
-                    />
-                    <button
-                      className="px-3 py-1 border border-gray-300 text-black "
-                      onClick={handleIncrease}
-                    >
-                      +
-                    </button>
-                  </div>
+                  <td className="py-4 px-3">
+                    <div className="flex items-center ">
+                      <button
+                        className="px-3 py-1 border border-gray-300 text-black "
+                        onClick={handleDecrease}
+                      >
+                        -
+                      </button>
+                      <input
+                        className="w-10 text-center border border-gray-300 py-1"
+                        type="number"
+                        value={quantity}
+                        readOnly
+                      />
+                      <button
+                        className="px-3 py-1 border border-gray-300 text-black "
+                        onClick={handleIncrease}
+                      >
+                        +
+                      </button>
+                    </div>
                   </td>
-                  <td class="py-4 px-3">999.999 đ</td>
+                  <td className="py-4 px-3">999.999 đ</td>
                   <td>
                     <button className=" border p-2 border-zinc-400">
-                    <img src={iconDelete} alt="" />
+                      <img src={iconDelete} alt="iconDelete" />
                     </button>
                   </td>
                 </tr>
               </tbody>
             </table>
           </div>
-          <div className="">
+          <div>
             <div className="payment-bill border border-black p-3">
               <div className="payment-bill-detail">
                 <div className="grid grid-cols-2 gap-4">
@@ -175,7 +177,7 @@ function Payment() {
                 </div>
                 <div className="w-full text-center ">
                   <button className="bg-black text-white uppercase py-3 px-5 mt-4 text-xs mx-auto">
-                  {t("pay")}
+                    {t("pay")}
                   </button>
                 </div>
               </div>
@@ -186,7 +188,7 @@ function Payment() {
         <div className="grid grid-cols-4 gap-4">
           <div className="product-item py-5">
             <div className="product_item-img">
-              <img src={product} alt="" style={{ height: "350px" }} />
+              <img src={product} alt="product" style={{ height: "350px" }} />
             </div>
             <div className="product_item-name h-16 overflow-hidden">
               <p className="text-xl text-overflow overflow-ellipsis line-clamp-2 ">

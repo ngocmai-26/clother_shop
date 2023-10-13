@@ -8,12 +8,13 @@ import PaymentMethod from "./container/layout/payment/payment_method";
 import UserProfile from "./container/layout/user/user_profile";
 import Orders from "./container/layout/user/orders";
 import ForgotPassword from "./container/layout/auth/forgot_password";
-import {  useState } from "react";
+import { useState } from "react";
 import Header from "./container/layout/header";
 import Footer from "./container/layout/footer";
 import Register from "./container/layout/auth/register";
 import ForgotPassword2 from "./container/layout/auth/forgot_password_2";
 import ForgotPassword3 from "./container/layout/auth/forgot_password_3";
+import SuccessRegister from "./container/layout/auth/success_register";
 
 function Router() {
   const [accountUser, setAccountUser] = useState({});
@@ -33,6 +34,7 @@ function Router() {
         <Route path="/payment-method" element={<PaymentMethod />} /> 
         <Route path="/user-profile" element={<UserProfile setAccountUser={setAccountUser} />} />
         <Route path="/orders" element={<Orders />} />
+        <Route path="/success-register" element={<SuccessRegister />} />
       </Routes>
       <Footer />
     </BrowserRouter>
