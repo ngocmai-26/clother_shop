@@ -1,12 +1,44 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { listProduct } from "../../../data";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import { useTranslation } from "react-i18next";
+import { PAGINATION } from "../../../contanst";
+import Pagination from "../component/pagination";
 function Product() {
   const [t] = useTranslation("app");
-  const [products, setProducts] = useState(listProduct);
+  const [products, setProducts] = useState([...listProduct]);
+  const [productsPage, setProductsPage] = useState(listProduct.slice(0, PAGINATION.LIMIT));
+  const [numberPagination, setNumberPagination] = useState({
+    totalPage: 10,
+    currentPage: PAGINATION.CURRENT_PAGE,
+  });
+
+  useEffect(() => {
+    setNumberPagination({
+      ...numberPagination,
+      totalPage: Math.ceil(products.length / PAGINATION.LIMIT),
+    });
+  }, [numberPagination.currentPage]);
+
+  const onChangePage = (page) => {
+    console.log(productsPage)
+    setNumberPagination((pre) => ({
+      ...pre,
+      currentPage: page,
+    }));
+  };
+
+  useEffect(() => {
+    const newProduct = [...products].slice(
+      (numberPagination.currentPage - 1) * PAGINATION.LIMIT,
+      numberPagination.currentPage * PAGINATION.LIMIT
+    );
+    console.log('newProduct', newProduct)
+    setProductsPage((pre) => (pre = newProduct));
+  }, [numberPagination.currentPage, numberPagination.totalPage])
+
   return (
     <div className="pt-20 mt-5 sm:mt-0 px-8">
       <div className="sm:w-5/6 w-full mx-auto">
@@ -35,7 +67,7 @@ function Product() {
             id="small"
             className="block w-30 py-2 mb-6 text-sm text-gray-900 border border-black  focus:ring-blue-500 focus:border-blue-500"
           >
-            <option selected>{t('size')}</option>
+            <option selected>{t("size")}</option>
             <option value="US">S</option>
             <option value="CA">M</option>
             <option value="FR">L</option>
@@ -74,7 +106,7 @@ function Product() {
           </select>
         </div>
         <div className="grid  xl:grid-cols-4 lg:grid-cols-4 md:grid-cols-3 grid-cols-1 sm:grid-cols-2 gap-3">
-          {products.map((item, index) => (
+          {productsPage.map((item, index) => (
             <div className="product-item py-2">
               <Link to="/product-detail">
                 <div className="product_item-img rounded overflow-hidden">
@@ -102,68 +134,10 @@ function Product() {
           ))}
         </div>
         <nav aria-label="Page navigation example" className=" text-end py-3">
-          <ul className="inline-flex -space-x-px text-base h-10">
-            <li>
-              <Link
-                to="/"
-                className="flex items-center justify-center mx-1 px-3 h-8 ml-0 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-700 hover:text-white"
-              >
-                &#60;
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/"
-                className="flex items-center justify-center mx-1 px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-700 hover:text-white"
-              >
-                1
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/"
-                className="flex items-center justify-center mx-1 px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-700 hover:text-white"
-              >
-                2
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/"
-                aria-current="page"
-                className="flex items-center justify-center mx-1 px-3 h-8 text-white border border-gray-300 bg-gray-700 hover:bg-black hover:text-white"
-              >
-                3
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/"
-                className="flex items-center justify-center mx-1 px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-700 hover:text-white"
-              >
-                4
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/"
-                className="flex items-center justify-center mx-1 px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-700 hover:text-white"
-              >
-                5
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/"
-                className="flex items-center justify-center mx-1 px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-700 hover:text-white"
-              >
-                <FontAwesomeIcon
-                  icon={faChevronRight}
-                  style={{ fontSize: "10px" }}
-                />
-              </Link>
-            </li>
-          </ul>
+        <Pagination
+                totalPage={numberPagination.totalPage}
+                setPage={onChangePage}
+              ></Pagination>
         </nav>
       </div>
     </div>
