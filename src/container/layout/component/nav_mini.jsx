@@ -23,9 +23,9 @@ function NavbarMini({handLogout}) {
         </Link>
       </li>
       <li>
-        <Link to="/" className="flex py-2">
+        <Link to="/address-manager" className="flex py-2">
         <FontAwesomeIcon icon={faMap} style={{ fontSize: "20px" }} />
-          <span className="px-2 ">{t("Quản lý địa chỉ")}</span>
+          <span className="px-2 ">{t("address_manager")}</span>
         </Link>
       </li>
       <li>

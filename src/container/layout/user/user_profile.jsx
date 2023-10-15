@@ -8,7 +8,7 @@ import { useTranslation } from "react-i18next";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
-import NavbarMini from "../../admin/component/nav_mini";
+import NavbarMini from "../component/nav_mini";
 function UserProfile({ setAccountUser }) {
   const [t] = useTranslation("app");
 
@@ -30,7 +30,7 @@ function UserProfile({ setAccountUser }) {
           </Link>
           <FontAwesomeIcon icon={faChevronRight} style={{ fontSize: "10px" }} />
           <Link to="/" className="uppercase text-xs px-1">
-          {t("user")}
+            {t("user")}
           </Link>
         </div>
         <div className="grid md:grid-cols-4 grid-cols-1 gap-4 py-4">
@@ -50,7 +50,9 @@ function UserProfile({ setAccountUser }) {
                   <div className="grid grid-cols-3 gap-4 py-2">
                     <div className="title">
                       <p className="text-base font-normal">{t("your_name")}</p>
-                      <p className="text-sm text-neutral-400">{t("your_full_name")}</p>
+                      <p className="text-sm text-neutral-400">
+                        {t("your_full_name")}
+                      </p>
                     </div>
                     <div className="col-span-2">
                       <input

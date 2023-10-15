@@ -5,10 +5,10 @@ import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
-import NavbarMini from "../../admin/component/nav_mini";
-function Orders({setAccountUser}) {
+import NavbarMini from "../component/nav_mini";
+function Orders({ setAccountUser }) {
   const [t] = useTranslation("app");
-  const [orderProduct, setOrderProduct] = useState([]); 
+  const [orderProduct, setOrderProduct] = useState([]);
   const handLogout = () => {
     setAccountUser({});
   };
@@ -21,7 +21,7 @@ function Orders({setAccountUser}) {
           </Link>
           <FontAwesomeIcon icon={faChevronRight} style={{ fontSize: "10px" }} />
           <Link to="/" className="uppercase text-xs px-1">
-          {t("orders")}
+            {t("orders")}
           </Link>
         </div>
         <div className="grid  md:grid-cols-4 grid-cols-1 gap-2 py-4">

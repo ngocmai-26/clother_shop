@@ -113,6 +113,7 @@
     "home": "Home",
     "user": "User",
     "payment": "Payment",
-    "your_full_name": "Your full name"
+    "your_full_name": "Your full name",
+    "address_manager": "Address Manager"
 
 }

@@ -81,7 +81,7 @@ function Header({ accountUser }) {
                 />
               </div>
             </form>
-            {Object.keys(accountUser).length === 0 ? (
+            {Object.keys(accountUser).length !== 0 ? (
               <Link
                 to="/login"
                 type="button"

@@ -15,6 +15,7 @@ import Register from "./container/layout/auth/register";
 import ForgotPassword2 from "./container/layout/auth/forgot_password_2";
 import ForgotPassword3 from "./container/layout/auth/forgot_password_3";
 import SuccessRegister from "./container/layout/auth/success_register";
+import AddressManager from "./container/layout/user/addressManager";
 
 function Router() {
   const [accountUser, setAccountUser] = useState({});
@@ -38,6 +39,7 @@ function Router() {
         <Route path="/user-profile" element={<UserProfile setAccountUser={setAccountUser} />} />
         <Route path="/orders" element={<Orders  setAccountUser={setAccountUser} />} />
         <Route path="/success-register" element={<SuccessRegister />} />
+        <Route path="/address-manager" element={<AddressManager setAccountUser={setAccountUser} />} />
       </Routes>
       <Footer />
     </BrowserRouter>
