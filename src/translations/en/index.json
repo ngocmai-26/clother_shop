@@ -114,6 +114,8 @@
     "user": "User",
     "payment": "Payment",
     "your_full_name": "Your full name",
-    "address_manager": "Address Manager"
+    "address_manager": "Address Manager",
+    "your_address": "Your address",
+    "add_address": "Add new address"
 
 }

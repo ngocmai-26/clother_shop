@@ -19,7 +19,7 @@ function AddressManager({ setAccountUser }) {
           </Link>
           <FontAwesomeIcon icon={faChevronRight} style={{ fontSize: "10px" }} />
           <Link to="/" className="uppercase text-xs px-1">
-            {t("user")}
+            {t("address")}
           </Link>
         </div>
         <div className="grid md:grid-cols-4 grid-cols-1 gap-4 py-4">
@@ -29,13 +29,13 @@ function AddressManager({ setAccountUser }) {
           <div className="col-span-3 ">
             <div className="user-profile p-3">
               <div className="header-manager md:flex justify-between border-b pb-3 ">
-                <h2 className="md:text-2xl text-xl my-auto font-medium">Địa chỉ của tôi</h2>
+                <h2 className="md:text-2xl text-xl my-auto font-medium">{t("your_address")}</h2>
                 <button className="bg-orange-600 text-white py-2 px-3 ">
-                  Thêm địa chỉ mới
+                {t("add_address")}
                 </button>
               </div>
               <div className="content-manager py-3">
-                <h2 className="text-lg font-medium">Địa chỉ</h2>
+                <h2 className="text-lg font-medium">{t("address")}</h2>
                 <div className="justify-between border-b py-2">
                   <div className="information">
                     <h3 className="name text-base font-medium">Cao sơn</h3>
@@ -46,7 +46,7 @@ function AddressManager({ setAccountUser }) {
                     </div>
                   </div>
                   <div className="action text-right">
-                    <button className="text-blue-500">Cập nhật</button>
+                    <button className="text-blue-500">{t("update")}</button>
                   </div>
                 </div>
                 <div className="block justify-between border-b py-2">
@@ -59,7 +59,7 @@ function AddressManager({ setAccountUser }) {
                     </div>
                   </div>
                   <div className="action text-right">
-                    <button className="text-blue-500">Cập nhật</button>
+                    <button className="text-blue-500">{t("update")}</button>
                   </div>
                 </div>
               </div>
