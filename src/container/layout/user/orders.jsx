@@ -1,50 +1,32 @@
 import { useState } from "react";
-import iconCart from "../../../asset/images/baguser.png";
-import iconUser from "../../../asset/images/user_light.png";
-import iconLogout from "../../../asset/images/logout.png";
 import no_Order from "../../../asset/images/E-Commerce.png";
 import product from "../../../asset/images/product-item.png";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
-function Orders() {
+import NavbarMini from "../../admin/component/nav_mini";
+function Orders({setAccountUser}) {
   const [t] = useTranslation("app");
-  const [orderProduct, setOrderProduct] = useState([]);
+  const [orderProduct, setOrderProduct] = useState([]); 
+  const handLogout = () => {
+    setAccountUser({});
+  };
   return (
     <div className="pt-20 lg:px-8 px-4">
       <div className="lg:w-5/6 w-full mx-auto">
         <div className="history">
           <Link to="/" className="uppercase text-xs px-1">
-            HOME
+            {t("home")}
           </Link>
           <FontAwesomeIcon icon={faChevronRight} style={{ fontSize: "10px" }} />
           <Link to="/" className="uppercase text-xs px-1">
-            USER
+          {t("orders")}
           </Link>
         </div>
         <div className="grid  md:grid-cols-4 grid-cols-1 gap-2 py-4">
-          <div className=" ...">
-            <ul>
-              <li>
-                <Link to="/user-profile" className="flex py-2">
-                  <img src={iconUser} alt="iconUser" />
-                  <span className="px-2">{t("user_profile")}</span>
-                </Link>
-              </li>
-              <li>
-                <Link to="/orders" className="flex py-2">
-                  <img src={iconCart} alt="iconCart" />
-                  <span className="px-2 text-neutral-400">{t("orders")}</span>
-                </Link>
-              </li>
-              <li>
-                <Link to="/" className="flex py-2">
-                  <img src={iconLogout} alt="iconLogout" />
-                  <span className="px-2 text-red-500">{t("logout")}</span>
-                </Link>
-              </li>
-            </ul>
+          <div>
+            <NavbarMini handLogout={handLogout} />
           </div>
           <div className="col-span-3">
             <div className="orders p-3 w-11/12">
@@ -84,28 +66,32 @@ function Orders() {
                           <div className="w-6 h-6 border border-black rounded-2xl flex align-center ">
                             <div className="w-4 h-4 bg-black rounded-xl m-auto my-auto"></div>
                           </div>
-                          <div className="col-span-3 text-sm">{t("ordered")}</div>
+                          <div className="col-span-3 text-sm">
+                            {t("ordered")}
+                          </div>
                         </div>
                         <div className="line w-0.5 h-4 bg-black"></div>
                         <div className="grid grid-cols-4 gap-3 ">
                           <div className="w-6 h-6 border border-black rounded-2xl flex align-center ">
                             <div className="w-4 h-4 bg-black rounded-xl m-auto my-auto"></div>
                           </div>
-                          <div className="col-span-3 text-sm">{t("confirmed")}</div>
+                          <div className="col-span-3 text-sm">
+                            {t("confirmed")}
+                          </div>
                         </div>
                         <div className="line w-0.5 h-4 bg-black"></div>
                         <div className="grid grid-cols-4 gap-3 ">
-                          <div className="w-6 h-6 border border-black rounded-2xl flex align-center ">
-                          </div>
+                          <div className="w-6 h-6 border border-black rounded-2xl flex align-center "></div>
                           <div className="col-span-3 text-sm">
                             {t("out_delivery")}
                           </div>
                         </div>
                         <div className="line w-0.5 h-4 bg-black"></div>
                         <div className="grid grid-cols-4 gap-3 ">
-                          <div className="w-6 h-6 border border-black rounded-2xl flex align-center ">
+                          <div className="w-6 h-6 border border-black rounded-2xl flex align-center "></div>
+                          <div className="col-span-3 text-sm">
+                            {t("delivered")}
                           </div>
-                          <div className="col-span-3 text-sm">{t("delivered")}</div>
                         </div>
                       </div>
                     </div>

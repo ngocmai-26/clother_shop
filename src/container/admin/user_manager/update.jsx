@@ -15,7 +15,10 @@ function UserUpdate() {
               <div className="leading-loose">
                 <form className="p-10 bg-white rounded shadow-xl">
                   <div>
-                    <label className="block text-sm text-gray-600" for="name">
+                    <label
+                      className="block text-sm text-gray-600"
+                      htmlhtmlFor="name"
+                    >
                       {t("your_name")}
                     </label>
                     <input
@@ -29,7 +32,10 @@ function UserUpdate() {
                     />
                   </div>
                   <div className="mt-2">
-                    <label className="block text-sm text-gray-600" for="Email">
+                    <label
+                      className="block text-sm text-gray-600"
+                      htmlhtmlFor="Email"
+                    >
                       Email
                     </label>
                     <input
@@ -45,7 +51,7 @@ function UserUpdate() {
                   <div className="mt-2">
                     <label
                       className="block text-sm text-gray-600"
-                      for="password"
+                      htmlhtmlFor="password"
                     >
                       {t("password")}
                     </label>
@@ -62,7 +68,7 @@ function UserUpdate() {
                   <div className="mt-2">
                     <label
                       className="block text-sm text-gray-600"
-                      for="confirmPassword"
+                      htmlhtmlFor="confirmPassword"
                     >
                       {t("confirm_password")}
                     </label>

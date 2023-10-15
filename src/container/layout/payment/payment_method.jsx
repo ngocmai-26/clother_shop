@@ -14,11 +14,11 @@ function PaymentMethod() {
       <div className="sm:w-4/6 w-full mx-auto">
         <div className="history">
           <Link to="/" className="uppercase text-xs px-1">
-            HOME
+            {t("home")}
           </Link>
           <FontAwesomeIcon icon={faChevronRight} style={{ fontSize: "10px" }} />
           <Link to="/" className="uppercase text-xs px-1">
-            product
+            {t("product")}
           </Link>
           <FontAwesomeIcon icon={faChevronRight} style={{ fontSize: "10px" }} />
           <Link to="/" className="uppercase text-xs px-1">
@@ -26,11 +26,11 @@ function PaymentMethod() {
           </Link>
           <FontAwesomeIcon icon={faChevronRight} style={{ fontSize: "10px" }} />
           <Link to="/" className="uppercase text-xs px-1">
-            PAYMENT
+            {t("payment")}
           </Link>
           <FontAwesomeIcon icon={faChevronRight} style={{ fontSize: "10px" }} />
           <Link to="/" className="uppercase text-xs px-1">
-            PAYMENT METHOD
+          {t("payment_methods")}
           </Link>
         </div>
         <form className="mt-4 my-4">

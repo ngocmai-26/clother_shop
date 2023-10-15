@@ -106,5 +106,12 @@
     "confirmed": "Đã xác nhận",
     "out_delivery":"Đang giao hàng",
     "delivered": "Đã giao hàng",
-    "type_text": "Loại"
+    "type_text": "Loại",
+    "filter": "Bộ lọc",
+    "price_level": "Mức giá",
+    "price_from_low_to_high": "Giá từ thấp đến cao",
+    "home": "Trang chủ",
+    "user": "Người dùng",
+    "payment": "Thanh toán",
+    "your_full_name": "Tên đầy đủ của bạn"
 }

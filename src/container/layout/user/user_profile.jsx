@@ -8,6 +8,7 @@ import { useTranslation } from "react-i18next";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
+import NavbarMini from "../../admin/component/nav_mini";
 function UserProfile({ setAccountUser }) {
   const [t] = useTranslation("app");
 
@@ -25,35 +26,16 @@ function UserProfile({ setAccountUser }) {
       <div className="lg:w-5/6 w-full mx-auto">
         <div className="history">
           <Link to="/" className="uppercase text-xs px-1">
-            HOME
+            {t("home")}
           </Link>
           <FontAwesomeIcon icon={faChevronRight} style={{ fontSize: "10px" }} />
           <Link to="/" className="uppercase text-xs px-1">
-            USER
+          {t("user")}
           </Link>
         </div>
         <div className="grid md:grid-cols-4 grid-cols-1 gap-4 py-4">
-          <div className=" ...">
-            <ul>
-              <li>
-                <Link to="/user-profile" className="flex py-2">
-                  <img src={iconUser} alt="iconUser" />
-                  <span className="px-2">{t("user_profile")}</span>
-                </Link>
-              </li>
-              <li>
-                <Link to="/orders" className="flex py-2">
-                  <img src={iconCart} alt="iconCart" />
-                  <span className="px-2 text-neutral-400">{t("orders")}</span>
-                </Link>
-              </li>
-              <li>
-                <button onClick={handLogout} className="flex py-2" type="reset">
-                  <img src={iconLogout} alt="iconLogout" />
-                  <span className="px-2 text-red-500">{t("logout")}</span>
-                </button>
-              </li>
-            </ul>
+          <div>
+            <NavbarMini handLogout={handLogout} />
           </div>
           <div className="md:col-span-3 xl:col-span-2 ">
             <div className="user-profile p-3">
@@ -68,7 +50,7 @@ function UserProfile({ setAccountUser }) {
                   <div className="grid grid-cols-3 gap-4 py-2">
                     <div className="title">
                       <p className="text-base font-normal">{t("your_name")}</p>
-                      <p className="text-sm text-neutral-400">Your full name</p>
+                      <p className="text-sm text-neutral-400">{t("your_full_name")}</p>
                     </div>
                     <div className="col-span-2">
                       <input

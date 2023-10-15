@@ -47,11 +47,11 @@ function ProductDetail() {
       <div className="sm:w-5/6 w-full mx-auto">
         <div className="history">
           <Link to="/" className="uppercase text-xs px-1">
-            HOME
+          {t("home")}
           </Link>
           <FontAwesomeIcon icon={faChevronRight} style={{ fontSize: "10px" }} />
           <Link to="/" className="uppercase text-xs px-1">
-            product
+          {t("product")}
           </Link>
           <FontAwesomeIcon icon={faChevronRight} style={{ fontSize: "10px" }} />
           <Link to="/" className="uppercase text-xs px-1">
@@ -207,7 +207,7 @@ function ProductDetail() {
                       checked={rating === 1}
                       onChange={handleRatingChange}
                     />
-                    <label className="star star-1" for="star-1"></label>
+                    <label className="star star-1" htmlhtmlFor="star-1"></label>
                     <input
                       className="star star-2"
                       id="star-2"
@@ -217,7 +217,7 @@ function ProductDetail() {
                       checked={rating === 2}
                       onChange={handleRatingChange}
                     />
-                    <label className="star star-2" for="star-2"></label>
+                    <label className="star star-2" htmlhtmlFor="star-2"></label>
                     <input
                       className="star star-3"
                       id="star-3"
@@ -227,7 +227,7 @@ function ProductDetail() {
                       checked={rating === 3}
                       onChange={handleRatingChange}
                     />
-                    <label className="star star-3" for="star-3"></label>
+                    <label className="star star-3" htmlhtmlFor="star-3"></label>
                     <input
                       className="star star-4"
                       id="star-4"
@@ -237,7 +237,7 @@ function ProductDetail() {
                       checked={rating === 4}
                       onChange={handleRatingChange}
                     />
-                    <label className="star star-4" for="star-4"></label>
+                    <label className="star star-4" htmlhtmlFor="star-4"></label>
                     <input
                       className="star star-5"
                       id="star-5"
@@ -247,7 +247,7 @@ function ProductDetail() {
                       checked={rating === 5}
                       onChange={handleRatingChange}
                     />
-                    <label className="star star-5" for="star-5"></label>
+                    <label className="star star-5" htmlhtmlFor="star-5"></label>
                   </div>
                   <textarea
                     name=""

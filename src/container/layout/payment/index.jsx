@@ -23,11 +23,11 @@ function Payment() {
       <div className="w-5/6 mx-auto">
         <div className="history">
           <Link to="/" className="uppercase text-xs px-1">
-            HOME
+          {t("home")}
           </Link>
           <FontAwesomeIcon icon={faChevronRight} style={{ fontSize: "10px" }} />
           <Link to="/" className="uppercase text-xs px-1">
-            product
+          {t("product")}
           </Link>
           <FontAwesomeIcon icon={faChevronRight} style={{ fontSize: "10px" }} />
           <Link to="/" className="uppercase text-xs px-1">
@@ -35,7 +35,7 @@ function Payment() {
           </Link>
           <FontAwesomeIcon icon={faChevronRight} style={{ fontSize: "10px" }} />
           <Link to="/" className="uppercase text-xs px-1">
-            PAYMENT
+            {t("payment")}
           </Link>
         </div>
         <div className="grid grid-cols-3 gap-4 py-4">

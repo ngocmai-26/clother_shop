@@ -26,7 +26,6 @@ function UserManager() {
     }));
   };
 
-
   return (
     <div className="w-10/12 bg-slate-700 text-white h-screen  flex flex-col overflow-y-hidden ">
       <HeaderAdmin />
@@ -42,7 +41,7 @@ function UserManager() {
             </Link>
             <form className="lg:w-4/12 mx-2 pt-3 ">
               <label
-                for="default-search"
+                htmlhtmlFor="default-search"
                 className="mb-2 text-sm font-medium text-gray-900 sr-only "
               >
                 {t("search")}
@@ -58,9 +57,9 @@ function UserManager() {
                   >
                     <path
                       stroke="currentColor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
                       d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
                     />
                   </svg>

@@ -47,7 +47,7 @@ function Login({ setAccountUser }) {
               <div className="py-2">
                 <span className="px-1 text-sm text-gray-600">Email</span>
                 <input
-                  placeholder={t("enter_your_email")}
+                  placeholder={t("enter_email")}
                   type="text"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}

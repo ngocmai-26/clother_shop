@@ -214,6 +214,24 @@ label.star:before {
   margin: 5px 1px;
 }
 
+.pagination-product {
+  text-align: right;
+}
+
+.pagination-product button {
+  width: 35px;
+  padding: 5px;
+  background-color: #8f8f8f;
+  color: #ffffff;
+  margin: 5px 1px;
+  border: 1px solid #8f8f8f;
+}
+
+.pagination-product button:hover {
+  background-color: #ffffff;
+  color: #000000;
+}
+
 @media (max-width: 576px) {
   .product-controls-previous {
     margin-left: -20px !important;

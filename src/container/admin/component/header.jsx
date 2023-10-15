@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 function HeaderAdmin() {
   const [isOpen, setIsOpen] = useState(true);
-  const [t, i18n] = useTranslation("app");
+  const [i18n] = useTranslation("app");
   return (
     <div className="w-full bg-slate-800 text-black px-6 left-0 top-0 ">
       <div className="flex items-end text-right justify-end md:order-2 relative py-2">

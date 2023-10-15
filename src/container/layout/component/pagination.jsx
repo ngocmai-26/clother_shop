@@ -4,7 +4,7 @@ function Pagination({ totalPage, setPage }) {
     arrPage.push(i);
   }
   return (
-    <div className="pagination">
+    <div className="pagination-product">
       <button>&laquo;</button>
       {arrPage.map((item, index) => (
         <button onClick={() => setPage(item)} key={index}>

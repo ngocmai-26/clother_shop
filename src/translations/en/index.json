@@ -106,6 +106,13 @@
     "confirmed": "Confirmed",
     "out_delivery":"Out of delivery",
     "delivered": "Delivered",
-    "type_text": "Type"
+    "type_text": "Type",
+    "filter": "Filter",
+    "price_level": "Price level",
+    "price_from_low_to_high": "Price from low to high",
+    "home": "Home",
+    "user": "User",
+    "payment": "Payment",
+    "your_full_name": "Your full name"
 
 }

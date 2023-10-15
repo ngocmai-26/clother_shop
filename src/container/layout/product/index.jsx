@@ -44,20 +44,20 @@ function Product() {
       <div className="sm:w-5/6 w-full mx-auto">
         <div className="history">
           <Link to="/" className="uppercase text-xs px-1">
-            HOME
+          {t("home")}
           </Link>
           <FontAwesomeIcon icon={faChevronRight} style={{ fontSize: "10px" }} />
           <Link to="/" className="uppercase text-xs px-1">
-            product
+          {t("product")}
           </Link>
         </div>
-        <h3 className="uppercase text-4xl my-6">Bộ lọc</h3>
+        <h3 className="uppercase text-4xl my-6">{t("price_level")}</h3>
         <div className="grid lg:grid-cols-6 xl:grid-cols-6 md:grid-cols-5 grid-cols-3  gap-2">
           <select
             id="small"
             className="block w-30 py-2 mb-6 text-sm text-gray-900 border border-black  focus:ring-blue-500 focus:border-blue-500"
           >
-            <option selected>Mức giá</option>
+            <option selected>{t("filter")}</option>
             <option value="US">United States</option>
             <option value="CA">Canada</option>
             <option value="FR">France</option>
@@ -98,7 +98,7 @@ function Product() {
             id="small"
             className="block w-50 py-2 mb-6 text-sm text-gray-900 border border-black  focus:ring-blue-500 focus:border-blue-500"
           >
-            <option selected>Giá từ thấp đến cao</option>
+            <option selected>{t("price_from_low_to_high")}</option>
             <option value="US">United States</option>
             <option value="CA">Canada</option>
             <option value="FR">France</option>

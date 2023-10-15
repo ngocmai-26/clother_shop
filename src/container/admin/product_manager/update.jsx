@@ -17,7 +17,7 @@ function ProductUpdate() {
                   <div>
                     <label
                       className="block text-sm text-gray-600"
-                      for="txtCode"
+                      htmlhtmlFor="txtCode"
                     >
                       {t("code_orders")}
                     </label>
@@ -34,7 +34,7 @@ function ProductUpdate() {
                   <div className="mt-2">
                     <label
                       className="block text-sm text-gray-600"
-                      for="txtName"
+                      htmlhtmlFor="txtName"
                     >
                       {t("name_product")}
                     </label>
@@ -51,7 +51,7 @@ function ProductUpdate() {
                   <div className="mt-2">
                     <label
                       className="block text-sm text-gray-600"
-                      for="txtPrice"
+                      htmlhtmlFor="txtPrice"
                     >
                       {t("price")}
                     </label>
@@ -66,7 +66,10 @@ function ProductUpdate() {
                     />
                   </div>
                   <div className="mt-2">
-                    <label className="block text-sm text-gray-600" for="price">
+                    <label
+                      className="block text-sm text-gray-600"
+                      htmlhtmlFor="price"
+                    >
                       {t("color")}
                     </label>
                     <ul className="items-center w-full text-sm font-medium text-gray-900 bg-white sm:flex ">
@@ -79,7 +82,7 @@ function ProductUpdate() {
                             className="w-4 h-4 text-blue-600 bg-gray-100 focus:ring-blue-500 "
                           />
                           <label
-                            for="vue-checkbox-list"
+                            htmlhtmlFor="vue-checkbox-list"
                             className="w-full py-3 ml-2 text-sm font-medium text-gray-900 "
                           >
                             Blue
@@ -95,7 +98,7 @@ function ProductUpdate() {
                             className="w-4 h-4 text-blue-600 bg-gray-100 focus:ring-blue-500 "
                           />
                           <label
-                            for="react-checkbox-list"
+                            htmlhtmlFor="react-checkbox-list"
                             className="w-full py-3 ml-2 text-sm font-medium text-gray-900 "
                           >
                             Green
@@ -111,7 +114,7 @@ function ProductUpdate() {
                             className="w-4 h-4 text-blue-600 bg-gray-100 focus:ring-blue-500 "
                           />
                           <label
-                            for="angular-checkbox-list"
+                            htmlhtmlFor="angular-checkbox-list"
                             className="w-full py-3 ml-2 text-sm font-medium text-gray-900 "
                           >
                             White
@@ -127,7 +130,7 @@ function ProductUpdate() {
                             className="w-4 h-4 text-blue-600 bg-gray-100 focus:ring-blue-500 "
                           />
                           <label
-                            for="laravel-checkbox-list"
+                            htmlhtmlFor="laravel-checkbox-list"
                             className="w-full py-3 ml-2 text-sm font-medium text-gray-900 "
                           >
                             Brown
@@ -143,7 +146,7 @@ function ProductUpdate() {
                             className="w-4 h-4 text-blue-600 bg-gray-100 focus:ring-blue-500 "
                           />
                           <label
-                            for="laravel-checkbox-list"
+                            htmlhtmlFor="laravel-checkbox-list"
                             className="w-full py-3 ml-2 text-sm font-medium text-gray-900 "
                           >
                             Black
@@ -159,7 +162,7 @@ function ProductUpdate() {
                             className="w-4 h-4 text-blue-600 bg-gray-100 focus:ring-blue-500 "
                           />
                           <label
-                            for="laravel-checkbox-list"
+                            htmlhtmlFor="laravel-checkbox-list"
                             className="w-full py-3 ml-2 text-sm font-medium text-gray-900 "
                           >
                             Pink
@@ -175,7 +178,7 @@ function ProductUpdate() {
                             className="w-4 h-4 text-blue-600 bg-gray-100 focus:ring-blue-500 "
                           />
                           <label
-                            for="laravel-checkbox-list"
+                            htmlhtmlFor="laravel-checkbox-list"
                             className="w-full py-3 ml-2 text-sm font-medium text-gray-900 "
                           >
                             Orange
@@ -191,7 +194,7 @@ function ProductUpdate() {
                             className="w-4 h-4 text-blue-600 bg-gray-100 focus:ring-blue-500 "
                           />
                           <label
-                            for="laravel-checkbox-list"
+                            htmlhtmlFor="laravel-checkbox-list"
                             className="w-full py-3 ml-2 text-sm font-medium text-gray-900 "
                           >
                             Red
@@ -207,7 +210,7 @@ function ProductUpdate() {
                             className="w-4 h-4 text-blue-600 bg-gray-100 focus:ring-blue-500 "
                           />
                           <label
-                            for="laravel-checkbox-list"
+                            htmlhtmlFor="laravel-checkbox-list"
                             className="w-full py-3 ml-2 text-sm font-medium text-gray-900 "
                           >
                             Purple
@@ -217,7 +220,10 @@ function ProductUpdate() {
                     </ul>
                   </div>
                   <div className="mt-2">
-                    <label className="block text-sm text-gray-600" for="price">
+                    <label
+                      className="block text-sm text-gray-600"
+                      htmlhtmlFor="price"
+                    >
                       {t("size")}
                     </label>
                     <ul className="items-center w-full text-sm font-medium text-gray-900 bg-white sm:flex ">
@@ -230,7 +236,7 @@ function ProductUpdate() {
                             className="w-4 h-4 text-blue-600 bg-gray-100 focus:ring-blue-500 "
                           />
                           <label
-                            for="vue-checkbox-list"
+                            htmlhtmlFor="vue-checkbox-list"
                             className="w-full py-3 ml-2 text-sm font-medium text-gray-900 "
                           >
                             S
@@ -246,7 +252,7 @@ function ProductUpdate() {
                             className="w-4 h-4 text-blue-600 bg-gray-100 focus:ring-blue-500 "
                           />
                           <label
-                            for="react-checkbox-list"
+                            htmlhtmlFor="react-checkbox-list"
                             className="w-full py-3 ml-2 text-sm font-medium text-gray-900 "
                           >
                             M
@@ -262,7 +268,7 @@ function ProductUpdate() {
                             className="w-4 h-4 text-blue-600 bg-gray-100 focus:ring-blue-500 "
                           />
                           <label
-                            for="angular-checkbox-list"
+                            htmlhtmlFor="angular-checkbox-list"
                             className="w-full py-3 ml-2 text-sm font-medium text-gray-900 "
                           >
                             L
@@ -278,7 +284,7 @@ function ProductUpdate() {
                             className="w-4 h-4 text-blue-600 bg-gray-100 focus:ring-blue-500 "
                           />
                           <label
-                            for="laravel-checkbox-list"
+                            htmlhtmlFor="laravel-checkbox-list"
                             className="w-full py-3 ml-2 text-sm font-medium text-gray-900 "
                           >
                             XL
@@ -294,7 +300,7 @@ function ProductUpdate() {
                             className="w-4 h-4 text-blue-600 bg-gray-100 focus:ring-blue-500 "
                           />
                           <label
-                            for="laravel-checkbox-list"
+                            htmlhtmlFor="laravel-checkbox-list"
                             className="w-full py-3 ml-2 text-sm font-medium text-gray-900 "
                           >
                             XXL
@@ -310,7 +316,7 @@ function ProductUpdate() {
                             className="w-4 h-4 text-blue-600 bg-gray-100 focus:ring-blue-500 "
                           />
                           <label
-                            for="laravel-checkbox-list"
+                            htmlhtmlFor="laravel-checkbox-list"
                             className="w-full py-3 ml-2 text-sm font-medium text-gray-900 "
                           >
                             3XL
@@ -322,7 +328,7 @@ function ProductUpdate() {
                   <div className="mt-2">
                     <label
                       className=" block text-sm text-gray-600"
-                      for="message"
+                      htmlhtmlFor="message"
                     >
                       {t("describe")}
                     </label>
