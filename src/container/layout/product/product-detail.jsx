@@ -43,7 +43,7 @@ function ProductDetail() {
   };
 
   return (
-    <div className="pt-20 mt-5 sm:mt-0 px-8">
+    <div className="mt-20 sm:mt-0">
       <div className="sm:w-5/6 w-full mx-auto">
         <div className="history">
           <Link to="/" className="uppercase text-xs px-1">
@@ -159,12 +159,12 @@ function ProductDetail() {
             </div>
             <div className="product-btn flex justify-between pt-5 sm:pt-2">
               <div className="w-3/6 pe-3">
-                <button className="bg-black text-white py-2 w-full px-5 border ">
+                <button className="bg-black text-white py-2 w-full border ">
                   {t("buy_now")}
                 </button>
               </div>
               <div className="w-3/6 pl-3">
-                <button className=" py-2 w-full px-5 border">
+                <button className=" py-2 w-full border">
                   {t("add_cart")}
                 </button>
               </div>

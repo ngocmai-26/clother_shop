@@ -25,9 +25,9 @@ function Header({ accountUser }) {
                 : "hidden  lg:block xl:block "
             }  lg:h-auto bg-white flex md:items-center gap-[1.5vw] ${
               menuOpen ? "top-[100%] left-0" : "top-[-100%] left-[-100%]"
-            } lg:px-5 lg:py-0 py-5 px-5 `}
+            }  lg:px-0 py-5 xl:px-5 lg:col-span-1 lg:min-w-[380px] px-5   xl:w-full `}
           >
-            <ul className="flex lg:flex-row flex-col lg:items-center lg:gap-[2vw] gap-3">
+            <ul className="flex lg:flex-row flex-col lg:items-center lg:gap-[2vw]">
               <li className="relative max-w-fit pr-3 md:pr-0 py-1 after:bg-gradient-to-r from-[#2b68e0] to-[#e710ea]  after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300">
                 <Link to="/">{t("shop")}</Link>
               </li>
@@ -42,7 +42,7 @@ function Header({ accountUser }) {
               </li>
             </ul>
           </div>
-          <div className="w-[130px] md:w-[200px] flex items-center mx-auto">
+          <div className=" flex items-center mx-auto lg:items-left xl:items-center">
             <img src={Logo} alt="LOGO" srcSet="" />
           </div>
 
@@ -95,7 +95,7 @@ function Header({ accountUser }) {
                 <Link
                   to="/user-profile"
                   type="button"
-                  className="inline-flex items-center px-2 text-sm font-medium text-gray-900 bg-white border-0 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700"
+                  className="inline-flex items-center px-2 text-sm font-medium text-gray-900 bg-white border-0"
                 >
                   <div className="w-8 h-8  rounded-full bg-black p-2">
                     <img src={iconUser} alt="iconUser" />
@@ -103,7 +103,7 @@ function Header({ accountUser }) {
                 </Link>
                 <Link
                   to="/orders"
-                  className="inline-flex items-center px-2 text-sm font-medium text-gray-900  border-0 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700"
+                  className="inline-flex items-center px-2 text-sm font-medium text-gray-900  border-0"
                 >
                   <div className="w-8 h-8  rounded-full bg-black p-2">
                     <img src={iconCart} alt="iconCart" />

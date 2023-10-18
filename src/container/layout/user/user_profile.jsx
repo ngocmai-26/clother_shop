@@ -22,7 +22,7 @@ function UserProfile({ setAccountUser }) {
     setAccountUser({});
   };
   return (
-    <div className="pt-20  mt-5 sm:mt-0  px-8">
+    <div className="pt-20 mt-5 sm:mt-0 px-3 sm:px-8">
       <div className="lg:w-5/6 w-full mx-auto">
         <div className="history">
           <Link to="/" className="uppercase text-xs px-1">
@@ -125,10 +125,10 @@ function UserProfile({ setAccountUser }) {
                   <div className="grid lg:grid-cols-3 grid-cols-2 gap-4 py-2">
                     <div className="col-span-2 lg:col-end-4">
                       <div className="flex justify-between">
-                        <button className="bg-black border border-black text-white uppercase py-3 md:w-5/12 w-6/12 mt-3 me-2 text-xs">
+                        <button className="bg-black border border-black text-white uppercase py-3 md:w-5/10 w-6/12 mt-3 me-2 text-xs">
                           {t("change_phone")}
                         </button>
-                        <button className="bg-black border border-black text-white uppercase py-3 md:w-5/12 w-5/12 mt-3 text-xs">
+                        <button className="bg-black border border-black text-white uppercase py-3 md:w-5/10 w-6/12 mt-3 text-xs">
                           {t("change_password")}
                         </button>
                       </div>
