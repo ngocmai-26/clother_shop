@@ -9,7 +9,9 @@ import Pagination from "../component/pagination";
 function Product() {
   const [t] = useTranslation("app");
   const [products, setProducts] = useState([...listProduct]);
-  const [productsPage, setProductsPage] = useState(listProduct.slice(0, PAGINATION.LIMIT));
+  const [productsPage, setProductsPage] = useState(
+    listProduct.slice(0, PAGINATION.LIMIT)
+  );
   const [numberPagination, setNumberPagination] = useState({
     totalPage: 10,
     currentPage: PAGINATION.CURRENT_PAGE,
@@ -23,7 +25,7 @@ function Product() {
   }, [numberPagination.currentPage]);
 
   const onChangePage = (page) => {
-    console.log(productsPage)
+    console.log(productsPage);
     setNumberPagination((pre) => ({
       ...pre,
       currentPage: page,
@@ -35,20 +37,20 @@ function Product() {
       (numberPagination.currentPage - 1) * PAGINATION.LIMIT,
       numberPagination.currentPage * PAGINATION.LIMIT
     );
-    console.log('newProduct', newProduct)
+    console.log("newProduct", newProduct);
     setProductsPage((pre) => (pre = newProduct));
-  }, [numberPagination.currentPage, numberPagination.totalPage])
+  }, [numberPagination.currentPage, numberPagination.totalPage]);
 
   return (
     <div className="pt-20 mt-5 sm:mt-0 px-8">
       <div className="sm:w-5/6 w-full mx-auto">
         <div className="history">
           <Link to="/" className="uppercase text-xs px-1">
-          {t("home")}
+            {t("home")}
           </Link>
           <FontAwesomeIcon icon={faChevronRight} style={{ fontSize: "10px" }} />
           <Link to="/" className="uppercase text-xs px-1">
-          {t("product")}
+            {t("product")}
           </Link>
         </div>
         <h3 className="uppercase text-4xl my-6">{t("price_level")}</h3>
@@ -62,27 +64,6 @@ function Product() {
             <option value="CA">Canada</option>
             <option value="FR">France</option>
             <option value="DE">Germany</option>
-          </select>
-          <select
-            id="small"
-            className="block w-30 py-2 mb-6 text-sm text-gray-900 border border-black  focus:ring-blue-500 focus:border-blue-500"
-          >
-            <option selected>{t("size")}</option>
-            <option value="US">S</option>
-            <option value="CA">M</option>
-            <option value="FR">L</option>
-            <option value="DE">XL</option>
-            <option value="DE">XXL</option>
-          </select>
-          <select
-            id="small"
-            className="block w-30 py-2 mb-6 text-sm text-gray-900 border border-black  focus:ring-blue-500 focus:border-blue-500"
-          >
-            <option selected>{t("color")}</option>
-            <option value="US">Green</option>
-            <option value="CA">Blue</option>
-            <option value="FR">Yellow</option>
-            <option value="DE">Pink</option>
           </select>
           <select
             id="small"
@@ -134,10 +115,10 @@ function Product() {
           ))}
         </div>
         <nav aria-label="Page navigation example" className=" text-end py-3">
-        <Pagination
-                totalPage={numberPagination.totalPage}
-                setPage={onChangePage}
-              ></Pagination>
+          <Pagination
+            totalPage={numberPagination.totalPage}
+            setPage={onChangePage}
+          ></Pagination>
         </nav>
       </div>
     </div>

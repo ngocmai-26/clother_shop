@@ -22,7 +22,7 @@ function UserProfile({ setAccountUser }) {
     setAccountUser({});
   };
   return (
-    <div className="pt-20  mt-5 sm:mt-0  px-8">
+    <div className="pt-20  mt-5 sm:mt-0 px-8 min-h-screen">
       <div className="lg:w-5/6 w-full mx-auto">
         <div className="history">
           <Link to="/" className="uppercase text-xs px-1">

@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 function Footer() {
   const [t] = useTranslation("app");
   return (
-    <div className="bg-gray-700 p-4 ">
+    <div className="bg-gray-700 px-4 py-10">
       <div className="w-11/12 mx-auto">
         <div className="grid xl:grid-cols-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-white">
           <div className="py-2">

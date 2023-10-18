@@ -13,8 +13,8 @@ function Orders({ setAccountUser }) {
     setAccountUser({});
   };
   return (
-    <div className="pt-20 lg:px-8 px-4">
-      <div className="lg:w-5/6 w-full mx-auto">
+    <div className="pt-20 lg:px-8 px-4 min-h-screen">
+      <div className="lg:w-5/6 w-full h-full mx-auto">
         <div className="history">
           <Link to="/" className="uppercase text-xs px-1">
             {t("home")}
@@ -36,7 +36,7 @@ function Orders({ setAccountUser }) {
                 industry.
               </p>
               {orderProduct.length === 0 ? (
-                <div className="order-detail text-center ">
+                <div className="order-detail text-center py-16">
                   <img src={no_Order} alt="product" className="mx-auto" />
                   <p>Your orders is empty. Place a few items.</p>
                 </div>
