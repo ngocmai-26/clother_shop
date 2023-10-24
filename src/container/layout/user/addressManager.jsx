@@ -24,7 +24,7 @@ function AddressManager({ setAccountUser }) {
         </div>
         <div className="grid md:grid-cols-4 grid-cols-1 gap-4 py-4">
           <div>
-            <NavbarMini handLogout={handLogout} />
+            <NavbarMini />
           </div>
           <div className="col-span-3 ">
             <div className="user-profile p-3">

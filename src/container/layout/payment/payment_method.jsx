@@ -10,7 +10,7 @@ import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
 function PaymentMethod() {
   const [t] = useTranslation("app");
   return (
-    <div className="pt-20 mt-5 sm:mt-0 px-8">
+    <div className="mt-20 sm:mt-0">
       <div className="sm:w-4/6 w-full mx-auto">
         <div className="history">
           <Link to="/" className="uppercase text-xs px-1">

@@ -24,39 +24,39 @@ function Orders({ setAccountUser }) {
             {t("orders")}
           </Link>
         </div>
-        <div className="grid  md:grid-cols-4 grid-cols-1 gap-2 py-4">
+        <div className="grid md:grid-cols-4 grid-cols-1 gap-2 py-2">
           <div>
-            <NavbarMini handLogout={handLogout} />
+            <NavbarMini />
           </div>
           <div className="col-span-3">
-            <div className="orders p-3 w-11/12">
+            <div className="orders p-3 md:w-11/12 w-full">
               <h2 className="text-3xl py-2">{t("orders")}</h2>
               <p className="text-base">
                 Lorem Ipsum is simply dummy text of the printing and typesetting
                 industry.
               </p>
-              {orderProduct.length === 0 ? (
-                <div className="order-detail text-center py-16">
+              {orderProduct.length !== 0 ? (
+                <div className="order-detail text-center ">
                   <img src={no_Order} alt="product" className="mx-auto" />
                   <p>Your orders is empty. Place a few items.</p>
                 </div>
               ) : (
                 <div className="order-detail py-5">
-                  <div className="product-item border border-black">
-                    <div className="grid lg:grid-cols-5 grid-cols-1 gap-0 p-3">
-                      <div>
+                  <div className="product-item border  border-black">
+                    <div className="grid lg:grid-cols-5 sm:grid-cols-4 grid-cols-1  gap-3 sm:p-1 p-3 lg:p-3">
+                      <div className="col-span-5 sm:col-span-1">
                         <img src={product} alt="product" height="170px" />
                       </div>
-                      <div className="col-span-3 ">
+                      <div className="col-span-5 lg:col-span-3 sm:col-span-2 ">
                         <p className="text-xs">ORDER21345 - 09:41 13/13/2023</p>
-                        <p className="product-name text-xl py-2">
+                        <p className=" font-semibold text-xl sm:text-base lg:text-xl py-2">
                           Lorem Ipsum is simply dummy text of the printing
                         </p>
-                        <div className="product-size py-1">
+                        <div className="text-base sm:text-sm lg:text-base py-1">
                           <span>{t("size")} : </span>
                           <span>XXS</span>
                         </div>
-                        <div className="product-size py-1">
+                        <div className="text-base sm:text-sm lg:text-base py-1">
                           <span>{t("price")} : </span>
                           <span>$130.00</span>
                         </div>
@@ -66,7 +66,7 @@ function Orders({ setAccountUser }) {
                           <div className="w-6 h-6 border border-black rounded-2xl flex align-center ">
                             <div className="w-4 h-4 bg-black rounded-xl m-auto my-auto"></div>
                           </div>
-                          <div className="col-span-3 text-sm">
+                          <div className="col-span-3 text-sm sm:text-xs lg:text-sm">
                             {t("ordered")}
                           </div>
                         </div>
@@ -75,21 +75,21 @@ function Orders({ setAccountUser }) {
                           <div className="w-6 h-6 border border-black rounded-2xl flex align-center ">
                             <div className="w-4 h-4 bg-black rounded-xl m-auto my-auto"></div>
                           </div>
-                          <div className="col-span-3 text-sm">
+                          <div className="col-span-3 text-sm sm:text-xs lg:text-sm">
                             {t("confirmed")}
                           </div>
                         </div>
                         <div className="line w-0.5 h-4 bg-black"></div>
                         <div className="grid grid-cols-4 gap-3 ">
                           <div className="w-6 h-6 border border-black rounded-2xl flex align-center "></div>
-                          <div className="col-span-3 text-sm">
+                          <div className="col-span-3 text-sm sm:text-xs lg:text-sm">
                             {t("out_delivery")}
                           </div>
                         </div>
                         <div className="line w-0.5 h-4 bg-black"></div>
                         <div className="grid grid-cols-4 gap-3 ">
                           <div className="w-6 h-6 border border-black rounded-2xl flex align-center "></div>
-                          <div className="col-span-3 text-sm">
+                          <div className="col-span-3 text-sm sm:text-xs lg:text-sm">
                             {t("delivered")}
                           </div>
                         </div>

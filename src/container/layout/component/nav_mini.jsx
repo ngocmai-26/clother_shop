@@ -1,13 +1,19 @@
 import { useTranslation } from "react-i18next";
-import { Link } from "react-router-dom";
-import iconCart from "../../../asset/images/baguser.png";
-import iconUser from "../../../asset/images/user_light.png";
+import { Link, useNavigate } from "react-router-dom";
 import iconLogout from "../../../asset/images/logout.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartPlus, faMap, faUser } from "@fortawesome/free-solid-svg-icons";
+import { useDispatch } from "react-redux";
+import { logout } from "../../../slices/AuthSlice";
 
-function NavbarMini({handLogout}) {
+function NavbarMini() {
   const [t] = useTranslation("app");
+  const dispatch = useDispatch();
+  const nav = useNavigate();
+  const handleLogout = () => {
+    dispatch(logout());
+    nav("/login");
+  };
   return (
     <ul>
       <li>
@@ -24,12 +30,12 @@ function NavbarMini({handLogout}) {
       </li>
       <li>
         <Link to="/address-manager" className="flex py-2">
-        <FontAwesomeIcon icon={faMap} style={{ fontSize: "20px" }} />
+          <FontAwesomeIcon icon={faMap} style={{ fontSize: "20px" }} />
           <span className="px-2 ">{t("address_manager")}</span>
         </Link>
       </li>
       <li>
-        <button onClick={handLogout} className="flex py-2" type="reset">
+        <button onClick={handleLogout} className="flex py-2" type="reset">
           <img src={iconLogout} alt="iconLogout" />
           <span className="px-2 text-red-500">{t("logout")}</span>
         </button>
