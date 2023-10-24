@@ -8,7 +8,7 @@ import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import NavbarMini from "../component/nav_mini";
 import { useDispatch, useSelector } from "react-redux";
 import { setAlert } from "../../../slices/AlertSlice";
-import { updateProfile } from "../../../thunks/AuthThunk";
+import { changePassword, updateProfile } from "../../../thunks/AuthThunk";
 import { setUser } from "../../../slices/AuthSlice";
 import { Layout } from "../index";
 function UserProfile({ setAccountUser }) {
@@ -16,6 +16,8 @@ function UserProfile({ setAccountUser }) {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
   const { user } = useSelector((state) => state.authReducer);
   const [userUpdate, setUserUpdate] = useState({});
+  const [oldPassword, setOldPassword] = useState("");
+  const [newPassword, setNewPassword] = useState("");
 
   const togglePasswordVisibility = () => {
     setIsPasswordVisible((prevState) => !prevState);
@@ -49,6 +51,29 @@ function UserProfile({ setAccountUser }) {
     dispatch(updateProfile({ ...userUpdate, id: user.id })).then((resp) => {
       dispatch(setUser(resp.payload));
     });
+  };
+  const handleChangePassword = () => {
+    if (window.confirm("Do u really want change password ? ")) {
+      if (oldPassword.length <= 0) {
+        dispatch(
+          setAlert({
+            type: "error",
+            content: "Mật khẩu cũ không được để trống",
+          })
+        );
+        return;
+      }
+      if (newPassword.length <= 0) {
+        dispatch(
+          setAlert({
+            type: "error",
+            content: "Mật khẩu mới không được để trống",
+          })
+        );
+        return;
+      }
+      dispatch(changePassword({ oldPassword, newPassword }));
+    }
   };
   return (
     <Layout>
@@ -151,6 +176,36 @@ function UserProfile({ setAccountUser }) {
                       </div>
                       <div className="col-span-2 relative">
                         <input
+                          onChange={(e) => {
+                            setOldPassword(e.target.value);
+                          }}
+                          defaultValue={""}
+                          autoComplete="false"
+                          type={isPasswordVisible ? "text" : "password"}
+                          className="w-full px-4 py-2  text-base  border border-gray-500 rounded outline-none  focus:ring-blue-500 focus:border-blue-500 focus:ring-1"
+                        />
+                        <button
+                          className="absolute inset-y-0 right-0 flex items-center px-4 text-gray-600"
+                          onClick={togglePasswordVisibility}
+                          type="button"
+                        >
+                          {isPasswordVisible ? (
+                            <img src={iconEye} alt="iconEye" />
+                          ) : (
+                            <img src={iconEyeClose} alt="iconEyeClose" />
+                          )}
+                        </button>
+                      </div>
+                    </div>
+                    <div className="grid grid-cols-3 gap-4 py-2">
+                      <div className="title">
+                        <p className="text-base font-normal">New Password</p>
+                      </div>
+                      <div className="col-span-2 relative">
+                        <input
+                          onChange={(e) => {
+                            setNewPassword(e.target.value);
+                          }}
                           defaultValue={""}
                           autoComplete="false"
                           type={isPasswordVisible ? "text" : "password"}
@@ -178,7 +233,10 @@ function UserProfile({ setAccountUser }) {
                           >
                             Update profile
                           </button>
-                          <button className="bg-black border border-black text-white uppercase py-3 md:w-5/10 w-6/12 mt-3 text-xs">
+                          <button
+                            onClick={handleChangePassword}
+                            className="bg-black border border-black text-white uppercase py-3 md:w-5/10 w-6/12 mt-3 text-xs"
+                          >
                             {t("change_password")}
                           </button>
                         </div>

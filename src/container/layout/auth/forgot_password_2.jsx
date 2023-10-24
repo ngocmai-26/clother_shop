@@ -4,9 +4,10 @@ import { useDispatch } from "react-redux";
 import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
 import { setAlert } from "../../../slices/AlertSlice";
 import { activeAccount } from "../../../thunks/AuthThunk";
+import { OTP_TYPE } from "../../../constants/enum";
 
 function ForgotPassword2() {
-  const { email } = useParams();
+  const { email, type } = useParams();
   const [t] = useTranslation("app");
   const [code, setCode] = useState("");
 
@@ -19,18 +20,25 @@ function ForgotPassword2() {
   };
   const dispatch = useDispatch();
   const nav = useNavigate();
+
   const handleVerifyAccount = () => {
-    console.log(email);
-    if (code.trim === "" || code.length != 6) {
-      dispatch(setAlert({ type: "error", content: "Hãy nhập code" }));
-      return;
+    switch (type) {
+      case OTP_TYPE.FORGOT_PASSWORD:
+        break;
+      case OTP_TYPE.VERIFY_ACCOUNT:
+        if (code.trim === "" || code.length != 6) {
+          dispatch(setAlert({ type: "error", content: "Hãy nhập code" }));
+          return;
+        }
+        dispatch(activeAccount({ email, code })).then((resp) => {
+          if (!resp?.error) {
+            nav("/login");
+          }
+        });
+        break;
     }
-    dispatch(activeAccount({ email, code })).then((resp) => {
-      if (!resp?.error) {
-        nav("/login");
-      }
-    });
   };
+
   return (
     <div className="mt-10 pt-10 sm-pt-0">
       <div className="grid xl:grid-cols-6 lg:grid-cols-4 md:grid-cols-4 gap-2 mx-2 py-20">

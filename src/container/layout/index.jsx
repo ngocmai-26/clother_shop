@@ -4,7 +4,7 @@ import Footer from "./footer";
 
 export const Layout = ({ isAdmin, children }) => {
   return (
-    <div>
+    <div className="w-full overflow-hidden">
       {isAdmin ? (
         <>
           <div className="flex">

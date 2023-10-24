@@ -1,7 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { API } from "../constants/api";
 import { setAlert } from "../slices/AlertSlice";
-import { setLogged, setRefresh } from "../slices/AuthSlice";
+import { logout, setLogged, setRefresh } from "../slices/AuthSlice";
 
 export const register = createAsyncThunk(
   "/register",
@@ -102,7 +102,12 @@ export const updateProfile = createAsyncThunk(
     try {
       let token = localStorage.getItem("auth_token");
       if (!token) {
-        dispatch(setAlert("Có lỗi xảy ra hãy thử đăng nhập lại"));
+        dispatch(
+          setAlert({
+            type: "error",
+            content: '"Có lỗi xảy ra hãy thử đăng nhập lại"',
+          })
+        );
         return rejectWithValue("");
       }
       const resp = await fetch(`${API.uri}/user/update`, {
@@ -127,6 +132,79 @@ export const updateProfile = createAsyncThunk(
         setAlert({ type: "success", content: "Cập nhật tài khoản thành công" })
       );
       return dataJson;
+    } catch (e) {
+      console.log(e);
+    }
+  }
+);
+
+export const changePassword = createAsyncThunk(
+  "/user/change-password",
+  async (data, { dispatch, rejectWithValue }) => {
+    try {
+      let token = localStorage.getItem("auth_token");
+      if (!token) {
+        dispatch(
+          setAlert({
+            type: "error",
+            content: '"Có lỗi xảy ra hãy thử đăng nhập lại"',
+          })
+        );
+        return rejectWithValue("");
+      }
+      const resp = await fetch(`${API.uri}/user/change-password`, {
+        method: "POST",
+        headers: {
+          "Content-type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({
+          oldPass: data.oldPassword,
+          newPass: data.newPassword,
+        }),
+      });
+      if (resp.status >= 300) {
+        const dataJson = await resp.json();
+        dispatch(
+          setAlert({
+            type: "error",
+            content: dataJson?.defaultMessage,
+          })
+        );
+        return rejectWithValue("something error");
+      }
+      dispatch(
+        setAlert({ type: "success", content: "Đổi mật khẩu thành công" })
+      );
+      dispatch(logout());
+    } catch (e) {
+      console.log(e);
+    }
+  }
+);
+export const forgotPassword = createAsyncThunk(
+  "/user/forgot-password",
+  async (email, { dispatch, rejectWithValue }) => {
+    try {
+      const resp = await fetch(`${API.uri}/forgot-password?email=${email}`, {
+        method: "POST",
+        headers: {
+          "Content-type": "application/json",
+        },
+      });
+      if (resp.status >= 300) {
+        const dataJson = await resp.json();
+        dispatch(
+          setAlert({
+            type: "error",
+            content: dataJson?.defaultMessage,
+          })
+        );
+        return rejectWithValue("something error");
+      }
+      dispatch(
+        setAlert({ type: "success", content: "Hãy kiểm tra mail của bạn" })
+      );
     } catch (e) {
       console.log(e);
     }

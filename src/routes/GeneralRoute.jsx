@@ -18,8 +18,9 @@ export const GeneralRoute = (props) => {
         <Route path="/product-detail" element={<ProductDetail />} />
         <Route path="/login" element={<Login />} />
         <Route path="/forgot" element={<ForgotPassword />} />
-        <Route path="/forgot-OTP/:email" element={<ForgotPassword2 />} />
-        <Route path="/forgot-create-password" element={<ForgotPassword3 />} />
+        <Route path="/product" element={<Product />} />
+        <Route path="/forgot-OTP/:email/:type" element={<ForgotPassword2 />} />
+        {/* <Route path="/forgot-create-password" element={<ForgotPassword3 />} /> */}
         <Route path="/register" element={<Register />} />
         <Route path="/success-register" element={<SuccessRegister />} />
         <Route path="*" element={<HomePage />} />

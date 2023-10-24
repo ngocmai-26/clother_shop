@@ -8,6 +8,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { useDispatch } from "react-redux";
 import { register } from "../../../thunks/AuthThunk";
+import { OTP_TYPE } from "../../../constants/enum";
 const ErrorText = styled.div`
   color: red;
   text-align: start;
@@ -96,7 +97,7 @@ function Register() {
     setError(initError);
     dispatch(register({ name, email, password })).then((resp) => {
       if (!resp?.error) {
-        nav(`/forgot-OTP/${email}`);
+        nav(`/forgot-OTP/${email}/${OTP_TYPE.VERIFY_ACCOUNT}`);
       }
     });
   };

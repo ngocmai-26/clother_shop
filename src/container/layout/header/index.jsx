@@ -3,45 +3,87 @@ import Logo from "../../../asset/images/Logo.png";
 import iconCart from "../../../asset/images/bag.png";
 import iconUser from "../../../asset/images/user.png";
 import { useTranslation } from "react-i18next";
-import { useState } from "react";
-import { useSelector } from "react-redux";
+import { useLayoutEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Categories } from "../../admin/component/categories";
+import { getAllCategories } from "../../../thunks/CategoryThunk";
 function Header() {
   const [t, i18n] = useTranslation("app");
   const [menuOpen, setMenuOpen] = useState(false);
   const { logged } = useSelector((state) => state.authReducer);
+  const { categories } = useSelector((state) => state.categoryReducer);
+  const dispatch = useDispatch();
+
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
+  useLayoutEffect(() => {
+    dispatch(getAllCategories());
+  }, []);
   return (
-    <header className="fixed z-50 right-0 left-0 top-0 px-0 sm:px-4 py-2 bg-white">
+    <header className="fixed z-50 right-0 left-0 top-0 px-0 sm:px-4 py-2 lg:py-0 bg-white">
       <nav className="flex justify-between">
-        <div className="grid  xl:grid-cols-3 lg:grid-cols-3 md:grid-cols-3 sm:grid-cols-3 items-center gap-3 justify-between w-full">
+        <div className="grid mx-auto xl:grid-cols-3 lg:grid-cols-3 md:grid-cols-3 sm:grid-cols-3 items-center gap-3 justify-between lg:w-full">
           <div
             className={`navLinks duration-500 z-40 ${
               menuOpen
                 ? "lg:static lg:w-auto w-full absolute"
-                : "hidden  lg:block xl:block "
+                : "hidden lg:block xl:block "
             }  lg:h-auto bg-white flex md:items-center gap-[1.5vw] ${
               menuOpen ? "top-[100%] left-0" : "top-[-100%] left-[-100%]"
             }  lg:px-0 py-5 xl:px-5 lg:col-span-1 lg:min-w-[380px] px-5   xl:w-full `}
           >
-            <ul className="flex lg:flex-row flex-col lg:items-center lg:gap-[2vw]">
-              <li className="relative max-w-fit pr-3 md:pr-0 py-1 after:bg-gradient-to-r from-[#2b68e0] to-[#e710ea]  after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300">
+            <ul className="flex lg:flex-row flex-col lg:items-center lg:gap-[2vw] w-full lg:w-auto">
+              <li className="relative max-w-fit pr-3 md:pr-0 py-1 hover:font-semibold">
                 <Link to="/">{t("shop")}</Link>
               </li>
-              <li className="relative max-w-fit pr-3 md:pr-0 py-1 after:bg-gradient-to-r from-[#2b68e0] to-[#e710ea]  after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300">
-                <Link to="/product">{t("category")}</Link>
-              </li>
-              <li className="relative max-w-fit pr-3 md:pr-0 py-1 after:bg-gradient-to-r from-[#2b68e0] to-[#e710ea]  after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300">
+              <div class="group inline-block">
+                <button class="outline-none focus:outline-none px-3 py-1 bg-white rounded-sm flex items-center min-w-32">
+                  <span class="hover:font-semibold flex-1">
+                    {t("Categories")}
+                  </span>
+                </button>
+                <ul
+                  class="bg-white border rounded-sm transform scale-0 group-hover:scale-100 absolute transition duration-150 ease-in-out origin-top min-w-32"
+                  style={{ minWidth: "250px" }}
+                >
+                  {categories.map((category) => {
+                    if (category.isPrimary == true) {
+                      return (
+                        <li class="rounded-sm relative px-3 py-2 hover:bg-gray-100">
+                          <button class="w-full text-left flex items-center outline-none focus:outline-none">
+                            <span class="pr-1 flex-1">{category.name}</span>
+                          </button>
+                          <ul
+                            class="bg-white border px-3 py-2 rounded-sm absolute top-0 right-0 transition duration-150 ease-in-out origin-top-left min-w-32"
+                            style={{ minWidth: "250px" }}
+                          >
+                            {category.categories.map((val) => {
+                              return (
+                                <li class="px-3 py-1 hover:bg-gray-100">
+                                  <Link to={"/product"}>{val.name}</Link>
+                                </li>
+                              );
+                            })}
+                          </ul>
+                        </li>
+                      );
+                    }
+                  })}
+                </ul>
+              </div>
+              <li className="relative max-w-fit pr-3 md:pr-0 py-1 hover:font-semibold">
                 <Link to="">{t("about_us")}</Link>
               </li>
-              <li className="relative max-w-fit pr-3 md:pr-0 py-1 after:bg-gradient-to-r from-[#2b68e0] to-[#e710ea]  after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300">
+              <li className="relative max-w-fit pr-3 md:pr-0 py-1 hover:font-semibold">
                 <Link to="">{t("contact")}</Link>
               </li>
             </ul>
           </div>
           <div className=" flex items-center mx-auto lg:items-left xl:items-center">
-            <img src={Logo} alt="LOGO" srcSet="" />
+            <Link to={"/"}>
+              <img src={Logo} alt="LOGO" srcSet="" />
+            </Link>
           </div>
 
           <div className="flex gap-0 justify-end sm:col-span-2 lg:col-span-1">
