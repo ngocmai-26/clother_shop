@@ -6,6 +6,7 @@ const initState = {
   page: 0,
   singleProduct: {},
   singleProductComment: [],
+  relatedProduct: [],
 };
 const ProductSlice = createSlice({
   name: "products",
@@ -26,6 +27,9 @@ const ProductSlice = createSlice({
     setSingleProductComment: (state, { payload }) => {
       state.singleProductComment = payload;
     },
+    setRelatedProduct: (state, { payload }) => {
+      state.relatedProduct = payload;
+    },
   },
 });
 
@@ -35,6 +39,7 @@ export const {
   setPage,
   setSingleProduct,
   setSingleProductComment,
+  setRelatedProduct,
 } = ProductSlice.actions;
 
 export default ProductSlice.reducer;

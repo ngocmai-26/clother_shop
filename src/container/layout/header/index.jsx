@@ -47,10 +47,13 @@ function Header() {
                   class="bg-white border rounded-sm transform z-10 scale-0 group-hover:scale-100 absolute transition duration-150 ease-in-out origin-top min-w-32"
                   style={{ minWidth: "250px" }}
                 >
-                  {categories.map((category) => {
+                  {categories.map((category, index) => {
                     if (category.isPrimary == true) {
                       return (
-                        <li class="rounded-sm px-3 relative py-2 hover:bg-gray-100">
+                        <li
+                          class="rounded-sm px-3 relative py-2 hover:bg-gray-100"
+                          key={index}
+                        >
                           <button class="w-full text-left flex items-center outline-none focus:outline-none">
                             <span class="pr-1 flex-1">{category.name}</span>
                           </button>
@@ -58,9 +61,12 @@ function Header() {
                             class="bg-white border px-3 py-2 rounded-sm absolute top-0 right-0 transition duration-150 ease-in-out origin-top-left min-w-32"
                             style={{ minWidth: "250px" }}
                           >
-                            {category.categories.map((val) => {
+                            {category.categories.map((val, index) => {
                               return (
-                                <li class="px-3 py-1 hover:bg-gray-100">
+                                <li
+                                  class="px-3 py-1 hover:bg-gray-100"
+                                  key={index}
+                                >
                                   <Link to={`/product?category=${val.id}`}>
                                     {val.name}
                                   </Link>

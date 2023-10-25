@@ -3,6 +3,7 @@ import { API } from "../constants/api";
 import {
   setPage,
   setProducts,
+  setRelatedProduct,
   setSingleProduct,
   setSingleProductComment,
   setTotalPage,
@@ -97,6 +98,28 @@ export const addComment = createAsyncThunk(
       if (resp.status >= 200 && resp.status < 300) {
         dispatch(setAlert({ type: "success", content: "Đã đánh giá" }));
         dispatch(getCommentByProduct(comment.product.id));
+      }
+    } catch (e) {
+      console.log(e);
+    }
+  }
+);
+
+export const getRelatedProduct = createAsyncThunk(
+  "/product/related",
+  async (id, { dispatch, rejectWithValue }) => {
+    try {
+      let uri = `${API.uri}/product/public/findByCategory?idCategory=${id}&page=0&size=4`;
+
+      const resp = await fetch(uri, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      if (resp.status >= 200 && resp.status < 300) {
+        const jsonData = await resp.json();
+        dispatch(setRelatedProduct(jsonData.content));
       }
     } catch (e) {
       console.log(e);

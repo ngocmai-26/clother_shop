@@ -13,6 +13,7 @@ import {
   addComment,
   getCommentByProduct,
   getProductById,
+  getRelatedProduct,
 } from "../../../thunks/ProductThunk";
 import { setAlert } from "../../../slices/AlertSlice";
 
@@ -27,7 +28,7 @@ function ProductDetail() {
   const [selectedSize, setSelectedSize] = useState();
   const [productSize, setProductSize] = useState([]);
   const dispatch = useDispatch();
-  const { singleProduct, singleProductComment } = useSelector(
+  const { singleProduct, singleProductComment, relatedProduct } = useSelector(
     (state) => state.productReducer
   );
   const { user } = useSelector((state) => state.authReducer);
@@ -73,7 +74,13 @@ function ProductDetail() {
   useLayoutEffect(() => {
     setProductSize(selectedColor?.productSizes);
   }, [selectedColor]);
-
+  useLayoutEffect(() => {
+    if (Object.keys(singleProduct).length > 0) {
+      dispatch(
+        getRelatedProduct(singleProduct.productCategories[0].category.id)
+      );
+    }
+  }, [singleProduct]);
   const handleBuyNow = () => {};
   const handleAddToCart = () => {};
 
@@ -117,8 +124,12 @@ function ProductDetail() {
                   </h4>
                   <div className="grid grid-cols-3 xl:grid-cols-6 lg:grid-cols-7 md:grid-cols-6 gap-2">
                     {singleProduct.productColors?.map((color, index) => {
+                      if (!selectedColor && index == 0) {
+                        setSelectedColor(color);
+                      }
                       return (
                         <button
+                          key={index}
                           onClick={() => {
                             setSelectedColor(color);
                           }}
@@ -139,9 +150,10 @@ function ProductDetail() {
                     {t("size")}
                   </h4>
                   <div className="grid grid-cols-6 xl:grid-cols-7 lg:grid-cols-7 md:grid-cols-9 gap-1">
-                    {productSize?.map((val) => {
+                    {productSize?.map((val, index) => {
                       return (
                         <button
+                          key={index}
                           onClick={() => {
                             setSelectedSize(val);
                           }}
@@ -334,32 +346,36 @@ function ProductDetail() {
                 <SlideProduct comments={singleProductComment} />
               </div>
             )}
+            {relatedProduct.length > 0 && (
+              <div>
+                <h2 className="text-4xl pt-3"> {t("other_product")}</h2>
 
-            <h2 className="text-4xl pt-3"> {t("other_product")}</h2>
-            {/* <div className="grid xl:grid-cols-4 lg:grid-cols-4 md:grid-cols-3 gap-4">
-          <div className="product-item py-5">
-            <div className="product_item-img rounded overflow-hidden">
-              <Link to="/product-detail">
-                <img
-                  src={product_1}
-                  alt="product"
-                  style={{ height: "350px" }}
-                  className="w-full object-cover"
-                />
-              </Link>
-            </div>
-            <div className="product_item-name h-16 overflow-hidden">
-              <Link to="/product-detail">
-                <p className="text-xl text-overflow overflow-ellipsis line-clamp-2 font-medium">
-                  adsadsv Lorem ipsum is simply dummy text...
-                </p>
-              </Link>
-            </div>
-            <div className="product_item-pride">
-              <p className="text-base">$ 420.000</p>
-            </div>
-          </div>
-        </div> */}
+                <div className="grid xl:grid-cols-4 lg:grid-cols-4 md:grid-cols-3 gap-4">
+                  <div className="product-item py-5">
+                    <div className="product_item-img rounded overflow-hidden">
+                      <Link to="/product-detail">
+                        <img
+                          src={product_1}
+                          alt="product"
+                          style={{ height: "350px" }}
+                          className="w-full object-cover"
+                        />
+                      </Link>
+                    </div>
+                    <div className="product_item-name h-16 overflow-hidden">
+                      <Link to="/product-detail">
+                        <p className="text-xl text-overflow overflow-ellipsis line-clamp-2 font-medium">
+                          adsadsv Lorem ipsum is simply dummy text...
+                        </p>
+                      </Link>
+                    </div>
+                    <div className="product_item-pride">
+                      <p className="text-base">$ 420.000</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
         </div>
       )}

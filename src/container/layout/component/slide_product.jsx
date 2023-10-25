@@ -49,8 +49,8 @@ function SlideProduct({ comments }) {
   return (
     <div className="product-slideshow">
       <div className="product-slide grid xl:grid-cols-4 lg:grid-cols-4 md:grid-cols-3 gap-5 w-full">
-        {commentsToShow.map((comment) => (
-          <div className="border py-0 px-4">
+        {commentsToShow.map((comment, index) => (
+          <div className="border py-0 px-4" key={index}>
             <div className="flex border-bottom py-2 ">
               <div className="avatar my-auto">
                 <img
@@ -61,13 +61,14 @@ function SlideProduct({ comments }) {
               </div>
               <div className="info px-3 py-1">
                 <h6 className="font-medium text-left">
-                  {comment.user.fullname}
+                  {comment.user?.fullname}
                 </h6>
 
                 <div className="info-star text-xs text-start">
                   {new Array(5).fill(0).map((star, index) => {
                     return (
                       <label
+                        key={index}
                         className={`info-star-item mr-1 ${
                           index < comment.star ? "star_yell" : ""
                         } `}
@@ -76,7 +77,7 @@ function SlideProduct({ comments }) {
                   })}
                 </div>
                 <p className="text-xs font-normal text-start">
-                  {comment.user.email}
+                  {comment.user?.email}
                 </p>
               </div>
             </div>
