@@ -23,7 +23,7 @@ function Orders({ setAccountUser }) {
             {t("orders")}
           </Link>
         </div>
-        <div className="grid md:grid-cols-4 grid-cols-1 gap-2 py-4">
+        <div className="grid md:grid-cols-4 grid-cols-1 gap-4 py-4">
           <div>
             <NavbarMini />
           </div>

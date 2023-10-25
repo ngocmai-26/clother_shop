@@ -7,7 +7,10 @@ import Pagination from "../component/pagination";
 import { Layout } from "..";
 import { useDispatch, useSelector } from "react-redux";
 import { filterProduct } from "../../../thunks/ProductThunk";
+import cloth_1 from "../../../asset/images/cloth_1.png";
+import cloth_2 from "../../../asset/images/cloth_2.png";
 
+import cloth from "../../../asset/images/cloth_1.png";
 function Product() {
   let [searchParams, setSearchParams] = useSearchParams();
   const [t] = useTranslation("app");
@@ -72,7 +75,7 @@ function Product() {
                 );
               }}
               id="small"
-              className="block w-30 py-2 text-sm text-gray-900 border border-black  focus:ring-blue-500 focus:border-blue-500"
+              className="block w-30 py-2 text-xs sm:text-sm text-gray-900 border border-black  focus:ring-blue-500 focus:border-blue-500"
             >
               <option value={-1}>{t("categories")}</option>
               {categories

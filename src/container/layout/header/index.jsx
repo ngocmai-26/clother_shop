@@ -7,6 +7,8 @@ import { useLayoutEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Categories } from "../../admin/component/categories";
 import { getAllCategories } from "../../../thunks/CategoryThunk";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCartArrowDown, faGlobe, faGlobeOceania, faGolfBall, faUserAlt, faUserClock } from "@fortawesome/free-solid-svg-icons";
 function Header() {
   const [t, i18n] = useTranslation("app");
   const [menuOpen, setMenuOpen] = useState(false);
@@ -37,9 +39,9 @@ function Header() {
               <li className="relative max-w-fit pr-3 md:pr-0 py-1 hover:font-semibold">
                 <Link to="/">{t("shop")}</Link>
               </li>
-              <div class="group inline-block">
-                <button class="outline-none focus:outline-none  py-1 bg-white rounded-sm flex items-center min-w-32">
-                  <span class="hover:font-semibold flex-1 text-left lg:text-center">
+              <li class="group inline-block">
+                <button class="outline-none focus:outline-none text-start py-1 bg-white rounded-sm flex items-center">
+                  <span class="hover:font-semibold flex-1">
                     {t("categories")}
                   </span>
                 </button>
@@ -79,7 +81,7 @@ function Header() {
                     }
                   })}
                 </ul>
-              </div>
+              </li>
               <li className="relative max-w-fit pr-3 md:pr-0 py-1 hover:font-semibold">
                 <Link to="">{t("about_us")}</Link>
               </li>
@@ -129,33 +131,26 @@ function Header() {
                 />
               </div>
             </form>
-            {!logged ? (
+            {logged ? (
               <Link
                 to="/login"
-                type="button"
-                style={{ backgroundColor: "black" }}
-                className="font-medium text-white px-1 py-2 mx-0 rounded active:bg-black hover:bg-gray-500 text-sm sm:text-base my-auto"
+                className="bg-black font-medium text-white px-2 w-8 sm:w-9 lg:w-9 xl:w-9 md:w-9 min-w-8 my-auto  text-center py-2 mx-0 rounded-full active:bg-black hover:bg-gray-500 text-xs sm:text-sm "
               >
-                {t("login")}
+                <button><FontAwesomeIcon icon={faUserClock} /></button>
               </Link>
             ) : (
               <>
                 <Link
                   to="/user-profile"
-                  type="button"
-                  className="inline-flex items-center px-2 text-sm font-medium text-gray-900 bg-white border-0"
+                  className=" bg-black font-medium text-white px-2 w-8 sm:w-9 lg:w-9 xl:w-9 md:w-9 min-w-8 my-auto  text-center py-2 mx-2 rounded-full active:bg-black hover:bg-gray-500 text-xs sm:text-sm"
                 >
-                  <div className="w-8 h-8  rounded-full bg-black p-2">
-                    <img src={iconUser} alt="iconUser" />
-                  </div>
+                  <FontAwesomeIcon icon={faUserAlt} className="text-white mx-auto" />
                 </Link>
                 <Link
                   to="/orders"
-                  className="inline-flex items-center px-2 text-sm font-medium text-gray-900  border-0"
+                  className="bg-black font-medium text-white px-2 w-8 sm:w-9 lg:w-9 xl:w-9 md:w-9 min-w-8 my-auto  text-center py-2  rounded-full active:bg-black hover:bg-gray-500 text-xs sm:text-sm"
                 >
-                  <div className="w-8 h-8  rounded-full bg-black p-2">
-                    <img src={iconCart} alt="iconCart" />
-                  </div>
+                  <FontAwesomeIcon icon={faCartArrowDown} className="text-white mx-auto" />
                 </Link>
               </>
             )}
@@ -164,25 +159,12 @@ function Header() {
               onClick={() => {
                 i18n.changeLanguage(i18n.language === "en" ? "vi" : "en");
               }}
-              className="mx-2 bg-black w-9 sm:w-8 lg:w-9 xl:w-8 text-center rounded-full my-auto h-8"
+              className="mx-2 bg-black px-2 w-8 sm:w-9 lg:w-9 xl:w-9 md:w-9 min-w-8  text-center rounded-full my-auto h-8 md:h-9"
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth="1.5"
-                stroke="currentColor"
-                className="w-5 h-5 text-white m-auto"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418"
-                />
-              </svg>
+              <FontAwesomeIcon icon={faGlobe} className="text-white" />
             </button>
 
-            <button onClick={toggleMenu} className="px-2 block lg:hidden ">
+            <button onClick={toggleMenu} className="pe-2 block lg:hidden ">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="w-6 h-6"

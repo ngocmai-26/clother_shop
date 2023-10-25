@@ -135,7 +135,7 @@ function Payment() {
             </div>
           </div>
         </div>
-        <h2 className="text-4xl pt-3">{t("user_profile")}</h2>
+        <h2 className="text-3xl lg:text-4xl pt-3">{t("user_profile")}</h2>
         <div className="grid xl:grid-cols-4 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-3">
             <div className="product-item py-5">
               <div className="product_item-img rounded overflow-hidden">

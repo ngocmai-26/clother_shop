@@ -43,7 +43,7 @@ function HomePage() {
           <div className="about-us py-8">
             <div className="grid lg:grid-cols-5 grid-cols-1  gap-7">
               <div className="sm:col-span-2 col-span-5">
-                <h4 className="text-3xl sm:text-4xl sm:text-center md:text-left font-bold uppercase">
+                <h4 className="text-3xl lg:text-4xl sm:text-center md:text-left font-bold uppercase">
                   {t("about_us")}
                 </h4>
                 <p className="py-5 leading-7 text-sm">{t("about_text")}</p>
@@ -72,7 +72,7 @@ function HomePage() {
           </div>
 
           <div className="new_product py-8">
-            <h2 className="text-3xl sm:text-4xl pt-3 text-center font-bold uppercase">
+            <h2 className="text-3xl lg:text-4xl pt-3 text-center font-bold uppercase">
               {t("new_product")}
             </h2>
             <div className="grid xl:grid-cols-4 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-3">
@@ -176,7 +176,7 @@ function HomePage() {
             </div>
           </div>
           <div className="new_collections py-8">
-            <h2 className="text-3xl sm:text-4xl py-3 text-center font-bold uppercase">
+            <h2 className="text-3xl lg:text-4xl py-3 text-center font-bold uppercase">
               {t("new_collection")}
             </h2>
             <div className="grid xl:grid-cols-4 lg:grid-cols-4 md:grid-cols-3 grid-cols-1 sm:grid-cols-2 gap-3">
@@ -280,7 +280,7 @@ function HomePage() {
             </div>
           </div>
           <div className="new_collections text-center py-4 ">
-            <h2 className="text-3xl sm:text-4xl py-3 text-center font-bold uppercase">
+            <h2 className="text-3xl lg:text-4xl py-3 text-center font-bold uppercase">
               {t("our_partners")}
             </h2>
             <p className="lg:w-2/4 text-center py-3 mx-auto">
@@ -318,7 +318,7 @@ function HomePage() {
             </div>
           </div>
           <div className="new_feedbacks text-center py-4">
-            <h2 className="text-3xl sm:text-4xl py-2 text-center font-bold uppercase">
+            <h2 className="text-3xl lg:text-4xl py-2 text-center font-bold uppercase">
               {t("our_feedbacks")}
             </h2>
             <p className="lg:w-2/4 text-center py-5 mx-auto">
@@ -327,7 +327,7 @@ function HomePage() {
             <SlideProduct comments={commentUser} />
           </div>
           <div className="new_feedbacks text-center py-4">
-            <h2 className="text-3xl sm:text-4xl py-3 text-center font-bold uppercase">
+            <h2 className="text-3xl lg:text-4xl py-3 text-center font-bold uppercase">
               {t("contact_to_us")}
             </h2>
             <p className="lg:w-2/4 text-center py-3 mx-auto">
