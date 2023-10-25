@@ -5,6 +5,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faChevronRight,
   faChevronLeft,
+  faChevronUp,
+  faChevronDown,
 } from "@fortawesome/free-solid-svg-icons";
 
 const Slideshow = ({ images }) => {
@@ -29,7 +31,7 @@ const Slideshow = ({ images }) => {
       <div className="grid grid-cols-4 gap-5 overflow-hidden ">
         <div className="mySlides">
           <a className="prev" onClick={prevSlide}>
-            <FontAwesomeIcon icon={faChevronLeft} />
+            <FontAwesomeIcon icon={faChevronUp} />
           </a>
           <div className="flex flex-col ">
             {images.map((image, index) => (
@@ -44,7 +46,7 @@ const Slideshow = ({ images }) => {
           </div>
 
           <a className="next" onClick={nextSlide}>
-            <FontAwesomeIcon icon={faChevronRight} />
+            <FontAwesomeIcon icon={faChevronDown} />
           </a>
         </div>
         <div className="col-span-3">

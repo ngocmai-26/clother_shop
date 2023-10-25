@@ -33,14 +33,14 @@ function Header() {
               menuOpen ? "top-[100%] left-0" : "top-[-100%] left-[-100%]"
             }  lg:px-0 py-5 xl:px-5 lg:col-span-1 lg:min-w-[380px] px-5   xl:w-full `}
           >
-            <ul className="flex lg:flex-row flex-col lg:items-center lg:gap-[2vw] w-full lg:w-auto">
+            <ul className="flex lg:flex-row flex-col lg:items-center lg:gap-[1vw] w-full lg:w-auto">
               <li className="relative max-w-fit pr-3 md:pr-0 py-1 hover:font-semibold">
                 <Link to="/">{t("shop")}</Link>
               </li>
               <div class="group inline-block">
                 <button class="outline-none focus:outline-none px-3 py-1 bg-white rounded-sm flex items-center min-w-32">
                   <span class="hover:font-semibold flex-1">
-                    {t("Categories")}
+                    {t("categories")}
                   </span>
                 </button>
                 <ul
@@ -121,12 +121,12 @@ function Header() {
                 />
               </div>
             </form>
-            {!logged ? (
+            { logged ? (
               <Link
                 to="/login"
                 type="button"
                 style={{ backgroundColor: "black" }}
-                className="font-medium text-white px-2 py-2 mx-0 rounded active:bg-black hover:bg-gray-500 text-sm sm:text-base my-auto"
+                className="font-medium text-white px-1 py-2 mx-0 rounded active:bg-black hover:bg-gray-500 text-sm sm:text-base my-auto"
               >
                 {t("login")}
               </Link>
@@ -152,7 +152,29 @@ function Header() {
               </>
             )}
 
-            <button onClick={toggleMenu} className="px-2 block lg:hidden">
+            <button
+              onClick={() => {
+                i18n.changeLanguage(i18n.language === "en" ? "vi" : "en");
+              }}
+              className="mx-2 bg-black w-9 sm:w-8 lg:w-9 xl:w-8 text-center rounded-full my-auto h-8" 
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth="1.5"
+                stroke="currentColor"
+                className="w-5 h-5 text-white m-auto"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418"
+                />
+              </svg>
+            </button>
+
+            <button onClick={toggleMenu} className="px-2 block lg:hidden ">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="w-6 h-6"
@@ -165,28 +187,6 @@ function Header() {
                   strokeLinejoin="round"
                   strokeWidth="2"
                   d="M4 6h16M4 12h16M4 18h16"
-                />
-              </svg>
-            </button>
-            <button
-              onClick={() => {
-                // hàm change lang
-                i18n.changeLanguage(i18n.language === "en" ? "vi" : "en");
-              }}
-              className="pl-3"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth="1.5"
-                stroke="currentColor"
-                className="w-6 h-6"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418"
                 />
               </svg>
             </button>

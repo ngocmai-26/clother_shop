@@ -6,6 +6,7 @@ import { useTranslation } from "react-i18next";
 import { useSelector, useDispatch } from "react-redux";
 import { login } from "../../../thunks/AuthThunk";
 import { setAlert } from "../../../slices/AlertSlice";
+import { Layout } from "..";
 function Login() {
   const [t] = useTranslation("app");
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
@@ -44,14 +45,14 @@ function Login() {
     return true;
   };
   return (
-    <div className="mt-10 pt-10 sm-pt-0">
+   <Layout>
+     <div className="mt-10 pt-10 sm-pt-0">
       <div className="grid xl:grid-cols-6 lg:grid-cols-4 md:grid-cols-4 gap-2 mx-2 py-20">
         {logged ? <></> : <></>}
         <div className="xl:col-start-3 md:col-start-2 lg:col-start-2 col-span-2 border p-5">
           <h2 className="text-3xl">{t("login")}</h2>
           <p className="text-base py-3">
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry.
+            {t('subtitle_login')}
           </p>
           <form className="mt-4">
             <div className="mx-auto max-w-lg">
@@ -114,6 +115,7 @@ function Login() {
         </div>
       </div>
     </div>
+   </Layout>
   );
 }
 

@@ -7,10 +7,12 @@ import { useTranslation } from "react-i18next";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
+import { Layout } from "..";
 function PaymentMethod() {
   const [t] = useTranslation("app");
   return (
-    <div className="mt-20 sm:mt-0">
+   <Layout>
+     <div className="mt-20 sm:mt-0">
       <div className="sm:w-4/6 w-full mx-auto">
         <div className="history">
           <Link to="/" className="uppercase text-xs px-1">
@@ -156,6 +158,7 @@ function PaymentMethod() {
         </form>
       </div>
     </div>
+   </Layout>
   );
 }
 

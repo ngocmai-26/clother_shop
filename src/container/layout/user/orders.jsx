@@ -6,15 +6,14 @@ import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import NavbarMini from "../component/nav_mini";
+import { Layout } from "..";
 function Orders({ setAccountUser }) {
   const [t] = useTranslation("app");
   const [orderProduct, setOrderProduct] = useState([]);
-  const handLogout = () => {
-    setAccountUser({});
-  };
   return (
-    <div className="pt-20 lg:px-8 px-4 min-h-screen">
-      <div className="lg:w-5/6 w-full h-full mx-auto">
+    <Layout>
+      <div className="pt-20 mt-5 sm:mt-0 px-4 min-h-screen">
+      <div className="lg:w-5/6 w-full h-full mx-auto mt-12">
         <div className="history">
           <Link to="/" className="uppercase text-xs px-1">
             {t("home")}
@@ -24,7 +23,7 @@ function Orders({ setAccountUser }) {
             {t("orders")}
           </Link>
         </div>
-        <div className="grid md:grid-cols-4 grid-cols-1 gap-2 py-2">
+        <div className="grid md:grid-cols-4 grid-cols-1 gap-2 py-4">
           <div>
             <NavbarMini />
           </div>
@@ -32,8 +31,7 @@ function Orders({ setAccountUser }) {
             <div className="orders p-3 md:w-11/12 w-full">
               <h2 className="text-3xl py-2">{t("orders")}</h2>
               <p className="text-base">
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry.
+                {t("subtitle_orders")}
               </p>
               {orderProduct.length !== 0 ? (
                 <div className="order-detail text-center ">
@@ -103,6 +101,7 @@ function Orders({ setAccountUser }) {
         </div>
       </div>
     </div>
+    </Layout>
   );
 }
 

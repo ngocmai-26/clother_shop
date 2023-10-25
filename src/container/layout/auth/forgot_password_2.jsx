@@ -5,6 +5,7 @@ import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
 import { setAlert } from "../../../slices/AlertSlice";
 import { activeAccount } from "../../../thunks/AuthThunk";
 import { OTP_TYPE } from "../../../constants/enum";
+import { Layout } from "..";
 
 function ForgotPassword2() {
   const { email, type } = useParams();
@@ -27,7 +28,7 @@ function ForgotPassword2() {
         break;
       case OTP_TYPE.VERIFY_ACCOUNT:
         if (code.trim === "" || code.length != 6) {
-          dispatch(setAlert({ type: "error", content: "Hãy nhập code" }));
+          dispatch(setAlert({ type: "error", content: t("content_input_code") }));
           return;
         }
         dispatch(activeAccount({ email, code })).then((resp) => {
@@ -40,14 +41,14 @@ function ForgotPassword2() {
   };
 
   return (
-    <div className="mt-10 pt-10 sm-pt-0">
+   <Layout>
+     <div className="mt-10 pt-10 sm-pt-0">
       <div className="grid xl:grid-cols-6 lg:grid-cols-4 md:grid-cols-4 gap-2 mx-2 py-20">
         <div className="xl:col-start-3 md:col-start-2 lg:col-start-2 col-span-2 border p-5">
           <h2 className="text-3xl">{t("confirm_otp")}</h2>
           <p className="text-base py-3">
-            An OTP code has been sent to email
-            <span className="text-rose-500"> {email}</span>. Please enter in the
-            box below.
+            {t("subtitle_opt")}
+            <span className="text-rose-500"> {email}</span>. {t("subtitle_opt_input")}
           </p>
           <form className="mt-4">
             <div className="mx-auto max-w-lg relative">
@@ -86,6 +87,7 @@ function ForgotPassword2() {
         </div>
       </div>
     </div>
+   </Layout>
   );
 }
 

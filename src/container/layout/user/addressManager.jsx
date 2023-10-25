@@ -4,6 +4,7 @@ import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 import NavbarMini from "../component/nav_mini";
+import { Layout } from "..";
 
 function AddressManager({ setAccountUser }) {
   const [t] = useTranslation("app");
@@ -11,7 +12,8 @@ function AddressManager({ setAccountUser }) {
     setAccountUser({});
   };
   return (
-    <div className="pt-20  mt-5 sm:mt-0 min-h-screen px-8">
+   <Layout>
+     <div className="pt-20  mt-5 sm:mt-0 min-h-screen px-8">
       <div className="lg:w-5/6 w-full h-full mx-auto">
         <div className="history">
           <Link to="/" className="uppercase text-xs px-1">
@@ -74,6 +76,7 @@ function AddressManager({ setAccountUser }) {
         </div>
       </div>
     </div>
+   </Layout>
   );
 }
 

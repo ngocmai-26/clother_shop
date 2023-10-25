@@ -5,6 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { setAlert } from "../../../slices/AlertSlice";
 import { OTP_TYPE } from "../../../constants/enum";
 import { forgotPassword } from "../../../thunks/AuthThunk";
+import { Layout } from "..";
 
 function ForgotPassword() {
   const [t] = useTranslation("app");
@@ -26,13 +27,15 @@ function ForgotPassword() {
   };
 
   return (
-    <div className="mt-10 pt-10 sm-pt-0">
+   <Layout>
+     <div className="mt-10 pt-10 sm-pt-0">
       <div className="grid xl:grid-cols-6 lg:grid-cols-4 md:grid-cols-4 gap-2 mx-2 py-20">
         <div className="xl:col-start-3 md:col-start-2 lg:col-start-2 col-span-2 border p-5">
           <h2 className="text-3xl">{t("forgot_password")}</h2>
           <p className="text-base py-2">
             Hãy nhập email của bạn , chúng tôi sẽ gửi đến mail một mã khôi phục
             tài khoản
+            {t("subtitle_forget_password")}
           </p>
           <div className="mt-3">
             <div className="mx-auto max-w-lg">
@@ -64,6 +67,7 @@ function ForgotPassword() {
         </div>
       </div>
     </div>
+   </Layout>
   );
 }
 

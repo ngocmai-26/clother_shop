@@ -110,12 +110,27 @@
     "filter": "Filter",
     "price_level": "Price level",
     "price_from_low_to_high": "Price from low to high",
+    "price_from_hight_to_low": "Price from high to low",
     "home": "Home",
     "user": "User",
     "payment": "Payment",
     "your_full_name": "Your full name",
     "address_manager": "Address Manager",
     "your_address": "Your address",
-    "add_address": "Add new address"
+    "add_address": "Add new address",
+    "subtitle_login": "Sign in to get started",
+    "subtitle_register": "Register to start experiencing our service",
+    "subtitle_opt": "An OTP code has been sent to email",
+    "subtitle_opt_input": "Please enter in the box below.",
+    "subtitle_forget_password": "Please enter your email, we will email you a recovery code",
+    "content_input_code": "Please enter the code",
+    "subtitle_new_password": "Please enter a new password for your account",
+    "success_register": "Congratulations, you have successfully registered a new account",
+    "subtitle_profile": "Remember to fully update your personal information",
+    "update_profile": "Update profile",
+    "new_password": "New password",
+    "subtitle_orders": "Products in your shopping cart",
+    "categories": "Categories",
+    "product_filter": "Product Filter"
 
 }

@@ -35,11 +35,11 @@ function Product() {
               {t("product")}
             </Link>
           </div>
-          <h3 className="uppercase text-4xl my-6">{t("Product Filter")}</h3>
-          <div className="grid lg:grid-cols-6 xl:grid-cols-6 md:grid-cols-5 grid-cols-3  gap-2">
+          <h3 className="uppercase text-4xl my-6">{t("product_filter")}</h3>
+          <div className="grid lg:grid-cols-6 xl:grid-cols-6 md:grid-cols-5 grid-cols-3  gap-2 mb-6">
             <select
               id="small"
-              className="block w-30 py-2 mb-6 text-sm text-gray-900 border border-black  focus:ring-blue-500 focus:border-blue-500"
+              className="block w-30 py-2 text-sm text-gray-900 border border-black  focus:ring-blue-500 focus:border-blue-500"
             >
               <option selected>{t("categories")}</option>
               {categories
@@ -50,9 +50,9 @@ function Product() {
             </select>
             <select
               id="small"
-              className="block w-30 py-2 mb-6 text-sm mr-2 text-gray-900 border border-black  focus:ring-blue-500 focus:border-blue-500"
+              className="block w-30 py-2 text-sm mr-2 text-gray-900 border border-black  focus:ring-blue-500 focus:border-blue-500"
             >
-              <option selected>{t("Price")}</option>
+              <option selected>{t("price")}</option>
               <option value="US">United States</option>
               <option value="CA">Canada</option>
               <option value="FR">France</option>
@@ -60,11 +60,12 @@ function Product() {
             </select>
             <select
               id="small"
-              className="block w-50 py-2 mb-6 text-sm text-gray-900 border border-black  focus:ring-blue-500 focus:border-blue-500"
+              className="block w-50 py-2 text-sm text-gray-900 border border-black  focus:ring-blue-500 focus:border-blue-500"
             >
               <option selected>{t("price_from_low_to_high")}</option>
-              <option selected>{t("price from high to low")}</option>
+              <option selected>{t("price_from_hight_to_low")}</option>
             </select>
+            <button className="bg-black text-white mr-2">{t("filter")}</button>
           </div>
           <div className="grid  xl:grid-cols-4 lg:grid-cols-4 md:grid-cols-3 grid-cols-1 sm:grid-cols-2 gap-3">
             {products.map((item, index) => (

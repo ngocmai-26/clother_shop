@@ -77,7 +77,7 @@ function UserProfile({ setAccountUser }) {
   };
   return (
     <Layout>
-      <div className="pt-20 mt-5 sm:mt-0 px-8 min-h-screen">
+      <div className="pt-20 mt-5 sm:mt-0 px-4 min-h-screen">
         <div className="lg:w-5/6 w-full mx-auto mt-12">
           <div className="history">
             <Link to="/" className="uppercase text-xs px-1">
@@ -99,24 +99,23 @@ function UserProfile({ setAccountUser }) {
               <div className="user-profile px-3">
                 <h2 className="text-3xl py-2">{t("user_profile")}</h2>
                 <p className="text-base">
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry.
+                  {t("subtitle_profile")}
                 </p>
                 <div className="user-profile-detail">
                   <div>
                     <h2 className="text-2xl py-2">
                       {t("general_information")}
                     </h2>
-                    <div className="grid grid-cols-3 gap-4 py-2">
-                      <div className="title">
-                        <p className="text-base font-normal">
+                    <div className="gap-4 py-2 sm:flex-row flex-col flex">
+                      <div className="title sm:w-4/12">
+                        <p className="text-base font-normal ">
                           {t("your_name")}
                         </p>
                         <p className="text-sm text-neutral-400">
                           {t("your_full_name")}
                         </p>
                       </div>
-                      <div className="col-span-2">
+                      <div className="sm:w-8/12">
                         <input
                           onChange={(e) => {
                             setUserUpdate({
@@ -131,11 +130,11 @@ function UserProfile({ setAccountUser }) {
                         />
                       </div>
                     </div>
-                    <div className="grid grid-cols-3 gap-4 py-2">
-                      <div className="title">
+                    <div className="gap-4 py-2 sm:flex-row flex-col flex">
+                      <div className="sm:w-4/12">
                         <p className="text-base font-normal">Email</p>
                       </div>
-                      <div className="col-span-2">
+                      <div className="sm:w-8/12">
                         <input
                           onChange={(e) => {
                             setUserUpdate({
@@ -150,11 +149,11 @@ function UserProfile({ setAccountUser }) {
                         />
                       </div>
                     </div>
-                    <div className="grid grid-cols-3 gap-4 py-2">
-                      <div className="title">
+                    <div className="gap-4 py-2 sm:flex-row flex-col flex">
+                      <div className="sm:w-4/12">
                         <p className="text-base font-normal">{t("contact")}</p>
                       </div>
-                      <div className="col-span-2">
+                      <div className="sm:w-8/12">
                         <input
                           onChange={(e) => {
                             setUserUpdate({
@@ -170,11 +169,11 @@ function UserProfile({ setAccountUser }) {
                       </div>
                     </div>
                     <h2 className="text-2xl py-3">{t("security")}</h2>
-                    <div className="grid grid-cols-3 gap-4 py-2">
-                      <div className="title">
+                    <div className="gap-4 py-2 sm:flex-row flex-col flex">
+                      <div className="sm:w-4/12">
                         <p className="text-base font-normal">{t("password")}</p>
                       </div>
-                      <div className="col-span-2 relative">
+                      <div className="sm:w-8/12 relative">
                         <input
                           onChange={(e) => {
                             setOldPassword(e.target.value);
@@ -197,11 +196,11 @@ function UserProfile({ setAccountUser }) {
                         </button>
                       </div>
                     </div>
-                    <div className="grid grid-cols-3 gap-4 py-2">
-                      <div className="title">
-                        <p className="text-base font-normal">New Password</p>
+                    <div className="gap-4 py-2 sm:flex-row flex-col flex">
+                      <div className="sm:w-4/12">
+                        <p className="text-base font-normal">{t("new_password")}</p>
                       </div>
-                      <div className="col-span-2 relative">
+                      <div className="sm:w-8/12 relative">
                         <input
                           onChange={(e) => {
                             setNewPassword(e.target.value);
@@ -231,7 +230,7 @@ function UserProfile({ setAccountUser }) {
                             onClick={handleUpdateUser}
                             className="bg-black border border-black text-white uppercase py-3 md:w-5/10 w-6/12 mt-3 me-2 text-xs"
                           >
-                            Update profile
+                            {t("update_profile")}
                           </button>
                           <button
                             onClick={handleChangePassword}

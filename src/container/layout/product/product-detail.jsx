@@ -14,6 +14,7 @@ import {
   faLeftRight,
   faRightFromBracket,
 } from "@fortawesome/free-solid-svg-icons";
+import { Layout } from "..";
 
 function ProductDetail() {
   const [t] = useTranslation("app");
@@ -43,7 +44,8 @@ function ProductDetail() {
   };
 
   return (
-    <div className="mt-20 sm:mt-0">
+    <Layout>
+      <div className="mt-20 sm:mt-0 px-4">
       <div className="sm:w-5/6 w-full mx-auto">
         <div className="history">
           <Link to="/" className="uppercase text-xs px-1">
@@ -62,9 +64,9 @@ function ProductDetail() {
           <div className="xl:col-span-4">
             <Slideshow images={images} />
           </div>
-          <div className="xl:col-span-3 px-2">
+          <div className="xl:col-span-3 md:px-2">
             <div className="product-title">
-              <h1 className="xl:text-3xl text-3xl font-normal pb-1 h-20 overflow-hidden line-clamp-2">
+              <h1 className="xl:text-3xl text-3xl font-normal pb-1 h-19 overflow-hidden line-clamp-2">
                 Lorem Ipsum is simply dummy text of the printing
               </h1>
             </div>
@@ -304,6 +306,7 @@ function ProductDetail() {
         </div>
       </div>
     </div>
+    </Layout>
   );
 }
 

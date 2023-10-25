@@ -5,6 +5,7 @@ import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
+import { Layout } from "..";
 function Payment() {
   const [t] = useTranslation("app");
   const [quantity, setQuantity] = useState(1);
@@ -19,7 +20,8 @@ function Payment() {
     }
   };
   return (
-    <div className="pt-20 mt-8">
+    <Layout>
+      <div className="pt-20 mt-8">
       <div className="sm:w-5/6 w-full px-3 mx-auto">
         <div className="history">
           <Link to="/" className="uppercase text-xs px-1">
@@ -161,6 +163,7 @@ function Payment() {
           </div>
       </div>
     </div>
+    </Layout>
   );
 }
 
