@@ -4,6 +4,8 @@ const initState = {
   products: [],
   totalPage: 0,
   page: 0,
+  singleProduct: {},
+  singleProductComment: [],
 };
 const ProductSlice = createSlice({
   name: "products",
@@ -18,9 +20,21 @@ const ProductSlice = createSlice({
     setPage: (state, { payload }) => {
       state.page = payload;
     },
+    setSingleProduct: (state, { payload }) => {
+      state.singleProduct = payload;
+    },
+    setSingleProductComment: (state, { payload }) => {
+      state.singleProductComment = payload;
+    },
   },
 });
 
-export const { setProducts, setTotalPage, setPage } = ProductSlice.actions;
+export const {
+  setProducts,
+  setTotalPage,
+  setPage,
+  setSingleProduct,
+  setSingleProductComment,
+} = ProductSlice.actions;
 
 export default ProductSlice.reducer;

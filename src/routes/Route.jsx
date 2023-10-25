@@ -28,7 +28,7 @@ function Router() {
       <Routes>
         <Route path="/" element={<HomePage />}></Route>
         <Route path="/product" element={<Product />} />
-        <Route path="/product-detail" element={<ProductDetail />} />
+        <Route path="/product-detail/:id" element={<ProductDetail />} />
         <Route path="/payment" element={<Payment />} />
         <Route path="/payment-method" element={<PaymentMethod />} />
         <Route

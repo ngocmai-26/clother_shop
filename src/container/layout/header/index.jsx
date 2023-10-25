@@ -38,19 +38,19 @@ function Header() {
                 <Link to="/">{t("shop")}</Link>
               </li>
               <div class="group inline-block">
-                <button class="outline-none focus:outline-none px-3 py-1 bg-white rounded-sm flex items-center min-w-32">
-                  <span class="hover:font-semibold flex-1">
+                <button class="outline-none focus:outline-none  py-1 bg-white rounded-sm flex items-center min-w-32">
+                  <span class="hover:font-semibold flex-1 text-left lg:text-center">
                     {t("categories")}
                   </span>
                 </button>
                 <ul
-                  class="bg-white border rounded-sm transform scale-0 group-hover:scale-100 absolute transition duration-150 ease-in-out origin-top min-w-32"
+                  class="bg-white border rounded-sm transform z-10 scale-0 group-hover:scale-100 absolute transition duration-150 ease-in-out origin-top min-w-32"
                   style={{ minWidth: "250px" }}
                 >
                   {categories.map((category) => {
                     if (category.isPrimary == true) {
                       return (
-                        <li class="rounded-sm relative px-3 py-2 hover:bg-gray-100">
+                        <li class="rounded-sm px-3 relative py-2 hover:bg-gray-100">
                           <button class="w-full text-left flex items-center outline-none focus:outline-none">
                             <span class="pr-1 flex-1">{category.name}</span>
                           </button>
@@ -61,7 +61,9 @@ function Header() {
                             {category.categories.map((val) => {
                               return (
                                 <li class="px-3 py-1 hover:bg-gray-100">
-                                  <Link to={"/product"}>{val.name}</Link>
+                                  <Link to={`/product?category=${val.id}`}>
+                                    {val.name}
+                                  </Link>
                                 </li>
                               );
                             })}
@@ -121,7 +123,7 @@ function Header() {
                 />
               </div>
             </form>
-            { !logged ? (
+            {!logged ? (
               <Link
                 to="/login"
                 type="button"
@@ -156,7 +158,7 @@ function Header() {
               onClick={() => {
                 i18n.changeLanguage(i18n.language === "en" ? "vi" : "en");
               }}
-              className="mx-2 bg-black w-9 sm:w-8 lg:w-9 xl:w-8 text-center rounded-full my-auto h-8" 
+              className="mx-2 bg-black w-9 sm:w-8 lg:w-9 xl:w-8 text-center rounded-full my-auto h-8"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"

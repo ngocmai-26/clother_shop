@@ -1,6 +1,5 @@
-import { useEffect, useLayoutEffect, useState } from "react";
-import { listProduct } from "../../../data";
-import { Link } from "react-router-dom";
+import { useLayoutEffect, useState } from "react";
+import { Link, useSearchParams } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import { useTranslation } from "react-i18next";
@@ -8,21 +7,45 @@ import Pagination from "../component/pagination";
 import { Layout } from "..";
 import { useDispatch, useSelector } from "react-redux";
 import { filterProduct } from "../../../thunks/ProductThunk";
+
 function Product() {
+  let [searchParams, setSearchParams] = useSearchParams();
   const [t] = useTranslation("app");
   const { categories } = useSelector((state) => state.categoryReducer);
   const { products, totalPage, page } = useSelector(
     (state) => state.productReducer
   );
+  const [price, setPrice] = useState({});
   const dispatch = useDispatch();
+
   useLayoutEffect(() => {
-    dispatch(filterProduct({ page: 0 }));
+    const data = {};
+    let ct = searchParams.get("category");
+    if (ct) {
+      data.category_id = ct;
+    }
+    dispatch(filterProduct({ page: 0, ...data }));
   }, []);
-  useLayoutEffect(() => {}, [totalPage, page]);
+
+  const handleFilterProduct = () => {
+    const data = { page: 0 };
+    if (price.smallPrice && price.largePrice) {
+      data.price = price;
+    }
+    if (searchParams.get("category") != -1) {
+      data.category_id = searchParams.get("category");
+    }
+    dispatch(filterProduct(data));
+  };
+
+  useLayoutEffect(() => {
+    dispatch(filterProduct({ page: page }));
+  }, [page]);
+
   return (
     <Layout>
       <div className="mt-0 sm:mt-20">
-        <div className="sm:w-5/6 w-full mx-auto sm:mt-10">
+        <div className="sm:w-5/6 w-full mx-auto sm:mt-10 px-6 lg:px-0">
           <div className="history">
             <Link to="/" className="uppercase text-xs px-1">
               {t("home")}
@@ -35,42 +58,68 @@ function Product() {
               {t("product")}
             </Link>
           </div>
-          <h3 className="uppercase text-4xl my-6">{t("product_filter")}</h3>
-          <div className="grid lg:grid-cols-6 xl:grid-cols-6 md:grid-cols-5 grid-cols-3  gap-2 mb-6">
+          <h3 className="uppercase sm:text-xl md:text-2xl lg:text-3xl my-6">
+            {t("Product Filter")}
+          </h3>
+          <div className="grid mt-12 sm:mt-0 lg:grid-cols-6 xl:grid-cols-6 md:grid-cols-5 grid-cols-3 gap-2 h-12 items-center">
             <select
+              onChange={(e) => {
+                searchParams.set("category", e.target.value);
+                window.history.pushState(
+                  null,
+                  "",
+                  "?category=" + e.target.value
+                );
+              }}
               id="small"
               className="block w-30 py-2 text-sm text-gray-900 border border-black  focus:ring-blue-500 focus:border-blue-500"
             >
-              <option selected>{t("categories")}</option>
+              <option value={-1}>{t("categories")}</option>
               {categories
                 .filter((val) => val.isPrimary == null || !val.isPrimary)
-                .map((category) => {
-                  return <option value={category.id}>{category.name}</option>;
+                .map((category, index) => {
+                  return (
+                    <option
+                      key={index}
+                      selected={
+                        searchParams.get("category") == category.id
+                          ? "selected"
+                          : ""
+                      }
+                      value={category.id}
+                    >
+                      {category.name}
+                    </option>
+                  );
                 })}
             </select>
-            <select
-              id="small"
-              className="block w-30 py-2 text-sm mr-2 text-gray-900 border border-black  focus:ring-blue-500 focus:border-blue-500"
+            <input
+              type="number"
+              placeholder="Min price"
+              className="border border-black font-light text-sm py-2 px-2 h-10"
+              onChange={(e) => {
+                setPrice({ ...price, smallPrice: e.target.value });
+              }}
+            />
+            <input
+              type="number"
+              placeholder="Max price"
+              className="border border-black font-light text-sm py-2 px-2 h-10"
+              onChange={(e) => {
+                setPrice({ ...price, largePrice: e.target.value });
+              }}
+            />
+            <button
+              onClick={handleFilterProduct}
+              className="w-full bg-black py-2 h-10 text-white"
             >
-              <option selected>{t("price")}</option>
-              <option value="US">United States</option>
-              <option value="CA">Canada</option>
-              <option value="FR">France</option>
-              <option value="DE">Germany</option>
-            </select>
-            <select
-              id="small"
-              className="block w-50 py-2 text-sm text-gray-900 border border-black  focus:ring-blue-500 focus:border-blue-500"
-            >
-              <option selected>{t("price_from_low_to_high")}</option>
-              <option selected>{t("price_from_hight_to_low")}</option>
-            </select>
-            <button className="bg-black text-white mr-2">{t("filter")}</button>
+              Filter
+            </button>
           </div>
-          <div className="grid  xl:grid-cols-4 lg:grid-cols-4 md:grid-cols-3 grid-cols-1 sm:grid-cols-2 gap-3">
-            {products.map((item, index) => (
+          <div className="grid mt-12 lg:mt-6 xl:grid-cols-4 lg:grid-cols-4 md:grid-cols-3 grid-cols-1 sm:grid-cols-2 gap-3">
+            {products.map((item) => (
               <div className="product-item py-2">
-                <Link to="/product-detail">
+                <Link to={`/product-detail/${item.id}`}>
                   <div className="product_item-img rounded overflow-hidden">
                     <img
                       src={item.imageBanner}
@@ -81,7 +130,7 @@ function Product() {
                   </div>
                 </Link>
 
-                <div className="product_item-name max-h-16 overflow-hidden">
+                <div className="product_item-name my-2 max-h-16 overflow-hidden">
                   <Link
                     to="/product-detail"
                     className="text-xl text-overflow overflow-ellipsis line-clamp-2 font-medium text-gray-700"
@@ -94,12 +143,14 @@ function Product() {
                 </div>
               </div>
             ))}
+            {products.length == 0 && (
+              <div className="flex w-full">
+                <p className="text-center">Không có sản phẩm nào</p>
+              </div>
+            )}
           </div>
           <nav aria-label="Page navigation example" className=" text-end py-3">
-            {/* <Pagination
-              totalPage={totalPage}
-              setPage={onChangePage}
-            ></Pagination> */}
+            <Pagination totalPage={totalPage}></Pagination>
           </nav>
         </div>
       </div>

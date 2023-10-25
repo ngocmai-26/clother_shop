@@ -34,7 +34,7 @@ const Slideshow = ({ images }) => {
             <FontAwesomeIcon icon={faChevronUp} />
           </a>
           <div className="flex flex-col ">
-            {images.map((image, index) => (
+            {images?.map((image, index) => (
               <Thumbnail
                 key={index}
                 image={image}
@@ -50,7 +50,7 @@ const Slideshow = ({ images }) => {
           </a>
         </div>
         <div className="col-span-3">
-          {images.map((image, index) => (
+          {images?.map((image, index) => (
             <Slide
               key={index}
               image={image}

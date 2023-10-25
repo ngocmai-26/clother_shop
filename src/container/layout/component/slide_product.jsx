@@ -1,4 +1,7 @@
-import { faChevronLeft, faChevronRight } from "@fortawesome/free-solid-svg-icons";
+import {
+  faChevronLeft,
+  faChevronRight,
+} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect, useState } from "react";
 
@@ -46,7 +49,7 @@ function SlideProduct({ comments }) {
   return (
     <div className="product-slideshow">
       <div className="product-slide grid xl:grid-cols-4 lg:grid-cols-4 md:grid-cols-3 gap-5 w-full">
-        {commentsToShow.map((comment, index) => (
+        {commentsToShow.map((comment) => (
           <div className="border py-0 px-4">
             <div className="flex border-bottom py-2 ">
               <div className="avatar my-auto">
@@ -57,39 +60,41 @@ function SlideProduct({ comments }) {
                 />
               </div>
               <div className="info px-3 py-1">
-                <h6 className="font-medium text-left">{comment.name}</h6>
+                <h6 className="font-medium text-left">
+                  {comment.user.fullname}
+                </h6>
 
-                <div className="info-star text-xs ">
-                  <label className="info-star-item mr-1 star_yell"></label>
-                  <label className="info-star-item mr-1 star_yell"></label>
-                  <label className="info-star-item mr-1 "></label>
-                  <label className="info-star-item mr-1 "></label>
-                  <label className="info-star-item mr-1 "></label>
+                <div className="info-star text-xs text-start">
+                  {new Array(5).fill(0).map((star, index) => {
+                    return (
+                      <label
+                        className={`info-star-item mr-1 ${
+                          index < comment.star ? "star_yell" : ""
+                        } `}
+                      ></label>
+                    );
+                  })}
                 </div>
-                <p className="text-xs font-normal text-start">UX/UI Design</p>
+                <p className="text-xs font-normal text-start">
+                  {comment.user.email}
+                </p>
               </div>
             </div>
             <hr></hr>
             <div className="comment py-3">
               <p className="text-sm text-slate-500 text-justify">
-                {comment.description}
+                {comment.content}
               </p>
             </div>
           </div>
         ))}
       </div>
       <div className="product-controls w-full flex justify-between">
-        <button
-          onClick={prevSlide}
-          className="product-controls-previous"
-        >
-           <FontAwesomeIcon icon={faChevronLeft} />
+        <button onClick={prevSlide} className="product-controls-previous">
+          <FontAwesomeIcon icon={faChevronLeft} />
         </button>
-        <button
-          onClick={nextSlide}
-          className="product-controls-next"
-        >
-        <FontAwesomeIcon icon={faChevronRight} />
+        <button onClick={nextSlide} className="product-controls-next">
+          <FontAwesomeIcon icon={faChevronRight} />
         </button>
       </div>
     </div>
