@@ -121,7 +121,7 @@ function Header() {
                 />
               </div>
             </form>
-            { logged ? (
+            { !logged ? (
               <Link
                 to="/login"
                 type="button"
