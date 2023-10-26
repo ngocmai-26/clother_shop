@@ -131,5 +131,15 @@
     "new_password": "Mật khẩu mới",
     "subtitle_orders": "Các sản phẩm ở giỏ hàng của bạn",
     "categories": "Thể loại",
-    "product_filter": "Lọc sản phẩm"
+    "product_filter": "Lọc sản phẩm",
+    "detail_address": "Địa chỉ chi tiết",
+    "notify_format_phone": "Số điện thoại không đúng định dạng",
+    "notify_format_email": "Email không đúng định dạng",
+    "notify_valid_old_password": "Mật khẩu cũ không được để trống",
+    "notify_valid_new_password": "Mật khẩu mới không được để trống",
+    "error": "Lỗi",
+    "notify_agree_change_password": "Bạn có thực sự muốn thay đổi mật khẩu?",
+    "not_empty": "Không được bỏ trống",
+    "notify_valid_email": "Email không được bỏ trống",
+    "same_password": "Mật khẩu phải giống nhau"
 }

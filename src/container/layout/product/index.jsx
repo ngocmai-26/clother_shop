@@ -47,7 +47,7 @@ function Product() {
 
   return (
     <Layout>
-      <div className="mt-0 sm:mt-20">
+      <div className="pt-20 mt-8 px-4">
         <div className="sm:w-5/6 w-full mx-auto sm:mt-10 px-6 lg:px-0">
           <div className="history">
             <Link to="/" className="uppercase text-xs px-1">
@@ -132,17 +132,16 @@ function Product() {
                     />
                   </div>
                 </Link>
-
                 <div className="product_item-name my-2 max-h-16 overflow-hidden">
                   <Link
                     to="/product-detail"
-                    className="text-xl text-overflow overflow-ellipsis line-clamp-2 font-medium text-gray-700"
+                    className="text-sm sm:text-base lg:text-xl  text-overflow overflow-ellipsis line-clamp-2 font-medium text-gray-700"
                   >
                     {item.name}
                   </Link>
                 </div>
                 <div className="product_item-pride">
-                  <p className="text-base">$ {item.price}</p>
+                  <p className="text-xs sm:text-sm lg:text-base">$ {item.price}</p>
                 </div>
               </div>
             ))}

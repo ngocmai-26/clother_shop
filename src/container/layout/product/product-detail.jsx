@@ -108,11 +108,12 @@ function ProductDetail() {
                 {singleProduct.name}
               </Link>
             </div>
-            <div className="grid grid-cols-1 xl:grid-cols-7 gap-2  py-10">
+            <div className="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-7 gap-2  py-10">
               <div className="xl:col-span-4">
                 <Slideshow images={singleProduct.productImages} />
+                
               </div>
-              <div className="xl:col-span-3 md:px-2">
+              <div className="xl:col-span-3 md:col-span-2 md:px-2">
                 <div className="product-title">
                   <h1 className="xl:text-3xl text-3xl font-normal pb-1 h-19 overflow-hidden line-clamp-2">
                     {singleProduct.name}
@@ -175,20 +176,20 @@ function ProductDetail() {
                   </h4>
                   <div className="flex items-center ">
                     <button
-                      className="px-3 py-1 border border-gray-300 text-black "
+                      className="px-3 py-1 border border-gray-300 text-black text-sm sm:text-base"
                       onClick={handleDecrease}
                     >
                       -
                     </button>
                     <input
-                      className="w-14 pl-3 text-center border border-gray-300 py-1"
+                      className="w-14 pl-3 text-center border border-gray-300 py-1 text-sm sm:text-base"
                       type="number"
                       value={quantity}
                       min={1}
                       readOnly
                     />
                     <button
-                      className="px-3 py-1 border border-gray-300 text-black "
+                      className="px-3 py-1 border border-gray-300 text-black text-sm sm:text-base"
                       onClick={handleIncrease}
                     >
                       +
@@ -348,7 +349,7 @@ function ProductDetail() {
             )}
             {relatedProduct.length > 0 && (
               <div>
-                <h2 className="text-4xl pt-3"> {t("other_product")}</h2>
+                <h2 className="text-2xl sm:text-3xl md:text-3xl lg:text-4xl pt-3"> {t("other_product")}</h2>
 
                 <div className="grid xl:grid-cols-4 lg:grid-cols-4 md:grid-cols-3 gap-4">
                   <div className="product-item py-5">
@@ -362,15 +363,18 @@ function ProductDetail() {
                         />
                       </Link>
                     </div>
-                    <div className="product_item-name h-16 overflow-hidden">
-                      <Link to="/product-detail">
-                        <p className="text-xl text-overflow overflow-ellipsis line-clamp-2 font-medium">
-                          adsadsv Lorem ipsum is simply dummy text...
-                        </p>
+                    <div className="product_item-name max-h-16 overflow-hidden">
+                      <Link
+                        to="/product-detail"
+                        className="text-sm sm:text-base lg:text-xl text-overflow overflow-ellipsis line-clamp-2 font-medium "
+                      >
+                        adsadsv Lorem ipsum is simply dummy text...
                       </Link>
                     </div>
                     <div className="product_item-pride">
-                      <p className="text-base">$ 420.000</p>
+                      <p className="text-xs sm:text-sm lg:text-base">
+                        $ 420.000
+                      </p>
                     </div>
                   </div>
                 </div>

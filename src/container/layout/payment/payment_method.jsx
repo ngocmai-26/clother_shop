@@ -1,8 +1,3 @@
-import { useState } from "react";
-import visa from "../../../asset/images/visa.png";
-import master from "../../../asset/images/master.png";
-import pay from "../../../asset/images/pay.png";
-import applePay from "../../../asset/images/applepay.png";
 import { useTranslation } from "react-i18next";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
@@ -12,10 +7,10 @@ function PaymentMethod() {
   const [t] = useTranslation("app");
   return (
    <Layout>
-     <div className="mt-20 sm:mt-0">
-      <div className="sm:w-4/6 w-full mx-auto">
+     <div className="pt-20 mt-8 px-4">
+      <div className="lg:w-4/6 w-full mx-auto">
         <div className="history">
-          <Link to="/" className="uppercase text-xs px-1">
+          <Link to="/" className="uppercase text-xs pe-1">
             {t("home")}
           </Link>
           <FontAwesomeIcon icon={faChevronRight} style={{ fontSize: "10px" }} />
@@ -36,9 +31,9 @@ function PaymentMethod() {
           </Link>
         </div>
         <form className="mt-4 my-4">
-          <div className="grid grid-cols-2 gap-2 sm:w-5/6 w-full mx-auto">
+          <div className="grid grid-cols-2 gap-2  mx-auto">
             <div className="mx-auto sm:col-span-1 col-span-2 w-full px-3 border border-black my-2">
-              <h2 className="text-xl py-3"> {t("receiving_information")}</h2>
+              <h2 className="text-lg md:text-2xl py-3"> {t("receiving_information")}</h2>
               <div className="py-2">
                 <span className="px-0 text-sm text-gray-600">
                   {" "}
@@ -47,7 +42,7 @@ function PaymentMethod() {
                 <input
                   placeholder={t("enter_your_name")}
                   type="text"
-                  className="w-full px-2 py-2 text-base border border-gray-700 rounded outline-none  focus:ring-blue-500 focus:border-blue-500 focus:ring-1"
+                  className="w-full px-2 py-2 text-sm sm:text-base border border-gray-700 rounded outline-none  focus:ring-blue-500 focus:border-blue-500 focus:ring-1"
                 />
               </div>
               <div className="py-2">
@@ -55,7 +50,7 @@ function PaymentMethod() {
                 <input
                   placeholder={t("enter_phone")}
                   type="text"
-                  className="w-full px-2 py-2 text-base border border-gray-700 rounded outline-none  focus:ring-blue-500 focus:border-blue-500 focus:ring-1"
+                  className="w-full px-2 py-2 text-sm sm:text-base  border border-gray-700 rounded outline-none  focus:ring-blue-500 focus:border-blue-500 focus:ring-1"
                 />
               </div>
               <div className="py-2">
@@ -65,14 +60,14 @@ function PaymentMethod() {
                 <input
                   placeholder={t("enter_address")}
                   type="text"
-                  className="w-full px-2 py-2 text-base border border-gray-700 rounded outline-none  focus:ring-blue-500 focus:border-blue-500 focus:ring-1"
+                  className="w-full px-2 py-2 text-sm sm:text-base  border border-gray-700 rounded outline-none  focus:ring-blue-500 focus:border-blue-500 focus:ring-1"
                 />
               </div>
               <div className="py-2">
                 <span className="px-0 text-sm text-gray-600">
                   {t("province_city")}
                 </span>
-                <select className="w-full px-2 py-2 text-base border border-gray-700 rounded outline-none  focus:ring-blue-500 focus:border-blue-500 focus:ring-1">
+                <select className="w-full px-2 py-2 text-sm sm:text-base  border border-gray-700 rounded outline-none  focus:ring-blue-500 focus:border-blue-500 focus:ring-1">
                   <option value="1">Hà Nội</option>
                   <option value="1">Hưng Yên</option>
                 </select>
@@ -81,7 +76,7 @@ function PaymentMethod() {
                 <span className="px-0 text-sm text-gray-600">
                   {t("districts_towns")}
                 </span>
-                <select className="w-full px-2 py-2 text-base border border-gray-700 rounded outline-none  focus:ring-blue-500 focus:border-blue-500 focus:ring-1">
+                <select className="w-full px-2 py-2 text-sm sm:text-base  border border-gray-700 rounded outline-none  focus:ring-blue-500 focus:border-blue-500 focus:ring-1">
                   <option value="1">Thanh Xuân</option>
                 </select>
               </div>
@@ -90,7 +85,7 @@ function PaymentMethod() {
                   {" "}
                   {t("wards")}
                 </span>
-                <select className="w-full px-2 py-2 text-base border border-gray-700 rounded outline-none  focus:ring-blue-500 focus:border-blue-500 focus:ring-1">
+                <select className="w-full px-2 py-2 text-sm sm:text-base  border border-gray-700 rounded outline-none  focus:ring-blue-500 focus:border-blue-500 focus:ring-1">
                   <option value="1">Hạ Đình</option>
                 </select>
               </div>
@@ -99,11 +94,11 @@ function PaymentMethod() {
                 <input
                   placeholder={t("enter_note")}
                   type="text"
-                  className="w-full px-2 py-2 text-base border border-gray-700 rounded outline-none  focus:ring-blue-500 focus:border-blue-500 focus:ring-1"
+                  className="w-full px-2 py-2 ttext-sm sm:text-base  border border-gray-700 rounded outline-none  focus:ring-blue-500 focus:border-blue-500 focus:ring-1"
                 />
               </div>
             </div>
-            <div className="mx-auto sm:col-span-1 col-span-2 w-full px-3 my-2 ">
+            <div className="mx-auto sm:col-span-1 col-span-2 w-full md:px-3 my-2 ">
               <div className="payment-bill p-3 border border-black">
                 <div className="payment-bill-detail">
                   <div className="grid grid-cols-2 gap-4 py-1">
@@ -137,7 +132,7 @@ function PaymentMethod() {
                   </div>
                 </div>
                 <div className="payment-information py-4">
-                  <h2 className="text-2xl py-2">{t("payment_methods")}</h2>
+                  <h2 className="text-xl md:text-2xl py-2">{t("payment_methods")}</h2>
                   <div className="mx-auto max-w-lg my-4">
                     <div className="py-1">
                       <input type="radio" />

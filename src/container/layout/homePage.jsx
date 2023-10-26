@@ -20,19 +20,19 @@ function HomePage() {
   return (
     <Layout>
       <article className="mt-20 sm:mt-0">
-        <div className="poster relative">
+        <div className="poster relative overflow-hidden">
           <img src={poster} alt="poster" />
           <div className="absolute poster-info w-full">
-            <h4 className="lg:text-9xl text-4xl xl:text-9xl md:text-8xl text-center text-white ">
+            <h4 className="lg:text-8xl text-2xl sm:text-4xl xl:text-8xl md:text-6xl text-center text-white ">
               {t("welcome")}
             </h4>
-            <p className="text-white lg:text-lg text-sm md:text-md italic mt-2">
+            <p className="text-white lg:text-lg text-xs sm:text-sm md:text-md italic mt-2">
               IMPORT / EXPORT OF TEXTILES - LEFTOVER STOCKS, SAMPLES
               COLLECTIONS, SURPLUS OF FAMOUS FASHION BRANDS
             </p>
           </div>
           <div className="absolute poster-content text-center m-auto w-full flex justify-center">
-            <p className="text-white sm:w-10/12 md:w-10/12 lg:w-2/4 hidden sm:block md:block lg:block xl:block">
+            <p className="text-white sm:w-10/12 md:w-10/12 lg:w-2/4 hidden sm:block sm:text-xs md:text-base ">
               Lorem Ipsum is simply dummy text of the printing and typesetting
               industry. Lorem Ipsum has been the industry's standard dummy text
               ever since the 1500s
@@ -43,11 +43,11 @@ function HomePage() {
           <div className="about-us py-8">
             <div className="grid lg:grid-cols-5 grid-cols-1  gap-7">
               <div className="sm:col-span-2 col-span-5">
-                <h4 className="text-3xl lg:text-4xl sm:text-center md:text-left font-bold uppercase">
+                <h4 className="text-2xl sm:text-3xl md:text-3xl lg:text-4xl font-bold uppercase">
                   {t("about_us")}
                 </h4>
                 <p className="py-5 leading-7 text-sm">{t("about_text")}</p>
-                <button className="bg-black border border-black text-white uppercase py-3 w-3/6 mt-4 text-xs">
+                <button className="bg-black border border-black text-white uppercase py-3 w-3/6 mt-4 text-xs sm:text-sm md:text-base">
                   {t("explode_more")}
                 </button>
               </div>
@@ -72,7 +72,7 @@ function HomePage() {
           </div>
 
           <div className="new_product py-8">
-            <h2 className="text-3xl lg:text-4xl pt-3 text-center font-bold uppercase">
+            <h2 className="text-2xl sm:text-3xl md:text-3xl lg:text-4xl pt-3 text-center font-bold uppercase">
               {t("new_product")}
             </h2>
             <div className="grid xl:grid-cols-4 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-3">
@@ -87,16 +87,16 @@ function HomePage() {
                     />
                   </Link>
                 </div>
-                <div className="product_item-name h-16 overflow-hidden">
+                <div className="product_item-name max-h-16 overflow-hidden">
                   <Link
                     to="/product-detail"
-                    className="text-xl text-overflow overflow-ellipsis line-clamp-2 font-medium"
+                    className="text-sm sm:text-base lg:text-xl text-overflow overflow-ellipsis line-clamp-2 font-medium "
                   >
                     adsadsv Lorem ipsum is simply dummy text...
                   </Link>
                 </div>
                 <div className="product_item-pride">
-                  <p className="text-base">$ 420.000</p>
+                  <p className="text-xs sm:text-sm lg:text-base">$ 420.000</p>
                 </div>
               </div>
               <div className="product-item py-5">
@@ -110,16 +110,16 @@ function HomePage() {
                     />
                   </Link>
                 </div>
-                <div className="product_item-name h-16 overflow-hidden">
+                <div className="product_item-name max-h-16 overflow-hidden">
                   <Link
                     to="/product-detail"
-                    className="text-xl text-overflow overflow-ellipsis line-clamp-2 font-medium"
+                    className="text-sm sm:text-base lg:text-xl text-overflow overflow-ellipsis line-clamp-2 font-medium "
                   >
                     adsadsv Lorem ipsum is simply dummy text...
                   </Link>
                 </div>
                 <div className="product_item-pride">
-                  <p className="text-base">$ 420.000</p>
+                  <p className="text-xs sm:text-sm lg:text-base">$ 420.000</p>
                 </div>
               </div>
               <div className="product-item py-5">
@@ -133,16 +133,16 @@ function HomePage() {
                     />
                   </Link>
                 </div>
-                <div className="product_item-name h-16 overflow-hidden">
+                <div className="product_item-name max-h-16 overflow-hidden">
                   <Link
                     to="/product-detail"
-                    className="text-xl text-overflow overflow-ellipsis line-clamp-2 font-medium"
+                    className="text-sm sm:text-base lg:text-xl text-overflow overflow-ellipsis line-clamp-2 font-medium "
                   >
                     adsadsv Lorem ipsum is simply dummy text...
                   </Link>
                 </div>
                 <div className="product_item-pride">
-                  <p className="text-base">$ 420.000</p>
+                  <p className="text-xs sm:text-sm lg:text-base">$ 420.000</p>
                 </div>
               </div>
               <div className="product-item py-5">
@@ -156,16 +156,16 @@ function HomePage() {
                     />
                   </Link>
                 </div>
-                <div className="product_item-name h-16 overflow-hidden">
+                <div className="product_item-name max-h-16 overflow-hidden">
                   <Link
                     to="/product-detail"
-                    className="text-xl text-overflow overflow-ellipsis line-clamp-2 font-medium"
+                    className="text-sm sm:text-base lg:text-xl text-overflow overflow-ellipsis line-clamp-2 font-medium "
                   >
                     adsadsv Lorem ipsum is simply dummy text...
                   </Link>
                 </div>
                 <div className="product_item-pride">
-                  <p className="text-base">$ 420.000</p>
+                  <p className="text-xs sm:text-sm lg:text-base">$ 420.000</p>
                 </div>
               </div>
             </div>
@@ -176,7 +176,7 @@ function HomePage() {
             </div>
           </div>
           <div className="new_collections py-8">
-            <h2 className="text-3xl lg:text-4xl py-3 text-center font-bold uppercase">
+            <h2 className="text-2xl sm:text-3xl md:text-3xl lg:text-4xl py-3 text-center font-bold uppercase">
               {t("new_collection")}
             </h2>
             <div className="grid xl:grid-cols-4 lg:grid-cols-4 md:grid-cols-3 grid-cols-1 sm:grid-cols-2 gap-3">
@@ -191,16 +191,16 @@ function HomePage() {
                     />
                   </Link>
                 </div>
-                <div className="product_item-name h-16 overflow-hidden">
+                <div className="product_item-name max-h-16 overflow-hidden">
                   <Link
                     to="/product-detail"
-                    className="text-xl text-overflow overflow-ellipsis line-clamp-2 font-medium"
+                    className="text-sm sm:text-base lg:text-xl text-overflow overflow-ellipsis line-clamp-2 font-medium "
                   >
                     adsadsv Lorem ipsum is simply dummy text...
                   </Link>
                 </div>
                 <div className="product_item-pride">
-                  <p className="text-base">$ 420.000</p>
+                  <p className="text-xs sm:text-sm lg:text-base">$ 420.000</p>
                 </div>
               </div>
               <div className="product-item py-5">
@@ -214,16 +214,16 @@ function HomePage() {
                     />
                   </Link>
                 </div>
-                <div className="product_item-name h-16 overflow-hidden">
+                <div className="product_item-name max-h-16 overflow-hidden">
                   <Link
                     to="/product-detail"
-                    className="text-xl text-overflow overflow-ellipsis line-clamp-2 font-medium"
+                    className="text-sm sm:text-base lg:text-xl text-overflow overflow-ellipsis line-clamp-2 font-medium "
                   >
                     adsadsv Lorem ipsum is simply dummy text...
                   </Link>
                 </div>
                 <div className="product_item-pride">
-                  <p className="text-base">$ 420.000</p>
+                  <p className="text-xs sm:text-sm lg:text-base">$ 420.000</p>
                 </div>
               </div>
               <div className="product-item py-5">
@@ -237,16 +237,16 @@ function HomePage() {
                     />
                   </Link>
                 </div>
-                <div className="product_item-name h-16 overflow-hidden">
+                <div className="product_item-name max-h-16 overflow-hidden">
                   <Link
                     to="/product-detail"
-                    className="text-xl text-overflow overflow-ellipsis line-clamp-2 font-medium"
+                    className="text-sm sm:text-base lg:text-xl text-overflow overflow-ellipsis line-clamp-2 font-medium "
                   >
                     adsadsv Lorem ipsum is simply dummy text...
                   </Link>
                 </div>
                 <div className="product_item-pride">
-                  <p className="text-base">$ 420.000</p>
+                  <p className="text-xs sm:text-sm lg:text-base">$ 420.000</p>
                 </div>
               </div>
               <div className="product-item py-5">
@@ -260,16 +260,16 @@ function HomePage() {
                     />
                   </Link>
                 </div>
-                <div className="product_item-name h-16 overflow-hidden">
+                <div className="product_item-name max-h-16 overflow-hidden">
                   <Link
                     to="/product-detail"
-                    className="text-xl text-overflow overflow-ellipsis line-clamp-2 font-medium"
+                    className="text-sm sm:text-base lg:text-xl text-overflow overflow-ellipsis line-clamp-2 font-medium "
                   >
                     adsadsv Lorem ipsum is simply dummy text...
                   </Link>
                 </div>
                 <div className="product_item-pride">
-                  <p className="text-base">$ 420.000</p>
+                  <p className="text-xs sm:text-sm lg:text-base">$ 420.000</p>
                 </div>
               </div>
             </div>
@@ -280,10 +280,10 @@ function HomePage() {
             </div>
           </div>
           <div className="new_collections text-center py-4 ">
-            <h2 className="text-3xl lg:text-4xl py-3 text-center font-bold uppercase">
+            <h2 className="text-2xl sm:text-3xl md:text-3xl lg:text-4xl py-3 text-center font-bold uppercase">
               {t("our_partners")}
             </h2>
-            <p className="lg:w-2/4 text-center py-3 mx-auto">
+            <p className="lg:w-2/4 text-center py-3 mx-auto text-sm sm:text-base">
               {t("our_partners_text")}
             </p>
             <div className="grid xl:grid-cols-4 lg:grid-cols-4 md:grid-cols-4 gap-3 sm:grid-cols-2">
@@ -291,46 +291,46 @@ function HomePage() {
                 <img
                   src={logoipsum}
                   alt="our_partners"
-                  className="w-4/5 mx-auto"
+                  className="w-3/5 mx-auto sm:w-4/5"
                 />
               </div>
               <div className="product-item py-5 my-auto">
                 <img
                   src={logoipsum_1}
                   alt="our_partners"
-                  className="w-4/5 mx-auto"
+                  className="w-3/5 mx-auto sm:w-4/5"
                 />
               </div>
               <div className="product-item py-5 my-auto">
                 <img
                   src={logoipsum_2}
                   alt="our_partners"
-                  className="w-4/5 mx-auto"
+                  className="w-3/5 mx-auto sm:w-4/5"
                 />
               </div>
               <div className="product-item py-5 my-auto">
                 <img
                   src={logoipsum_3}
                   alt="our_partners"
-                  className="w-4/5 mx-auto"
+                  className="w-3/5 mx-auto sm:w-4/5"
                 />
               </div>
             </div>
           </div>
           <div className="new_feedbacks text-center py-4">
-            <h2 className="text-3xl lg:text-4xl py-2 text-center font-bold uppercase">
+            <h2 className="text-2xl sm:text-3xl md:text-3xl lg:text-4xl py-2 text-center font-bold uppercase">
               {t("our_feedbacks")}
             </h2>
-            <p className="lg:w-2/4 text-center py-5 mx-auto">
+            <p className="lg:w-2/4 text-center py-5 mx-auto text-sm sm:text-base">
               {t("feedbacks_text")}
             </p>
             <SlideProduct comments={commentUser} />
           </div>
           <div className="new_feedbacks text-center py-4">
-            <h2 className="text-3xl lg:text-4xl py-3 text-center font-bold uppercase">
+            <h2 className="text-2xl sm:text-3xl md:text-3xl lg:text-4xl py-3 text-center font-bold uppercase">
               {t("contact_to_us")}
             </h2>
-            <p className="lg:w-2/4 text-center py-3 mx-auto">
+            <p className="lg:w-2/4 text-center py-3 mx-auto text-sm sm:text-base">
               {t("contact_email_text")}
             </p>
             <div className="lg:w-2/4  mx-auto">

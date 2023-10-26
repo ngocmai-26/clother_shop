@@ -15,7 +15,7 @@ function Orders({ setAccountUser }) {
       <div className="pt-20 mt-5 sm:mt-0 px-4 min-h-screen">
       <div className="lg:w-5/6 w-full h-full mx-auto mt-12">
         <div className="history">
-          <Link to="/" className="uppercase text-xs px-1">
+          <Link to="/" className="uppercase text-xs pe-1">
             {t("home")}
           </Link>
           <FontAwesomeIcon icon={faChevronRight} style={{ fontSize: "10px" }} />
@@ -29,8 +29,8 @@ function Orders({ setAccountUser }) {
           </div>
           <div className="col-span-3">
             <div className="orders p-3 md:w-11/12 w-full">
-              <h2 className="text-3xl py-2">{t("orders")}</h2>
-              <p className="text-base">
+              <h2 className="text-2xl sm:text-3xl md:text-3xl py-2">{t("orders")}</h2>
+              <p className="text-sm sm:text-base">
                 {t("subtitle_orders")}
               </p>
               {orderProduct.length !== 0 ? (
@@ -47,14 +47,14 @@ function Orders({ setAccountUser }) {
                       </div>
                       <div className="col-span-5 lg:col-span-3 sm:col-span-2 ">
                         <p className="text-xs">ORDER21345 - 09:41 13/13/2023</p>
-                        <p className=" font-semibold text-xl sm:text-base lg:text-xl py-2">
+                        <p className=" font-semibold text-base sm:text-base lg:text-xl py-2">
                           Lorem Ipsum is simply dummy text of the printing
                         </p>
-                        <div className="text-base sm:text-sm lg:text-base py-1">
+                        <div className="text-sm  lg:text-base py-1">
                           <span>{t("size")} : </span>
                           <span>XXS</span>
                         </div>
-                        <div className="text-base sm:text-sm lg:text-base py-1">
+                        <div className="text-sm  lg:text-base py-1">
                           <span>{t("price")} : </span>
                           <span>$130.00</span>
                         </div>

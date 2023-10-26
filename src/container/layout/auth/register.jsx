@@ -50,7 +50,7 @@ function Register() {
           (pre = {
             ...pre,
             isErrorUserName: true,
-            messageErrorUserName: "Không được bỏ trống",
+            messageErrorUserName: t("not_empty"),
           })
       );
     }
@@ -60,7 +60,7 @@ function Register() {
           (pre = {
             ...pre,
             isErrorEmail: true,
-            messageErrorEmail: "Không được bỏ trống",
+            messageErrorEmail: t("not_empty"),
           })
       );
     }
@@ -70,7 +70,7 @@ function Register() {
           (pre = {
             ...pre,
             isErrorPassword: true,
-            messageErrorPassword: "Không được bỏ trống",
+            messageErrorPassword: t("not_empty"),
           })
       );
     }
@@ -80,7 +80,7 @@ function Register() {
           (pre = {
             ...pre,
             isErrorPassword: true,
-            messageErrorPassword: "Mật khẩu phải giống nhau",
+            messageErrorPassword: t("same_password"),
           })
       );
     }
@@ -91,7 +91,7 @@ function Register() {
           (pre = {
             ...pre,
             isErrorEmail: true,
-            messageErrorEmail: "Email không đúng định dạng",
+            messageErrorEmail: t("notify_format_email"),
           })
       );
     }

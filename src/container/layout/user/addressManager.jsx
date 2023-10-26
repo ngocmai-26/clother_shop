@@ -40,42 +40,42 @@ function AddressManager({ setAccountUser }) {
                     {t("your_address")}
                   </h2>
                   <button
-                    className="bg-orange-600 text-white py-2 px-3 " 
+                    className="bg-orange-600 text-white py-2 px-1 sm:px-3 text-sm sm:text-base " 
                     onClick={() => handModalAddress()}
                   >
                     {t("add_address")}
                   </button>
                 </div>
                 <div className="content-manager py-3">
-                  <h2 className="text-lg font-medium">{t("address")}</h2>
+                  <h2 className="text-base sm:text-lg font-medium">{t("address")}</h2>
                   <div className="justify-between border-b py-2">
                     <div className="information">
-                      <h3 className="name text-base font-medium">Cao sơn</h3>
-                      <span className="text-slate-500 text-sm font-normal">
+                      <h3 className="name text-sm sm:text-base font-medium">Cao sơn</h3>
+                      <span className="text-slate-500 text-xs sm:text-sm font-normal">
                         +84 378558674
                       </span>
-                      <div className="address w-full lg:w-2/3 md:w-10/12 text-slate-500 text-sm font-normal">
+                      <div className="address w-full lg:w-2/3 md:w-10/12 text-slate-500 text-xs sm:text-sm font-normal">
                         Đại học Bình Dương, Đại lộ Bình Dương Phường Hiệp Thành,
                         Thành Phố Thủ Dầu Một, Bình Dương
                       </div>
                     </div>
                     <div className="action text-right">
-                      <button className="text-blue-500">{t("update")}</button>
+                      <button className="text-blue-500 text-sm sm:text-base">{t("update")}</button>
                     </div>
                   </div>
-                  <div className="block justify-between border-b py-2">
+                  <div className="justify-between border-b py-2">
                     <div className="information">
-                      <h3 className="name text-base font-medium">Cao sơn</h3>
-                      <span className="text-slate-500 text-sm font-normal">
+                      <h3 className="name text-sm sm:text-base font-medium">Cao sơn</h3>
+                      <span className="text-slate-500 text-xs sm:text-sm font-normal">
                         +84 378558674
                       </span>
-                      <div className="address w-full  lg:w-2/3 md:w-10/12 text-slate-500 text-sm font-normal">
+                      <div className="address w-full lg:w-2/3 md:w-10/12 text-slate-500 text-xs sm:text-sm font-normal">
                         Đại học Bình Dương, Đại lộ Bình Dương Phường Hiệp Thành,
                         Thành Phố Thủ Dầu Một, Bình Dương
                       </div>
                     </div>
                     <div className="action text-right">
-                      <button className="text-blue-500">{t("update")}</button>
+                      <button className="text-blue-500 text-sm sm:text-base">{t("update")}</button>
                     </div>
                   </div>
                 </div>
@@ -90,7 +90,7 @@ function AddressManager({ setAccountUser }) {
           <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
             <div class="flex items-start justify-between p-4 border-b rounded-t dark:border-gray-600">
               <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
-                Thêm địa chỉ
+                {t("add_address")}
               </h3>
               <button
                 type="button"
@@ -120,7 +120,7 @@ function AddressManager({ setAccountUser }) {
                 <div className="mx-auto max-w-xl">
                   <div className="py-2">
                     <span className="px-1 text-sm text-gray-600">
-                    Tỉnh, Thành phố <span className="text-red-500">*</span>:
+                    {t("province_city")} <span className="text-red-500">*</span>:
                     </span>
                     <select
                       required
@@ -131,7 +131,7 @@ function AddressManager({ setAccountUser }) {
                   </div>
                   <div className="py-2">
                     <span className="px-1 text-sm text-gray-600">
-                      Quận, Huyện, Thị xã <span className="text-red-500">*</span>:
+                      {t("districts_towns")} <span className="text-red-500">*</span>:
                     </span>
                     <select
                       required
@@ -142,7 +142,7 @@ function AddressManager({ setAccountUser }) {
                   </div>
                   <div className="py-2">
                     <span className="px-1 text-sm text-gray-600">
-                      Phường, Xã, Thị trấn <span className="text-red-500">*</span>:
+                      {t("wards")} <span className="text-red-500">*</span>:
                     </span>
                     <select
                       required
@@ -153,7 +153,7 @@ function AddressManager({ setAccountUser }) {
                   </div>
                   <div className="py-2">
                     <span className="px-1 text-sm text-gray-600">
-                      Địa chỉ chi tiết:
+                      {t("detail_address")}:
                     </span>
                     <input
                       required

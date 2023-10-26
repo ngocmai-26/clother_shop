@@ -32,13 +32,13 @@ function Login() {
   const validate = () => {
     if (password === "") {
       dispatch(
-        setAlert({ type: "error", content: "Mật khẩu không được để trống" })
+        setAlert({ type: t("error"), content: "Mật khẩu không được để trống" })
       );
       return false;
     }
     if (email === "") {
       dispatch(
-        setAlert({ type: "error", content: "Email không được để trống" })
+        setAlert({ type: t("error"), content: t("notify_valid_email") })
       );
       return false;
     }

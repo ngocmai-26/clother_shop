@@ -29,8 +29,8 @@ function UserProfile({ setAccountUser }) {
       if (userUpdate.phone.toLowerCase().length !== 10) {
         dispatch(
           setAlert({
-            type: "error",
-            content: "Số điện thoại không đúng định dạng",
+            type: t("error"),
+            content: t("notify_format_phone"),
           })
         );
         return;
@@ -43,7 +43,7 @@ function UserProfile({ setAccountUser }) {
         )
       ) {
         dispatch(
-          setAlert({ type: "error", content: "Email không đúng định dạng" })
+          setAlert({ type: "error", content: t("notify_format_email") })
         );
         return;
       }
@@ -53,12 +53,12 @@ function UserProfile({ setAccountUser }) {
     });
   };
   const handleChangePassword = () => {
-    if (window.confirm("Do u really want change password ? ")) {
+    if (window.confirm(t("notify_agree_change_password"))) {
       if (oldPassword.length <= 0) {
         dispatch(
           setAlert({
-            type: "error",
-            content: "Mật khẩu cũ không được để trống",
+            type: t("error"),
+            content: t("notify_valid_old_password"),
           })
         );
         return;
@@ -66,8 +66,8 @@ function UserProfile({ setAccountUser }) {
       if (newPassword.length <= 0) {
         dispatch(
           setAlert({
-            type: "error",
-            content: "Mật khẩu mới không được để trống",
+            type: t("error"),
+            content: t("notify_valid_new_password"),
           })
         );
         return;
@@ -97,21 +97,21 @@ function UserProfile({ setAccountUser }) {
             </div>
             <div className="md:col-span-3 xl:col-span-2 ">
               <div className="user-profile px-3">
-                <h2 className="text-3xl py-2">{t("user_profile")}</h2>
-                <p className="text-base">
+                <h2 className="text-2xl sm:text-3xl md:text-3xl py-2">{t("user_profile")}</h2>
+                <p className="text-sm sm:text-base">
                   {t("subtitle_profile")}
                 </p>
                 <div className="user-profile-detail">
                   <div>
-                    <h2 className="text-2xl py-2">
+                    <h2 className="text-xl sm:text-2xl py-2">
                       {t("general_information")}
                     </h2>
                     <div className="gap-4 py-2 sm:flex-row flex-col flex">
                       <div className="title sm:w-4/12">
-                        <p className="text-base font-normal ">
+                        <p className="text-sm sm:text-base font-normal ">
                           {t("your_name")}
                         </p>
-                        <p className="text-sm text-neutral-400">
+                        <p className="text-xs sm:text-sm text-neutral-400">
                           {t("your_full_name")}
                         </p>
                       </div>
@@ -126,13 +126,13 @@ function UserProfile({ setAccountUser }) {
                           defaultValue={user.fullname}
                           placeholder=""
                           type="text"
-                          className="w-full px-4 py-2  text-base  border border-gray-500 rounded outline-none  focus:ring-blue-500 focus:border-blue-500 focus:ring-1"
+                          className="w-full px-4 py-2  text-sm sm:text-base  border border-gray-500 rounded outline-none  focus:ring-blue-500 focus:border-blue-500 focus:ring-1"
                         />
                       </div>
                     </div>
                     <div className="gap-4 py-2 sm:flex-row flex-col flex">
                       <div className="sm:w-4/12">
-                        <p className="text-base font-normal">Email</p>
+                        <p className="text-sm sm:text-base font-normal">Email</p>
                       </div>
                       <div className="sm:w-8/12">
                         <input
@@ -145,13 +145,13 @@ function UserProfile({ setAccountUser }) {
                           defaultValue={user.email}
                           placeholder=""
                           type="text"
-                          className="w-full px-4 py-2  text-base  border border-gray-500 rounded outline-none  focus:ring-blue-500 focus:border-blue-500 focus:ring-1"
+                          className="w-full px-4 py-2  text-sm sm:text-base  border border-gray-500 rounded outline-none  focus:ring-blue-500 focus:border-blue-500 focus:ring-1"
                         />
                       </div>
                     </div>
                     <div className="gap-4 py-2 sm:flex-row flex-col flex">
                       <div className="sm:w-4/12">
-                        <p className="text-base font-normal">{t("contact")}</p>
+                        <p className="text-sm sm:text-base font-normal">{t("contact")}</p>
                       </div>
                       <div className="sm:w-8/12">
                         <input
@@ -164,14 +164,14 @@ function UserProfile({ setAccountUser }) {
                           defaultValue={user.phone}
                           placeholder=""
                           type="number"
-                          className="w-full px-4 py-2  text-base  border border-gray-500 rounded outline-none  focus:ring-blue-500 focus:border-blue-500 focus:ring-1"
+                          className="w-full px-4 py-2  text-sm sm:text-base  border border-gray-500 rounded outline-none  focus:ring-blue-500 focus:border-blue-500 focus:ring-1"
                         />
                       </div>
                     </div>
-                    <h2 className="text-2xl py-3">{t("security")}</h2>
+                    <h2 className="text-xl sm:text-2xl py-3">{t("security")}</h2>
                     <div className="gap-4 py-2 sm:flex-row flex-col flex">
                       <div className="sm:w-4/12">
-                        <p className="text-base font-normal">{t("password")}</p>
+                        <p className="text-sm sm:text-base font-normal">{t("password")}</p>
                       </div>
                       <div className="sm:w-8/12 relative">
                         <input
@@ -181,7 +181,7 @@ function UserProfile({ setAccountUser }) {
                           defaultValue={""}
                           autoComplete="false"
                           type={isPasswordVisible ? "text" : "password"}
-                          className="w-full px-4 py-2  text-base  border border-gray-500 rounded outline-none  focus:ring-blue-500 focus:border-blue-500 focus:ring-1"
+                          className="w-full px-4 py-2  text-sm sm:text-base  border border-gray-500 rounded outline-none  focus:ring-blue-500 focus:border-blue-500 focus:ring-1"
                         />
                         <button
                           className="absolute inset-y-0 right-0 flex items-center px-4 text-gray-600"
@@ -198,7 +198,7 @@ function UserProfile({ setAccountUser }) {
                     </div>
                     <div className="gap-4 py-2 sm:flex-row flex-col flex">
                       <div className="sm:w-4/12">
-                        <p className="text-base font-normal">{t("new_password")}</p>
+                        <p className="text-sm sm:text-base font-normal">{t("new_password")}</p>
                       </div>
                       <div className="sm:w-8/12 relative">
                         <input
@@ -208,7 +208,7 @@ function UserProfile({ setAccountUser }) {
                           defaultValue={""}
                           autoComplete="false"
                           type={isPasswordVisible ? "text" : "password"}
-                          className="w-full px-4 py-2  text-base  border border-gray-500 rounded outline-none  focus:ring-blue-500 focus:border-blue-500 focus:ring-1"
+                          className="w-full px-4 py-2 text-sm sm:text-base  border border-gray-500 rounded outline-none  focus:ring-blue-500 focus:border-blue-500 focus:ring-1"
                         />
                         <button
                           className="absolute inset-y-0 right-0 flex items-center px-4 text-gray-600"
@@ -228,13 +228,13 @@ function UserProfile({ setAccountUser }) {
                         <div className="flex justify-between">
                           <button
                             onClick={handleUpdateUser}
-                            className="bg-black border border-black text-white uppercase py-3 md:w-5/10 w-6/12 mt-3 me-2 text-xs"
+                            className="bg-black border border-black text-white uppercase py-3 md:w-5/10 w-6/12 mt-3 me-2 text-xs md:text-sm"
                           >
                             {t("update_profile")}
                           </button>
                           <button
                             onClick={handleChangePassword}
-                            className="bg-black border border-black text-white uppercase py-3 md:w-5/10 w-6/12 mt-3 text-xs"
+                            className="bg-black border border-black text-white uppercase py-3 md:w-5/10 w-6/12 mt-3 text-xs md:text-sm"
                           >
                             {t("change_password")}
                           </button>

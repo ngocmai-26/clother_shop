@@ -83,7 +83,7 @@ function SlideProduct({ comments }) {
             </div>
             <hr></hr>
             <div className="comment py-3">
-              <p className="text-sm text-slate-500 text-justify">
+              <p className="text-xs sm:text-sm text-slate-500 text-justify">
                 {comment.content}
               </p>
             </div>

@@ -15,7 +15,7 @@ function ForgotPassword() {
   const handleForgot = () => {
     if (email.length <= 0) {
       dispatch(
-        setAlert({ type: "error", content: "Email không được để trống" })
+        setAlert({ type: "error", content: t("notify_valid_email") })
       );
       return;
     }
