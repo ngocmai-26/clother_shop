@@ -97,10 +97,10 @@ function UserProfile({ setAccountUser }) {
             </div>
             <div className="md:col-span-3 xl:col-span-2 ">
               <div className="user-profile px-3">
-                <h2 className="text-2xl sm:text-3xl md:text-3xl py-2">{t("user_profile")}</h2>
-                <p className="text-sm sm:text-base">
-                  {t("subtitle_profile")}
-                </p>
+                <h2 className="text-2xl sm:text-3xl md:text-3xl py-2">
+                  {t("user_profile")}
+                </h2>
+                <p className="text-sm sm:text-base">{t("subtitle_profile")}</p>
                 <div className="user-profile-detail">
                   <div>
                     <h2 className="text-xl sm:text-2xl py-2">
@@ -132,7 +132,9 @@ function UserProfile({ setAccountUser }) {
                     </div>
                     <div className="gap-4 py-2 sm:flex-row flex-col flex">
                       <div className="sm:w-4/12">
-                        <p className="text-sm sm:text-base font-normal">Email</p>
+                        <p className="text-sm sm:text-base font-normal">
+                          Email
+                        </p>
                       </div>
                       <div className="sm:w-8/12">
                         <input
@@ -151,7 +153,9 @@ function UserProfile({ setAccountUser }) {
                     </div>
                     <div className="gap-4 py-2 sm:flex-row flex-col flex">
                       <div className="sm:w-4/12">
-                        <p className="text-sm sm:text-base font-normal">{t("contact")}</p>
+                        <p className="text-sm sm:text-base font-normal">
+                          {t("contact")}
+                        </p>
                       </div>
                       <div className="sm:w-8/12">
                         <input
@@ -168,10 +172,14 @@ function UserProfile({ setAccountUser }) {
                         />
                       </div>
                     </div>
-                    <h2 className="text-xl sm:text-2xl py-3">{t("security")}</h2>
+                    <h2 className="text-xl sm:text-2xl py-3">
+                      {t("security")}
+                    </h2>
                     <div className="gap-4 py-2 sm:flex-row flex-col flex">
                       <div className="sm:w-4/12">
-                        <p className="text-sm sm:text-base font-normal">{t("password")}</p>
+                        <p className="text-sm sm:text-base font-normal">
+                          {t("password")}
+                        </p>
                       </div>
                       <div className="sm:w-8/12 relative">
                         <input
@@ -198,7 +206,9 @@ function UserProfile({ setAccountUser }) {
                     </div>
                     <div className="gap-4 py-2 sm:flex-row flex-col flex">
                       <div className="sm:w-4/12">
-                        <p className="text-sm sm:text-base font-normal">{t("new_password")}</p>
+                        <p className="text-sm sm:text-base font-normal">
+                          {t("new_password")}
+                        </p>
                       </div>
                       <div className="sm:w-8/12 relative">
                         <input

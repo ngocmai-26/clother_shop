@@ -96,7 +96,7 @@ function Payment() {
                     <input
                       className="sm:w-8 w-7 text-center border border-gray-300 py-1 text-xs sm:text-sm "
                       type="number"
-                      Value={quantity}
+                      value={quantity}
                     />
                     <button
                       className="sm:px-2 px-1 py-1 border border-gray-300 text-black text-xs sm:text-sm "
