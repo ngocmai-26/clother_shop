@@ -6,14 +6,7 @@ import Login from "../container/layout/auth/login";
 import ForgotPassword from "../container/layout/auth/forgot_password";
 import Register from "../container/layout/auth/register";
 import ForgotPassword2 from "../container/layout/auth/forgot_password_2";
-import ForgotPassword3 from "../container/layout/auth/forgot_password_3";
 import SuccessRegister from "../container/layout/auth/success_register";
-import UserProfile from "../container/layout/user/user_profile";
-import Orders from "../container/layout/user/orders";
-import AddressManager from "../container/layout/user/addressManager";
-import Payment from "../container/layout/payment";
-import PaymentMethod from "../container/layout/payment/payment_method";
-
 export const GeneralRoute = (props) => {
   return (
     <BrowserRouter>
@@ -29,22 +22,6 @@ export const GeneralRoute = (props) => {
         <Route path="/register" element={<Register />} />
         <Route path="/success-register" element={<SuccessRegister />} />
         <Route path="*" element={<HomePage />} />
-        
-        <Route path="/payment" element={<Payment />} />
-        <Route path="/payment-method" element={<PaymentMethod />} />
-        <Route
-          path="/user-profile"
-          element={<UserProfile  />}
-        />
-         <Route
-          path="/orders"
-          element={<Orders />}
-        />
-
-<Route
-          path="/address-manager"
-          element={<AddressManager />}
-        />
       </Routes>
     </BrowserRouter>
   );

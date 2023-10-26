@@ -87,9 +87,9 @@ function AddressManager({ setAccountUser }) {
 
       <div hidden={hidden} class="fixed top-0 left-0 right-0 z-50  w-full p-4 overflow-x-hidden bg-zinc-400/25 overflow-y-auto md:inset-0 h-[calc(100%-0rem)] max-h-full">
         <div class="relative w-full max-w-2xl max-h-full mx-auto mt-10">
-          <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
-            <div class="flex items-start justify-between p-4 border-b rounded-t dark:border-gray-600">
-              <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+          <div class="relative bg-white rounded-lg shadow ">
+            <div class="flex items-start justify-between p-4 border-b rounded-t ">
+              <h3 class="text-xl font-semibold text-gray-900 ">
                 {t("add_address")}
               </h3>
               <button
@@ -165,7 +165,7 @@ function AddressManager({ setAccountUser }) {
                 </div>
               </form>
             </div>
-            <div class="flex items-center p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600">
+            <div class="flex items-center p-6 space-x-2 border-t border-gray-200 rounded-b ">
               <button
                 data-modal-hide="defaultModal"
                 class=" text-white bg-black hover:bg-black-100 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center "
