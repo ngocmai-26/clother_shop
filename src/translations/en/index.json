@@ -140,8 +140,10 @@
     "error": "Error",
     "notify_agree_change_password": "Do u really want change password ?",
     "not_empty": "Not be empty",
-    "notify_valid_email": "The emailcannot be blank",
-    "same_password": "Password must be the same"
+    "notify_valid_email": "The email cannot be blank",
+    "same_password": "Password must be the same",
+    "subtitle_home": "Welcome to our store. Wishing you a very happy experience",
+    "subtitle_slide_home" : "IMPORT / EXPORT OF TEXTILES - LEFTOVER STOCKS, SAMPLES COLLECTIONS, SURPLUS OF FAMOUS FASHION BRANDS"
 
 
 }

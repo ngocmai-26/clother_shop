@@ -141,5 +141,7 @@
     "notify_agree_change_password": "Bạn có thực sự muốn thay đổi mật khẩu?",
     "not_empty": "Không được bỏ trống",
     "notify_valid_email": "Email không được bỏ trống",
-    "same_password": "Mật khẩu phải giống nhau"
+    "same_password": "Mật khẩu phải giống nhau",
+    "subtitle_home": "chào mừng bạn đã đến với cửa hàng của chúng tôi. Chúc bạn có những trải nghệm thật vui vẻ",
+    "subtitle_slide_home" : "XUẤT NHẬP KHẨU DỆT MAY - TỒN KHO, MẪU DỆT BỘ SƯU TẬP, THÊM CÁC THƯƠNG HIỆU THỜI TRANG NỔI TIẾNG"
 }

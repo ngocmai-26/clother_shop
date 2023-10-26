@@ -10,6 +10,7 @@ import { getAllCategories } from "../../../thunks/CategoryThunk";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCartArrowDown,
+  faCartPlus,
   faGlobe,
   faGlobeOceania,
   faGolfBall,
@@ -138,7 +139,7 @@ function Header() {
                 />
               </div>
             </form>
-            {!logged ? (
+            {logged ? (
               <Link
                 to="/login"
                 className="bg-black font-medium text-white px-2 w-8 sm:w-9 lg:w-9 xl:w-9 md:w-9 min-w-8 my-auto  text-center py-2 mx-0 rounded-full active:bg-black hover:bg-gray-500 text-xs sm:text-sm "
@@ -170,6 +171,12 @@ function Header() {
               </>
             )}
 
+            <button
+              
+              className=" ms-2 bg-black px-2 w-8 sm:w-9 lg:w-9 xl:w-9 md:w-9 min-w-8  text-center rounded-full my-auto h-8 md:h-9 text-xs sm:text-sm"
+            >
+              <FontAwesomeIcon icon={faCartPlus} className="text-white" />
+            </button>
             <button
               onClick={() => {
                 i18n.changeLanguage(i18n.language === "en" ? "vi" : "en");

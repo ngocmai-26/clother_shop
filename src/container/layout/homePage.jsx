@@ -27,15 +27,12 @@ function HomePage() {
               {t("welcome")}
             </h4>
             <p className="text-white lg:text-lg text-xs sm:text-sm md:text-md italic mt-2">
-              IMPORT / EXPORT OF TEXTILES - LEFTOVER STOCKS, SAMPLES
-              COLLECTIONS, SURPLUS OF FAMOUS FASHION BRANDS
+              {t("subtitle_slide_home")}
             </p>
           </div>
           <div className="absolute poster-content text-center m-auto w-full flex justify-center">
             <p className="text-white sm:w-10/12 md:w-10/12 lg:w-2/4 hidden sm:block sm:text-xs md:text-base ">
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's standard dummy text
-              ever since the 1500s
+              {t("subtitle_home")}
             </p>
           </div>
         </div>
