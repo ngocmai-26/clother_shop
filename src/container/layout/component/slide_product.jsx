@@ -4,6 +4,8 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect, useState } from "react";
+import avatar_default from "../../../asset/images/default_avatar.jpg";
+ 
 
 function SlideProduct({ comments }) {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -54,7 +56,7 @@ function SlideProduct({ comments }) {
             <div className="flex border-bottom py-2 ">
               <div className="avatar my-auto">
                 <img
-                  src={comment.image}
+                  src={comment.image?comment.image: avatar_default}
                   className="rounded-full w-12 h-12 "
                   alt="avatar"
                 />
@@ -71,7 +73,7 @@ function SlideProduct({ comments }) {
                         key={index}
                         className={`info-star-item mr-1 ${
                           index < comment.star ? "star_yell" : ""
-                        } `}
+                        }` }
                       ></label>
                     );
                   })}
@@ -83,8 +85,8 @@ function SlideProduct({ comments }) {
             </div>
             <hr></hr>
             <div className="comment py-3">
-              <p className="text-xs sm:text-sm text-slate-500 text-justify">
-                {comment.content}
+              <p className="text-xs sm:text-sm text-slate-500 text-justify break-words">
+                aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
               </p>
             </div>
           </div>

@@ -143,7 +143,8 @@
     "notify_valid_email": "The email cannot be blank",
     "same_password": "Password must be the same",
     "subtitle_home": "Welcome to our store. Wishing you a very happy experience",
-    "subtitle_slide_home" : "IMPORT / EXPORT OF TEXTILES - LEFTOVER STOCKS, SAMPLES COLLECTIONS, SURPLUS OF FAMOUS FASHION BRANDS"
+    "subtitle_slide_home" : "IMPORT / EXPORT OF TEXTILES - LEFTOVER STOCKS, SAMPLES COLLECTIONS, SURPLUS OF FAMOUS FASHION BRANDS",
+    "empty_cart": "Your shopping cart is currently empty, please continue shopping"
 
 
 }

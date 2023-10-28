@@ -139,7 +139,7 @@ function Header() {
                 />
               </div>
             </form>
-            {logged ? (
+            {!logged ? (
               <Link
                 to="/login"
                 className="bg-black font-medium text-white px-2 w-8 sm:w-9 lg:w-9 xl:w-9 md:w-9 min-w-8 my-auto  text-center py-2 mx-0 rounded-full active:bg-black hover:bg-gray-500 text-xs sm:text-sm "

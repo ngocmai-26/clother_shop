@@ -4,6 +4,7 @@ import poster from "../../asset/images/slide.png";
 import cloth from "../../asset/images/cloth_1.png";
 import cloth_1 from "../../asset/images/cloth_1.png";
 import cloth_2 from "../../asset/images/cloth_2.png";
+import avatar_default from "../../asset/images/default_avatar.jpg";
 import logoipsum from "../../asset/images/logoipsum.png";
 import logoipsum_1 from "../../asset/images/logoipsum_1.png";
 import logoipsum_2 from "../../asset/images/logoipsum_2.png";

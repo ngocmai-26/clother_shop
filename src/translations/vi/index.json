@@ -143,5 +143,6 @@
     "notify_valid_email": "Email không được bỏ trống",
     "same_password": "Mật khẩu phải giống nhau",
     "subtitle_home": "chào mừng bạn đã đến với cửa hàng của chúng tôi. Chúc bạn có những trải nghệm thật vui vẻ",
-    "subtitle_slide_home" : "XUẤT NHẬP KHẨU DỆT MAY - TỒN KHO, MẪU DỆT BỘ SƯU TẬP, THÊM CÁC THƯƠNG HIỆU THỜI TRANG NỔI TIẾNG"
+    "subtitle_slide_home" : "XUẤT NHẬP KHẨU DỆT MAY - TỒN KHO, MẪU DỆT BỘ SƯU TẬP, THÊM CÁC THƯƠNG HIỆU THỜI TRANG NỔI TIẾNG",
+    "empty_cart": "Hiện tại giỏ hàng của bạn đang trống, hãy tiếp tục mua sắm nhé"
 }

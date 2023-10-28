@@ -9,6 +9,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import { Layout } from "..";
 import { useDispatch, useSelector } from "react-redux";
+import avatar_default from "../../../asset/images/default_avatar.jpg";
 import {
   addComment,
   getCommentByProduct,
@@ -111,7 +112,7 @@ function ProductDetail() {
             <div className="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-7 gap-2  py-10">
               <div className="xl:col-span-4">
                 <Slideshow images={singleProduct.productImages} />
-                
+
               </div>
               <div className="xl:col-span-3 md:col-span-2 md:px-2">
                 <div className="product-title">
@@ -138,12 +139,20 @@ function ProductDetail() {
                             selectedColor?.id == color.id
                               ? "bg-black text-white"
                               : " bg-white"
-                          } hover:bg-slate-900 hover:text-white text-black py-2 px-3 mx-1 border uppercase`}
+                          } hover:bg-slate-900 hover:text-white text-black py-2 px-3 mx-1 border uppercase m-auto`}
                         >
                           {color.colorName}
                         </button>
                       );
                     })}
+                  </div>
+                  <div className="">
+                    <button
+                      
+                      className={`text-xs font-medium hover:bg-slate-900 hover:text-white text-black py-2 px-3 mx-1 border uppercase m-auto`}
+                    >
+                      BLUE
+                    </button>
                   </div>
                 </div>
                 <div className="product-size py-1">
@@ -230,7 +239,7 @@ function ProductDetail() {
                 <div className="flex">
                   <div className="avatar">
                     <img
-                      src={product_1}
+                      src={user?.avatar? user?.avatar: avatar_default}
                       className="rounded-full w-10 h-10"
                       alt="product"
                     />
@@ -349,7 +358,10 @@ function ProductDetail() {
             )}
             {relatedProduct.length > 0 && (
               <div>
-                <h2 className="text-2xl sm:text-3xl md:text-3xl lg:text-4xl pt-3"> {t("other_product")}</h2>
+                <h2 className="text-2xl sm:text-3xl md:text-3xl lg:text-4xl pt-3">
+                  {" "}
+                  {t("other_product")}
+                </h2>
 
                 <div className="grid xl:grid-cols-4 lg:grid-cols-4 md:grid-cols-3 gap-4">
                   <div className="product-item py-5">
