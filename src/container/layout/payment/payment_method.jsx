@@ -130,84 +130,16 @@ function PaymentMethod() {
                     className="w-full px-2 py-2 text-sm sm:text-base border border-gray-700 rounded outline-none  focus:ring-blue-500 focus:border-blue-500 focus:ring-1"
                   />
                 </div>
-                <div className="py-2">
-                  <span className="px-0 text-sm text-gray-600">
-                    {t("phone")}
-                  </span>
-                  <input
-                    defaultValue={user.phone}
-                    placeholder={t("enter_phone")}
-                    type="text"
-                    className="w-full px-2 py-2 text-sm sm:text-base  border border-gray-700 rounded outline-none  focus:ring-blue-500 focus:border-blue-500 focus:ring-1"
-                  />
-                </div>
-                <div className="py-2">
-                  <span className="px-0 text-sm text-gray-600">
-                    {t("address")}
-                  </span>
-                  <select
-                    onChange={(e) => {
-                      setAddress(e.target.value);
-                    }}
-                    className="w-full px-2 py-2 text-sm sm:text-base  border border-gray-700 rounded outline-none  focus:ring-blue-500 focus:border-blue-500 focus:ring-1"
-                  >
-                    {addresses.map((address, index) => {
-                      return (
-                        <option key={index} value={address.id}>
-                          {address.streetName +
-                            "," +
-                            address.wards.name +
-                            "," +
-                            address.wards.districts.name +
-                            "," +
-                            address.wards.districts.province.name}
-                        </option>
-                      );
-                    })}
-                  </select>
-                </div>
-                <div className="py-2">
-                  <span className="px-0 text-sm text-gray-600">
-                    {t("note")}
-                  </span>
-                  <input
-                    placeholder={t("enter_note")}
-                    type="text"
-                    className="w-full px-2 py-2 ttext-sm sm:text-base  border border-gray-700 rounded outline-none  focus:ring-blue-500 focus:border-blue-500 focus:ring-1"
-                  />
-                </div>
-              </div>
-              <div className="mx-auto sm:col-span-1 col-span-2 w-full md:px-3 my-2 ">
-                <div className="payment-bill p-3 border border-black">
-                  <div className="payment-bill-detail">
-                    <div className="grid grid-cols-2 gap-4 py-1">
-                      <div className="title">
-                        <p className="text-base font-medium">{t("subtotal")}</p>
-                      </div>
-                      <div>
-                        <p className="text-sm font-normal">$10.00</p>
-                      </div>
+                <div className="payment-information py-4">
+                  <h2 className="text-xl md:text-2xl py-2">{t("payment_methods")}</h2>
+                  <div className="mx-auto max-w-lg my-4">
+                    <div className="py-1">
+                      <input type="radio" name="payment" value={2} />
+                      <label className="px-2">Momo</label>
                     </div>
-                    <div className="grid grid-cols-2 gap-4 py-1">
-                      <div className="title">
-                        <p className="text-base font-medium">{t("ship")}</p>
-                      </div>
-                      <div>
-                        <p className="text-sm font-normal">
-                          Calculated at next step
-                        </p>
-                      </div>
-                    </div>
-                    <div className="grid grid-cols-2 gap-4 py-1">
-                      <div className="title">
-                        <p className="text-base font-medium">
-                          {t("order_information")}
-                        </p>
-                        <p className="text-xs">Including $10.00 in taxes</p>
-                      </div>
-                      <div>
-                        <p className="text-sm font-normal">${amount + 10}</p>
-                      </div>
+                    <div className="py-1">
+                      <input type="radio" name="payment" value={1} />
+                      <label className="px-2">{t("delivery")}</label>
                     </div>
                   </div>
                   <div className="payment-information py-4">
