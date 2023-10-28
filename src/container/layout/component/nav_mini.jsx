@@ -17,25 +17,35 @@ function NavbarMini() {
   return (
     <ul>
       <li>
-        <Link to="/user-profile" className="flex py-2">
+        <Link
+          to="/user-profile"
+          className="flex py-2 justify-start items-center"
+        >
           <FontAwesomeIcon icon={faUser} style={{ fontSize: "20px" }} />
           <span className="px-2">{t("user_profile")}</span>
         </Link>
       </li>
       <li>
-        <Link to="/orders" className="flex py-2">
+        <Link to="/orders" className="flex py-2 justify-start items-center">
           <FontAwesomeIcon icon={faCartPlus} style={{ fontSize: "20px" }} />
           <span className="px-2 ">{t("orders")}</span>
         </Link>
       </li>
       <li>
-        <Link to="/address-manager" className="flex py-2">
+        <Link
+          to="/address-manager"
+          className="flex py-2 justify-start items-center"
+        >
           <FontAwesomeIcon icon={faMap} style={{ fontSize: "20px" }} />
           <span className="px-2 ">{t("address_manager")}</span>
         </Link>
       </li>
       <li>
-        <button onClick={handleLogout} className="flex py-2" type="reset">
+        <button
+          onClick={handleLogout}
+          className="flex py-2 items-center justify-start"
+          type="reset"
+        >
           <img src={iconLogout} alt="iconLogout" />
           <span className="px-2 text-red-500">{t("logout")}</span>
         </button>

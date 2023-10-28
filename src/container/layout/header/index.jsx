@@ -11,10 +11,11 @@ import {
   faGlobe,
   faSignIn,
   faUserAlt,
-  faUserClock,
 } from "@fortawesome/free-solid-svg-icons";
+import { loadCart } from "../../../slices/CartSlice";
 function Header() {
   const [t, i18n] = useTranslation("app");
+  const { newCollection } = useSelector((state) => state.productReducer);
   const [menuOpen, setMenuOpen] = useState(false);
   const { logged } = useSelector((state) => state.authReducer);
   const { categories } = useSelector((state) => state.categoryReducer);
@@ -25,6 +26,7 @@ function Header() {
   };
   useLayoutEffect(() => {
     dispatch(getAllCategories());
+    dispatch(loadCart());
   }, []);
   return (
     <header className="fixed z-50 right-0 left-0 top-0 px-0 sm:px-4 py-2 lg:py-0 bg-white">
@@ -40,13 +42,10 @@ function Header() {
             }  lg:px-0 py-5 xl:px-5 lg:col-span-1 lg:min-w-[380px] px-5   xl:w-full `}
           >
             <ul className="flex lg:flex-row flex-col lg:items-center lg:gap-[1vw] w-full lg:w-auto">
-              <li className="relative max-w-fit pr-3 md:pr-0 py-1 hover:font-semibold">
-                <Link to="/">{t("shop")}</Link>
-              </li>
               <li className="group inline-block">
                 <button className="outline-none focus:outline-none text-start py-1 bg-white rounded-sm flex items-center">
                   <span className="hover:font-semibold flex-1">
-                    {t("categories")}
+                    {t("shop")}
                   </span>
                 </button>
                 <ul
@@ -86,6 +85,11 @@ function Header() {
                   })}
                 </ul>
               </li>
+              {newCollection.length > 0 && (
+                <li className="relative max-w-fit pr-3 md:pr-0 py-1 hover:font-semibold">
+                  <a href="#new-collection">{t("New Collection")}</a>
+                </li>
+              )}
               <li className="relative max-w-fit pr-3 md:pr-0 py-1 hover:font-semibold">
                 <Link to="">{t("about_us")}</Link>
               </li>
@@ -135,71 +139,72 @@ function Header() {
                 />
               </div>
             </form>
-            {!logged ? (
-              <Link
-                to="/login"
-                className="bg-black font-medium text-white px-2 w-8 sm:w-9 lg:w-9 xl:w-9 md:w-9 min-w-8 my-auto  text-center py-2 mx-0 rounded-full active:bg-black hover:bg-gray-500 text-xs sm:text-sm "
-              >
-                <button>
-                  <FontAwesomeIcon icon={faSignIn} />
-                </button>
-              </Link>
-            ) : (
-              <>
+            <div className="flex justify-center items-center">
+              {!logged ? (
                 <Link
-                  to="/user-profile"
-                  className=" bg-black font-medium text-white px-2 w-8 sm:w-9 lg:w-9 xl:w-9 md:w-9 min-w-8 my-auto  text-center py-2 mx-2 rounded-full active:bg-black hover:bg-gray-500 text-xs sm:text-sm"
+                  to="/login"
+                  className="bg-black font-medium text-white px-2 w-8 sm:w-9 lg:w-9 xl:w-9 md:w-9 min-w-8 my-auto  text-center py-2 mx-0 rounded-full active:bg-black hover:bg-gray-500 text-xs sm:text-sm "
                 >
-                  <FontAwesomeIcon
-                    icon={faUserAlt}
-                    className="text-white mx-auto"
-                  />
-                </Link>
-                <Link
-                  to="/orders"
-                  className="bg-black font-medium text-white px-2 w-8 sm:w-9 lg:w-9 xl:w-9 md:w-9 min-w-8 my-auto  text-center py-2  rounded-full active:bg-black hover:bg-gray-500 text-xs sm:text-sm"
-                >
-                  <FontAwesomeIcon
-                    icon={faCartArrowDown}
-                    className="text-white mx-auto"
-                  />
-                </Link>
-                <Link to={"/payment"}>
-                  <button className=" ms-2 bg-black px-2 w-8 sm:w-9 lg:w-9 xl:w-9 md:w-9 min-w-8  text-center rounded-full my-auto h-8 md:h-9 text-xs sm:text-sm">
-                    <FontAwesomeIcon
-                      icon={faCartShopping}
-                      className="text-white"
-                    />
+                  <button>
+                    <FontAwesomeIcon icon={faSignIn} />
                   </button>
                 </Link>
-              </>
-            )}
+              ) : (
+                <>
+                  <Link
+                    to="/user-profile"
+                    className=" bg-white font-medium text-white px-2 w-8 sm:w-9 lg:w-9 xl:w-9 md:w-9 min-w-8 my-auto  text-center py-2 mx-2 rounded-full active:bg-black"
+                  >
+                    <FontAwesomeIcon
+                      icon={faUserAlt}
+                      className="text-black mx-auto"
+                    />
+                  </Link>
+                  <Link
+                    to="/orders"
+                    className="bg-white font-medium text-white px-2 w-8 sm:w-9 lg:w-9 xl:w-9 md:w-9 min-w-8 my-auto  text-center py-2  rounded-full active:bg-black"
+                  >
+                    <FontAwesomeIcon
+                      icon={faCartArrowDown}
+                      className="text-black mx-auto"
+                    />
+                  </Link>
+                  <Link to={"/payment"}>
+                    <button className=" ms-2 bg-white px-2 w-8 sm:w-9 lg:w-9 xl:w-9 md:w-9 min-w-8  text-center rounded-full my-auto h-8 md:h-9 text-xs sm:text-sm">
+                      <FontAwesomeIcon
+                        icon={faCartShopping}
+                        className="text-black"
+                      />
+                    </button>
+                  </Link>
+                </>
+              )}
 
-            <button
-              onClick={() => {
-                i18n.changeLanguage(i18n.language === "en" ? "vi" : "en");
-              }}
-              className="mx-2 bg-black px-2 w-8 sm:w-9 lg:w-9 xl:w-9 md:w-9 min-w-8  text-center rounded-full my-auto h-8 md:h-9"
-            >
-              <FontAwesomeIcon icon={faGlobe} className="text-white" />
-            </button>
-
-            <button onClick={toggleMenu} className="pe-2 block lg:hidden ">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="w-6 h-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
+              <button
+                onClick={() => {
+                  i18n.changeLanguage(i18n.language === "en" ? "vi" : "en");
+                }}
+                className="mx-2 bg-white px-2 w-8 sm:w-9 lg:w-9 xl:w-9 md:w-9 min-w-8  text-center rounded-full my-auto h-8 md:h-9"
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
-              </svg>
-            </button>
+                <FontAwesomeIcon icon={faGlobe} className="text-black" />
+              </button>
+              <button onClick={toggleMenu} className="pe-2 block lg:hidden ">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="w-6 h-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M4 6h16M4 12h16M4 18h16"
+                  />
+                </svg>
+              </button>
+            </div>
           </div>
         </div>
       </nav>

@@ -7,6 +7,7 @@ import ForgotPassword from "../container/layout/auth/forgot_password";
 import Register from "../container/layout/auth/register";
 import ForgotPassword2 from "../container/layout/auth/forgot_password_2";
 import SuccessRegister from "../container/layout/auth/success_register";
+import { CheckPayment } from "../container/layout/payment/check_payment";
 export const GeneralRoute = (props) => {
   return (
     <BrowserRouter>
@@ -21,6 +22,7 @@ export const GeneralRoute = (props) => {
         {/* <Route path="/forgot-create-password" element={<ForgotPassword3 />} /> */}
         <Route path="/register" element={<Register />} />
         <Route path="/success-register" element={<SuccessRegister />} />
+        <Route path="/check-payment" element={<CheckPayment />} />
         <Route path="*" element={<HomePage />} />
       </Routes>
     </BrowserRouter>

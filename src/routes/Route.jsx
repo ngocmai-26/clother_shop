@@ -21,6 +21,7 @@ import Dashboard from "../container/admin/dashboard";
 import OrdersManager from "../container/admin/orders_manager/index";
 import ProductUpdate from "../container/admin/product_manager/update";
 import UserUpdate from "../container/admin/user_manager/update";
+import { CheckPayment } from "../container/layout/payment/check_payment";
 function Router() {
   const setAccountUser = () => {};
   return (
@@ -40,6 +41,8 @@ function Router() {
           element={<Orders setAccountUser={setAccountUser} />}
         />
         <Route path="/success-register" element={<SuccessRegister />} />
+        <Route path="/check-payment" element={<CheckPayment />} />
+
         <Route
           path="/address-manager"
           element={<AddressManager setAccountUser={setAccountUser} />}

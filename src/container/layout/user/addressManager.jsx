@@ -143,7 +143,10 @@ function AddressManager({ setAccountUser }) {
                     {t("add_address")}
                   </button>
                 </div>
-                <div className="content-manager py-3">
+                <div
+                  className="content-manager py-3"
+                  style={{ maxHeight: "100vh", overflowY: "auto" }}
+                >
                   {addresses.map((add, index) => {
                     return (
                       <div
@@ -152,13 +155,15 @@ function AddressManager({ setAccountUser }) {
                       >
                         <div className="information">
                           <h3 className="name text-sm sm:text-base font-medium">
-                            {add.fullname}
+                            {add.user.fullname}
                           </h3>
                           <span className="text-slate-500 text-xs sm:text-sm font-normal">
                             {add.phone}
                           </span>
                           <div className="address w-full lg:w-2/3 md:w-10/12 text-slate-500 text-xs sm:text-sm font-normal">
-                            {add.wards.name +
+                            {add.streetName +
+                              "," +
+                              add.wards.name +
                               "," +
                               add.wards.districts.name +
                               "," +

@@ -138,6 +138,7 @@ function UserProfile({ setAccountUser }) {
                       </div>
                       <div className="sm:w-8/12">
                         <input
+                          readOnly
                           onChange={(e) => {
                             setUserUpdate({
                               ...userUpdate,

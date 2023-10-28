@@ -33,3 +33,6 @@ body {
   .group:hover .group-hover\:-rotate-180 { transform: rotate(180deg) }
   .scale-0 { transform: scale(0) }
   .min-w-32 { min-width: 8rem }
+  .footer-bg{
+    background-color: #333333;
+  }

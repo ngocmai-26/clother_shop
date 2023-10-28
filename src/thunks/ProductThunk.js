@@ -1,7 +1,10 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { API } from "../constants/api";
 import {
+  setNewCollection,
+  setNewProduct,
   setPage,
+  setProductComment,
   setProducts,
   setRelatedProduct,
   setSingleProduct,
@@ -121,6 +124,84 @@ export const getRelatedProduct = createAsyncThunk(
         const jsonData = await resp.json();
         dispatch(setRelatedProduct(jsonData.content));
       }
+    } catch (e) {
+      console.log(e);
+    }
+  }
+);
+
+export const getNewProduct = createAsyncThunk(
+  "/product/id",
+  async (_, { dispatch, rejectWithValue }) => {
+    try {
+      let uri = `${API.uri}/product/public/news`;
+
+      const resp = await fetch(uri, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      if (resp.status >= 200 && resp.status < 300) {
+        const jsonData = await resp.json();
+        dispatch(setNewProduct(jsonData.content));
+      }
+    } catch (e) {
+      console.log(e);
+    }
+  }
+);
+
+export const getNewCollection = createAsyncThunk(
+  "/product/id",
+  async (_, { dispatch, rejectWithValue }) => {
+    try {
+      let uri = `${API.uri}/product/public/new-collection`;
+
+      const resp = await fetch(uri, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      if (resp.status >= 200 && resp.status < 300) {
+        const jsonData = await resp.json();
+        dispatch(setNewCollection(jsonData.content));
+      }
+    } catch (e) {
+      console.log(e);
+    }
+  }
+);
+
+export const getProductComment = createAsyncThunk(
+  "/product/id",
+  async (_, { dispatch, rejectWithValue }) => {
+    try {
+      let uri = `${API.uri}/product-comment/public/most-comment`;
+
+      const resp = await fetch(uri, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      if (resp.status >= 200 && resp.status < 300) {
+        const jsonData = await resp.json();
+        console.log(jsonData);
+        dispatch(setProductComment(jsonData));
+      }
+    } catch (e) {
+      console.log(e);
+    }
+  }
+);
+
+export const sendFeedBack = createAsyncThunk(
+  "/product/send-feedback",
+  async (_, { dispatch, rejectWithValue }) => {
+    try {
+      dispatch(setAlert({ type: "success", content: "Send feedback success" }));
     } catch (e) {
       console.log(e);
     }

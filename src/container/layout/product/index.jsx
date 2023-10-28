@@ -7,10 +7,7 @@ import Pagination from "../component/pagination";
 import { Layout } from "..";
 import { useDispatch, useSelector } from "react-redux";
 import { filterProduct } from "../../../thunks/ProductThunk";
-import cloth_1 from "../../../asset/images/cloth_1.png";
-import cloth_2 from "../../../asset/images/cloth_2.png";
 
-import cloth from "../../../asset/images/cloth_1.png";
 function Product() {
   let [searchParams, setSearchParams] = useSearchParams();
   const [t] = useTranslation("app");
@@ -141,7 +138,9 @@ function Product() {
                   </Link>
                 </div>
                 <div className="product_item-pride">
-                  <p className="text-xs sm:text-sm lg:text-base">$ {item.price}</p>
+                  <p className="text-xs sm:text-sm lg:text-base">
+                    $ {item.price}
+                  </p>
                 </div>
               </div>
             ))}

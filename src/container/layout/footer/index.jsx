@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 function Footer() {
   const [t] = useTranslation("app");
   return (
-    <div className="bg-gray-700 px-4 py-10">
+    <div className="footer-bg px-4 py-10">
       <div className="w-11/12 mx-auto">
         <div className="grid xl:grid-cols-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-white">
           <div className="py-2">
@@ -63,18 +63,17 @@ function Footer() {
           <div className="py-2">
             <h3 className="text-xl sm:text-2xl"> {t("policy")}</h3>
             <div className="py-5">
-              <p className=" text-xs sm:text-sm leading-8"> {t("privacy_policy")}</p>
-              <p className=" text-xs sm:text-sm leading-8">FAQ</p>
+              <p className=" text-xs sm:text-sm leading-8">
+                {t("privacy_policy")}
+              </p>
+              <p className="leading-8 text-xs sm:text-sm">FAQ</p>
               <p className=" text-xs sm:text-sm leading-7">
-                {" "}
                 {t("membership_card_policy")}
               </p>
               <p className=" text-xs sm:text-sm leading-7">
-                {" "}
                 {t("warranty_return_policy")}
               </p>
               <p className=" text-xs sm:text-sm leading-7">
-                {" "}
                 {t("express_delivery_policy")}
               </p>
             </div>

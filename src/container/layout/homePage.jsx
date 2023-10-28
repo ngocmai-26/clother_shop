@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import { useState } from "react";
+import { useLayoutEffect, useState } from "react";
 import poster from "../../asset/images/slide.png";
 import cloth from "../../asset/images/cloth_1.png";
 import cloth_1 from "../../asset/images/cloth_1.png";
@@ -13,11 +13,36 @@ import { Link } from "react-router-dom";
 import SlideProduct from "./component/slide_product";
 import { comments } from "../../data";
 import { Layout } from ".";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  getNewCollection,
+  getNewProduct,
+  getProductComment,
+  sendFeedBack,
+} from "../../thunks/ProductThunk";
+import { setAlert } from "../../slices/AlertSlice";
 
 function HomePage() {
   const [t] = useTranslation("app");
-  const [commentUser, setCommentUser] = useState(comments);
+  const [email, setEmail] = useState("");
   window.history.pushState(null, "", "http://localhost:3000/");
+  const { newProduct, newCollection, productComment } = useSelector(
+    (state) => state.productReducer
+  );
+  const dispatch = useDispatch();
+  useLayoutEffect(() => {
+    dispatch(getNewProduct());
+    dispatch(getNewCollection());
+    dispatch(getProductComment());
+  }, []);
+  const handleSendFeedBack = () => {
+    if (email.trim() == "") {
+      dispatch(setAlert({ type: "error", content: "Email dont empty" }));
+      return;
+    }
+    dispatch(sendFeedBack());
+    setEmail("");
+  };
   return (
     <Layout>
       <article className="mt-20 sm:mt-0">
@@ -70,215 +95,98 @@ function HomePage() {
           </div>
 
           <div className="new_product py-8">
-            <h2 className="text-2xl sm:text-3xl md:text-3xl lg:text-4xl pt-3 text-center font-bold uppercase">
+            <h2 className="text-2xl sm:text-3xl md:text-3xl lg:text-4xl pt-20 text-center font-bold uppercase">
               {t("new_product")}
             </h2>
             <div className="grid xl:grid-cols-4 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-3">
-              <div className="product-item py-5">
-                <div className="product_item-img rounded overflow-hidden">
-                  <Link to="/product-detail">
-                    <img
-                      src={cloth}
-                      alt="product"
-                      style={{ height: "350px" }}
-                      className="object-cover w-full "
-                    />
-                  </Link>
-                </div>
-                <div className="product_item-name max-h-16 overflow-hidden">
-                  <Link
-                    to="/product-detail"
-                    className="text-sm sm:text-base lg:text-xl text-overflow overflow-ellipsis line-clamp-2 font-medium "
-                  >
-                    adsadsv Lorem ipsum is simply dummy text...
-                  </Link>
-                </div>
-                <div className="product_item-pride">
-                  <p className="text-xs sm:text-sm lg:text-base">$ 420.000</p>
-                </div>
-              </div>
-              <div className="product-item py-5">
-                <div className="product_item-img rounded overflow-hidden">
-                  <Link to="/product-detail">
-                    <img
-                      src={cloth}
-                      alt="product"
-                      style={{ height: "350px" }}
-                      className="object-cover w-full "
-                    />
-                  </Link>
-                </div>
-                <div className="product_item-name max-h-16 overflow-hidden">
-                  <Link
-                    to="/product-detail"
-                    className="text-sm sm:text-base lg:text-xl text-overflow overflow-ellipsis line-clamp-2 font-medium "
-                  >
-                    adsadsv Lorem ipsum is simply dummy text...
-                  </Link>
-                </div>
-                <div className="product_item-pride">
-                  <p className="text-xs sm:text-sm lg:text-base">$ 420.000</p>
-                </div>
-              </div>
-              <div className="product-item py-5">
-                <div className="product_item-img rounded overflow-hidden">
-                  <Link to="/product-detail">
-                    <img
-                      src={cloth}
-                      alt="product"
-                      style={{ height: "350px" }}
-                      className="object-cover w-full "
-                    />
-                  </Link>
-                </div>
-                <div className="product_item-name max-h-16 overflow-hidden">
-                  <Link
-                    to="/product-detail"
-                    className="text-sm sm:text-base lg:text-xl text-overflow overflow-ellipsis line-clamp-2 font-medium "
-                  >
-                    adsadsv Lorem ipsum is simply dummy text...
-                  </Link>
-                </div>
-                <div className="product_item-pride">
-                  <p className="text-xs sm:text-sm lg:text-base">$ 420.000</p>
-                </div>
-              </div>
-              <div className="product-item py-5">
-                <div className="product_item-img rounded overflow-hidden">
-                  <Link to="/product-detail">
-                    <img
-                      src={cloth}
-                      alt="product"
-                      style={{ height: "350px" }}
-                      className="object-cover w-full "
-                    />
-                  </Link>
-                </div>
-                <div className="product_item-name max-h-16 overflow-hidden">
-                  <Link
-                    to="/product-detail"
-                    className="text-sm sm:text-base lg:text-xl text-overflow overflow-ellipsis line-clamp-2 font-medium "
-                  >
-                    adsadsv Lorem ipsum is simply dummy text...
-                  </Link>
-                </div>
-                <div className="product_item-pride">
-                  <p className="text-xs sm:text-sm lg:text-base">$ 420.000</p>
-                </div>
-              </div>
+              {newProduct.map((pro, index) => {
+                return (
+                  <div key={index} className="product-item py-5">
+                    <div className="product_item-img rounded overflow-hidden">
+                      <Link to={`/product-detail/${pro.id}`}>
+                        <img
+                          src={pro.imageBanner}
+                          alt="product"
+                          style={{ height: "350px" }}
+                          className="object-cover w-full "
+                        />
+                      </Link>
+                    </div>
+                    <div className="product_item-name max-h-16 mt-2 overflow-hidden">
+                      <Link
+                        to={`/product-detail/${pro.id}`}
+                        className="text-sm sm:text-base lg:text-xl text-overflow overflow-ellipsis line-clamp-2 font-medium "
+                      >
+                        {pro.name}
+                      </Link>
+                    </div>
+                    <div className="product_item-pride">
+                      <p className="text-xs sm:text-sm lg:text-base">
+                        $ {pro.price}
+                      </p>
+                    </div>
+                  </div>
+                );
+              })}
             </div>
             <div className="w-full text-center">
-              <button className="bg-black border border-black text-white uppercase py-3 mt-4 px-10 text-xs">
+              <Link
+                to={"/product"}
+                className="bg-black border border-black text-white uppercase py-3 mt-4 px-10 text-xs"
+              >
                 {t("see_more")}
-              </button>
+              </Link>
             </div>
           </div>
-          <div className="new_collections py-8">
-            <h2 className="text-2xl sm:text-3xl md:text-3xl lg:text-4xl py-3 text-center font-bold uppercase">
-              {t("new_collection")}
-            </h2>
-            <div className="grid xl:grid-cols-4 lg:grid-cols-4 md:grid-cols-3 grid-cols-1 sm:grid-cols-2 gap-3">
-              <div className="product-item py-5">
-                <div className="product_item-img rounded overflow-hidden">
-                  <Link to="/product-detail">
-                    <img
-                      src={cloth}
-                      alt="product"
-                      style={{ height: "350px" }}
-                      className="object-cover w-full "
-                    />
-                  </Link>
-                </div>
-                <div className="product_item-name max-h-16 overflow-hidden">
-                  <Link
-                    to="/product-detail"
-                    className="text-sm sm:text-base lg:text-xl text-overflow overflow-ellipsis line-clamp-2 font-medium "
-                  >
-                    adsadsv Lorem ipsum is simply dummy text...
-                  </Link>
-                </div>
-                <div className="product_item-pride">
-                  <p className="text-xs sm:text-sm lg:text-base">$ 420.000</p>
-                </div>
+          {newCollection.length > 0 && (
+            <div className="new_collections py-8" id="new-collection">
+              <h2 className="text-2xl sm:text-3xl md:text-3xl lg:text-4xl pt-20 text-center font-bold uppercase">
+                {t("new_collection")}
+              </h2>
+              <div className="grid xl:grid-cols-4 lg:grid-cols-4 md:grid-cols-3 grid-cols-1 sm:grid-cols-2 gap-3">
+                {newCollection.map((pro, index) => {
+                  return (
+                    <div key={index} className="product-item py-5">
+                      <div className="product_item-img rounded overflow-hidden">
+                        <Link to={`/product-detail/${pro.id}`}>
+                          <img
+                            src={pro.imageBanner}
+                            alt="product"
+                            style={{ height: "350px" }}
+                            className="object-cover w-full "
+                          />
+                        </Link>
+                      </div>
+                      <div className="product_item-name max-h-16 overflow-hidden">
+                        <Link
+                          to={`/product-detail/${pro.id}`}
+                          className="text-sm sm:text-base lg:text-xl text-overflow overflow-ellipsis line-clamp-2 font-medium "
+                        >
+                          {pro.name}
+                        </Link>
+                      </div>
+                      <div className="product_item-pride">
+                        <p className="text-xs sm:text-sm lg:text-base">
+                          $ {pro.price}
+                        </p>
+                      </div>
+                    </div>
+                  );
+                })}
               </div>
-              <div className="product-item py-5">
-                <div className="product_item-img rounded overflow-hidden">
-                  <Link to="/product-detail">
-                    <img
-                      src={cloth}
-                      alt="product"
-                      style={{ height: "350px" }}
-                      className="object-cover w-full "
-                    />
-                  </Link>
-                </div>
-                <div className="product_item-name max-h-16 overflow-hidden">
-                  <Link
-                    to="/product-detail"
-                    className="text-sm sm:text-base lg:text-xl text-overflow overflow-ellipsis line-clamp-2 font-medium "
-                  >
-                    adsadsv Lorem ipsum is simply dummy text...
-                  </Link>
-                </div>
-                <div className="product_item-pride">
-                  <p className="text-xs sm:text-sm lg:text-base">$ 420.000</p>
-                </div>
-              </div>
-              <div className="product-item py-5">
-                <div className="product_item-img rounded overflow-hidden">
-                  <Link to="/product-detail">
-                    <img
-                      src={cloth}
-                      alt="product"
-                      style={{ height: "350px" }}
-                      className="object-cover w-full "
-                    />
-                  </Link>
-                </div>
-                <div className="product_item-name max-h-16 overflow-hidden">
-                  <Link
-                    to="/product-detail"
-                    className="text-sm sm:text-base lg:text-xl text-overflow overflow-ellipsis line-clamp-2 font-medium "
-                  >
-                    adsadsv Lorem ipsum is simply dummy text...
-                  </Link>
-                </div>
-                <div className="product_item-pride">
-                  <p className="text-xs sm:text-sm lg:text-base">$ 420.000</p>
-                </div>
-              </div>
-              <div className="product-item py-5">
-                <div className="product_item-img rounded overflow-hidden">
-                  <Link to="/product-detail">
-                    <img
-                      src={cloth}
-                      alt="product"
-                      style={{ height: "350px" }}
-                      className="object-cover w-full "
-                    />
-                  </Link>
-                </div>
-                <div className="product_item-name max-h-16 overflow-hidden">
-                  <Link
-                    to="/product-detail"
-                    className="text-sm sm:text-base lg:text-xl text-overflow overflow-ellipsis line-clamp-2 font-medium "
-                  >
-                    adsadsv Lorem ipsum is simply dummy text...
-                  </Link>
-                </div>
-                <div className="product_item-pride">
-                  <p className="text-xs sm:text-sm lg:text-base">$ 420.000</p>
-                </div>
+              <div className="w-full text-center">
+                <Link
+                  to={"/product"}
+                  className="bg-black border border-black text-white uppercase py-3 mt-4 px-10 text-xs"
+                >
+                  {t("see_more")}
+                </Link>
               </div>
             </div>
-            <div className="w-full text-center">
-              <button className="bg-black border border-black text-white uppercase py-3 mt-4 px-10 text-xs">
-                {t("see_more")}
-              </button>
-            </div>
-          </div>
+          )}
+
           <div className="new_collections text-center py-4 ">
-            <h2 className="text-2xl sm:text-3xl md:text-3xl lg:text-4xl py-3 text-center font-bold uppercase">
+            <h2 className="text-2xl sm:text-3xl md:text-3xl lg:text-4xl pt-20 text-center font-bold uppercase">
               {t("our_partners")}
             </h2>
             <p className="lg:w-2/4 text-center py-3 mx-auto text-sm sm:text-base">
@@ -315,16 +223,16 @@ function HomePage() {
               </div>
             </div>
           </div>
-          <div className="new_feedbacks text-center py-4">
+          <div className="new_feedbacks text-center pt-20">
             <h2 className="text-2xl sm:text-3xl md:text-3xl lg:text-4xl py-2 text-center font-bold uppercase">
               {t("our_feedbacks")}
             </h2>
             <p className="lg:w-2/4 text-center py-5 mx-auto text-sm sm:text-base">
               {t("feedbacks_text")}
             </p>
-            <SlideProduct comments={commentUser} />
+            <SlideProduct comments={productComment} />
           </div>
-          <div className="new_feedbacks text-center py-4">
+          <div className="new_feedbacks text-center py-20">
             <h2 className="text-2xl sm:text-3xl md:text-3xl lg:text-4xl py-3 text-center font-bold uppercase">
               {t("contact_to_us")}
             </h2>
@@ -332,20 +240,27 @@ function HomePage() {
               {t("contact_email_text")}
             </p>
             <div className="lg:w-2/4  mx-auto">
-              <form className="mt-4">
+              <div className="mt-4">
                 <div className="mx-auto max-w-lg">
                   <div className="py-2 flex">
                     <input
+                      onChange={(e) => {
+                        setEmail(e.target.value);
+                      }}
+                      value={email}
                       placeholder={t("enter_email")}
                       type="text"
                       className="w-full px-4 py-2  text-base  border border-gray-300 outline-none  focus:ring-blue-500 focus:border-blue-500 focus:ring-1"
                     />
-                    <button className="bg-black text-white uppercase py-3  px-5 text-sm">
+                    <button
+                      onClick={handleSendFeedBack}
+                      className="bg-black text-white uppercase py-3  px-5 text-sm"
+                    >
                       {t("send")}
                     </button>
                   </div>
                 </div>
-              </form>
+              </div>
             </div>
           </div>
         </div>

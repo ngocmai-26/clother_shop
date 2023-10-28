@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronRight, faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 import empty_cart from "../../../asset/images/empty-cart.png";
@@ -12,6 +12,7 @@ function Payment() {
   const [amount, setAmount] = useState(0);
   const [t] = useTranslation("app");
   const dispatch = useDispatch();
+  const nav = useNavigate();
   const handleDecrease = (id, quan) => {
     dispatch(updateProduct({ id, quantity: quan - 1 }));
   };
@@ -23,13 +24,13 @@ function Payment() {
   };
   useLayoutEffect(() => {
     let am = 0;
-    products.map((pro, index) => {
+    products.map((pro) => {
       am += pro.quantity * pro.price;
     });
     setAmount(am);
   }, [products]);
   const handlePay = () => {
-    console.log("hello");
+    nav("/payment-method");
   };
   return (
     <Layout>

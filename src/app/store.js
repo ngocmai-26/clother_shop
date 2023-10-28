@@ -5,6 +5,7 @@ import CategoryReducer from "../slices/CategorySlice.js";
 import AddressReducer from "../slices/AddressSlice.js";
 import productReducer from "../slices/ProductSlice.js";
 import CartReducer from "../slices/CartSlice.js";
+import OrderSlice from "../slices/OrderSlice.js";
 
 export const store = configureStore({
   reducer: {
@@ -14,6 +15,7 @@ export const store = configureStore({
     productReducer: productReducer,
     addressReducer: AddressReducer,
     cartReducer: CartReducer,
+    orderReducer: OrderSlice,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({ serializableCheck: false }),

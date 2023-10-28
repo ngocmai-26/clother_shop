@@ -7,6 +7,9 @@ const initState = {
   singleProduct: {},
   singleProductComment: [],
   relatedProduct: [],
+  newProduct: [],
+  newCollection: [],
+  productComment:[]
 };
 const ProductSlice = createSlice({
   name: "products",
@@ -30,6 +33,15 @@ const ProductSlice = createSlice({
     setRelatedProduct: (state, { payload }) => {
       state.relatedProduct = payload;
     },
+    setNewProduct: (state, { payload }) => {
+      state.newProduct = payload;
+    },
+    setNewCollection: (state, { payload }) => {
+      state.newCollection = payload;
+    },
+    setProductComment:(state,{payload})=>{
+      state.productComment = payload;
+    }
   },
 });
 
@@ -40,6 +52,9 @@ export const {
   setSingleProduct,
   setSingleProductComment,
   setRelatedProduct,
+  setNewProduct,
+  setNewCollection,
+  setProductComment
 } = ProductSlice.actions;
 
 export default ProductSlice.reducer;

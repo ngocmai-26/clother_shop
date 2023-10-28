@@ -2,7 +2,6 @@ import Slideshow from "../component/slideshow";
 import product_1 from "../../../asset/images/product_1.png";
 import { useLayoutEffect, useState } from "react";
 import SlideProduct from "../component/slide_product";
-import { comments } from "../../../data";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -89,6 +88,10 @@ function ProductDetail() {
       dispatch(setAlert({ type: "error", content: "Select a size" }));
       return;
     }
+    if (Object.keys(user).length === 0) {
+      dispatch(setAlert({ type: "error", content: "Need login" }));
+      return;
+    }
     const product_add = {
       ...singleProduct,
       selectedSize: selectedSize,
@@ -101,6 +104,10 @@ function ProductDetail() {
   const handleAddToCart = () => {
     if (!selectedSize) {
       dispatch(setAlert({ type: "error", content: "Select a size" }));
+      return;
+    }
+    if (Object.keys(user).length === 0) {
+      dispatch(setAlert({ type: "error", content: "Need login" }));
       return;
     }
     const product_add = {
