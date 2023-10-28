@@ -135,11 +135,11 @@ function PaymentMethod() {
                   <h2 className="text-xl md:text-2xl py-2">{t("payment_methods")}</h2>
                   <div className="mx-auto max-w-lg my-4">
                     <div className="py-1">
-                      <input type="radio" />
+                      <input type="radio" name="payment" value={2} />
                       <label className="px-2">Momo</label>
                     </div>
                     <div className="py-1">
-                      <input type="radio" />
+                      <input type="radio" name="payment" value={1} />
                       <label className="px-2">{t("delivery")}</label>
                     </div>
                   </div>
