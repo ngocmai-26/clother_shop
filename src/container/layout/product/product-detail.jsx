@@ -3,7 +3,7 @@ import product_1 from "../../../asset/images/product_1.png";
 import { useLayoutEffect, useState } from "react";
 import SlideProduct from "../component/slide_product";
 import { comments } from "../../../data";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
@@ -17,18 +17,19 @@ import {
   getRelatedProduct,
 } from "../../../thunks/ProductThunk";
 import { setAlert } from "../../../slices/AlertSlice";
+import { addProduct } from "../../../slices/CartSlice";
 
 function ProductDetail() {
   const { id } = useParams();
   const [t] = useTranslation("app");
   const [quantity, setQuantity] = useState(1);
-  const [commentUser, setCommentUser] = useState(comments);
   const [comment, setComment] = useState("");
   const [rating, setRating] = useState(0);
   const [selectedColor, setSelectedColor] = useState();
   const [selectedSize, setSelectedSize] = useState();
   const [productSize, setProductSize] = useState([]);
   const dispatch = useDispatch();
+  const nav = useNavigate();
   const { singleProduct, singleProductComment, relatedProduct } = useSelector(
     (state) => state.productReducer
   );
@@ -44,8 +45,8 @@ function ProductDetail() {
     }
   };
   const handleRatingChange = (e) => {
-    console.log("here");
-    setRating(parseInt(e.target.value, 10)); // Chuyển đổi giá trị thành số nguyên
+    setRating(parseInt(e.target.value, 10));
+    console.log(parseInt(e.target.value));
   };
 
   const handComment = () => {
@@ -82,8 +83,35 @@ function ProductDetail() {
       );
     }
   }, [singleProduct]);
-  const handleBuyNow = () => {};
-  const handleAddToCart = () => {};
+
+  const handleBuyNow = () => {
+    if (!selectedSize) {
+      dispatch(setAlert({ type: "error", content: "Select a size" }));
+      return;
+    }
+    const product_add = {
+      ...singleProduct,
+      selectedSize: selectedSize,
+      selectedColor: selectedColor,
+      quantity: quantity,
+    };
+    dispatch(addProduct(product_add));
+    nav("/payment");
+  };
+  const handleAddToCart = () => {
+    if (!selectedSize) {
+      dispatch(setAlert({ type: "error", content: "Select a size" }));
+      return;
+    }
+    const product_add = {
+      ...singleProduct,
+      selectedSize: selectedSize,
+      selectedColor: selectedColor,
+      quantity: quantity,
+    };
+    dispatch(addProduct(product_add));
+    dispatch(setAlert({ type: "success", content: "Added to cart" }));
+  };
 
   return (
     <Layout>
@@ -98,7 +126,7 @@ function ProductDetail() {
                 icon={faChevronRight}
                 style={{ fontSize: "10px" }}
               />
-              <Link to="/" className="uppercase text-xs px-1">
+              <Link to="/product" className="uppercase text-xs px-1">
                 {t("product")}
               </Link>
               <FontAwesomeIcon
@@ -112,7 +140,6 @@ function ProductDetail() {
             <div className="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-7 gap-2  py-10">
               <div className="xl:col-span-4">
                 <Slideshow images={singleProduct.productImages} />
-
               </div>
               <div className="xl:col-span-3 md:col-span-2 md:px-2">
                 <div className="product-title">
@@ -145,14 +172,6 @@ function ProductDetail() {
                         </button>
                       );
                     })}
-                  </div>
-                  <div className="">
-                    <button
-                      
-                      className={`text-xs font-medium hover:bg-slate-900 hover:text-white text-black py-2 px-3 mx-1 border uppercase m-auto`}
-                    >
-                      BLUE
-                    </button>
                   </div>
                 </div>
                 <div className="product-size py-1">
@@ -207,12 +226,18 @@ function ProductDetail() {
                 </div>
                 <div className="product-btn flex justify-between pt-5 sm:pt-2">
                   <div className="w-3/6 pe-3">
-                    <button className="bg-black text-white py-2 w-full border ">
+                    <button
+                      onClick={handleBuyNow}
+                      className="bg-black text-white py-2 w-full border "
+                    >
                       {t("buy_now")}
                     </button>
                   </div>
                   <div className="w-3/6 pl-3">
-                    <button className=" py-2 w-full border">
+                    <button
+                      onClick={handleAddToCart}
+                      className=" py-2 w-full border"
+                    >
                       {t("add_cart")}
                     </button>
                   </div>
@@ -239,7 +264,7 @@ function ProductDetail() {
                 <div className="flex">
                   <div className="avatar">
                     <img
-                      src={user?.avatar? user?.avatar: avatar_default}
+                      src={user?.avatar ? user?.avatar : avatar_default}
                       className="rounded-full w-10 h-10"
                       alt="product"
                     />
@@ -265,8 +290,8 @@ function ProductDetail() {
                             id="star-1"
                             type="radio"
                             name="star"
-                            value={1}
-                            checked={rating === 1}
+                            value={5}
+                            checked={rating === 5}
                             onChange={handleRatingChange}
                           />
                           <label
@@ -278,8 +303,8 @@ function ProductDetail() {
                             id="star-2"
                             type="radio"
                             name="star"
-                            value={2}
-                            checked={rating === 2}
+                            value={4}
+                            checked={rating === 4}
                             onChange={handleRatingChange}
                           />
                           <label
@@ -304,8 +329,8 @@ function ProductDetail() {
                             id="star-4"
                             type="radio"
                             name="star"
-                            value={4}
-                            checked={rating === 4}
+                            value={2}
+                            checked={rating === 2}
                             onChange={handleRatingChange}
                           />
                           <label
@@ -317,8 +342,8 @@ function ProductDetail() {
                             id="star-5"
                             type="radio"
                             name="star"
-                            value={5}
-                            checked={rating === 5}
+                            value={1}
+                            checked={rating === 1}
                             onChange={handleRatingChange}
                           />
                           <label
@@ -359,36 +384,39 @@ function ProductDetail() {
             {relatedProduct.length > 0 && (
               <div>
                 <h2 className="text-2xl sm:text-3xl md:text-3xl lg:text-4xl pt-3">
-                  {" "}
                   {t("other_product")}
                 </h2>
 
                 <div className="grid xl:grid-cols-4 lg:grid-cols-4 md:grid-cols-3 gap-4">
-                  <div className="product-item py-5">
-                    <div className="product_item-img rounded overflow-hidden">
-                      <Link to="/product-detail">
-                        <img
-                          src={product_1}
-                          alt="product"
-                          style={{ height: "350px" }}
-                          className="w-full object-cover"
-                        />
-                      </Link>
-                    </div>
-                    <div className="product_item-name max-h-16 overflow-hidden">
-                      <Link
-                        to="/product-detail"
-                        className="text-sm sm:text-base lg:text-xl text-overflow overflow-ellipsis line-clamp-2 font-medium "
-                      >
-                        adsadsv Lorem ipsum is simply dummy text...
-                      </Link>
-                    </div>
-                    <div className="product_item-pride">
-                      <p className="text-xs sm:text-sm lg:text-base">
-                        $ 420.000
-                      </p>
-                    </div>
-                  </div>
+                  {relatedProduct.map((product) => {
+                    return (
+                      <div className="product-item py-5">
+                        <div className="product_item-img rounded overflow-hidden">
+                          <Link to={`/product-detail/${product.id}`}>
+                            <img
+                              src={product.imageBanner}
+                              alt="product"
+                              style={{ height: "350px" }}
+                              className="w-full object-cover"
+                            />
+                          </Link>
+                        </div>
+                        <div className="product_item-name max-h-16 overflow-hidden">
+                          <Link
+                            to="/product-detail"
+                            className="text-sm sm:text-base lg:text-xl text-overflow overflow-ellipsis line-clamp-2 font-medium "
+                          >
+                            {product.name}
+                          </Link>
+                        </div>
+                        <div className="product_item-pride">
+                          <p className="text-xs sm:text-sm lg:text-base">
+                            $ {product.price}
+                          </p>
+                        </div>
+                      </div>
+                    );
+                  })}
                 </div>
               </div>
             )}

@@ -1,7 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { API } from "../constants/api";
 import { setAlert } from "../slices/AlertSlice";
-import { logout, setLogged, setRefresh } from "../slices/AuthSlice";
+import { logout, setRefresh } from "../slices/AuthSlice";
 
 export const register = createAsyncThunk(
   "/register",

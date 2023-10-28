@@ -29,7 +29,7 @@ function UserProfile({ setAccountUser }) {
       if (userUpdate.phone.toLowerCase().length !== 10) {
         dispatch(
           setAlert({
-            type: t("error"),
+            type: ' t("error")',
             content: t("notify_format_phone"),
           })
         );
@@ -87,7 +87,7 @@ function UserProfile({ setAccountUser }) {
               icon={faChevronRight}
               style={{ fontSize: "10px" }}
             />
-            <Link to="/" className="uppercase text-xs px-1">
+            <Link to="/user-profile" className="uppercase text-xs px-1">
               {t("user")}
             </Link>
           </div>

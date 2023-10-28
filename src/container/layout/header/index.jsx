@@ -1,19 +1,15 @@
 import { Link } from "react-router-dom";
 import Logo from "../../../asset/images/Logo.png";
-import iconCart from "../../../asset/images/bag.png";
-import iconUser from "../../../asset/images/user.png";
 import { useTranslation } from "react-i18next";
 import { useLayoutEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Categories } from "../../admin/component/categories";
 import { getAllCategories } from "../../../thunks/CategoryThunk";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCartArrowDown,
-  faCartPlus,
+  faCartShopping,
   faGlobe,
-  faGlobeOceania,
-  faGolfBall,
+  faSignIn,
   faUserAlt,
   faUserClock,
 } from "@fortawesome/free-solid-svg-icons";
@@ -145,7 +141,7 @@ function Header() {
                 className="bg-black font-medium text-white px-2 w-8 sm:w-9 lg:w-9 xl:w-9 md:w-9 min-w-8 my-auto  text-center py-2 mx-0 rounded-full active:bg-black hover:bg-gray-500 text-xs sm:text-sm "
               >
                 <button>
-                  <FontAwesomeIcon icon={faUserClock} />
+                  <FontAwesomeIcon icon={faSignIn} />
                 </button>
               </Link>
             ) : (
@@ -168,15 +164,17 @@ function Header() {
                     className="text-white mx-auto"
                   />
                 </Link>
+                <Link to={"/payment"}>
+                  <button className=" ms-2 bg-black px-2 w-8 sm:w-9 lg:w-9 xl:w-9 md:w-9 min-w-8  text-center rounded-full my-auto h-8 md:h-9 text-xs sm:text-sm">
+                    <FontAwesomeIcon
+                      icon={faCartShopping}
+                      className="text-white"
+                    />
+                  </button>
+                </Link>
               </>
             )}
 
-            <button
-              
-              className=" ms-2 bg-black px-2 w-8 sm:w-9 lg:w-9 xl:w-9 md:w-9 min-w-8  text-center rounded-full my-auto h-8 md:h-9 text-xs sm:text-sm"
-            >
-              <FontAwesomeIcon icon={faCartPlus} className="text-white" />
-            </button>
             <button
               onClick={() => {
                 i18n.changeLanguage(i18n.language === "en" ? "vi" : "en");
