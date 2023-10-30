@@ -140,7 +140,7 @@ function Header() {
               </div>
             </form>
             <div className="flex justify-center items-center">
-              {!logged ? (
+              {logged ? (
                 <Link
                   to="/login"
                   className="bg-black font-medium text-white px-2 w-8 sm:w-9 lg:w-9 xl:w-9 md:w-9 min-w-8 my-auto  text-center py-2 mx-0 rounded-full active:bg-black hover:bg-gray-500 text-xs sm:text-sm "
@@ -153,7 +153,7 @@ function Header() {
                 <>
                   <Link
                     to="/user-profile"
-                    className=" bg-white font-medium text-white px-2 w-8 sm:w-9 lg:w-9 xl:w-9 md:w-9 min-w-8 my-auto  text-center py-2 mx-2 rounded-full active:bg-black"
+                    className=" bg-white font-medium text-white px-2 w-8 sm:w-9 lg:w-9 xl:w-9 md:w-9 min-w-8 my-auto  text-center py-2 mx-2 rounded-full"
                   >
                     <FontAwesomeIcon
                       icon={faUserAlt}
@@ -162,7 +162,7 @@ function Header() {
                   </Link>
                   <Link
                     to="/orders"
-                    className="bg-white font-medium text-white px-2 w-8 sm:w-9 lg:w-9 xl:w-9 md:w-9 min-w-8 my-auto  text-center py-2  rounded-full active:bg-black"
+                    className="bg-white font-medium text-white px-2 w-8 sm:w-9 lg:w-9 xl:w-9 md:w-9 min-w-8 my-auto  text-center py-2  rounded-full"
                   >
                     <FontAwesomeIcon
                       icon={faCartArrowDown}

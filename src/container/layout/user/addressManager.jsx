@@ -7,6 +7,7 @@ import NavbarMini from "../component/nav_mini";
 import { Layout } from "..";
 import { useLayoutEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import address_default from "../../../asset/images/default_address.jpg";
 import {
   addNewAddress,
   deleteAddress,
@@ -147,50 +148,61 @@ function AddressManager({ setAccountUser }) {
                   className="content-manager py-3"
                   style={{ maxHeight: "100vh", overflowY: "auto" }}
                 >
-                  {addresses.map((add, index) => {
-                    return (
-                      <div
-                        key={index}
-                        className="justify-between border-b py-2"
-                      >
-                        <div className="information">
-                          <h3 className="name text-sm sm:text-base font-medium">
-                            {add.user.fullname}
-                          </h3>
-                          <span className="text-slate-500 text-xs sm:text-sm font-normal">
-                            {add.phone}
-                          </span>
-                          <div className="address w-full lg:w-2/3 md:w-10/12 text-slate-500 text-xs sm:text-sm font-normal">
-                            {add.streetName +
-                              "," +
-                              add.wards.name +
-                              "," +
-                              add.wards.districts.name +
-                              "," +
-                              add.wards.districts.province.name}
+                  {addresses.length == 0 ? (
+                    <div className="order-detail text-center ">
+                      <img
+                        src={address_default}
+                        alt="product"
+                        className="mx-auto w-7/12 sm:w-6/12 lg:w-4/12"
+                      />
+                      <p>{t("empty_address")}</p>
+                    </div>
+                  ) : (
+                    addresses.map((add, index) => {
+                      return (
+                        <div
+                          key={index}
+                          className="justify-between border-b py-2"
+                        >
+                          <div className="information">
+                            <h3 className="name text-sm sm:text-base font-medium">
+                              {add.user.fullname}
+                            </h3>
+                            <span className="text-slate-500 text-xs sm:text-sm font-normal">
+                              {add.phone}
+                            </span>
+                            <div className="address w-full lg:w-2/3 md:w-10/12 text-slate-500 text-xs sm:text-sm font-normal">
+                              {add.streetName +
+                                "," +
+                                add.wards.name +
+                                "," +
+                                add.wards.districts.name +
+                                "," +
+                                add.wards.districts.province.name}
+                            </div>
+                          </div>
+                          <div className="action text-right flex gap-2 justify-end">
+                            <button
+                              className="text-blue-500 text-sm sm:text-base"
+                              onClick={() => {
+                                handleOpenUpdateForm(add.id);
+                              }}
+                            >
+                              {t("update")}
+                            </button>
+                            <button
+                              className="text-red-500 text-sm sm:text-base"
+                              onClick={() => {
+                                handleDelete(add.id);
+                              }}
+                            >
+                              Delete
+                            </button>
                           </div>
                         </div>
-                        <div className="action text-right flex gap-2 justify-end">
-                          <button
-                            className="text-blue-500 text-sm sm:text-base"
-                            onClick={() => {
-                              handleOpenUpdateForm(add.id);
-                            }}
-                          >
-                            {t("update")}
-                          </button>
-                          <button
-                            className="text-red-500 text-sm sm:text-base"
-                            onClick={() => {
-                              handleDelete(add.id);
-                            }}
-                          >
-                            Delete
-                          </button>
-                        </div>
-                      </div>
-                    );
-                  })}
+                      );
+                    })
+                  )}
                 </div>
               </div>
             </div>

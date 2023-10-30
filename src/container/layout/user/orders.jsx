@@ -50,7 +50,7 @@ function Orders({ setAccountUser }) {
                 {orders.length == 0 ? (
                   <div className="order-detail text-center ">
                     <img src={no_Order} alt="product" className="mx-auto" />
-                    <p>Your orders is empty. Place a few items.</p>
+                    <p>{t("empty_order")}</p>
                   </div>
                 ) : (
                   orders.map((order, index) => {
