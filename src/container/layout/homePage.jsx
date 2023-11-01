@@ -36,7 +36,7 @@ function HomePage() {
   }, []);
   const handleSendFeedBack = () => {
     if (email.trim() == "") {
-      dispatch(setAlert({ type: "error", content: "Email don't empty" }));
+      dispatch(setAlert({ type: t("error"), content: t("notify_valid_email") }));
       return;
     }
     dispatch(sendFeedBack());

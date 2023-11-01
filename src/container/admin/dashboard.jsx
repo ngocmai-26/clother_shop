@@ -1,9 +1,11 @@
+import HomeAdmin from ".";
 import HeaderAdmin from "./component/header";
 import { Link } from "react-router-dom";
 
 function Dashboard() {
   return (
-    <div className="w-10/12 h-screen bg-slate-700 text-white  flex flex-col overflow-y-hidden ">
+    <HomeAdmin>
+      <div className="w-10/12 h-screen bg-slate-700 text-white  flex flex-col overflow-y-hidden ">
       <HeaderAdmin />
       <div className="w-full overflow-x-hidden ">
         <main className="w-full flex-grow p-6">
@@ -234,6 +236,7 @@ function Dashboard() {
         </main>
       </div>
     </div>
+    </HomeAdmin>
   );
 }
 

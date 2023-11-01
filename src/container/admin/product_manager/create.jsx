@@ -1,10 +1,12 @@
 import { useTranslation } from "react-i18next";
 import HeaderAdmin from "../component/header";
+import HomeAdmin from "..";
 
 function ProductCreate() {
   const [t] = useTranslation("app");
   return (
-    <div className="w-10/12 bg-slate-700 text-white h-screen flex flex-col overflow-y-hidden ">
+    <HomeAdmin>
+      <div className="w-10/12 bg-slate-700 text-white h-screen flex flex-col overflow-y-hidden ">
       <HeaderAdmin />
       <div className="w-full overflow-x-hidden ">
         <main className="w-full flex-grow p-6">
@@ -16,13 +18,13 @@ function ProductCreate() {
                 <form className="p-10 bg-white rounded shadow-xl">
                   <div>
                     <label
-                      className="block text-sm text-gray-600"
-                      htmlhtmlFor="txtCode"
+                      className="block text-base text-gray-600"
+                      htmlFor="txtCode"
                     >
                       {t("code_orders")}
                     </label>
                     <input
-                      className="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded outline-0"
+                      className="w-full px-5 text-sm py-2 text-gray-700 bg-gray-200 rounded outline-0"
                       id="txtCode"
                       name="txtCode"
                       type="text"
@@ -33,13 +35,13 @@ function ProductCreate() {
                   </div>
                   <div className="mt-2">
                     <label
-                      className="block text-sm text-gray-600"
-                      htmlhtmlFor="txtName"
+                      className="block text-base text-gray-600"
+                      htmlFor="txtName"
                     >
                       {t("name_product")}
                     </label>
                     <input
-                      className="w-full px-5  py-1 text-gray-700 bg-gray-200 rounded outline-0"
+                      className="w-full px-5 text-sm py-2 text-gray-700 bg-gray-200 rounded outline-0"
                       id="txtName"
                       name="txtName"
                       type="text"
@@ -50,13 +52,13 @@ function ProductCreate() {
                   </div>
                   <div className="mt-2">
                     <label
-                      className="block text-sm text-gray-600"
-                      htmlhtmlFor="txtPrice"
+                      className="block text-base text-gray-600"
+                      htmlFor="txtPrice"
                     >
                       {t("price")}
                     </label>
                     <input
-                      className="w-full px-5  py-1 text-gray-700 bg-gray-200 rounded outline-0"
+                      className="w-full px-5 text-sm py-2 text-gray-700 bg-gray-200 rounded outline-0"
                       id="txtPrice"
                       name="txtPrice"
                       type="text"
@@ -67,8 +69,8 @@ function ProductCreate() {
                   </div>
                   <div className="mt-2">
                     <label
-                      className="block text-sm text-gray-600"
-                      htmlhtmlFor="price"
+                      className="block text-base text-gray-600"
+                      htmlFor="price"
                     >
                       {t("color")}
                     </label>
@@ -82,7 +84,7 @@ function ProductCreate() {
                             className="w-4 h-4 text-blue-600 bg-gray-100 focus:ring-blue-500 "
                           />
                           <label
-                            htmlhtmlFor="vue-checkbox-list"
+                            htmlFor="vue-checkbox-list"
                             className="w-full py-3 ml-2 text-sm font-medium text-gray-900 "
                           >
                             Blue
@@ -98,7 +100,7 @@ function ProductCreate() {
                             className="w-4 h-4 text-blue-600 bg-gray-100 focus:ring-blue-500 "
                           />
                           <label
-                            htmlhtmlFor="react-checkbox-list"
+                            htmlFor="react-checkbox-list"
                             className="w-full py-3 ml-2 text-sm font-medium text-gray-900 "
                           >
                             Green
@@ -114,7 +116,7 @@ function ProductCreate() {
                             className="w-4 h-4 text-blue-600 bg-gray-100 focus:ring-blue-500 "
                           />
                           <label
-                            htmlhtmlFor="angular-checkbox-list"
+                            htmlFor="angular-checkbox-list"
                             className="w-full py-3 ml-2 text-sm font-medium text-gray-900 "
                           >
                             White
@@ -130,7 +132,7 @@ function ProductCreate() {
                             className="w-4 h-4 text-blue-600 bg-gray-100 focus:ring-blue-500 "
                           />
                           <label
-                            htmlhtmlFor="laravel-checkbox-list"
+                            htmlFor="laravel-checkbox-list"
                             className="w-full py-3 ml-2 text-sm font-medium text-gray-900 "
                           >
                             Brown
@@ -146,7 +148,7 @@ function ProductCreate() {
                             className="w-4 h-4 text-blue-600 bg-gray-100 focus:ring-blue-500 "
                           />
                           <label
-                            htmlhtmlFor="laravel-checkbox-list"
+                            htmlFor="laravel-checkbox-list"
                             className="w-full py-3 ml-2 text-sm font-medium text-gray-900 "
                           >
                             Black
@@ -162,7 +164,7 @@ function ProductCreate() {
                             className="w-4 h-4 text-blue-600 bg-gray-100 focus:ring-blue-500 "
                           />
                           <label
-                            htmlhtmlFor="laravel-checkbox-list"
+                            htmlFor="laravel-checkbox-list"
                             className="w-full py-3 ml-2 text-sm font-medium text-gray-900 "
                           >
                             Pink
@@ -178,7 +180,7 @@ function ProductCreate() {
                             className="w-4 h-4 text-blue-600 bg-gray-100 focus:ring-blue-500 "
                           />
                           <label
-                            htmlhtmlFor="laravel-checkbox-list"
+                            htmlFor="laravel-checkbox-list"
                             className="w-full py-3 ml-2 text-sm font-medium text-gray-900 "
                           >
                             Orange
@@ -194,7 +196,7 @@ function ProductCreate() {
                             className="w-4 h-4 text-blue-600 bg-gray-100 focus:ring-blue-500 "
                           />
                           <label
-                            htmlhtmlFor="laravel-checkbox-list"
+                            htmlFor="laravel-checkbox-list"
                             className="w-full py-3 ml-2 text-sm font-medium text-gray-900 "
                           >
                             Red
@@ -210,7 +212,7 @@ function ProductCreate() {
                             className="w-4 h-4 text-blue-600 bg-gray-100 focus:ring-blue-500 "
                           />
                           <label
-                            htmlhtmlFor="laravel-checkbox-list"
+                            htmlFor="laravel-checkbox-list"
                             className="w-full py-3 ml-2 text-sm font-medium text-gray-900 "
                           >
                             Purple
@@ -221,8 +223,8 @@ function ProductCreate() {
                   </div>
                   <div className="mt-2">
                     <label
-                      className="block text-sm text-gray-600"
-                      htmlhtmlFor="price"
+                      className="block text-base text-gray-600"
+                      htmlFor="price"
                     >
                       {t("size")}
                     </label>
@@ -236,7 +238,7 @@ function ProductCreate() {
                             className="w-4 h-4 text-blue-600 bg-gray-100 focus:ring-blue-500 "
                           />
                           <label
-                            htmlhtmlFor="vue-checkbox-list"
+                            htmlFor="vue-checkbox-list"
                             className="w-full py-3 ml-2 text-sm font-medium text-gray-900 "
                           >
                             S
@@ -252,7 +254,7 @@ function ProductCreate() {
                             className="w-4 h-4 text-blue-600 bg-gray-100 focus:ring-blue-500 "
                           />
                           <label
-                            htmlhtmlFor="react-checkbox-list"
+                            htmlFor="react-checkbox-list"
                             className="w-full py-3 ml-2 text-sm font-medium text-gray-900 "
                           >
                             M
@@ -268,7 +270,7 @@ function ProductCreate() {
                             className="w-4 h-4 text-blue-600 bg-gray-100 focus:ring-blue-500 "
                           />
                           <label
-                            htmlhtmlFor="angular-checkbox-list"
+                            htmlFor="angular-checkbox-list"
                             className="w-full py-3 ml-2 text-sm font-medium text-gray-900 "
                           >
                             L
@@ -284,7 +286,7 @@ function ProductCreate() {
                             className="w-4 h-4 text-blue-600 bg-gray-100 focus:ring-blue-500 "
                           />
                           <label
-                            htmlhtmlFor="laravel-checkbox-list"
+                            htmlFor="laravel-checkbox-list"
                             className="w-full py-3 ml-2 text-sm font-medium text-gray-900 "
                           >
                             XL
@@ -300,7 +302,7 @@ function ProductCreate() {
                             className="w-4 h-4 text-blue-600 bg-gray-100 focus:ring-blue-500 "
                           />
                           <label
-                            htmlhtmlFor="laravel-checkbox-list"
+                            htmlFor="laravel-checkbox-list"
                             className="w-full py-3 ml-2 text-sm font-medium text-gray-900 "
                           >
                             XXL
@@ -316,7 +318,7 @@ function ProductCreate() {
                             className="w-4 h-4 text-blue-600 bg-gray-100 focus:ring-blue-500 "
                           />
                           <label
-                            htmlhtmlFor="laravel-checkbox-list"
+                            htmlFor="laravel-checkbox-list"
                             className="w-full py-3 ml-2 text-sm font-medium text-gray-900 "
                           >
                             3XL
@@ -327,13 +329,13 @@ function ProductCreate() {
                   </div>
                   <div className="mt-2">
                     <label
-                      className=" block text-sm text-gray-600"
-                      htmlhtmlFor="message"
+                      className=" block text-base text-gray-600"
+                      htmlFor="message"
                     >
                       {t("describe")}
                     </label>
                     <textarea
-                      className="w-full px-5 py-2 text-gray-700 bg-gray-200 rounded outline-0"
+                      className="w-full px-5 py-2 text-sm text-gray-700 bg-gray-200 rounded outline-0"
                       id="message"
                       name="message"
                       rows="6"
@@ -365,6 +367,7 @@ function ProductCreate() {
         </main>
       </div>
     </div>
+    </HomeAdmin>
   );
 }
 

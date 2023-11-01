@@ -67,7 +67,7 @@ function AddressManager({ setAccountUser }) {
   useLayoutEffect(() => {}, [selectedWard]);
   const handleAddNewAddress = () => {
     if (street.trim().length <= 0) {
-      dispatch(setAlert({ type: "error", content: "Hãy nhập tên đường" }));
+      dispatch(setAlert({ type: t("error"), content: t("empty_street") }));
       return;
     }
     const data = {
@@ -107,7 +107,7 @@ function AddressManager({ setAccountUser }) {
     setStreet(updateAddress.streetName);
   };
   const handleDelete = (id) => {
-    if (window.confirm("Do you want delete ?")) {
+    if (window.confirm(t("confirm_delete"))) {
       dispatch(deleteAddress(id));
     }
   };
