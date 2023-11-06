@@ -2,32 +2,45 @@ import { Link } from "react-router-dom";
 import HeaderAdmin from "../component/header";
 import { useTranslation } from "react-i18next";
 import Pagination from "../component/pagination";
-import { useEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
 import { PAGINATION } from "../../../contanst";
 import NavAdmin from "../component/nav";
 import HomeAdmin from "..";
+import { useDispatch, useSelector } from "react-redux";
+import { deleteProduct, getAllProductList } from "../../../thunks/ProductThunk";
+import { setAdminSearch } from "../../../slices/ProductSlice";
 
 function ProductManager() {
   const [t] = useTranslation("app");
-  const [numberPagination, setNumberPagination] = useState({
-    totalPage: 10,
-    currentPage: PAGINATION.CURRENT_PAGE,
-  });
+  const dispatch = useDispatch();
+  const { manager, adminSearch } = useSelector((state) => state.productReducer);
+  const [page, setPage] = useState(1);
+  const [totalPage, setTotalPage] = useState();
+  const [query, setQuery] = useState();
 
-  useEffect(() => {
-    setNumberPagination({
-      ...numberPagination,
-      totalPage: Math.ceil(10 / PAGINATION.LIMIT),
-    });
-  }, [numberPagination.currentPage]);
-
-  const onChangePage = (page) => {
-    setNumberPagination((pre) => ({
-      ...pre,
-      currentPage: page,
-    }));
-  };
-
+  const handleDeleteProduct = (id) => {};
+  useLayoutEffect(() => {
+    dispatch(getAllProductList());
+    setTotalPage(Math.ceil(manager.products.length / 10));
+  }, []);
+  useLayoutEffect(() => {
+    setTotalPage(Math.ceil(adminSearch.length / 10));
+  }, [adminSearch]);
+  useLayoutEffect(() => {
+    dispatch(setAdminSearch(manager.products));
+  }, [manager.products]);
+  useLayoutEffect(() => {
+    let productSearch = [];
+    for (let product of manager.products) {
+      if (product.name.includes(query)) {
+        productSearch.push(product);
+      }
+    }
+    if (query == "") {
+      productSearch = [...manager.products];
+    }
+    dispatch(setAdminSearch(productSearch));
+  }, [query]);
   return (
     <HomeAdmin>
       <div className="w-10/12 bg-slate-700 text-white h-screen  flex flex-col overflow-y-hidden ">
@@ -68,6 +81,7 @@ function ProductManager() {
                     </svg>
                   </div>
                   <input
+                    onChange={(e) => setQuery(e.target.value)}
                     type="search"
                     id="default-search"
                     className="block w-full outline-0 p-2  pl-10 text-sm text-gray-900 border border-gray-300 rounded-full bg-gray-50 focus:ring-blue-500 focus:border-blue-500"
@@ -98,85 +112,75 @@ function ProductManager() {
                         {t("image")}
                       </th>
                       <th className="py-4 px-6 bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-grey-light">
-                        {t("information")}
-                      </th>
-                      <th className="py-4 px-6 bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-grey-light">
                         {t("operate")}
                       </th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr className="hover:bg-grey-lighter">
-                      <td className="py-4 px-6 border-b border-grey-light">
-                        Lian
-                      </td>
-                      <td className="py-4 px-6 border-b border-grey-light">
-                        Smith
-                      </td>
-                      <td className="py-4 px-6 border-b border-grey-light">
-                        622322662
-                      </td>
-                      <td className="py-4 px-6 border-b border-grey-light">
-                        jonsmith@mail.com
-                      </td>
-                      <td></td>
-                      <td className="py-4 px-6 border-b border-grey-light">
-                        <Link
-                          to="/"
-                          className="border border-sky-600 text-white uppercase py-2 px-3 bg-sky-600 rounded-lg mt-3 mx-1 text-xs"
-                        >
-                          {t("see_more")}
-                        </Link>
-                        <Link
-                          to="/admin/update-product"
-                          className="border border-yellow-400 text-white uppercase py-2 px-3 bg-yellow-400 rounded-lg mt-3 mx-1 text-xs"
-                        >
-                          {t("edit")}
-                        </Link>
-                        <button className="border border-rose-600 text-white uppercase py-2 px-3 bg-rose-600 rounded-lg mt-3 mx-1 text-xs">
-                          {t("delete")}
-                        </button>
-                      </td>
-                    </tr>
-                    <tr className="hover:bg-grey-lighter">
-                      <td className="py-4 px-6 border-b border-grey-light">
-                        Lian
-                      </td>
-                      <td className="py-4 px-6 border-b border-grey-light">
-                        Smith
-                      </td>
-                      <td className="py-4 px-6 border-b border-grey-light">
-                        622322662
-                      </td>
-                      <td className="py-4 px-6 border-b border-grey-light">
-                        jonsmith@mail.com
-                      </td>
-                      <td></td>
-                      <td className="py-4 px-6 border-b border-grey-light">
-                        <Link
-                          to="/"
-                          className="border border-sky-600 text-white uppercase py-2 px-3 bg-sky-600 rounded-lg mt-3 mx-1 text-xs"
-                        >
-                          {t("see_more")}
-                        </Link>
-                        <Link
-                          to="/admin/update-product"
-                          className="border border-yellow-400 text-white uppercase py-2 px-3 bg-yellow-400 rounded-lg mt-3 mx-1 text-xs"
-                        >
-                          {t("edit")}
-                        </Link>
-                        <button className="border border-rose-600 text-white uppercase py-2 px-3 bg-rose-600 rounded-lg mt-3 mx-1 text-xs">
-                          {t("delete")}
-                        </button>
-                      </td>
-                    </tr>
+                    {adminSearch
+                      .slice((page - 1) * 10, page * 10)
+                      .map((product, index) => {
+                        return (
+                          <tr key={index} className="hover:bg-grey-lighter">
+                            <td className="py-4 px-6 border-b border-grey-light">
+                              {product.id}
+                            </td>
+                            <td className="py-4 px-6 border-b border-grey-light">
+                              {product.name}
+                            </td>
+                            <td className="py-4 px-6 border-b border-grey-light">
+                              {product.price.toLocaleString("it-IT", {
+                                style: "currency",
+                                currency: "VND",
+                              })}
+                            </td>
+                            <td className="py-4 px-6 border-b border-grey-light">
+                              <img
+                                style={{
+                                  maxWidth: "64px",
+                                  maxHeight: "64px",
+                                  objectFit: "cover",
+                                }}
+                                className="img-fluid"
+                                src={product.imageBanner}
+                              />
+                            </td>
+                            <td className="py-4 px-6 border-b border-grey-light">
+                              <Link
+                                to={`/product-detail/${product.id}`}
+                                className="border border-sky-600 text-white uppercase py-2 px-3 bg-sky-600 rounded-lg mt-3 mx-1 text-xs"
+                              >
+                                {t("see_more")}
+                              </Link>
+                              <Link
+                                to={`/admin/update-product/${product.id}`}
+                                className="border border-yellow-400 text-white uppercase py-2 px-3 bg-yellow-400 rounded-lg mt-3 mx-1 text-xs"
+                              >
+                                {t("edit")}
+                              </Link>
+                              <button
+                                onClick={() => {
+                                  if (
+                                    window.confirm("Do you want realy delete ?")
+                                  ) {
+                                    dispatch(deleteProduct(product.id));
+                                  }
+                                }}
+                                className="border border-rose-600 text-white uppercase py-2 px-3 bg-rose-600 rounded-lg mt-3 mx-1 text-xs"
+                              >
+                                {t("delete")}
+                              </button>
+                            </td>
+                          </tr>
+                        );
+                      })}
                   </tbody>
                 </table>
               </div>
               <div className="pagination">
                 <Pagination
-                  totalPage={numberPagination.totalPage}
-                  setPage={onChangePage}
+                  totalPage={totalPage}
+                  setPage={setPage}
                 ></Pagination>
               </div>
             </div>

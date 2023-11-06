@@ -1,9 +1,19 @@
 import { useTranslation } from "react-i18next";
 import HeaderAdmin from "../component/header";
 import HomeAdmin from "..";
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { setAlert } from "../../../slices/AlertSlice";
+import { addUser } from "../../../thunks/UserThunk";
 
 function UserCreate() {
   const [t] = useTranslation("app");
+  const [user, setUser] = useState({});
+  const dispatch = useDispatch();
+  const handleCreateUser = () => {
+    dispatch(addUser(user));
+  };
   return (
     <HomeAdmin>
       <div className="w-10/12 bg-slate-700 text-white h-screen  flex flex-col overflow-y-hidden ">
@@ -15,7 +25,7 @@ function UserCreate() {
             <div className="flex flex-wrap">
               <div className="w-full  my-6 pr-0 lg:pr-2">
                 <div className="leading-loose">
-                  <form className="p-10 bg-white rounded shadow-xl">
+                  <div className="p-10 bg-white rounded shadow-xl">
                     <div>
                       <label
                         className="block text-base text-gray-600"
@@ -24,6 +34,9 @@ function UserCreate() {
                         {t("your_name")}
                       </label>
                       <input
+                        onChange={(e) => {
+                          setUser({ ...user, fullname: e.target.value });
+                        }}
                         className="w-full px-5 py-2 text-sm  text-gray-700 bg-gray-200 rounded"
                         id="name"
                         name="name"
@@ -41,13 +54,32 @@ function UserCreate() {
                         Email
                       </label>
                       <input
+                        onChange={(e) => {
+                          setUser({ ...user, email: e.target.value });
+                        }}
                         className="w-full px-5 py-2 text-sm  text-gray-700 bg-gray-200 rounded"
                         id="Email"
                         name="Email"
-                        type="text"
+                        type="email"
                         required
                         placeholder={t("enter_email")}
                         aria-label="Email"
+                      />
+                    </div>
+
+                    <div className="mt-2">
+                      <label className="block text-base text-gray-600">
+                        {t("Phone")}
+                      </label>
+                      <input
+                        onChange={(e) => {
+                          setUser({ ...user, phone: e.target.value });
+                        }}
+                        className="w-full px-5 py-2 text-sm  text-gray-700 bg-gray-200 rounded"
+                        type="text"
+                        required
+                        placeholder={t("Enter phone")}
+                        aria-label="confirmPassword"
                       />
                     </div>
                     <div className="mt-2">
@@ -58,49 +90,36 @@ function UserCreate() {
                         {t("password")}
                       </label>
                       <input
+                        onChange={(e) => {
+                          setUser({ ...user, password: e.target.value });
+                        }}
                         className="w-full px-5 py-2 text-sm  text-gray-700 bg-gray-200 rounded"
                         id="password"
                         name="password"
                         type="text"
                         required
-                        placeholder={t("enter_email")}
+                        placeholder={t("Enter password")}
                         aria-label="password"
                       />
                     </div>
-                    <div className="mt-2">
-                      <label
-                        className="block text-base text-gray-600"
-                        htmlFor="confirmPassword"
-                      >
-                        {t("confirm_password")}
-                      </label>
-                      <input
-                        className="w-full px-5 py-2 text-sm  text-gray-700 bg-gray-200 rounded"
-                        id="confirmPassword"
-                        name="confirmPassword"
-                        type="text"
-                        required
-                        placeholder={t("enter_confirm_password")}
-                        aria-label="confirmPassword"
-                      />
-                    </div>
                     <div className="mt-6 text-right">
-                      <button
+                      <Link
+                        to={"/admin/user-manager"}
+                        type="button"
                         className="px-4 py-1 text-white font-light tracking-wider mx-3 rounded"
                         style={{ backgroundColor: "black" }}
-                        type="submit"
                       >
                         {t("come_back")}
-                      </button>
+                      </Link>
                       <button
+                        onClick={handleCreateUser}
                         className="px-4 py-1 text-white font-light tracking-wider  rounded"
                         style={{ backgroundColor: "black" }}
-                        type="submit"
                       >
                         {t("save_update")}
                       </button>
                     </div>
-                  </form>
+                  </div>
                 </div>
               </div>
             </div>

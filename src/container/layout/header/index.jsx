@@ -140,7 +140,7 @@ function Header() {
               </div>
             </form>
             <div className="flex justify-center items-center">
-              {logged ? (
+              {!logged ? (
                 <Link
                   to="/login"
                   className="bg-black font-medium text-white px-2 w-8 sm:w-9 lg:w-9 xl:w-9 md:w-9 min-w-8 my-auto  text-center py-2 mx-0 rounded-full active:bg-black hover:bg-gray-500 text-xs sm:text-sm "
@@ -186,7 +186,10 @@ function Header() {
                 }}
                 className="mx-2 bg-white px-2 w-8 sm:w-9 lg:w-9 xl:w-9 md:w-9 min-w-8  text-center rounded-full my-auto h-8 md:h-9"
               >
-                <FontAwesomeIcon icon={faGlobe} className="text-black text-xl" />
+                <FontAwesomeIcon
+                  icon={faGlobe}
+                  className="text-black text-xl"
+                />
               </button>
               <button onClick={toggleMenu} className="pe-2 block lg:hidden ">
                 <svg

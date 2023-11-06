@@ -3,28 +3,44 @@ import HeaderAdmin from "../component/header";
 import { useTranslation } from "react-i18next";
 import Pagination from "../component/pagination";
 import { PAGINATION } from "../../../contanst";
-import { useEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
 import HomeAdmin from "..";
+import { useDispatch, useSelector } from "react-redux";
+import { confirmOrder, getOrderList } from "../../../thunks/PaymentThunk";
 
 function OrdersManager() {
   const [t] = useTranslation("app");
-  const [numberPagination, setNumberPagination] = useState({
-    totalPage: 10,
-    currentPage: PAGINATION.CURRENT_PAGE,
-  });
-
+  const [page, setPage] = useState(1);
+  const [totalPage, setTotalPage] = useState();
+  const { manager } = useSelector((state) => state.orderReducer);
+  const [query, setQuery] = useState("");
+  const [search, setSearch] = useState([]);
+  const dispatch = useDispatch();
   useEffect(() => {
-    setNumberPagination({
-      ...numberPagination,
-      totalPage: Math.ceil(10 / PAGINATION.LIMIT),
-    });
-  }, [numberPagination.currentPage]);
+    dispatch(getOrderList());
+  }, []);
+  useLayoutEffect(() => {
+    setSearch(manager.orders);
+    setTotalPage(Math.ceil(manager.orders.length / 10));
+  }, [manager.orders]);
 
-  const onChangePage = (page) => {
-    setNumberPagination((pre) => ({
-      ...pre,
-      currentPage: page,
-    }));
+  useLayoutEffect(() => {
+    let rs = [];
+    for (let od of manager.orders) {
+      if (od.receiverName.includes(query) || od.id == query) {
+        rs.push(od);
+      }
+    }
+    if (query.trim() == "") {
+      rs = manager.orders;
+    }
+    setSearch(rs);
+  }, [query]);
+  useLayoutEffect(() => {
+    setTotalPage(Math.ceil(search.length / 10));
+  }, [search]);
+  const handleConfirmOrder = (id) => {
+    dispatch(confirmOrder(id));
   };
 
   return (
@@ -61,6 +77,7 @@ function OrdersManager() {
                     </svg>
                   </div>
                   <input
+                    onChange={(e) => setQuery(e.target.value)}
                     type="search"
                     id="default-search"
                     className="block w-full outline-0 p-2  pl-10 text-sm text-gray-900 border border-gray-300 rounded-full bg-gray-50 focus:ring-blue-500 focus:border-blue-500"
@@ -87,66 +104,64 @@ function OrdersManager() {
                         {t("buyer")}
                       </th>
                       <th className="py-4 px-6 bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-grey-light">
+                        {t("Amount")}
+                      </th>
+                      <th className="py-4 px-6 bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-grey-light">
+                        {t("Status")}
+                      </th>
+                      <th className="py-4 px-6 bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-grey-light">
                         {t("purchase_date")}
                       </th>
                       <th className="py-4 px-6 bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-grey-light">
-                        {t("operate")}
+                        {t("action")}
                       </th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr className="hover:bg-grey-lighter">
-                      <td className="py-4 px-6 border-b border-grey-light">
-                        Lian
-                      </td>
-                      <td className="py-4 px-6 border-b border-grey-light">
-                        622322662
-                      </td>
-                      <td className="py-4 px-6 border-b border-grey-light">
-                        jonsmith@mail.com
-                      </td>
-                      <td className="py-4 px-6 border-b border-grey-light">
-                        <Link
-                          to="/"
-                          className="border border-sky-600 text-white uppercase py-2 px-3 bg-sky-600 rounded-lg mt-3 mx-1 text-xs"
-                        >
-                          {t("see_more")}
-                        </Link>
-                        <button className="border border-rose-600 text-white uppercase py-2 px-3 bg-rose-600 rounded-lg mt-3 mx-1 text-xs">
-                          {t("delete")}
-                        </button>
-                      </td>
-                    </tr>
-                    <tr className="hover:bg-grey-lighter">
-                      <td className="py-4 px-6 border-b border-grey-light">
-                        Lian
-                      </td>
-                      <td className="py-4 px-6 border-b border-grey-light">
-                        622322662
-                      </td>
-                      <td className="py-4 px-6 border-b border-grey-light">
-                        jonsmith@mail.com
-                      </td>
-                      <td className="py-4 px-6 border-b border-grey-light">
-                        <Link
-                          to="/"
-                          className="border border-sky-600 text-white uppercase py-2 px-3 bg-sky-600 rounded-lg mt-3 mx-1 text-xs"
-                        >
-                          {t("see_more")}
-                        </Link>
-                        <button className="border border-rose-600 text-white uppercase py-2 px-3 bg-rose-600 rounded-lg mt-3 mx-1 text-xs">
-                          {t("delete")}
-                        </button>
-                      </td>
-                    </tr>
+                    {search.slice((page - 1) * 10, page * 10).map((od) => {
+                      return (
+                        <tr className="hover:bg-grey-lighter">
+                          <td className="py-4 px-6 border-b border-grey-light">
+                            {od.id}
+                          </td>
+                          <td className="py-4 px-6 border-b border-grey-light">
+                            {od.receiverName}
+                          </td>
+                          <td className="py-4 px-6 border-b border-grey-light">
+                            {od.totalAmount.toLocaleString("it-IT", {
+                              style: "currency",
+                              currency: "VND",
+                            })}
+                          </td>
+                          <td className="py-4 px-6 border-b border-grey-light">
+                            {od.status.name}
+                          </td>
+                          <td className="py-4 px-6 border-b border-grey-light">
+                            {od.createdDate}
+                          </td>
+                          <td className="py-4 px-6 border-b border-grey-light">
+                            {od.status.id == 1 && (
+                              <button
+                                onClick={() => {
+                                  handleConfirmOrder(od.id);
+                                }}
+                                className="border border-blue-600 text-white uppercase py-2 px-3 bg-blue-600 rounded-lg mt-3 mx-1 text-xs"
+                              >
+                                {t("Confirm Order")}
+                              </button>
+                            )}
+                          </td>
+                        </tr>
+                      );
+                    })}
                   </tbody>
                 </table>
               </div>
 
               <div className="pagination">
                 <Pagination
-                  totalPage={numberPagination.totalPage}
-                  setPage={onChangePage}
+                  totalPage={totalPage}
+                  setPage={setPage}
                 ></Pagination>
               </div>
             </div>
