@@ -96,7 +96,12 @@ function Orders({ setAccountUser }) {
                               </div>
                               <div className="text-sm  lg:text-base py-1">
                                 <span>{t("price")} : </span>
-                                <span>$ {order.totalAmount}</span>
+                                <span>
+                                  {order.totalAmount.toLocaleString("it-IT", {
+                                    style: "currency",
+                                    currency: "VND",
+                                  })}
+                                </span>
                               </div>
                               {order.status.id == 2 && (
                                 <div className="text-sm  lg:text-base py-1">

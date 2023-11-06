@@ -55,7 +55,6 @@ function CategoryUpdate() {
         imageBanner: manager.updateCategory.imageBanner,
       });
     }
-    console.log(manager.updateCategory);
   }, [manager.updateCategory]);
   return (
     <HomeAdmin>

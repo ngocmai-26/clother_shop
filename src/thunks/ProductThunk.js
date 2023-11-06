@@ -278,6 +278,8 @@ export const updateProduct = createAsyncThunk(
           setAlert({ type: "success", content: "Update product success" })
         );
         dispatch(getAllProductList());
+        dispatch(getNewCollection());
+        dispatch(getNewProduct());
       } else {
         dispatch(
           setAlert({
