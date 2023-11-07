@@ -107,7 +107,7 @@ function ProductCreate() {
       dispatch(setAlert({ type: "success", content: "Upload image success" }));
     } else {
       dispatch(
-        setAlert({ type: "error", content: "Processing create product" })
+        setAlert({ type: t("error"), content: t("processing_create_product") })
       );
     }
   };
@@ -140,6 +140,8 @@ function ProductCreate() {
     }
     setSelectedSize(selected);
   };
+
+  
   return (
     <HomeAdmin>
       <div className="w-10/12 bg-slate-700 text-white h-screen flex flex-col overflow-y-hidden ">
@@ -157,7 +159,7 @@ function ProductCreate() {
                         className="block text-base text-gray-600"
                         htmlFor="txtCode"
                       >
-                        {t("Product code")}
+                        {t("product_code")}
                       </label>
                       <input
                         onChange={(e) =>
@@ -301,7 +303,7 @@ function ProductCreate() {
                         className="block text-base text-gray-600"
                         htmlFor="txtName"
                       >
-                        {t("Product category")}
+                        {t("product_category")}
                       </label>
                       <select
                         className="w-full px-5 text-sm py-2 text-gray-700 bg-gray-200 rounded outline-0"
@@ -340,7 +342,7 @@ function ProductCreate() {
                         className="block text-base text-gray-600"
                         htmlFor="txtName"
                       >
-                        {t("product banner image")}
+                        {t("product_banner_image")}
                       </label>
                       <input
                         onChange={(e) => setImageBanner(e.target.files[0])}

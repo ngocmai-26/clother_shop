@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import Logo from "../../../asset/images/Logo.png";
+import order from "../../../asset/images/baguser.png";
 import { useTranslation } from "react-i18next";
 import { useLayoutEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -8,12 +9,14 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCartArrowDown,
   faCartShopping,
+  faFileInvoiceDollar,
   faGlobe,
   faSignIn,
   faUserAlt,
 } from "@fortawesome/free-solid-svg-icons";
 import { loadCart } from "../../../slices/CartSlice";
 function Header() {
+  const { products } = useSelector((state) => state.cartReducer);
   const [t, i18n] = useTranslation("app");
   const { newCollection } = useSelector((state) => state.productReducer);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -87,7 +90,7 @@ function Header() {
               </li>
               {newCollection.length > 0 && (
                 <li className="relative max-w-fit pr-3 md:pr-0 py-1 hover:font-semibold">
-                  <a href="#new-collection">{t("New Collection")}</a>
+                  <a href="#new-collection">{t("new_collection")}</a>
                 </li>
               )}
               <li className="relative max-w-fit pr-3 md:pr-0 py-1 hover:font-semibold">
@@ -140,7 +143,7 @@ function Header() {
               </div>
             </form>
             <div className="flex justify-center items-center">
-              {!logged ? (
+              {logged ? (
                 <Link
                   to="/login"
                   className="bg-black font-medium text-white px-2 w-8 sm:w-9 lg:w-9 xl:w-9 md:w-9 min-w-8 my-auto  text-center py-2 mx-0 rounded-full active:bg-black hover:bg-gray-500 text-xs sm:text-sm "
@@ -162,19 +165,68 @@ function Header() {
                   </Link>
                   <Link
                     to="/orders"
-                    className="bg-white font-medium text-white px-2 w-8 sm:w-9 lg:w-9 xl:w-9 md:w-9 min-w-8 my-auto  text-center py-2  rounded-full"
+                    className=" bg-white font-medium text-white px-2 w-8 sm:w-9 lg:w-9 xl:w-9 md:w-9 min-w-8 my-auto  text-center py-2  rounded-full"
                   >
-                    <FontAwesomeIcon
-                      icon={faCartArrowDown}
+                    {/* <FontAwesomeIcon
+                      icon={faFileInvoiceDollar}
                       className="text-black mx-auto text-xl"
-                    />
+                    /> */}
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="25"
+                      height="25"
+                      viewBox="0 0 20 22"
+                      fill="none"
+                    >
+                      <path
+                        d="M7.34186 1.66663L4.3252 4.69163"
+                        stroke="black"
+                        stroke-width="1.7"
+                        stroke-miterlimit="10"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M12.6582 1.66663L15.6749 4.69163"
+                        stroke="black"
+                        stroke-width="1.7"
+                        stroke-miterlimit="10"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M1.6665 6.54167C1.6665 5 2.4915 4.875 3.5165 4.875H16.4832C17.5082 4.875 18.3332 5 18.3332 6.54167C18.3332 8.33333 17.5082 8.20833 16.4832 8.20833H3.5165C2.4915 8.20833 1.6665 8.33333 1.6665 6.54167Z"
+                        stroke="black"
+                        stroke-width="1.7"
+                      />
+                      <path
+                        d="M8.1333 11.6666V14.625"
+                        stroke="black"
+                        stroke-width="1.7"
+                        stroke-linecap="round"
+                      />
+                      <path
+                        d="M11.9668 11.6666V14.625"
+                        stroke="black"
+                        stroke-width="1.7"
+                        stroke-linecap="round"
+                      />
+                      <path
+                        d="M2.9165 8.33337L4.0915 15.5334C4.35817 17.15 4.99984 18.3334 7.38317 18.3334H12.4082C14.9998 18.3334 15.3832 17.2 15.6832 15.6334L17.0832 8.33337"
+                        stroke="black"
+                        stroke-width="1.7"
+                        stroke-linecap="round"
+                      />
+                    </svg>
+                   
                   </Link>
                   <Link to={"/payment"}>
-                    <button className=" ms-2 bg-white px-2 w-8 sm:w-9 lg:w-9 xl:w-9 md:w-9 min-w-8  text-center rounded-full my-auto h-8 md:h-9 text-xs sm:text-sm">
+                    <button className="relative ms-2 bg-white px-2 w-8 sm:w-9 lg:w-9 xl:w-9 md:w-9 min-w-8  text-center rounded-full my-auto h-8 md:h-9 text-xs sm:text-sm">
                       <FontAwesomeIcon
                         icon={faCartShopping}
                         className="text-black text-xl"
                       />
+                       <div class="absolute inline-flex items-center justify-center w-6 h-6 text-xs text-white bg-red-500 border-2 border-white rounded-full -top-2 -right-2">{products.length}</div>
                     </button>
                   </Link>
                 </>

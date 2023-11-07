@@ -181,7 +181,7 @@ function ProductUpdate() {
         <HeaderAdmin />
         <div className="w-full overflow-x-hidden ">
           <main className="w-full flex-grow p-6">
-            <h1 className="w-full text-3xl pb-6">{t("Update product")}</h1>
+            <h1 className="w-full text-3xl pb-6">{t("update_product")}</h1>
 
             <div className="flex flex-wrap">
               <div className="w-full  my-6 pr-0 lg:pr-2">
@@ -192,7 +192,7 @@ function ProductUpdate() {
                         className="block text-base text-gray-600"
                         htmlFor="txtCode"
                       >
-                        {t("Product code")}
+                        {t("product_code")}
                       </label>
                       <input
                         onChange={(e) =>

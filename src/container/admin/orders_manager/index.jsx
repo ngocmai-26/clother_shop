@@ -146,7 +146,7 @@ function OrdersManager() {
                                 }}
                                 className="border border-blue-600 text-white uppercase py-2 px-3 bg-blue-600 rounded-lg mt-3 mx-1 text-xs"
                               >
-                                {t("Confirm Order")}
+                                {t("confirm_order")}
                               </button>
                             )}
                           </td>
