@@ -1,7 +1,7 @@
 import { useTranslation } from "react-i18next";
 import HeaderAdmin from "../component/header";
 import HomeAdmin from "..";
-import { useLayoutEffect, useState } from "react";
+import { useLayoutEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   addProduct,
@@ -10,7 +10,7 @@ import {
 import { CKEditor } from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 import { Link } from "react-router-dom";
-import { upload } from "../../../app/firebase.process";
+import { upload, uploadNoCallBack } from "../../../app/firebase.process";
 import { setAlert } from "../../../slices/AlertSlice";
 
 function ProductCreate() {
@@ -25,8 +25,8 @@ function ProductCreate() {
   const [newColorIndex, setNewColorIndex] = useState();
   const [imageBanner, setImageBanner] = useState();
   const [images, setImages] = useState([]);
-  const [imagesUploaded, setImageUploaded] = useState([]);
-  const [imageBannerUploaded, setImageBannedUploaded] = useState();
+  const imagesUploadedRef = useRef([]);
+  const imageBannerUploadedRef = useRef("");
   const [isCreating, setIsCreating] = useState(false);
   useLayoutEffect(() => {
     dispatch(getAllProductColorList());
@@ -42,33 +42,10 @@ function ProductCreate() {
     }
   }, [manager.colors]);
   useLayoutEffect(() => {
-    let index = 0;
-    for (let i = 0; i < manager.colors.length; i++) {
-      if (manager.colors[i].id == selectedColor[selectedColor.length - 1]?.id) {
-        index = i;
-      }
-    }
-    setNewColorIndex(index);
-  }, [selectedColor]);
-  useLayoutEffect(() => {}, [selectedSize]);
-  const handleCreateProduct = async () => {
     if (
-      product.name == "" ||
-      product.description == "" ||
-      !product.price ||
-      images.length == 0 ||
-      imageBanner.length == 0
+      imagesUploadedRef.current.length == images.length &&
+      imageBannerUploadedRef.current != ""
     ) {
-      dispatch(setAlert({ type: "error", content: "Form not valid" }));
-      return;
-    }
-    if (!isCreating) {
-      setIsCreating(true);
-      for (let image of images) {
-        await upload(image, handleSetImage);
-      }
-      await upload(imageBanner, handleSetImageBannerUploaded);
-      dispatch(setAlert({ type: "success", content: "Upload image success" }));
       const newSlt = [];
 
       for (let i = 0; i < selectedColor.length; i++) {
@@ -85,28 +62,57 @@ function ProductCreate() {
       const data = {
         code: product.code,
         name: product.name,
-        imageBanner: imageBannerUploaded,
+        imageBanner: imageBannerUploadedRef.current,
         price: product.price,
-        listCategoryIds: [product.categoryId],
-        linkLinkImages: imagesUploaded,
+        listCategoryIds: product.categoryId
+          ? [product.categoryId]
+          : [categories[0].id],
+        linkLinkImages: imagesUploadedRef.current,
         colors: newSlt,
+        description: product.description,
       };
+      console.log(data);
       dispatch(addProduct(data));
       setIsCreating(false);
+    }
+  }, [imagesUploadedRef.current, imageBannerUploadedRef.current]);
+
+  useLayoutEffect(() => {
+    let index = 0;
+    for (let i = 0; i < manager.colors.length; i++) {
+      if (manager.colors[i].id == selectedColor[selectedColor.length - 1]?.id) {
+        index = i;
+      }
+    }
+    setNewColorIndex(index);
+  }, [selectedColor]);
+  useLayoutEffect(() => {}, [selectedSize]);
+  const handleCreateProduct = async () => {
+    if (product.name == "" || product.description == "" || !product.price) {
+      dispatch(setAlert({ type: "error", content: "Form not valid" }));
+      return;
+    }
+    if (!isCreating) {
+      setIsCreating(true);
+      for (let image of images) {
+        let downloadUrl = await uploadNoCallBack(image);
+        let uploaded = [...imagesUploadedRef.current];
+        console.log(downloadUrl);
+        uploaded.push(downloadUrl);
+        imagesUploadedRef.current = uploaded;
+      }
+      if (imageBanner) {
+        await upload(imageBanner, handleSetImageBannerUploaded);
+      }
+      dispatch(setAlert({ type: "success", content: "Upload image success" }));
     } else {
       dispatch(
         setAlert({ type: "error", content: "Processing create product" })
       );
     }
   };
-  const handleSetImage = (downloadUrl) => {
-    let uploaded = [...imagesUploaded];
-    uploaded.push(downloadUrl);
-    setImageUploaded(uploaded);
-  };
-
   const handleSetImageBannerUploaded = (downloadUrl) => {
-    setImageBannedUploaded(downloadUrl);
+    imageBannerUploadedRef.current = downloadUrl;
   };
   const handleToggleSelectColor = (checked, color) => {
     let selected = [...selectedColor];
@@ -379,7 +385,7 @@ function ProductCreate() {
                         multiple
                       />
                       <div className="my-2">
-                        <div className="flex flex-row gap-2">
+                        <div className="flex flex-row gap-2 flex-wrap">
                           {images.map((img, index) => {
                             return (
                               <img

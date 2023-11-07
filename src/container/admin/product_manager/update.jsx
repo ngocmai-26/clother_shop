@@ -1,7 +1,7 @@
 import { useTranslation } from "react-i18next";
 import HeaderAdmin from "../component/header";
 import HomeAdmin from "..";
-import { useEffect, useLayoutEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   addProduct,
@@ -12,7 +12,7 @@ import {
 import { CKEditor } from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 import { Link, useParams } from "react-router-dom";
-import { upload } from "../../../app/firebase.process";
+import { upload, uploadNoCallBack } from "../../../app/firebase.process";
 import { setAlert } from "../../../slices/AlertSlice";
 
 function ProductUpdate() {
@@ -28,17 +28,15 @@ function ProductUpdate() {
   const [newColorIndex, setNewColorIndex] = useState();
   const [imageBanner, setImageBanner] = useState();
   const [images, setImages] = useState([]);
-  const [imagesUploaded, setImageUploaded] = useState([]);
-  const [imageBannerUploaded, setImageBannedUploaded] = useState();
-  const [isCreating, setIsCreating] = useState(false);
+  const imagesUploaded = useRef([]);
+  const imageBannerUploaded = useRef("");
+  const [isUpdating, setIsUpdating] = useState(false);
 
   useLayoutEffect(() => {
     dispatch(getAllProductColorList());
   }, []);
   useLayoutEffect(() => {}, [imageBanner]);
-  useLayoutEffect(() => {
-    console.log(images);
-  }, [images]);
+  useLayoutEffect(() => {}, [images]);
   useLayoutEffect(() => {
     if (manager.colors.length > 0) {
       setSelectedColor([manager.colors[0]]);
@@ -55,8 +53,7 @@ function ProductUpdate() {
     setNewColorIndex(index);
   }, [selectedColor]);
   useLayoutEffect(() => {}, [selectedSize]);
-  const handleCreateProduct = async () => {
-    console.log(product);
+  const handleUpdateProduct = async () => {
     if (
       product.code === "" ||
       product.name == "" ||
@@ -66,12 +63,21 @@ function ProductUpdate() {
       dispatch(setAlert({ type: "error", content: "Form not valid" }));
       return;
     }
-    if (!isCreating) {
-      setIsCreating(true);
-      for (let image of images) {
-        await upload(image, handleSetImage);
-      }
+    // if (!isUpdating) {
+    setIsUpdating(true);
+    for (let image of images) {
+      const url = await uploadNoCallBack(image);
+      let uploaded = [...imagesUploaded.current];
+      uploaded.push(url);
+      imagesUploaded.current = uploaded;
+    }
+    if (imageBanner) {
       await upload(imageBanner, handleSetImageBannerUploaded);
+    }
+    if (
+      imagesUploaded.current.length == images.length &&
+      imageBannerUploaded.current != ""
+    ) {
       const newSlt = [];
 
       for (let i = 0; i < selectedColor.length; i++) {
@@ -90,34 +96,33 @@ function ProductUpdate() {
         code: product.code,
         name: product.name,
         description: product.description,
-        imageBanner: imageBannerUploaded
-          ? imageBannerUploaded
-          : product.imageBanner,
+        imageBanner:
+          imageBannerUploaded.current != ""
+            ? imageBannerUploaded.current
+            : product.imageBanner,
         price: product.price,
         listCategoryIds: product.categoryId
           ? [product.categoryId]
           : product.listCategoryIds,
         linkLinkImages:
-          imagesUploaded.length > 0 ? imagesUploaded : product.linkLinkImages,
+          imagesUploaded.current.length > 0
+            ? imagesUploaded.current
+            : product.linkLinkImages,
         colors: newSlt.length > 0 ? newSlt : product.colors,
       };
       console.log(data);
       dispatch(updateProduct(data));
-      setIsCreating(false);
-    } else {
-      dispatch(
-        setAlert({ type: "error", content: "Processing create product" })
-      );
+      setIsUpdating(false);
     }
-  };
-  const handleSetImage = (downloadUrl) => {
-    let uploaded = [...imagesUploaded];
-    uploaded.push(downloadUrl);
-    setImageUploaded(uploaded);
+    // } else {
+    // dispatch(
+    // setAlert({ type: "error", content: "Processing update product" })
+    // );
+    // }
   };
 
   const handleSetImageBannerUploaded = (downloadUrl) => {
-    setImageBannedUploaded(downloadUrl);
+    imageBannerUploaded.current = downloadUrl;
   };
   const handleToggleSelectColor = (checked, color) => {
     let selected = [...selectedColor];
@@ -167,6 +172,7 @@ function ProductUpdate() {
         imageBanner: manager.productUpdate.imageBanner,
         colors: manager.productUpdate.productColors,
       });
+      console.log(manager.productUpdate);
     }
   }, [manager.productUpdate]);
   return (
@@ -359,12 +365,8 @@ function ProductUpdate() {
                       </label>
                       <CKEditor
                         editor={ClassicEditor}
-                        // data={manager?.productUpdate?.description}
-                        onReady={(editor) => {
-                          if (manager?.productUpdate?.description) {
-                            editor.setData(manager.productUpdate.description);
-                          }
-                        }}
+                        data={manager?.productUpdate?.description || ""}
+                        onReady={(editor) => {}}
                         onChange={(event, editor) => {
                           const data = editor.getData();
                           setProduct({ ...product, description: data });
@@ -449,7 +451,7 @@ function ProductUpdate() {
                         {t("come_back")}
                       </Link>
                       <button
-                        onClick={handleCreateProduct}
+                        onClick={handleUpdateProduct}
                         className="px-4 py-1 text-white font-light tracking-wider  rounded"
                         style={{ backgroundColor: "black" }}
                       >

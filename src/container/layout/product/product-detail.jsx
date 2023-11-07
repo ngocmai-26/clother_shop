@@ -50,9 +50,7 @@ function ProductDetail() {
 
   const handComment = () => {
     if (rating <= 0) {
-      dispatch(
-        setAlert({ type: t("error"), content: t('please_rate') })
-      );
+      dispatch(setAlert({ type: t("error"), content: t("please_rate") }));
       return;
     }
     if (comment.trim() === "") {
@@ -76,7 +74,10 @@ function ProductDetail() {
     setProductSize(selectedColor?.productSizes);
   }, [selectedColor]);
   useLayoutEffect(() => {
-    if (Object.keys(singleProduct).length > 0) {
+    if (
+      Object.keys(singleProduct).length > 0 &&
+      singleProduct?.productCategories?.length > 0
+    ) {
       dispatch(
         getRelatedProduct(singleProduct.productCategories[0].category.id)
       );
@@ -85,7 +86,7 @@ function ProductDetail() {
 
   const handleBuyNow = () => {
     if (!selectedSize) {
-      dispatch(setAlert({ type: t("error"), content: ("select_size") }));
+      dispatch(setAlert({ type: t("error"), content: "select_size" }));
       return;
     }
     if (Object.keys(user).length === 0) {
