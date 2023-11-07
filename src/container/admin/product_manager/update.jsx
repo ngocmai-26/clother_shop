@@ -63,62 +63,66 @@ function ProductUpdate() {
       dispatch(setAlert({ type: "error", content: "Form not valid" }));
       return;
     }
-    // if (!isUpdating) {
-    setIsUpdating(true);
-    for (let image of images) {
-      const url = await uploadNoCallBack(image);
-      let uploaded = [...imagesUploaded.current];
-      uploaded.push(url);
-      imagesUploaded.current = uploaded;
-    }
-    if (imageBanner) {
-      await upload(imageBanner, handleSetImageBannerUploaded);
-    }
-    if (
-      imagesUploaded.current.length == images.length &&
-      imageBannerUploaded.current != ""
-    ) {
-      const newSlt = [];
-
-      for (let i = 0; i < selectedColor.length; i++) {
-        const sltColor = { ...selectedColor[i], size: [] };
-        for (let size of selectedColor[i].productSizes) {
-          let selected = selectedSize.filter((s) => s.id == size.id);
-          console.log(selected);
-          if (selected.length > 0) {
-            sltColor.size.push(selected[0]);
-          }
-        }
-        newSlt.push(sltColor);
+    if (!isUpdating) {
+      setIsUpdating(true);
+      for (let image of images) {
+        const url = await uploadNoCallBack(image);
+        let uploaded = [...imagesUploaded.current];
+        uploaded.push(url);
+        imagesUploaded.current = uploaded;
       }
-      const data = {
-        id: manager.productUpdate.id,
-        code: product.code,
-        name: product.name,
-        description: product.description,
-        imageBanner:
-          imageBannerUploaded.current != ""
-            ? imageBannerUploaded.current
-            : product.imageBanner,
-        price: product.price,
-        listCategoryIds: product.categoryId
-          ? [product.categoryId]
-          : product.listCategoryIds,
-        linkLinkImages:
-          imagesUploaded.current.length > 0
-            ? imagesUploaded.current
-            : product.linkLinkImages,
-        colors: newSlt.length > 0 ? newSlt : product.colors,
-      };
-      console.log(data);
-      dispatch(updateProduct(data));
-      setIsUpdating(false);
+      if (imageBanner) {
+        await upload(imageBanner, handleSetImageBannerUploaded);
+      }
+      if (
+        imagesUploaded.current.length == images.length &&
+        imageBannerUploaded.current != ""
+      ) {
+        const newSlt = [];
+
+        for (let i = 0; i < selectedColor.length; i++) {
+          const sltColor = { ...selectedColor[i], size: [] };
+          for (let size of selectedColor[i].productSizes) {
+            let selected = selectedSize.filter((s) => s.id == size.id);
+            console.log(selected);
+            if (selected.length > 0) {
+              sltColor.size.push(selected[0]);
+            }
+          }
+          newSlt.push(sltColor);
+        }
+        const data = {
+          id: manager.productUpdate.id,
+          code: product.code,
+          name: product.name,
+          description: product.description,
+          imageBanner:
+            imageBannerUploaded.current != ""
+              ? imageBannerUploaded.current
+              : product.imageBanner,
+          price: product.price,
+          listCategoryIds: product.categoryId
+            ? [product.categoryId]
+            : product.listCategoryIds,
+          linkLinkImages:
+            imagesUploaded.current.length > 0
+              ? imagesUploaded.current
+              : product.linkLinkImages,
+          colors: newSlt.length > 0 ? newSlt : product.colors,
+        };
+        console.log(data);
+        dispatch(updateProduct(data));
+        setIsUpdating(false);
+      } else {
+        dispatch(
+          setAlert({ type: "error", content: "Select Image For Update" })
+        );
+      }
+    } else {
+      dispatch(
+        setAlert({ type: "error", content: "Processing update product" })
+      );
     }
-    // } else {
-    // dispatch(
-    // setAlert({ type: "error", content: "Processing update product" })
-    // );
-    // }
   };
 
   const handleSetImageBannerUploaded = (downloadUrl) => {
@@ -348,11 +352,13 @@ function ProductUpdate() {
                         }
                       >
                         {categories.map((cat, index) => {
-                          return (
-                            <option key={index} value={cat.id}>
-                              {cat.name}
-                            </option>
-                          );
+                          if (!cat.isPrimary) {
+                            return (
+                              <option key={index} value={cat.id}>
+                                {cat.name}
+                              </option>
+                            );
+                          }
                         })}
                       </select>
                     </div>
@@ -423,7 +429,7 @@ function ProductUpdate() {
                         multiple
                       />
                       <div className="my-2">
-                        <div className="flex flex-row gap-2">
+                        <div className="flex flex-row gap-2 flex-wrap">
                           {images.map((img, index) => {
                             return (
                               <img

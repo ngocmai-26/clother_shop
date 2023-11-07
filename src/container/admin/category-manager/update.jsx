@@ -76,7 +76,7 @@ function CategoryUpdate() {
                         {t("category_name")}
                       </label>
                       <input
-                        defaultValue={manager.updateCategory.name}
+                        value={cat.name}
                         onChange={(e) => {
                           setCat({ ...cat, name: e.target.value });
                         }}

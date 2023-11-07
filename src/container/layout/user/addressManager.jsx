@@ -67,7 +67,7 @@ function AddressManager({ setAccountUser }) {
   useLayoutEffect(() => {}, [selectedWard]);
   const handleAddNewAddress = () => {
     if (street.trim().length <= 0) {
-      dispatch(setAlert({ type: t("error"), content: t("empty_street") }));
+      dispatch(setAlert({ type: "error", content: t("empty_street") }));
       return;
     }
     const data = {
@@ -196,7 +196,7 @@ function AddressManager({ setAccountUser }) {
                                 handleDelete(add.id);
                               }}
                             >
-                              {t('delete')}
+                              {t("delete")}
                             </button>
                           </div>
                         </div>

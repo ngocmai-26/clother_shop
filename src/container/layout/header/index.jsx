@@ -1,21 +1,20 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import Logo from "../../../asset/images/Logo.png";
-import order from "../../../asset/images/baguser.png";
 import { useTranslation } from "react-i18next";
 import { useLayoutEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllCategories } from "../../../thunks/CategoryThunk";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faCartArrowDown,
   faCartShopping,
-  faFileInvoiceDollar,
   faGlobe,
   faSignIn,
   faUserAlt,
 } from "@fortawesome/free-solid-svg-icons";
 import { loadCart } from "../../../slices/CartSlice";
+import { setAlert } from "../../../slices/AlertSlice";
 function Header() {
+  const [searchParams, setSearchParams] = useSearchParams();
   const { products } = useSelector((state) => state.cartReducer);
   const [t, i18n] = useTranslation("app");
   const { newCollection } = useSelector((state) => state.productReducer);
@@ -23,7 +22,8 @@ function Header() {
   const { logged } = useSelector((state) => state.authReducer);
   const { categories } = useSelector((state) => state.categoryReducer);
   const dispatch = useDispatch();
-
+  const [query, setQuery] = useState("");
+  const nav = useNavigate();
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
@@ -31,6 +31,16 @@ function Header() {
     dispatch(getAllCategories());
     dispatch(loadCart());
   }, []);
+  const handleSubmitSearch = (e) => {
+    e.preventDefault();
+    if (query.trim() == "") {
+      dispatch(setAlert({ type: "error", content: "Enter search content" }));
+      return;
+    }
+    searchParams.set("query", query);
+    setSearchParams(searchParams);
+    nav(`/search?query=${query}`);
+  };
   return (
     <header className="fixed z-50 right-0 left-0 top-0 px-0 sm:px-4 py-2 lg:py-0 bg-white">
       <nav className="flex justify-between">
@@ -103,12 +113,12 @@ function Header() {
           </div>
           <div className=" flex items-center mx-auto lg:items-left xl:items-center">
             <Link to={"/"}>
-              <img src={Logo} alt="LOGO" srcSet="" />
+              <img src={Logo} alt="LOGO" />
             </Link>
           </div>
 
           <div className="flex gap-0 justify-end sm:col-span-2 lg:col-span-1">
-            <form className="lg:w-8/12 mx-2">
+            <form onSubmit={handleSubmitSearch} className="lg:w-8/12 mx-2">
               <label
                 htmlFor="default-search"
                 className="mb-2 text-sm font-medium text-gray-900 sr-only "
@@ -134,16 +144,16 @@ function Header() {
                   </svg>
                 </div>
                 <input
+                  onChange={(e) => setQuery(e.target.value)}
                   type="search"
                   id="default-search"
                   className="block w-full outline-0 p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-full bg-gray-50 focus:ring-blue-500 focus:border-blue-500"
                   placeholder={t("search")}
-                  required
                 />
               </div>
             </form>
             <div className="flex justify-center items-center">
-              {logged ? (
+              {!logged ? (
                 <Link
                   to="/login"
                   className="bg-black font-medium text-white px-2 w-8 sm:w-9 lg:w-9 xl:w-9 md:w-9 min-w-8 my-auto  text-center py-2 mx-0 rounded-full active:bg-black hover:bg-gray-500 text-xs sm:text-sm "
@@ -167,10 +177,6 @@ function Header() {
                     to="/orders"
                     className=" bg-white font-medium text-white px-2 w-8 sm:w-9 lg:w-9 xl:w-9 md:w-9 min-w-8 my-auto  text-center py-2  rounded-full"
                   >
-                    {/* <FontAwesomeIcon
-                      icon={faFileInvoiceDollar}
-                      className="text-black mx-auto text-xl"
-                    /> */}
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="25"
@@ -218,7 +224,6 @@ function Header() {
                         stroke-linecap="round"
                       />
                     </svg>
-                   
                   </Link>
                   <Link to={"/payment"}>
                     <button className="relative ms-2 bg-white px-2 w-8 sm:w-9 lg:w-9 xl:w-9 md:w-9 min-w-8  text-center rounded-full my-auto h-8 md:h-9 text-xs sm:text-sm">
@@ -226,7 +231,9 @@ function Header() {
                         icon={faCartShopping}
                         className="text-black text-xl"
                       />
-                       <div class="absolute inline-flex items-center justify-center w-6 h-6 text-xs text-white bg-red-500 border-2 border-white rounded-full -top-2 -right-2">{products.length}</div>
+                      <div class="absolute inline-flex items-center justify-center w-6 h-6 text-xs text-white bg-red-500 border-2 border-white rounded-full -top-2 -right-2">
+                        {products.length}
+                      </div>
                     </button>
                   </Link>
                 </>

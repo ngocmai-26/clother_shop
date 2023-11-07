@@ -107,7 +107,7 @@ function ProductCreate() {
       dispatch(setAlert({ type: "success", content: "Upload image success" }));
     } else {
       dispatch(
-        setAlert({ type: t("error"), content: t("processing_create_product") })
+        setAlert({ type: "error", content: t("processing_create_product") })
       );
     }
   };
@@ -141,7 +141,6 @@ function ProductCreate() {
     setSelectedSize(selected);
   };
 
-  
   return (
     <HomeAdmin>
       <div className="w-10/12 bg-slate-700 text-white h-screen flex flex-col overflow-y-hidden ">
@@ -312,11 +311,13 @@ function ProductCreate() {
                         }
                       >
                         {categories.map((cat, index) => {
-                          return (
-                            <option key={index} value={cat.id}>
-                              {cat.name}
-                            </option>
-                          );
+                          if (!cat.isPrimary) {
+                            return (
+                              <option key={index} value={cat.id}>
+                                {cat.name}
+                              </option>
+                            );
+                          }
                         })}
                       </select>
                     </div>
